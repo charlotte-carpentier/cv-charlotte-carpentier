@@ -32,7 +32,7 @@ CV interactif responsive avec navigation par onglets, tooltips et design personn
 
 ## Responsive
 
-**Mobile** (< 768px) : Menu burger, sections empilées, descriptions complètes affichées
+**Mobile** (< 768px) : Menu hamburger, sections empilées, descriptions complètes affichées
 
 **Tablette portrait** (768-1024px) : Layout hybride, navigation horizontale
 
@@ -43,7 +43,7 @@ CV interactif responsive avec navigation par onglets, tooltips et design personn
 ## Installation
 
 ```bash
-git clone https://github.com/charlotte-carpentier/cv-charlotte-carpentier.git
+git clone https://github.com/TON_USERNAME/cv-charlotte-carpentier.git
 cd cv-charlotte-carpentier
 npm install
 npm run dev
@@ -83,7 +83,7 @@ La citation de Ruth Bader Ginsburg guide le projet : "Bats-toi pour les choses q
 - Score Lighthouse 100/100
 - Conforme WCAG 2.1 niveau AA  
 - Core Web Vitals optimisés
-- Fonctionne sans JavaScript
+- JavaScript pour les interactions et animations
 
 ## Contact
 
@@ -91,7 +91,3 @@ La citation de Ruth Bader Ginsburg guide le projet : "Bats-toi pour les choses q
 Développeuse Web Freelance  
 carpentier.dev@gmail.com  
 Marseille
-
----
-
-Développé à Marseille avec du café et de la détermination.
