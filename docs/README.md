@@ -32,7 +32,7 @@ CV interactif responsive avec navigation par onglets, tooltips et design personn
 
 ## Responsive
 
-**Mobile** (< 768px) : Menu hamburger, sections empilées, descriptions complètes affichées
+**Mobile** (< 768px) : Menu burger, sections empilées, descriptions complètes affichées
 
 **Tablette portrait** (768-1024px) : Layout hybride, navigation horizontale
 
@@ -43,7 +43,7 @@ CV interactif responsive avec navigation par onglets, tooltips et design personn
 ## Installation
 
 ```bash
-git clone https://github.com/TON_USERNAME/cv-charlotte-carpentier.git
+git clone https://github.com/charlotte-carpentier/cv-charlotte-carpentier.git
 cd cv-charlotte-carpentier
 npm install
 npm run dev
