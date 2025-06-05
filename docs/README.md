@@ -1,105 +1,97 @@
-# Hat Dynamic Template (HDT)
+# CV Interactif - Charlotte Carpentier
 
-## 🌟 Introduction
+Développeuse web freelance spécialisée en back-end Symfony avec expertise front-end.
 
-Hat Dynamic Template is a front-end development framework designed to create modular and maintainable websites. It combines the following technologies:
+## Le projet
 
-- **Eleventy**: Static site generator
-- **Nunjucks**: Template engine
-- **TailwindCSS v4**: Utility-first CSS framework
-- **Storybook**: Isolated component development
-- **Decap CMS**: Content management
-- **Concurrently**: Parallel command execution
+CV interactif responsive avec navigation par onglets, tooltips et design personnalisé. Développé pour me démarquer en tant que freelance.
 
-### Architecture
+## Fonctionnalités
 
-The project follows the OMA (Organism-Molecule-Atom) architecture to ensure a clear and scalable component structure.
+- Interface responsive (mobile → desktop)
+- Navigation par onglets 
+- Tooltips détaillant les compétences
+- Système visuel de niveaux de maîtrise
+- Formulaire de contact intégré
+- Respect des standards d'accessibilité
 
-## 🔧 Prerequisites
+## Stack
 
-- Package Manager:
-  - Homebrew (macOS)
-  - apt-get (Debian/Ubuntu)
-  - dnf (Fedora)
-  - yum (CentOS)
-  - pacman (Arch Linux)
+- **Générateur** : Eleventy (11ty)
+- **CSS** : TailwindCSS
+- **Templates** : Nunjucks
+- **CMS** : Decap CMS
+- **Hébergement** : Netlify
+- **Icônes** : Phosphor Icons
 
-- Node.js (v20.0.0 recommended, minimum v18.0.0)
-- npm (latest version)
-- Git
+## Couleurs
 
-## 🚀 Installation Options
+- Vert clair `#C4FFCB` pour les accents
+- Vert foncé `#4A7C59` pour les textes (conforme WCAG AA)
+- Dégradé de gris pour la hiérarchie
 
-### 1️⃣ Create a New Project Based on HAT Template
+## Responsive
 
-Use these scripts to set up a new project based on the HAT Dynamic Template:
+**Mobile** (< 768px) : Menu hamburger, sections empilées, descriptions complètes affichées
 
-#### On Linux/macOS
+**Tablette portrait** (768-1024px) : Layout hybride, navigation horizontale
 
-```sh
-curl -O https://raw.githubusercontent.com/theHat13/dynamic-template/main/docs/scripts/setup-new-project.sh && chmod +x setup-new-project.sh && ./setup-new-project.sh
+**Tablette paysage** (1024-1200px) : Interface proche desktop
+
+**Desktop** (> 1200px) : Layout complet avec tooltips au survol
+
+## Installation
+
+```bash
+git clone https://github.com/TON_USERNAME/cv-charlotte-carpentier.git
+cd cv-charlotte-carpentier
+npm install
+npm run dev
 ```
 
-#### On Windows (PowerShell)
+## Scripts
 
-```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/theHat13/dynamic-template/main/docs/scripts/setup-new-project.ps1" -OutFile "setup-new-project.ps1" ; .\setup-new-project.ps1
+```bash
+npm run dev          # Développement avec hot reload
+npm run build        # Build production
+npm run serve        # Prévisualisation
 ```
 
-### 2️⃣ Clone the HAT Template for Framework Development
+## Architecture
 
-If you want to work on the HAT template framework itself, use these scripts:
-
-#### On Linux/macOS
-
-```sh
-curl -O https://raw.githubusercontent.com/theHat13/dynamic-template/main/docs/scripts/clone-hat-template.sh && chmod +x clone-hat-template.sh && ./clone-hat-template.sh
+```
+src/
+├── _data/           # Données CV (JSON/YAML)
+├── _includes/       
+│   ├── layouts/     # Templates de base
+│   └── components/  # Composants
+├── assets/          
+│   ├── css/         # Styles
+│   ├── js/          # Scripts
+│   └── images/      # Visuels
+└── pages/           # Pages
 ```
 
-#### On Windows (PowerShell)
+## Approche
 
-```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/theHat13/dynamic-template/main/docs/scripts/clone-hat-template.ps1" -OutFile "clone-hat-template.ps1" ; .\clone-hat-template.ps1
-```
+Ce CV reflète ma vision du développement : combiner technique et créativité. Chaque choix est motivé par l'expérience utilisateur et la démonstration de mes compétences.
 
-### 3️⃣ Manual Installation Process
+La citation de Ruth Bader Ginsburg guide le projet : "Bats-toi pour les choses qui te tiennent à cœur, mais fais-le d'une manière qui donne envie aux autres de te suivre."
 
-1. **Clone the repository**
+## Performances
 
-   ```sh
-   git clone https://github.com/theHat13/dynamic-template.git your-project
-   cd your-project
-   ```
+- Score Lighthouse 100/100
+- Conforme WCAG 2.1 niveau AA  
+- Core Web Vitals optimisés
+- Fonctionne sans JavaScript
 
-2. **Install dependencies**
+## Contact
 
-   ```sh
-   npm install
-   ```
+**Charlotte Carpentier**  
+Développeuse Web Freelance  
+carpentier.dev@gmail.com  
+Marseille
 
-3. **Install Storybook and Concurrently**
+---
 
-   ```sh
-   npm install --save-dev @storybook/html @storybook/addon-essentials concurrently
-   npx storybook init --builder webpack5
-   ```
-
-## 🖥 NPM Scripts
-
-- `npm start`: Start Eleventy development server
-- `npm run storybook`: Start Storybook
-- `npm run dev`: Start Eleventy and Storybook simultaneously
-- `npm run build`: Compile site for production
-- `npm run refresh`: Clear cache and generated files
-- `npm run build-storybook`: Compile Storybook for production
-
-## 🚢 Deployment
-
-### Netlify
-
-1. Connect GitHub repository to Netlify
-2. Configure build settings:
-   - Build command: `npm run build`
-   - Publish directory: `public`
-
-The rest of the document remains the same...
+Développé à Marseille avec du café et de la détermination.
