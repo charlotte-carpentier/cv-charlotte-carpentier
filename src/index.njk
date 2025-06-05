@@ -1,0 +1,28 @@
+---
+title: Hat dynamic site
+layout: '00-core/base.njk'
+---
+
+{# Include section-hero #}
+{% from "01-organisms/section-hero.njk" import renderSectionHero %}
+
+    {{ renderSectionHero({ 
+        name: "default_hero",
+        datas: organisms["section-heros"],
+        headings: atoms.headings,
+        buttons: atoms.buttons,
+        images: atoms.images
+    }) }}
+
+{# Include section-value #}
+{% include '01-organisms/section-featured.njk' %}
+
+{# Include section-about #}
+{% from "01-organisms/section-about.njk" import renderSectionAbout %}
+
+    {{ renderSectionAbout({ 
+        name: "about_us", 
+        datas: organisms["section-abouts"], 
+        headings: atoms.headings, 
+        buttons: atoms.buttons 
+    }) }}  

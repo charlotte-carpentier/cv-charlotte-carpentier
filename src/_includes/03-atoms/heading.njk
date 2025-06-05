@@ -1,0 +1,85 @@
+{#
+=========================
+        HEADING           
+=========================
+Component that renders heading elements (h1-h6) with consistent styling
+#}
+
+{% macro renderHeading(options) %}
+  {# Initialize headingData as null before searching #}
+  {% set headingData = null %}
+  
+  {# If a name is provided, find the heading in the data collection #}
+  {% if options.name %}
+    {% for heading in options.datas.headings %}
+      {% if heading.name == options.name %}
+        {% set headingData = heading %}
+      {% endif %}
+    {% endfor %}
+  {# Otherwise, create heading data from provided options #}
+  {% else %}
+    {% set headingData = {
+      "level": options.level | default(2),
+      "text": options.text | default("Heading"),
+      "style": options.style | default("default")
+    } %}
+  {% endif %}
+
+  {# Get global style that applies to all headings #}
+  {% set globalStyle = options.datas.globalStyle | default("") %}
+  
+  {# Render heading if data was found or created #}
+  {% if headingData %}
+    {# Get heading level, variant style, and size style #}
+    {% set level = headingData.level | default(2) %}
+    {% set variantStyle = options.datas.variants[headingData.style] | default('') %}
+    {% set sizeStyle = options.datas.sizeStyles["h" + level] | default('') %}
+    {% set iconStyle = options.datas.iconStyles.default | default('') %}
+    
+    {# Render the appropriate heading level with styles and optional icon #}
+    {% if level == 1 %}
+      <h1 class="{{ globalStyle }} {{ sizeStyle }} {{ variantStyle }}">{% if options.icon %}<span class="{{ iconStyle }}">{{ options.icon }}</span>{% endif %}{{ headingData.text }}</h1>
+    {% elif level == 2 %}
+      <h2 class="{{ globalStyle }} {{ sizeStyle }} {{ variantStyle }}">{% if options.icon %}<span class="{{ iconStyle }}">{{ options.icon }}</span>{% endif %}{{ headingData.text }}</h2>
+    {% elif level == 3 %}
+      <h3 class="{{ globalStyle }} {{ sizeStyle }} {{ variantStyle }}">{% if options.icon %}<span class="{{ iconStyle }}">{{ options.icon }}</span>{% endif %}{{ headingData.text }}</h3>
+    {% elif level == 4 %}
+      <h4 class="{{ globalStyle }} {{ sizeStyle }} {{ variantStyle }}">{% if options.icon %}<span class="{{ iconStyle }}">{{ options.icon }}</span>{% endif %}{{ headingData.text }}</h4>
+    {% elif level == 5 %}
+      <h5 class="{{ globalStyle }} {{ sizeStyle }} {{ variantStyle }}">{% if options.icon %}<span class="{{ iconStyle }}">{{ options.icon }}</span>{% endif %}{{ headingData.text }}</h5>
+    {% elif level == 6 %}
+      <h6 class="{{ globalStyle }} {{ sizeStyle }} {{ variantStyle }}">{% if options.icon %}<span class="{{ iconStyle }}">{{ options.icon }}</span>{% endif %}{{ headingData.text }}</h6>
+    {% endif %}
+  {% else %}
+    {# Display error message if heading not found #}
+    <span class="text-red-500">Heading not found: {{ options.name }}</span>
+  {% endif %}
+{% endmacro %}
+
+
+
+{#
+============================
+Summon HAT Components Wisely
+============================
+
+1. Import the macro at the top of your page
+{% from "03-atoms/heading.njk" import renderHeading %}
+
+2. Call a specific heading by its name
+{{ renderHeading({ name: "page_title", datas: atoms.headings }) }}
+
+3. Adding a new heading to headings.json
+{
+  "headings": [
+    {
+      "name": "new_heading_name",
+      "level": 2,
+      "text": "Your Heading Text",
+      "style": "primary"
+    }
+  ]
+}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+#}

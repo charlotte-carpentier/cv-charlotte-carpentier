@@ -1,0 +1,64 @@
+{#
+=========================
+        TOOLTIP          
+=========================
+Component that renders tooltip elements with consistent styling
+#}
+
+{% macro renderTooltip(options) %}
+  {# Initialize tooltipData as null before searching #}
+  {% set tooltipData = null %}
+
+  {# Find the tooltip matching the requested name in the data collection #}
+  {% for tooltip in options.datas.tooltips %}
+    {% if tooltip.name == options.name %}
+      {% set tooltipData = tooltip %}
+    {% endif %}
+  {% endfor %}
+
+  {# Get global style that applies to all tooltips #}
+  {% set globalStyle = options.datas.globalStyle %}
+
+  {# Render tooltip if data was found #}
+  {% if tooltipData %}
+    {# Get variant-specific style or default to empty string if not found #}
+    {% set variantStyle = options.datas.variants[tooltipData.variant] | default('') %}
+    
+    <div class="tooltip-container">
+      <div 
+        id="tooltip-{{ options.name }}" 
+        class="tag inline-flex items-center px-2 py-1 text-xs font-medium rounded-md {{ variantStyle }}"
+      >
+        {{ tooltipData.text | default("Tooltip content") }}
+      </div>
+    </div>
+  {% else %}
+    {# Display error message if tooltip not found #}
+    <span class="text-red-500">Tooltip not found: {{ options.name }}</span>
+  {% endif %}
+{% endmacro %}
+
+{#
+============================
+Summon HAT Components Wisely
+============================
+
+1. Import the macro at the top of your page
+{% from "03-atoms/tooltip.njk" import renderTooltip %}
+
+2. Call a specific tooltip by its name
+{{ renderTooltip({ name: "info_tip", datas: atoms.tooltips }) }}
+
+3. Adding a new tooltip to tooltips.json
+{
+  "tooltips": [
+    {
+      "name": "new_tooltip_name",
+      "text": "Your Tooltip Text",
+      "variant": "info"
+    }
+  ]
+}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+#}

@@ -1,0 +1,101 @@
+{#
+=========================
+         LINK           
+=========================
+Links atom component leveraging links.json data structure.
+
+IMPORTANT NOTES:
+- External vs internal behavior is controlled by the "type" property in links.json
+- Style variants come from the "variants" object in links.json
+- "dataNavLink" parameter enables active state tracking with current-link.js
+
+ACCESSIBILITY:
+- Uses aria-label for descriptive link text (screen readers)
+- Properly marks external links with target="_blank" and rel attributes
+- Supports hreflang for language indication
+#}
+
+{% macro linkComponent(options) %}
+  {# -- Initialize linkData as null before searching -- #}
+  {% set linkData = null %}
+  
+  {# -- Find link in data collection -- #}
+  {% for link in options.datas.links %}
+    {% if link.name == options.name %}
+      {% set linkData = link %}
+    {% endif %}
+  {% endfor %}
+
+  {# -- Get global style that applies to all links -- #}
+  {% set globalStyle = options.datas.globalStyle %}
+
+  {# -- Render link if data was found -- #}
+  {% if linkData %}
+    {# -- Get variant-specific style or default to empty string if not found -- #}
+    {% set variantStyle = options.datas.variants[linkData.style] | default('') %}
+    
+    {# -- Store aria-label and hreflang values for easier access -- #}
+    {% set ariaLabel = linkData["aria-label"] %}
+    {% set hrefLang = linkData.hreflang %}
+    
+    {# -- External link handling (opens in new tab) -- #}
+    {% if linkData.type == 'external' %}
+      <a 
+        href="{{ linkData.href }}" 
+        class="{{ globalStyle }} {{ variantStyle }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        {% if options.dataNavLink %}data-nav-link="true"{% endif %}
+        {% if ariaLabel %}aria-label="{{ ariaLabel }}"{% endif %}
+        {% if hrefLang %}hreflang="{{ hrefLang }}"{% endif %}
+      >
+        {{ linkData.text }}
+      </a>
+    
+    {# -- Internal link (default behavior) -- #}
+    {% else %}
+      <a 
+        href="{{ linkData.href }}" 
+        class="{{ globalStyle }} {{ variantStyle }}"
+        {% if options.dataNavLink %}data-nav-link="true"{% endif %}
+        {% if ariaLabel %}aria-label="{{ ariaLabel }}"{% endif %}
+        {% if hrefLang %}hreflang="{{ hrefLang }}"{% endif %}
+      >
+        {{ linkData.text }}
+      </a>
+    {% endif %}
+    
+  {% else %}
+    {# -- Error message if link not found in data collection -- #}
+    <span class="text-red-500">Link not found: {{ options.name }}</span>
+  {% endif %}
+{% endmacro %}
+
+{#
+============================
+Summon HAT Components Wisely
+============================
+
+1. Import the macro at the top of your page
+{% from "03-atoms/link.njk" import linkComponent %}
+
+2. Call a specific link by its name
+{{ linkComponent({ name: "navHome", datas: atoms.links }) }}
+
+3. Adding a new link to links.json
+{
+  "links": [
+    {
+      "name": "new_link_name",
+      "href": "/your-link",
+      "text": "Your Link Text",
+      "style": "primary",
+      "type": "internal",  // Optional: use "external" for external links
+      "aria-label": "Description for accessibility", // Optional: for accessibility
+      "hreflang": "fr"  // Optional: language code for hreflang attribute
+    }
+  ]
+}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+#}
