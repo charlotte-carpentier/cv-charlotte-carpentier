@@ -8,6 +8,7 @@ auth
 *.pem
 *.pub
 dev
+dev.pub
 dev.*
 
 # Logs
