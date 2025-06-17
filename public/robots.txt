@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap declaration
-Sitemap: https://manautic-location-bateau.com/sitemap.xml
+Sitemap: https://charlottecarpentier.com/sitemap.xml
 
 # Block admin panel only
 Disallow: /admin/
