@@ -961,9 +961,6 @@
   .text-left {
     text-align: left;
   }
-  .font-\[\&\#39\;Roboto\&\#39\;\] {
-    font-family: &#39;Roboto&#39;;
-  }
   .font-\[\&\#39\;Vibur\&\#39\;\] {
     font-family: &#39;Vibur&#39;;
   }
@@ -1912,12 +1909,6 @@
   .\[\&_ul_li\]\:mb-0 {
     & ul li {
       margin-bottom: calc(var(--spacing) * 0);
-    }
-  }
-  .\[\&amp\;_strong\]\:font-normal {
-    &amp; strong {
-      --tw-font-weight: var(--font-weight-normal);
-      font-weight: var(--font-weight-normal);
     }
   }
 }
