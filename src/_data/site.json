@@ -1,36 +1,41 @@
 {
-    "title": "Location de bateau à Saint-Florent (Haute-Corse) - M.A Nautic",
-    "description": "Depuis Saint-Florent, découvrez la Corse autrement : naviguez vers Saleccia, Lotu ou le Cap Corse à votre rythme, avec ou sans skipper.",
-    "url": "https://www.manautic-location-bateau.com",
-    "pages": {
-      "/": {
-        "title": "Location de bateau à Saint-Florent (Haute-Corse) - M.A Nautic",
-        "description": "Depuis Saint-Florent, découvrez la Corse autrement : naviguez vers Saleccia, Lotu ou le Cap Corse à votre rythme, avec ou sans skipper."
-      },
-      "/nos-bateaux/": {
-        "title": "Location de rigide et semi-rigide en Corse - M.A Nautic",
-        "description": "Louez un bateau semi-rigide en Corse au départ de Saint-Florent. Flotte complète avec ou sans permis, de 4 à 12 personnes. Options sportives, skipper et confort inclus."
-      },
-      "/lieux-interet/": {
-        "title": "Excursion en bateau depuis Saint-Florent",
-        "description": "Embarquez depuis Saint-Florent vers les plus beaux spots de Haute-Corse : plages de Saleccia, Lotu, Nonza ou Centuri, avec ou sans skipper."
-      },
-      "/contact/": {
-        "title": "M.A Nautic à Saint-Florent - Coordonnées et accès au port",
-        "description": "Besoin d'un renseignement ? Retrouvez ici toutes les infos utiles pour contacter M.A Nautic à Saint-Florent : téléphone, horaires, accès au port et formulaire."
-      },
-      "/faq/": {
-        "title": "Tout savoir pour louer un bateau en Corse avec M.A Nautic",
-        "description": "Vous souhaitez louer un bateau en Corse ? Découvrez notre FAQ : permis, réservation, météo, plage de Saleccia, activités nautiques, carburant, équipements, etc."
-      },
-      "/credits-mentions-legales/": {
-        "title": "Crédits et Mentions Légales - M.A Nautic",
-        "description": "Les informations légales et crédits relatifs au site M.A Nautic."
-      },
-      "/merci/": {
-        "title": "Merci pour votre inscription - M.A Nautic",
-        "description": "Merci pour votre intérêt. Nous reviendrons vers vous bientôt."
-      }
+  "title": "Charlotte Carpentier – Développeuse Web",
+  "description": "Autrefois à la tête d’un établissement de santé, j’ai choisi de suivre un rêve d’enfant : le développement web. Aujourd’hui, je code avec rigueur, humanité, et quatre piliers en tête : simplicité, sécurité, écologie et inclusion.",
+  "url": "https://charlottecarpentier.com",
+  "pages": {
+    "/": {
+      "title": "Charlotte Carpentier – CV & Portfolio Web",
+      "description": "Autrefois à la tête d’un établissement de santé, j’ai choisi de suivre un rêve d’enfant : le développement web. Aujourd’hui, je code avec rigueur, humanité, et quatre piliers en tête : simplicité, sécurité, écologie et inclusion."
+    },
+    "/faq/": {
+      "title": "FAQ – Charlotte Carpentier",
+      "description": "Réponses sur mon parcours, ma reconversion, mes choix techniques et les valeurs qui guident mon code."
+    },
+    "/legal/": {
+      "title": "Mentions légales – Charlotte Carpentier",
+      "description": "Les règles du site charlottecarpentier.com : mentions légales et conditions d’utilisation."
+    },
+    "/thank-you/": {
+      "title": "Message bien reçu – Merci !",
+      "description": "Votre message a été transmis. Je vous répondrai dès que possible. La prochaine étape de la quête est en cours."
     }
-  }
-  
+  },
+  "favicon": {
+    "png16": "/assets/images/ui/favicon/favicon-16x16.png",
+    "png32": "/assets/images/ui/favicon/favicon-32x32.png",
+    "ico": "/assets/images/ui/favicon/favicon.ico",
+    "appleTouch": "/assets/images/ui/favicon/apple-touch-icon.png"
+  },
+  "socialImage": "TODO",
+  "fonts": {
+    "primary": "Orbitron",
+    "secondary": "Manjari"
+  },
+  "axeptio": {
+    "clientId": "TODO",
+    "cookiesVersion": "TODO"
+  },
+  "preloadImages": [
+    "TODO"
+  ]
+}
