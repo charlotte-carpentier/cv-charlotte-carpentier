@@ -164,28 +164,7 @@
 .image-chronology { height: auto; max-height: 400px; }
 .image-chronology-mobile { height: auto; max-height: 200px; }
 
-/* MOLECULES */
-
-.content-block {}
-.list-form {}
-.progress-bar {}
-.skills {}
-.caption {}
-.contact-block {}
-.tab-menu {}
-
-/* ORGANISMS */
-
-.header {}
-.footer {}
-.section-contact {}
-.section-portfolio {}
-.section-timeline {}
-.tab-section {}
-.avatar-card {}
-.skills-card {}
-
-/* UTILITAIRES / BASES */
+/* Heading */
 .text-h1 {
   font-family: theme(--font-title);
   font-size: theme(--text-h1);
@@ -218,3 +197,24 @@
   .text-code { font-size: theme(--text-code-mobile); }
   .text-small { font-size: theme(--text-small-mobile); }
 }
+
+/* MOLECULES */
+
+.content-block {}
+.list-form {}
+.progress-bar {}
+.skills {}
+.caption {}
+.contact-block {}
+.tab-menu {}
+
+/* ORGANISMS */
+
+.header {}
+.footer {}
+.section-contact {}
+.section-portfolio {}
+.section-timeline {}
+.tab-section {}
+.avatar-card {}
+.skills-card {}
