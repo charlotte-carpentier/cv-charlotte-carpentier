@@ -1,0 +1,550 @@
+{
+  "texts": [
+    {
+      "name": "site_title",
+      "text": "DEVELOPPEUSE WEB",
+      "tag": "h1",
+      "variant": "h1"
+    },
+    {
+      "name": "site_creator",
+      "text": "Charlotte Carpentier",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "missions_title",
+      "text": "Missions accomplies",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "missions_site_1",
+      "text": "M.A Nautic",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "missions_site_2",
+      "text": "Thomas C. Sophrologue",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "profile_title",
+      "text": "Profil",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "profile_paragraph_1",
+      "text": "« Bats-toi pour les choses qui te tiennent à cœur, mais fais-le d'une manière qui donne envie aux autres de te suivre. » — Ruth Bader Ginsburg",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "profile_paragraph_2",
+      "text": "Autrefois, j'évoluais -gaiement- à la tête d'un établissement de santé. J’accompagnais mes équipes, relevais des missions difficiles et m'escrimais à suivre les règles du jeu.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "profile_paragraph_3",
+      "text": "Dans un univers où les coffres s’emplissent plus vite que les terres ne se cultivent, j'ai changé de voie pour honorer mes valeurs - et un rêve d’enfant : le développement web.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "profile_paragraph_4",
+      "text": "Aujourd’hui, je code en gardant quatre choses en tête : que chaque clic soit simple, que tout soit sécurisé, que le travail respecte notre planète, et que personne ne soit laissé de côté. Une ligne de code est un choix. Un projet une nouvelle quête.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "journey_title",
+      "text": "Parcours",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "journey_1",
+      "text": "depuis<br>2023",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "journey_1_title",
+      "text": "Freelance",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "journey_1_paragraph",
+      "text": "Développement de sites web<br>HTML - CSS<br>Php - Javascript",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "journey_2",
+      "text": "2024<br>2015",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "journey_2_title",
+      "text": "Directrice adj. - EHPAD",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "journey_2_paragraph",
+      "text": "Gestion de l’établissement au quotidien<br>Management des équipes pluridisciplinaires<br>Réponse aux besoins clients et aux objectifs du groupe",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "journey_3",
+      "text": "2014<br>2012",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "journey_3_title",
+      "text": "Chargée de projets - EFS",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "journey_3_paragraph",
+      "text": "Gestion de projets<br>Conduite de changements<br>Harmonisation de processus",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "knowledge_title",
+      "text": "Savoirs",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "knowledge_1",
+      "text": "2023",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "knowledge_1_title",
+      "text": "Titre Pro Developpement web et web mobile",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "knowledge_1_paragraph",
+      "text": "Développer un site sécurisé",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "knowledge_2",
+      "text": "2014",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "knowledge_2_title",
+      "text": "Master 2 Management des Ets de santé",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "knowledge_2_paragraph",
+      "text": "S’adapter au monde professionnel",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "knowledge_3",
+      "text": "2012",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "knowledge_3_title",
+      "text": "Bachelor Développement commercial",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "knowledge_3_paragraph",
+      "text": "Acquérir l’expression orale, la conduite de projets de groupes et la polyvalence",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "knowledge_4",
+      "text": "2009",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "knowledge_4_title",
+      "text": "Classe préparatoire HEC",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "knowledge_4_paragraph",
+      "text": "Apprendre à apprendre",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "knowledge_progressbar_title",
+      "text": "#JuniorDev4Life",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "knowledge_progressbar_paragraph",
+      "text": "Learning loop : actif",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "contact_title",
+      "text": "Contact",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "contact_paragraph_mail",
+      "text": "carpentier.dev@gmail.com",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "contact_paragraph_phone",
+      "text": "06 35 15 82 17",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "contact_paragraph_city",
+      "text": "basée à Marseille",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "legal_title",
+      "text": "Mentions légales",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "legal_subtitle_1",
+      "text": "Éditeur du site",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "legal_paragraph_1",
+      "text": "Charlotte Carpentier Développeuse web freelance (Symfony & Co)<br>Quartier général : Marseille<br><a href=\"mailto:carpentier.dev@gmail.com\">carpentier.dev@gmail.com</a><br>SIRET : 94076542900012",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "legal_subtitle_2",
+      "text": "Hébergement",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "legal_paragraph_2",
+      "text": "Tous les éléments de ce site (textes, visuels, codes) appartiennent à Charlotte Carpentier, sauf mention contraire. Reproduction interdite sans accord explicite.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "legal_subtitle_3",
+      "text": "Propriété intellectuelle",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "legal_paragraph_3",
+      "text": "Ce site est hébergé par Netlify, Inc. 2325 3rd Street, Suite 296, San Francisco, CA 94107 <a href=\"https://www.netlify.com\" target=\"_blank\">https://www.netlify.com</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "legal_subtitle_4",
+      "text": "Données personnelles & confidentialité",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "legal_paragraph_4",
+      "text": "Ce site collecte uniquement les données du formulaire de contact pour répondre à vos demandes. Aucune donnée transmise à des tiers. Droit d'accès, modification ou suppression : <a href=\"mailto:carpentier.dev@gmail.com\">carpentier.dev@gmail.com</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "legal_subtitle_5",
+      "text": "Cookies & traceurs",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "legal_paragraph_5",
+      "text": "Ce site ne contient ni traceurs, ni cookies de pistage. Seuls quelques cookies techniques assurent le bon fonctionnement de la navigation.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "legal_subtitle_6",
+      "text": "Crédits",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "legal_paragraph_6",
+      "text": "Design & développement : Charlotte Carpentier Illustrations : créations personnelles Diane Yoon",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "languages_title",
+      "text": "Langages",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "languages_subtitle_1",
+      "text": "Symfony",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "languages_paragraph_1",
+      "text": "Accorde la maîtrise des rouages invisibles pour bâtir du code fiable et évolutif.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "languages_subtitle_2",
+      "text": "Eleventy",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "languages_paragraph_2",
+      "text": "Octroie la capacité de forger des pages rapides, sobres et économes en énergie.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "languages_subtitle_3",
+      "text": "Tailwind",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "languages_paragraph_3",
+      "text": "Permet de façonner des interfaces flexibles, nettes et accessibles, d’un geste précis.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "languages_subtitle_4",
+      "text": "Javascript",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "languages_paragraph_4",
+      "text": "Déchaîne des actions ciblées, exactement quand elles sont nécessaires.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "languages_subtitle_5",
+      "text": "Anglais",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "languages_paragraph_5",
+      "text": "Déverrouille l’accès aux savoirs techniques et aux alliances internationales.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "hardskills_title",
+      "text": "Hard skills",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "hardskills_subtitle_1",
+      "text": "Capacité d’analyse",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "hardskills_paragraph_1",
+      "text": "Regard affûté – +8 en lecture de situations et ajustements mesurés.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "hardskills_subtitle_2",
+      "text": "Management d’équipes",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "hardskills_paragraph_2",
+      "text": "Sens du collectif – +6 en coordination et soutien des alliés.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "hardskills_subtitle_3",
+      "text": "Gestion de crise",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "hardskills_paragraph_3",
+      "text": "Sang-froid acquis – +7 en priorisation sous pression.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "softskills_title",
+      "text": "Soft skills",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "softskills_subtitle_1",
+      "text": "Empathie",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "softskills_paragraph_1",
+      "text": "Écoute sincère – +8 en compréhension des besoins et communication posée.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "softskills_subtitle_2",
+      "text": "Créativité",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "softskills_paragraph_2",
+      "text": "Imagination structurée – +7 en idées nouvelles et solutions réalistes.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "softskills_subtitle_3",
+      "text": "Patience",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "softskills_paragraph_3",
+      "text": "Temps maîtrisé – +7 en suivi régulier et constance dans l’effort.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "interests_title",
+      "text": "Intérêts",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "interests_subtitle_1",
+      "text": "Cinéma d’horreur",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "interests_paragraph_1",
+      "text": "Affronte l’inattendu et garde son calme dans les ténèbres.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "interests_subtitle_2",
+      "text": "Escrime",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "interests_paragraph_2",
+      "text": "Manie l’art du duel avec agilité et stratégie.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "interests_subtitle_3",
+      "text": "Maintenance informatique",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "interests_paragraph_3",
+      "text": "Répare et optimise les systèmes pour préserver stabilité et performance.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "interests_subtitle_4",
+      "text": "Culture coréenne",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "interests_paragraph_4",
+      "text": "S’imprègne d’un héritage où tradition rime avec innovation.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "interests_subtitle_5",
+      "text": "Bande dessinée",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "interests_paragraph_5",
+      "text": "Explore des récits où l’image et les mots prennent vie ensemble.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "interests_subtitle_6",
+      "text": "Peinture",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "interests_paragraph_6",
+      "text": "Libère l’esprit, pour que la main trouve son chemin.",
+      "tag": "small",
+      "variant": "small"
+    },
+    {
+      "name": "footer_title",
+      "text": "© 2025 - Mentions légales",
+      "tag": "p",
+      "variant": "code"
+    }
+  ]
+}
