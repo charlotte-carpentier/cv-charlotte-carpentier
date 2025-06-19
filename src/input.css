@@ -82,21 +82,61 @@
 
 /* Button */
 .button {
-  font-family: theme(--font-title);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  font-family: theme(--font-text);
+  padding: 0.3rem 1.5rem 0rem 1.5rem;
+  border-radius: 0rem;
   font-weight: bold;
-  background-color: theme(--cc-green-dark);
-  color: theme(--cc-white);
-  transition: background-color 0.2s;
+  font-size: theme(--text-code);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 4px solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
-.button:hover { background-color: theme(--cc-grey-dark); }
-.button:focus { outline: 2px solid theme(--cc-green-light); }
-.button:active { background-color: theme(--cc-black); }
-.button:disabled {
-  background-color: theme(--cc-grey-light);
+
+/* Primary variant - Default state */
+.button--primary {
+  background-color: theme(--cc-white);
   color: theme(--cc-black);
+  border-color: theme(--cc-black);
+}
+
+/* Button - Version mobile */
+@media (max-width: 768px) {
+  .button--primary {
+    padding: 0.3rem 1rem 0rem 1rem;
+    font-size: theme(--text-code-mobile);
+    border: 3px solid;
+  }
+}
+
+.button--primary:hover {
+  background-color: theme(--cc-white);
+  color: theme(--cc-black);
+  border-color: theme(--cc-green-dark);
+}
+
+.button--primary:focus {
+  background-color: theme(--cc-white);
+  color: theme(--cc-grey-light);
+  border-color: #0044aa;
+  outline: none;
+}
+
+.button--primary:active {
+  background-color: theme(--cc-white);
+  color: theme(--cc-black);
+  border-color: #0044aa;
+}
+
+.button--primary:disabled,
+.button--disabled {
+  background-color: theme(--cc-grey-light);
+  color: theme(--cc-grey-dark);
+  border-color: theme(--cc-grey-dark);
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* Tooltip */
