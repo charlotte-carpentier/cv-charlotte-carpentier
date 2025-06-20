@@ -5,10 +5,3 @@ layout: '00-core/base.njk'
 
 <h1>Charlotte Carpentier - Personal Site</h1>
 <p>Welcome! This is the starting point of your portfolio and CV website.</p>
-
-{% from "03-atoms/typography.njk" import renderTypography %}
-
-{{ renderTypography({ 
-    name: "profile_paragraph_1",
-    datas: atoms.typography.texts
-}) }}
