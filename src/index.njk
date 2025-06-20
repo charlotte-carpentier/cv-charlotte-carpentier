@@ -5,3 +5,10 @@ layout: '00-core/base.njk'
 
 <h1>Charlotte Carpentier - Personal Site</h1>
 <p>Welcome! This is the starting point of your portfolio and CV website.</p>
+
+{% from "03-atoms/link.njk" import renderLink %}
+
+{{ renderLink({ 
+    name: "nav_contact",
+    datas: atoms.link.links
+}) }}

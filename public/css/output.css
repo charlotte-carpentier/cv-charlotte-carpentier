@@ -835,9 +835,6 @@
   .text-justify {
     text-align: justify;
   }
-  .font-\[\'Roboto\'\] {
-    font-family: 'Roboto';
-  }
   .font-\[\'Vibur\'\] {
     font-family: 'Vibur';
   }
@@ -872,9 +869,6 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
-  .text-\[18px\] {
-    font-size: 18px;
-  }
   .leading-relaxed {
     --tw-leading: var(--leading-relaxed);
     line-height: var(--leading-relaxed);
@@ -906,12 +900,6 @@
   .text-\[\#eae7dc\]\/70 {
     color: color-mix(in oklab, #eae7dc 70%, transparent);
   }
-  .text-\[--ma-nautic-blue\] {
-    color: --ma-nautic-blue;
-  }
-  .text-\[--ma-nautic-white\] {
-    color: --ma-nautic-white;
-  }
   .text-blue-600 {
     color: var(--color-blue-600);
   }
@@ -941,9 +929,6 @@
   }
   .capitalize {
     text-transform: capitalize;
-  }
-  .uppercase {
-    text-transform: uppercase;
   }
   .no-underline {
     text-decoration-line: none;
@@ -1051,13 +1036,6 @@
     &:hover {
       @media (hover: hover) {
         background-color: #e8ab55;
-      }
-    }
-  }
-  .hover\:text-\[--ma-nautic-teal\] {
-    &:hover {
-      @media (hover: hover) {
-        color: --ma-nautic-teal;
       }
     }
   }
@@ -1668,21 +1646,66 @@
   opacity: 0.6;
 }
 .link {
-  font-family: 'Manjari', sans-serif;
-  font-size: 18px;
-  color: #4a7c59;
-  text-decoration: underline;
   transition: color 0.2s;
-}
-.link:hover {
-  color: #333333;
+  outline: none;
+  cursor: pointer;
 }
 .link:focus {
-  outline: 2px solid #c4ffcb;
+  outline: 2px solid #0044aa;
 }
 .link:disabled {
   color: #b3b3b3;
   pointer-events: none;
+}
+.link--nav {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  text-decoration: underline;
+}
+.link--nav:hover {
+  text-decoration: none;
+}
+.link--nav.current, .link--nav[aria-current="page"] {
+  color: #4a7c59;
+  text-decoration: none;
+  font-weight: bold;
+}
+.link--tab {
+  font-family: 'Manjari', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  text-decoration: none;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+}
+.link--tab:hover {
+  color: #4a7c59;
+}
+.link--tab.current, .link--tab[aria-current="page"] {
+  color: #4a7c59;
+  font-weight: bold;
+  border-bottom-color: #4a7c59;
+}
+.link--external {
+  font-family: 'Manjari', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  text-decoration: underline;
+}
+.link--external:hover {
+  color: #4a7c59;
+}
+@media (max-width: 768px) {
+  .link--nav {
+    font-size: 20px;
+  }
+  .link--tab {
+    font-size: 16px;
+  }
+  .link--external {
+    font-size: 14px;
+  }
 }
 .button {
   font-family: 'Manjari', sans-serif;
