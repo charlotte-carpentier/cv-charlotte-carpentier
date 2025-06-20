@@ -148,23 +148,30 @@
   border-radius: 0.25rem;
 }
 
-/* Icon (example sizes by category) */
+/* Icon */
 .icon-pillar { width: 48px; height: 48px; }
 .icon-avatar { width: 64px; height: 64px; }
 .icon-interface { width: 32px; height: 32px; }
 
 /* Avatar */
-.avatar-grand { width: 128px; height: 128px; border-radius: 0.75rem; }
-.avatar-moyen { width: 64px; height: 64px; border-radius: 0.75rem; }
-.avatar-petit { width: 32px; height: 32px; border-radius: 9999px; }
+.image-avatar-desktop { 
+  width: 351px; 
+  height: 686px; 
+}
+.image-avatar-tablet { 
+  width: 295px; 
+  height: 287px; 
+}
+.image-avatar-mobile { 
+  width: 291px; 
+  height: 222px; 
+}
 
 /* Image */
-.image-preview { width: 100%; max-width: 600px; }
-.image-preview-mobile { width: 100%; max-width: 320px; }
-.image-chronology { height: auto; max-height: 400px; }
-.image-chronology-mobile { height: auto; max-height: 200px; }
+.image-mission { width: 400px; height:200px; border-color: theme(--cc-black); border: 4px solid; }
+.image-mission-mobile { width: 300px; max-width: 157px; border-color: theme(--cc-black); border: 3px solid; }
 
-/* Heading */
+/* Typography */
 .text-h1 {
   font-family: theme(--font-title);
   font-size: theme(--text-h1);
