@@ -1046,6 +1046,13 @@
       }
     }
   }
+  .hover\:opacity-75 {
+    &:hover {
+      @media (hover: hover) {
+        opacity: 75%;
+      }
+    }
+  }
   .focus\:outline-none {
     &:focus {
       --tw-outline-style: none;
@@ -1763,12 +1770,36 @@
   border-radius: 0.25rem;
 }
 .icon-pillar {
-  width: 48px;
-  height: 48px;
+  width: 603px;
+  height: 603px;
+}
+@media (max-width: 1024px) and (min-width: 769px) and (orientation: landscape) {
+  .icon-pillar {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media (max-width: 1024px) and (min-width: 481px) and (orientation: portrait) {
+  .icon-pillar {
+    width: 300px;
+    height: 300px;
+  }
+}
+@media (max-width: 480px) {
+  .icon-pillar {
+    width: 160px;
+    height: 160px;
+  }
 }
 .icon-avatar {
   width: 64px;
   height: 64px;
+}
+@media (max-width: 1024px) and (orientation: portrait), (max-width: 480px) {
+  .icon-avatar {
+    width: 50px;
+    height: 50px;
+  }
 }
 .icon-interface {
   width: 32px;

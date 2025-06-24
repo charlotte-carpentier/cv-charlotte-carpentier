@@ -6,9 +6,9 @@ layout: '00-core/base.njk'
 <h1>Charlotte Carpentier - Personal Site</h1>
 <p>Welcome! This is the starting point of your portfolio and CV website.</p>
 
-{% from "03-atoms/link.njk" import renderLink %}
+{% from "03-atoms/icon.njk" import renderIcon %}
 
-{{ renderLink({ 
-    name: "nav_contact",
-    datas: atoms.link.links
+{{ renderIcon({ 
+    name: "social_instagram",
+    datas: atoms.icon.icons
 }) }}
