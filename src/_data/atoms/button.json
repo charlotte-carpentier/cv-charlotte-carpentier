@@ -4,6 +4,11 @@
       "name": "button_default",
       "text": "Envoyer",
       "variant": "primary"
+    },
+    {
+      "name": "button_default",
+      "text": "Visitez ce site",
+      "variant": "primary"
     }
   ]
 }

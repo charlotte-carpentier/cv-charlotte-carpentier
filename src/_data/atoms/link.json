@@ -1,0 +1,83 @@
+{
+  "links": [
+    {
+      "name": "nav_contact",
+      "href": "#portfolio",
+      "text": "Contact",
+      "variant": "nav"
+    },
+    {
+      "name": "tab_missions",
+      "href": "#missions", 
+      "text": "Missions",
+      "variant": "tab"
+    },
+    {
+      "name": "tab_profile",
+      "href": "#profile", 
+      "text": "Profil",
+      "variant": "tab"
+    },
+    {
+      "name": "tab_journey",
+      "href": "#journey",
+      "text": "Parcours",
+      "variant": "tab"
+    },
+        {
+      "name": "tab_knowledge",
+      "href": "#knowledge",
+      "text": "Savoirs",
+      "variant": "tab"
+    },
+    {
+      "name": "tab_contact",
+      "href": "#contact",
+      "text": "Contact",
+      "variant": "tab"
+    },
+    {
+      "name": "external_github",
+      "href": "https://github.com/charlotte-carpentier",
+      "text": "Mon GitHub",
+      "variant": "external",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "name": "external_linkedin",
+      "href": "https://linkedin.com/in/charlottecarpentier",
+      "text": "Mon LinkedIn", 
+      "variant": "external",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "name": "external_instagram",
+      "href": "TODO: account pro",
+      "text": "Mon Instagram", 
+      "variant": "external",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "name": "external_email",
+      "href": "mailto:carpentier.dev@gmail.com",
+      "text": "carpentier.dev@gmail.com",
+      "variant": "external"
+    },
+    {
+      "name": "TODO: download_cv",
+      "href": "/assets/documents/charlotte-carpentier-cv.pdf",
+      "text": "Télécharger mon CV",
+      "variant": "external",
+      "download": true
+    },
+        {
+      "name": "tab_legal",
+      "href": "#legal",
+      "text": "Mentions légales",
+      "variant": "tab"
+    }
+  ]
+}
