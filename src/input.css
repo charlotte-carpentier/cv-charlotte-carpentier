@@ -216,9 +216,54 @@
   border-radius: 0.25rem;
 }
 
-/* Icon */
-.icon-pillar { width: 48px; height: 48px; }
-.icon-avatar { width: 64px; height: 64px; }
+/* Icon - Complete responsive system */
+
+/* Icons pillar - Desktop default */
+.icon-pillar { 
+  width: 603px; 
+  height: 603px; 
+}
+
+/* Icons pillar - Tablet landscape */
+@media (max-width: 1024px) and (min-width: 769px) and (orientation: landscape) {
+  .icon-pillar {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+/* Icons pillar - Tablet portrait */
+@media (max-width: 1024px) and (min-width: 481px) and (orientation: portrait) {
+  .icon-pillar {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Icons pillar - Mobile */
+@media (max-width: 480px) {
+  .icon-pillar {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* Icons avatar - Desktop and tablet landscape default */
+.icon-avatar { 
+  width: 64px; 
+  height: 64px; 
+}
+
+/* Icons avatar - Mobile and tablet portrait */
+@media (max-width: 1024px) and (orientation: portrait), 
+       (max-width: 480px) {
+  .icon-avatar {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Icons interface - Fixed sizes */
 .icon-interface { width: 32px; height: 32px; }
 
 /* Avatar */
