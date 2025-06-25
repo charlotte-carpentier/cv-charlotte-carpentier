@@ -87,10 +87,6 @@
     
     
       
-    
-      
-    
-      
         
       
     
@@ -98,37 +94,79 @@
     
     
       
-      <div class="input-group">
+      <div class="radio-group">
         
         
-        
-        
-        
-          <textarea 
-            id="contactMessage"
-            name="message"
-            class="input-base input-default input-hover input-focus"
-            placeholder="Votre message"
-            rows="2"
+          <div class="radio-group-label">
+            Quelle est la nature de votre requête ?
             
-            maxlength="1000"
-            
-            aria-describedby="contactMessage-count "
-          ></textarea>
+          </div>
+        
+        
+        
+        <div class="radio-grid">
           
+            <label for="mission_freelance" class="radio-option">
+              <input 
+                type="radio"
+                id="mission_freelance"
+                name="nature_request"
+                value="mission_freelance"
+                class="radio-input"
+                
+                
+                
+              />
+              <span class="radio-custom"></span>
+              <span class="radio-text">Mission freelance</span>
+            </label>
           
+            <label for="collab_creative" class="radio-option">
+              <input 
+                type="radio"
+                id="collab_creative"
+                name="nature_request"
+                value="collab_creative"
+                class="radio-input"
+                checked
+                
+                
+              />
+              <span class="radio-custom"></span>
+              <span class="radio-text">Collab. créative</span>
+            </label>
           
-            <div id="contactMessage-count" class="text-small" style="color: var(--cc-grey-light); margin-top: 0.25rem; text-align: right;">
-              0/1000
-            </div>
+            <label for="just_curious" class="radio-option">
+              <input 
+                type="radio"
+                id="just_curious"
+                name="nature_request"
+                value="juste_curieux"
+                class="radio-input"
+                
+                
+                
+              />
+              <span class="radio-custom"></span>
+              <span class="radio-text">Juste curieux.se</span>
+            </label>
           
-        
-        
-        
-        
-        
-        
-        
+            <label for="other" class="radio-option">
+              <input 
+                type="radio"
+                id="other"
+                name="nature_request"
+                value="autre"
+                class="radio-input"
+                
+                
+                
+              />
+              <span class="radio-custom"></span>
+              <span class="radio-text">Autre</span>
+            </label>
+          
+        </div>
       </div>
     
   
