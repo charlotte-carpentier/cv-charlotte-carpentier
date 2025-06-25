@@ -6,9 +6,9 @@ layout: '00-core/base.njk'
 <h1>Charlotte Carpentier - Personal Site</h1>
 <p>Welcome! This is the starting point of your portfolio and CV website.</p>
 
-{% from "03-atoms/checkbox.njk" import renderCheckbox %}
+{% from "03-atoms/tooltip.njk" import renderTooltip %}
 
-{{ renderCheckbox({ 
-    name: "nature_request",
-    datas: atoms.checkbox.checkboxes
+{{ renderTooltip({ 
+    name: "softskills_empathie",
+    datas: atoms.tooltip.tooltips
 }) }}
