@@ -42,28 +42,77 @@
 
 /* ATOMS */
 
-/* Input text & textarea (shared styles) */
+/* Input */
 .input-base {
   font-family: theme(--font-text);
-  font-size: theme(--text-p);
-  padding: 0.5rem;
+  font-size: theme(--text-code);
+  padding: 0.75rem 0.5rem;
   border-radius: 0.25rem;
   border-width: 2px;
   outline: none;
-  transition: border-color 0.3s;
-}
-
-.input-default { border-color: theme(--cc-grey-light); }
-.input-hover:hover { border-color: theme(--cc-grey-dark); }
-.input-focus:focus { border-color: theme(--cc-green-dark); }
-.input-active { border-color: theme(--cc-green-dark); }
-.input-filled { background-color: theme(--cc-green-light); }
-.input-critical { border-color: red; }
-.input-disabled {
+  transition: border-color 0.3s, color 0.3s;
+  color: theme(--cc-grey-light);
+  width: 280px;
+  line-height: 1.2;
+ }
+ 
+ /* Placeholder styling */
+ .input-base::placeholder {
+  color: theme(--cc-grey-light);
+  opacity: 1;
+ }
+ 
+ .input-default { 
+  border-color: theme(--cc-grey-light); 
+ }
+ 
+ .input-hover:hover { 
+  border-color: theme(--cc-grey-dark); 
+ }
+ 
+ .input-focus:focus { 
+  border-color: theme(--cc-green-dark);
+  color: theme(--cc-black);
+ }
+ 
+ .input-active { 
+  border-color: theme(--cc-green-dark);
+  color: theme(--cc-black);
+ }
+ 
+ .input-filled { 
+  background-color: theme(--cc-green-light);
+  color: theme(--cc-black);
+ }
+ 
+ .input-critical { 
+  border-color: red; 
+ }
+ 
+ .input-disabled {
   background-color: theme(--cc-grey-light);
   cursor: not-allowed;
   opacity: 0.6;
-}
+ }
+ 
+ /* Input group container */
+ .input-group {
+  margin-bottom: 1rem;
+ }
+ 
+ /* Label styling */
+ .input-group label {
+  color: theme(--cc-white);
+  display: block;
+  margin-bottom: 0.5rem;
+ }
+ 
+ /* Textarea specific styles */
+ textarea.input-base {
+  line-height: 1.4;
+  resize: vertical;
+  min-height: 80px;
+ }
 
 /* Link - Base commune */
 .link {
