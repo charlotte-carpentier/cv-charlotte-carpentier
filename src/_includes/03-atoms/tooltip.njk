@@ -1,0 +1,63 @@
+{# 
+=========================
+    TOOLTIP ATOM
+    v1.0 - Charlotte RPG       
+=========================
+#}
+
+{% macro renderTooltip(option) %}
+  {# Check if datas is provided #}
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No tooltip configuration provided</span>
+  {% else %}
+    {# Retrieve tooltip configuration #}
+    {% set tooltipsConfig = option.datas %}
+    {% set tooltipName = option.name %}
+    
+    {# Find the specific tooltip by name - tooltipsConfig is already the array #}
+    {% set tooltipData = null %}
+    {% for tooltip in tooltipsConfig %}
+      {% if tooltip.name == tooltipName %}
+        {% set tooltipData = tooltip %}
+      {% endif %}
+    {% endfor %}
+
+    {# Fallback if tooltip not found #}
+    {% if not tooltipData %}
+      <span class="text-red-500">Tooltip not found: {{ tooltipName }}</span>
+    {% else %}
+      {# Tooltip - always visible for atom display #}
+      <div class="tooltip-box">
+        {# Title #}
+        <div class="tooltip-title">{{ tooltipData.title }}</div>
+        
+        {# Decorative bar with diamond #}
+        <div class="tooltip-divider">
+          <div class="tooltip-line"></div>
+          <div class="tooltip-diamond"></div>
+          <div class="tooltip-line"></div>
+        </div>
+        
+        {# Description #}
+        <div class="tooltip-description">{{ tooltipData.description }}</div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{# 
+============================
+Summon HAT Components Wisely
+============================
+
+1. Import the macro at the top of your page
+{% from "03-atoms/tooltip.njk" import renderTooltip %}
+
+2. Call the specific tooltip somewhere in your page
+{{ renderTooltip({ 
+    name: "escrime",
+    datas: atoms.tooltip.tooltips
+}) }}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+#}
