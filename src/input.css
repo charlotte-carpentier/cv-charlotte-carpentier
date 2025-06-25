@@ -114,6 +114,113 @@
   min-height: 80px;
  }
 
+/* Radio group */
+
+.radio-group {
+  margin-bottom: 1rem;
+  width: 280px;
+ }
+ 
+ .radio-group-label {
+  display: block;
+  color: theme(--cc-black);
+  font-family: theme(--font-text);
+  font-size: theme(--text-code);
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+  text-align: center;
+ }
+ 
+ .radio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  width: 100%;
+ }
+ 
+ .radio-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid theme(--cc-grey-light);
+  background-color: theme(--cc-white);
+  cursor: pointer;
+  transition: all 0.3s;
+  min-height: 50px;
+  box-sizing: border-box;
+ }
+ 
+ .radio-option:hover {
+  border-color: theme(--cc-grey-dark);
+ }
+ 
+ .radio-input {
+  position: absolute;
+  opacity: 0;
+ }
+ 
+ .radio-option:has(.radio-input:checked) {
+  background-color: theme(--cc-green-light);
+  border-color: theme(--cc-green-dark);
+ }
+ 
+ .radio-custom {
+  width: 16px;
+  height: 16px;
+  border: 2px solid theme(--cc-grey-light);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  position: relative;
+  flex-shrink: 0;
+  align-self: center;
+ }
+ 
+ .radio-input:checked + .radio-custom {
+  border-color: theme(--cc-green-dark);
+ }
+ 
+ .radio-input:checked + .radio-custom::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: theme(--cc-green-dark);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+ }
+ 
+ .radio-text {
+  font-family: theme(--font-text);
+  font-size: theme(--text-code);
+  color: theme(--cc-black);
+  line-height: 1.2;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+ }
+ 
+ /* Required asterisk */
+ .checkbox-required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+ }
+ 
+ /* Responsive */
+ @media (max-width: 768px) {
+  .radio-group-label {
+    font-size: theme(--text-code-mobile);
+  }
+  
+  .radio-text {
+    font-size: theme(--text-code-mobile);
+  }
+ }
+
 /* Link - Base commune */
 .link {
   transition: color 0.2s;

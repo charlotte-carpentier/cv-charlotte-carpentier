@@ -1,0 +1,78 @@
+{# 
+=========================
+    CHECKBOX ATOM
+    v1.0 - Charlotte RPG       
+=========================
+#}
+
+{% macro renderCheckbox(option) %}
+  {# Check if datas is provided #}
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No checkbox configuration provided</span>
+  {% else %}
+    {# Retrieve checkbox configuration #}
+    {% set checkboxesConfig = option.datas %}
+    {% set checkboxName = option.name %}
+    
+    {# Find the specific checkbox group by name #}
+    {% set checkboxData = null %}
+    {% for checkbox in checkboxesConfig %}
+      {% if checkbox.name == checkboxName %}
+        {% set checkboxData = checkbox %}
+      {% endif %}
+    {% endfor %}
+
+    {# Fallback if checkbox not found #}
+    {% if not checkboxData %}
+      <span class="text-red-500">Checkbox not found: {{ checkboxName }}</span>
+    {% else %}
+      {# Radio group container #}
+      <div class="radio-group">
+        {# Group label/question #}
+        {% if checkboxData.label %}
+          <div class="radio-group-label">
+            {{ checkboxData.label }}
+            {% if checkboxData.required %}<span class="checkbox-required">*</span>{% endif %}
+          </div>
+        {% endif %}
+        
+        {# Grid container for options #}
+        <div class="radio-grid">
+          {% for radioOption in checkboxData.options %}
+            <label for="{{ radioOption.id }}" class="radio-option">
+              <input 
+                type="radio"
+                id="{{ radioOption.id }}"
+                name="{{ checkboxData.name }}"
+                value="{{ radioOption.value }}"
+                class="radio-input"
+                {% if radioOption.selected %}checked{% endif %}
+                {% if checkboxData.required %}required{% endif %}
+                {% if option.disabled %}disabled{% endif %}
+              />
+              <span class="radio-custom"></span>
+              <span class="radio-text">{{ radioOption.text }}</span>
+            </label>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{# 
+============================
+Summon HAT Components Wisely
+============================
+
+1. Import the macro at the top of your page
+{% from "03-atoms/checkbox.njk" import renderCheckbox %}
+
+2. Call a specific radio group by its name
+{{ renderCheckbox({ 
+    name: "nature_request",
+    datas: atoms.checkbox.checkboxes
+}) }}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+#}
