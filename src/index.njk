@@ -6,9 +6,12 @@ layout: '00-core/base.njk'
 <h1>Charlotte Carpentier - Personal Site</h1>
 <p>Welcome! This is the starting point of your portfolio and CV website.</p>
 
-{% from "03-atoms/tooltip.njk" import renderTooltip %}
+{% from "02-molecules/contact-block.njk" import renderContactBlock %}
 
-{{ renderTooltip({ 
-    name: "softskills_empathie",
-    datas: atoms.tooltip.tooltips
+{{ renderContactBlock({ 
+    name: "main_contact",
+    datas: molecules["contact-block"].contact_blocks,
+    iconDatas: atoms.icon.icons,
+    typographyDatas: atoms.typography.texts
 }) }}
+
