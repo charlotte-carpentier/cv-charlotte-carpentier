@@ -585,10 +585,71 @@
   }
 }
 
+/* Tab Menu */
+.tab-menu {
+  position: relative;
+}
+
+/* Desktop Menu */
+.tab-menu-desktop {
+  display: block;
+  padding: 1rem 0;
+}
+
+.tab-menu-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-menu-item {
+  margin: 0;
+}
+
+/* Mobile Menu */
+.tab-menu-mobile {
+  display: none;
+}
+
+.mobile-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  border: 4px solid theme(--cc-black);
+  background-color: theme(--cc-white);
+}
+
+.mobile-menu-item {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tab-menu-desktop {
+    display: none;
+  }
+  
+  .tab-menu-mobile {
+    display: block;
+  }
+  
+  .tab-menu-list {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
 .list-form {}
 .progress-bar {}
 .caption {}
-.tab-menu {}
 
 /* ORGANISMS */
 
