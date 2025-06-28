@@ -6,11 +6,12 @@ layout: '00-core/base.njk'
 <h1>Charlotte Carpentier - Personal Site</h1>
 <p>Welcome! This is the starting point of your portfolio and CV website.</p>
 
-{% from "02-molecules/list-form.njk" import renderListForm %}
+{% from "02-molecules/content-block.njk" import renderContentBlock %}
 
-{{ renderListForm({ 
-    name: "contact_form",
-    datas: molecules["list-form"]["list-forms"],
-    checkboxDatas: atoms.checkbox.checkboxes,
-    inputDatas: atoms.input.inputs
+{{ renderContentBlock({ 
+    name: "journey_ehpad",
+    datas: molecules["content-block"]["content-blocks"],
+    typographyDatas: atoms.typography.texts,
+    imageDatas: atoms.image.images,
+    buttonDatas: atoms.button.buttons
 }) }}

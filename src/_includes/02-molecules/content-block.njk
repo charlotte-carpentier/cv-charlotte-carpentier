@@ -1,0 +1,116 @@
+{# ========================= 
+    CONTENT-BLOCK MOLECULE 
+    v1.0 - Charlotte 
+========================= #}
+
+{# Import atoms #}
+{% from "03-atoms/typography.njk" import renderTypography %}
+{% from "03-atoms/image.njk" import renderImage %}
+{% from "03-atoms/button.njk" import renderButton %}
+
+{% macro renderContentBlock(option) %}
+  {# Check if datas is provided #}
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No content-block configuration provided</span>
+  {% else %}
+    {# Retrieve content-block configuration #}
+    {% set contentBlocksConfig = option.datas %}
+    {% set contentBlockName = option.name %}
+    
+    {# Find the specific content-block by name #}
+    {% set contentBlockData = null %}
+    {% for contentBlock in contentBlocksConfig %}
+      {% if contentBlock.name == contentBlockName %}
+        {% set contentBlockData = contentBlock %}
+      {% endif %}
+    {% endfor %}
+
+    {# Fallback if content-block not found #}
+    {% if not contentBlockData %}
+      <span class="text-red-500">Content-block not found: {{ contentBlockName }}</span>
+    {% else %}
+      {# Render content-block molecule based on variant #}
+      <div class="content-block content-block--{{ contentBlockData.variant }}">
+        
+        {# Chronology variant #}
+        {% if contentBlockData.variant == "chronology" %}
+          <div class="content-block-chronology">
+            <div class="content-block-date">
+              {{ renderTypography({ 
+                  name: contentBlockData.dateTypographyName,
+                  datas: option.typographyDatas
+              }) }}
+            </div>
+            <div class="content-block-content">
+              <div class="content-block-title">
+                {{ renderTypography({ 
+                    name: contentBlockData.titleTypographyName,
+                    datas: option.typographyDatas
+                }) }}
+              </div>
+              <div class="content-block-text">
+                {{ renderTypography({ 
+                    name: contentBlockData.textTypographyName,
+                    datas: option.typographyDatas
+                }) }}
+              </div>
+            </div>
+          </div>
+        
+        {# Text variant #}
+        {% elif contentBlockData.variant == "text" %}
+          <div class="content-block-text-only{% if contentBlockData.textColor %} content-block-text-color--{{ contentBlockData.textColor }}{% endif %}">
+            {{ renderTypography({ 
+                name: contentBlockData.textTypographyName,
+                datas: option.typographyDatas
+            }) }}
+          </div>
+        
+        {# Preview variant #}
+        {% elif contentBlockData.variant == "preview" %}
+          <div class="content-block-preview">
+            <div class="content-block-title">
+              {{ renderTypography({ 
+                  name: contentBlockData.titleTypographyName,
+                  datas: option.typographyDatas
+              }) }}
+            </div>
+            <div class="content-block-image">
+              {{ renderImage({ 
+                  name: contentBlockData.imageName,
+                  datas: option.imageDatas
+              }) }}
+              <div class="content-block-button">
+                {{ renderButton({ 
+                    name: contentBlockData.buttonName,
+                    datas: option.buttonDatas
+                }) }}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        
+      </div>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{# 
+============================
+Summon HAT Components Wisely
+============================
+
+1. Import the macro at the top of your page
+{% from "02-molecules/content-block.njk" import renderContentBlock %}
+
+2. Call a specific content-block by its name
+{{ renderContentBlock({ 
+    name: "journey_freelance",
+    datas: molecules["content-block"]["content-blocks"],
+    typographyDatas: atoms.typography.texts,
+    imageDatas: atoms.image.images,
+    buttonDatas: atoms.button.buttons
+}) }}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+#}
