@@ -6,11 +6,11 @@ layout: '00-core/base.njk'
 <h1>Charlotte Carpentier - Personal Site</h1>
 <p>Welcome! This is the starting point of your portfolio and CV website.</p>
 
-{% from "02-molecules/tab-menu.njk" import renderTabMenu %}
+{% from "02-molecules/caption.njk" import renderCaption %}
 
-{{ renderTabMenu({ 
-    name: "main_navigation",
-    datas: molecules["tab-menu"].tab_menus,
-    linkDatas: atoms.link.links
+{{ renderCaption({ 
+    name: "hobbies_maintenance",
+    datas: molecules.caption.captions,
+    iconDatas: atoms.icon.icons,
+    tooltipDatas: atoms.tooltip.tooltips
 }) }}
-
