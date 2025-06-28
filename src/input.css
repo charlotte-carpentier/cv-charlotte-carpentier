@@ -911,8 +911,56 @@ textarea.input-base {
   }
 }
 
-/* === AUTRES MOLECULES (à développer) === */
-.list-form {}
+/* === LIST-FORM === */
+.list-form-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.list-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.list-form-checkbox {
+  width: 100%;
+}
+
+.list-form-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+/* Override input width in list-form context */
+.list-form .input-base {
+  width: 100%;
+  max-width: none;
+}
+
+/* Override radio group width in list-form context */
+.list-form .radio-group {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 0;
+}
+
+/* Override input group margin in list-form context */
+.list-form .input-group {
+  margin-bottom: 0;
+}
+
+/* List-form - Responsive */
+@media (max-width: 768px) {
+  .list-form {
+    max-width: 300px;
+  }
+}
 
 /* -------------------------------------------------- */
 /* 03 – ORGANISMS                                     */

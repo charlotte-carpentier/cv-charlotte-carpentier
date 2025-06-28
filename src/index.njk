@@ -6,10 +6,11 @@ layout: '00-core/base.njk'
 <h1>Charlotte Carpentier - Personal Site</h1>
 <p>Welcome! This is the starting point of your portfolio and CV website.</p>
 
-{% from "02-molecules/progress-bar.njk" import renderProgressBar %}
+{% from "02-molecules/list-form.njk" import renderListForm %}
 
-{{ renderProgressBar({ 
-    name: "learning_loop",
-    datas: molecules["progress-bar"]["progress-bars"],
-    typographyDatas: atoms.typography.texts
+{{ renderListForm({ 
+    name: "contact_form",
+    datas: molecules["list-form"]["list-forms"],
+    checkboxDatas: atoms.checkbox.checkboxes,
+    inputDatas: atoms.input.inputs
 }) }}
