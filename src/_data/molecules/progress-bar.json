@@ -1,0 +1,10 @@
+{
+  "progress-bars": [
+    {
+      "name": "learning_loop",
+      "labelName": "knowledge_progressbar_title",
+      "descriptionName": "knowledge_progressbar_paragraph",
+      "value": 40
+    }
+  ]
+}
