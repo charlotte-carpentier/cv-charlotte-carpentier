@@ -962,6 +962,153 @@ textarea.input-base {
   }
 }
 
+/* === CONTENT-BLOCK === */
+.content-block {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Chronology variant */
+.content-block--chronology .content-block-chronology {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.content-block-date {
+  text-align: left;
+  color: theme(--cc-green-dark);
+  line-height: 1.4;
+}
+
+.content-block-date h1,
+.content-block-date h2,
+.content-block-date p {
+  line-height: 1.2;
+}
+
+.content-block-content .content-block-title {
+  line-height: 1;
+}
+
+.content-block-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Text variant */
+.content-block--text .content-block-text-only {
+  text-align: left;
+  line-height: 1.2;
+}
+
+.content-block--text .content-block-text-only h1,
+.content-block--text .content-block-text-only h2,
+.content-block--text .content-block-text-only p {
+  line-height: 1.1;
+}
+
+/* Text colors */
+.content-block-text-color--black,
+.content-block-text-color--black h1,
+.content-block-text-color--black h2,
+.content-block-text-color--black p {
+  color: theme(--cc-black);
+}
+
+.content-block-text-color--green-dark,
+.content-block-text-color--green-dark h1,
+.content-block-text-color--green-dark h2,
+.content-block-text-color--green-dark p {
+  color: theme(--cc-green-dark);
+}
+
+/* Preview variant */
+.content-block--preview .content-block-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+/* Gap only between image and button */
+.content-block--preview .content-block-image {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content-block--preview .content-block-button {
+  position: absolute;
+  bottom: -15px;
+  right: 0;
+  z-index: 10;
+}
+
+.content-block-title {
+  text-align: left;
+  width: 100%;
+}
+
+/* Preview variant - centered title */
+.content-block--preview .content-block-title {
+  text-align: center;
+}
+
+.content-block-text {
+  margin: 0;
+  padding: 0;
+}
+
+/* Override typography margins in content-block context */
+.content-block .content-block-title h1,
+.content-block .content-block-title h2,
+.content-block .content-block-title p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.content-block .content-block-text h1,
+.content-block .content-block-text h2,
+.content-block .content-block-text p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* More specific selectors for stubborn elements */
+.content-block-chronology .content-block-title h1,
+.content-block-chronology .content-block-title h2,
+.content-block-chronology .content-block-title p,
+.content-block-chronology .content-block-text h1,
+.content-block-chronology .content-block-text h2,
+.content-block-chronology .content-block-text p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.content-block-button {
+  display: flex;
+  justify-content: center;
+}
+
+/* Content-block - Responsive */
+@media (max-width: 768px) {
+  .content-block {
+    max-width: 300px;
+  }
+}
+
 /* -------------------------------------------------- */
 /* 03 – ORGANISMS                                     */
 /* -------------------------------------------------- */
