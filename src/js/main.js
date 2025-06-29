@@ -11,4 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTooltips();
     console.log('Caption tooltips initialized');
   }
+  
+  // Header will be initialized by its own script
+  console.log('Header organism script loaded separately');
 });

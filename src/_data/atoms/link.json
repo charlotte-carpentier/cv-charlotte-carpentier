@@ -2,7 +2,7 @@
   "links": [
     {
       "name": "nav_contact",
-      "href": "#portfolio",
+      "href": "#contact",
       "text": "Contact",
       "variant": "nav"
     },
