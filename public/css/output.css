@@ -313,14 +313,8 @@
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
-  .mr-2 {
-    margin-right: calc(var(--spacing) * 2);
-  }
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
-  }
-  .mb-1\.5 {
-    margin-bottom: calc(var(--spacing) * 1.5);
   }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
@@ -511,9 +505,6 @@
   .justify-center {
     justify-content: center;
   }
-  .gap-1 {
-    gap: calc(var(--spacing) * 1);
-  }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
@@ -528,13 +519,6 @@
       --tw-space-y-reverse: 0;
       margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
       margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
-    }
-  }
-  .space-y-1\.5 {
-    :where(& > :not(:last-child)) {
-      --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 1.5) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
   .space-y-2 {
@@ -583,18 +567,11 @@
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
   }
-  .border-b {
-    border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 1px;
-  }
   .border-\[\#3a4957\] {
     border-color: #3a4957;
   }
   .border-red-500 {
     border-color: var(--color-red-500);
-  }
-  .border-white {
-    border-color: var(--color-white);
   }
   .bg-\[\#2b3947\] {
     background-color: #2b3947;
@@ -677,23 +654,14 @@
   .pt-24 {
     padding-top: calc(var(--spacing) * 24);
   }
-  .pr-2 {
-    padding-right: calc(var(--spacing) * 2);
-  }
   .pb-0 {
     padding-bottom: calc(var(--spacing) * 0);
-  }
-  .pb-4 {
-    padding-bottom: calc(var(--spacing) * 4);
   }
   .pb-8 {
     padding-bottom: calc(var(--spacing) * 8);
   }
   .pb-12 {
     padding-bottom: calc(var(--spacing) * 12);
-  }
-  .pl-2 {
-    padding-left: calc(var(--spacing) * 2);
   }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);
@@ -706,9 +674,6 @@
   }
   .text-justify {
     text-align: justify;
-  }
-  .font-\[\'Vibur\'\] {
-    font-family: 'Vibur';
   }
   .text-3xl {
     font-size: var(--text-3xl);
@@ -840,11 +805,6 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .transition-all {
-    transition-property: all;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
   .transition-colors {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -951,11 +911,6 @@
       margin-top: calc(var(--spacing) * 4);
     }
   }
-  .md\:mb-0 {
-    @media (width >= 48rem) {
-      margin-bottom: calc(var(--spacing) * 0);
-    }
-  }
   .md\:flex {
     @media (width >= 48rem) {
       display: flex;
@@ -991,29 +946,9 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
-  .md\:grid-cols-3 {
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
   .md\:flex-row {
     @media (width >= 48rem) {
       flex-direction: row;
-    }
-  }
-  .md\:items-center {
-    @media (width >= 48rem) {
-      align-items: center;
-    }
-  }
-  .md\:items-start {
-    @media (width >= 48rem) {
-      align-items: flex-start;
-    }
-  }
-  .md\:justify-between {
-    @media (width >= 48rem) {
-      justify-content: space-between;
     }
   }
   .md\:justify-start {
@@ -1034,32 +969,6 @@
   .md\:gap-20 {
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 20);
-    }
-  }
-  .md\:space-y-0 {
-    @media (width >= 48rem) {
-      :where(& > :not(:last-child)) {
-        --tw-space-y-reverse: 0;
-        margin-block-start: calc(calc(var(--spacing) * 0) * var(--tw-space-y-reverse));
-        margin-block-end: calc(calc(var(--spacing) * 0) * calc(1 - var(--tw-space-y-reverse)));
-      }
-    }
-  }
-  .md\:border-r {
-    @media (width >= 48rem) {
-      border-right-style: var(--tw-border-style);
-      border-right-width: 1px;
-    }
-  }
-  .md\:border-b-0 {
-    @media (width >= 48rem) {
-      border-bottom-style: var(--tw-border-style);
-      border-bottom-width: 0px;
-    }
-  }
-  .md\:border-white {
-    @media (width >= 48rem) {
-      border-color: var(--color-white);
     }
   }
   .md\:p-3 {
@@ -1112,34 +1021,9 @@
       padding-top: calc(var(--spacing) * 20);
     }
   }
-  .md\:pr-4 {
-    @media (width >= 48rem) {
-      padding-right: calc(var(--spacing) * 4);
-    }
-  }
-  .md\:pr-10 {
-    @media (width >= 48rem) {
-      padding-right: calc(var(--spacing) * 10);
-    }
-  }
-  .md\:pb-0 {
-    @media (width >= 48rem) {
-      padding-bottom: calc(var(--spacing) * 0);
-    }
-  }
   .md\:pb-12 {
     @media (width >= 48rem) {
       padding-bottom: calc(var(--spacing) * 12);
-    }
-  }
-  .md\:pl-4 {
-    @media (width >= 48rem) {
-      padding-left: calc(var(--spacing) * 4);
-    }
-  }
-  .md\:text-left {
-    @media (width >= 48rem) {
-      text-align: left;
     }
   }
   .lg\:mb-0 {
@@ -1518,6 +1402,7 @@
 .link--tab {
   font-family: 'Manjari', sans-serif;
   font-size: 18px;
+  font-weight: bold;
   color: #000000;
   text-decoration: none;
   padding-bottom: 0.25rem;
@@ -2333,6 +2218,43 @@ textarea.input-base {
   }
   .header .header-mobile-overlay {
     top: 72px;
+  }
+}
+.footer {
+  width: 100%;
+}
+.footer--minimal .footer__content {
+  border: 4px solid #000000;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer--minimal .footer__text {
+  white-space: nowrap;
+  text-align: center;
+}
+.footer--minimal .footer__text p {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  white-space: nowrap;
+}
+.footer--minimal .footer__text a {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  white-space: nowrap;
+}
+@media (max-width: 1024px) {
+  .footer--minimal .footer__content {
+    border-width: 3px;
+  }
+}
+@media (max-width: 480px) {
+  .footer--minimal .footer__content {
+    border-width: 3px;
+    padding: 0.5rem;
   }
 }
 @property --tw-translate-x {

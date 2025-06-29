@@ -542,7 +542,7 @@
     },
     {
       "name": "footer_title",
-      "text": "© 2025 - Mentions légales",
+      "text": "© 2025 - ",
       "tag": "p",
       "variant": "code"
     }
