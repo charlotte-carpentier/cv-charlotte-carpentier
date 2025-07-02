@@ -16,16 +16,12 @@
     {# <meta name="google-site-verification" content="..." /> #}
 
     {# ----- Favicons ----- #}
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ favicon.png16 | default('/assets/images/ui/favicon/favicon-16x16.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ favicon.png32 | default('/assets/images/ui/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ favicon.png16 | default('/assets/ui/favicon/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ favicon.png32 | default('/assets/ui/favicon/favicon-32x32.png') }}">
+    <link rel="shortcut icon" href="{{ favicon.ico | default('/assets/ui/favicon/favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ favicon.appleTouch | default('/assets/ui/favicon/apple-touch-icon.png') }}">
     {% if favicon.svg %}
       <link rel="icon" href="{{ favicon.svg }}" type="image/svg+xml">
-    {% endif %}
-    {% if favicon.ico %}
-      <link rel="shortcut icon" href="{{ favicon.ico }}">
-    {% endif %}
-    {% if favicon.appleTouch %}
-      <link rel="apple-touch-icon" href="{{ favicon.appleTouch }}">
     {% endif %}
 
     {# ----- Social Metadata (Open Graph) ----- #}
@@ -48,6 +44,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Manjari&display=swap" rel="stylesheet" />
 
     {# ----- Image preload (optional) ----- #}
+    {# TODO: Add specific images to preload for Charlotte's site #}
+    <link rel="preload" as="image" href="/assets/images/TODO">
     <link rel="preload" as="image" href="/assets/images/TODO">
 
     {# ----- Stylesheets ----- #}
