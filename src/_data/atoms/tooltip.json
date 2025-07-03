@@ -84,6 +84,11 @@
         "name": "hobbies_fencing",
         "title": "ESCRIME", 
         "description": "Maîtrise l'art du duel avec agilité et stratégie."
+      },
+      {
+        "name": "avatar_desktop",
+        "description_part1": "Classe : Artisane du web engagée Spécialité : action & sécurité Alignement : éco-numérique et accessibilité", 
+        "description_part2": "Illustration © Diane Yoon"
       }
     ]
   }
