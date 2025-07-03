@@ -2,6 +2,13 @@
 
 @source "./src/**/*.njk";
 
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* -------------------------------------------------- */
 /* 00 – DESIGN SYSTEM                                 */
 /* -------------------------------------------------- */
@@ -473,7 +480,8 @@ textarea.input-base {
 }
 
 .tooltip-box {
-  width: 319px;
+  width: auto;
+  max-width: 319px;
   background-color: theme(--cc-white);
   border: 4px solid theme(--cc-black);
   padding: 1rem;
@@ -517,7 +525,11 @@ textarea.input-base {
   color: theme(--cc-black);
   text-align: center;
   line-height: 1.4;
-  margin: 0;
+  white-space: pre-line;
+}
+
+.tooltip-divider + .tooltip-description {
+  margin-top: -0.5rem;
 }
 
 /* === IMAGES === */
@@ -1322,6 +1334,7 @@ textarea.input-base {
 
 .footer {
   width: 100%;
+  background-color: theme(--cc-white);
 }
 
 /* Minimal variant */
@@ -1367,9 +1380,257 @@ textarea.input-base {
   }
 }
 
+/* =========================
+  AVATAR-CARD ORGANISM
+  ========================= */
+
+.avatar-card {
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+/* All versions hidden by default */
+.avatar-card-desktop,
+.avatar-card-tablet-landscape,
+.avatar-card-tablet-portrait,
+.avatar-card-mobile {
+ display: none;
+}
+
+/* Desktop version */
+.avatar-card-desktop {
+ align-items: center;
+ justify-content: center;
+}
+
+/* Tablet Landscape version */
+.avatar-card-tablet-landscape {
+ align-items: center;
+ justify-content: center;
+}
+
+/* Tablet Portrait version */
+.avatar-card-tablet-portrait {
+ flex-direction: column;
+ align-items: center;
+ gap: 1rem;
+}
+
+.avatar-card-tablet-portrait .avatar-card-title {
+ text-align: center;
+ width: 312px;
+}
+
+/* Mobile version */
+.avatar-card-mobile {
+ flex-direction: column;
+ align-items: center;
+ gap: 1rem;
+}
+
+.avatar-card-mobile .avatar-card-title-mobile {
+ text-align: center;
+ width: 245px;
+}
+
+.avatar-card-buttons {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ width: 200px;
+}
+
+/* Avatar-card - Responsive */
+@media (min-width: 1025px) {
+ .avatar-card-desktop {
+   display: flex;
+ }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+ .avatar-card-tablet-landscape {
+   display: flex;
+ }
+}
+
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+  .avatar-card-tablet-portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+  }
+  
+  .avatar-card-tablet-portrait .avatar-card-title {
+    text-align: center;
+    width: 245px;
+    margin-bottom: -1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar-card-mobile {
+    display: flex;
+    padding-top: 2rem;
+    position: relative;
+  }
+  
+  .avatar-card-mobile .avatar-card-title-mobile {
+    margin-bottom: -1rem;
+  }
+  
+  .avatar-card-buttons .button {
+    width: auto;
+    min-width: auto;
+    padding: 0.2rem 0.4rem 0rem 0.4rem;
+  }
+  
+  .avatar-card-mobile .avatar-card-button {
+    position: absolute;
+  }
+
+  .avatar-card-mobile .avatar-card-button:nth-child(1) {
+    top: 55%;
+    left: 25px;
+    transform: translateY(-50%);
+  }
+
+  .avatar-card-mobile .avatar-card-button:nth-child(2) {
+    top: 42%;
+    right: 0px;
+  }
+
+  .avatar-card-mobile .avatar-card-button:nth-child(3) {
+    top: 58%;
+    right: 0px;
+    transform: translateY(-50%);
+  }
+
+  .avatar-card-mobile .avatar-card-button:nth-child(4) {
+    bottom: 26%;
+    right: 0px;
+  }
+}
+
+/* Avatar tooltip for desktop */
+.avatar-tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  z-index: 50;
+}
+
+/* Active zone for tooltip - only the black frame area */
+.avatar-tooltip-container::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 85px;
+  width: 180px;
+  height: 650px;
+  z-index: 1;
+}
+
+/* Tooltip popup */
+.avatar-tooltip-container .tooltip-popup {
+  position: fixed;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+/* Avatar tooltip accessibility */
+.avatar-tooltip-container:focus-within {
+  outline: 2px solid theme(--cc-green-light);
+  outline-offset: 2px;
+}
+
+/* Responsive - hide tooltip on mobile/tablet */
+@media (max-width: 768px) {
+  .avatar-tooltip-container .tooltip-popup {
+    display: none;
+  }
+}
+
 .section-contact {}
 .section-portfolio {}
 .section-timeline {}
 .tab-section {}
-.avatar-card {}
 .skills-card {}
+
+/* -------------------------------------------------- */
+/* 04 – BACKGROUNDS                                   */
+/* -------------------------------------------------- */
+
+/* === BACKGROUND ICONS === */
+.background-icons {
+  background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* Tablet Landscape */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .background-icons {
+    background-image: url('/assets/images/backgrounds/bg-icons-tablet-land.svg');
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+  .background-icons {
+    background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .background-icons {
+    background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
+    background-attachment: scroll;
+  }
+}
+
+/* Alternative pour cibler spécifiquement les éléments */
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Si tu veux appliquer le background uniquement au body */
+body.charlotte-bg {
+  background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  body.charlotte-bg {
+    background-image: url('/assets/images/backgrounds/bg-icons-tablet-land.svg');
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+  body.charlotte-bg {
+    background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
+  }
+}
+
+@media (max-width: 480px) {
+  body.charlotte-bg {
+    background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
+    background-attachment: scroll;
+  }
+}

@@ -3,15 +3,13 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-<h1>Charlotte Carpentier - Personal Site</h1>
-<p>Welcome! This is the starting point of your portfolio and CV website.</p>
+{% from "01-organisms/avatar-card.njk" import renderAvatarCard %}
 
-{% from "02-molecules/content-block.njk" import renderContentBlock %}
-
-{{ renderContentBlock({ 
-    name: "journey_ehpad",
-    datas: molecules["content-block"]["content-blocks"],
-    typographyDatas: atoms.typography.texts,
-    imageDatas: atoms.image.images,
-    buttonDatas: atoms.button.buttons
+{{ renderAvatarCard({ 
+    name: "charlotte_main",
+    datas: organisms["avatar-card"]["avatar-cards"],
+    image_datas: atoms.image.images,
+    typography_datas: atoms.typography.texts,
+    button_datas: atoms.button.buttons,
+    tooltip_datas: atoms.tooltip.tooltips
 }) }}
