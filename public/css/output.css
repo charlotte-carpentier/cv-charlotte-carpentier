@@ -188,6 +188,9 @@
   .pointer-events-none {
     pointer-events: none;
   }
+  .invisible {
+    visibility: hidden;
+  }
   .visible {
     visibility: visible;
   }
@@ -984,6 +987,11 @@
     }
   }
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .text-h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 40px;
@@ -1340,7 +1348,8 @@ textarea.input-base {
   visibility: visible;
 }
 .tooltip-box {
-  width: 319px;
+  width: auto;
+  max-width: 319px;
   background-color: #ffffff;
   border: 4px solid #000000;
   padding: 1rem;
@@ -1379,7 +1388,10 @@ textarea.input-base {
   color: #000000;
   text-align: center;
   line-height: 1.4;
-  margin: 0;
+  white-space: pre-line;
+}
+.tooltip-divider + .tooltip-description {
+  margin-top: -0.5rem;
 }
 .image-avatar-desktop {
   width: 351px;
@@ -2058,6 +2070,14 @@ textarea.input-base {
 @media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
   .avatar-card-tablet-portrait {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+  }
+  .avatar-card-tablet-portrait .avatar-card-title {
+    text-align: center;
+    width: 245px;
+    margin-bottom: -1rem;
   }
 }
 @media (max-width: 480px) {
@@ -2094,6 +2114,40 @@ textarea.input-base {
   .avatar-card-mobile .avatar-card-button:nth-child(4) {
     bottom: 26%;
     right: 0px;
+  }
+}
+.avatar-tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  z-index: 50;
+}
+.avatar-tooltip-container::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 85px;
+  width: 180px;
+  height: 650px;
+  z-index: 1;
+}
+.avatar-tooltip-container .tooltip-popup {
+  position: fixed;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+.avatar-tooltip-container:focus-within {
+  outline: 2px solid #c4ffcb;
+  outline-offset: 2px;
+}
+@media (max-width: 768px) {
+  .avatar-tooltip-container .tooltip-popup {
+    display: none;
   }
 }
 .background-icons {

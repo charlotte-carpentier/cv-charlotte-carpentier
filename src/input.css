@@ -2,6 +2,13 @@
 
 @source "./src/**/*.njk";
 
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* -------------------------------------------------- */
 /* 00 – DESIGN SYSTEM                                 */
 /* -------------------------------------------------- */
@@ -473,7 +480,8 @@ textarea.input-base {
 }
 
 .tooltip-box {
-  width: 319px;
+  width: auto;
+  max-width: 319px;
   background-color: theme(--cc-white);
   border: 4px solid theme(--cc-black);
   padding: 1rem;
@@ -517,7 +525,11 @@ textarea.input-base {
   color: theme(--cc-black);
   text-align: center;
   line-height: 1.4;
-  margin: 0;
+  white-space: pre-line;
+}
+
+.tooltip-divider + .tooltip-description {
+  margin-top: -0.5rem;
 }
 
 /* === IMAGES === */
@@ -1443,9 +1455,18 @@ textarea.input-base {
 }
 
 @media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
- .avatar-card-tablet-portrait {
-   display: flex;
- }
+  .avatar-card-tablet-portrait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+  }
+  
+  .avatar-card-tablet-portrait .avatar-card-title {
+    text-align: center;
+    width: 245px;
+    margin-bottom: -1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1489,6 +1510,50 @@ textarea.input-base {
   .avatar-card-mobile .avatar-card-button:nth-child(4) {
     bottom: 26%;
     right: 0px;
+  }
+}
+
+/* Avatar tooltip for desktop */
+.avatar-tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  z-index: 50;
+}
+
+/* Active zone for tooltip - only the black frame area */
+.avatar-tooltip-container::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 85px;
+  width: 180px;
+  height: 650px;
+  z-index: 1;
+}
+
+/* Tooltip popup */
+.avatar-tooltip-container .tooltip-popup {
+  position: fixed;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+/* Avatar tooltip accessibility */
+.avatar-tooltip-container:focus-within {
+  outline: 2px solid theme(--cc-green-light);
+  outline-offset: 2px;
+}
+
+/* Responsive - hide tooltip on mobile/tablet */
+@media (max-width: 768px) {
+  .avatar-tooltip-container .tooltip-popup {
+    display: none;
   }
 }
 

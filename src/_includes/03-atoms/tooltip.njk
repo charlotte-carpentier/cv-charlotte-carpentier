@@ -28,19 +28,30 @@
     {% else %}
       {# Tooltip - always visible for atom display #}
       <div class="tooltip-box">
-        {# Title #}
-        <div class="tooltip-title">{{ tooltipData.title }}</div>
-        
-        {# Decorative bar with diamond #}
-        <div class="tooltip-divider">
-          <div class="tooltip-line"></div>
-          <div class="tooltip-diamond"></div>
-          <div class="tooltip-line"></div>
-        </div>
-        
-        {# Description #}
-        <div class="tooltip-description">{{ tooltipData.description }}</div>
+      {# Title #}
+      <div class="tooltip-title">{{ tooltipData.title }}</div>
+      
+      {# Description part 1 (above bar) #}
+      {% if tooltipData.description_part1 %}
+        <div class="tooltip-description">{{ tooltipData.description_part1 }}</div>
+      {% endif %}
+      
+      {# Decorative bar with diamond #}
+      <div class="tooltip-divider">
+        <div class="tooltip-line"></div>
+        <div class="tooltip-diamond"></div>
+        <div class="tooltip-line"></div>
       </div>
+      
+      {# Description part 2 (below bar) or regular description #}
+      <div class="tooltip-description">
+        {% if tooltipData.description_part2 %}
+          {{ tooltipData.description_part2 }}
+        {% else %}
+          {{ tooltipData.description }}
+        {% endif %}
+      </div>
+    </div>
     {% endif %}
   {% endif %}
 {% endmacro %}

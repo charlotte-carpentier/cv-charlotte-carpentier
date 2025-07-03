@@ -1,7 +1,7 @@
 {# 
 =========================
     AVATAR-CARD ORGANISM
-    v1.0 - Charlotte       
+    v1.1 - Charlotte + Tooltip       
 =========================
 #}
 
@@ -9,6 +9,7 @@
 {% from "03-atoms/image.njk" import renderImage %}
 {% from "03-atoms/button.njk" import renderButton %}
 {% from "03-atoms/typography.njk" import renderTypography %}
+{% from "03-atoms/tooltip.njk" import renderTooltip %}
 
 {% macro renderAvatarCard(option) %}
   {# Check if datas is provided #}
@@ -34,12 +35,22 @@
       {# Avatar Card Container #}
       <div class="avatar-card" data-avatar="{{ avatar_card_data.name }}">
         
-        {# Desktop version: Avatar grand uniquement #}
+        {# Desktop version: Avatar avec tooltip au hover #}
         <div class="avatar-card-desktop">
-          {{ renderImage({ 
-            name: avatar_card_data.avatar_desktop,
-            datas: option.image_datas
-          }) }}
+          <div class="caption-container avatar-tooltip-container" data-tooltip="avatar_desktop" tabindex="0">
+            {{ renderImage({ 
+              name: avatar_card_data.avatar_desktop,
+              datas: option.image_datas
+            }) }}
+            
+            {# Tooltip popup #}
+            <div class="tooltip-popup" id="tooltip-avatar-desktop">
+              {{ renderTooltip({ 
+                name: "avatar_desktop",
+                datas: option.tooltip_datas
+              }) }}
+            </div>
+          </div>
         </div>
 
         {# Tablet Landscape version: Avatar moyen #}
@@ -118,7 +129,8 @@ Summon HAT Components Wisely
     datas: organisms["avatar-card"]["avatar-cards"],
     image_datas: atoms.image.images,
     typography_datas: atoms.typography.texts,
-    button_datas: atoms.button.buttons
+    button_datas: atoms.button.buttons,
+    tooltip_datas: atoms.tooltip.tooltips
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
