@@ -1599,15 +1599,35 @@ textarea.input-base {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem; /* Gap M selon ton système */
+  gap: 1.5rem;
   padding: 1rem;
+  position: relative; /* AJOUTER cette ligne */
+}
+
+.skills-card-content::before,
+.skills-card-content::after {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #000000, #ffffff);
+}
+
+.skills-card-content::before {
+  left: calc(50% - 98px - 4px);
+}
+
+.skills-card-content::after {
+  right: calc(50% - 98px - 4px);
 }
 
 /* Card titles */
 .skills-card-title {
   text-align: center;
   width: 100%;
-  margin-bottom: 0.5rem; /* Gap S selon ton système */
+  margin-bottom: 0.5rem;
+  position: relative;
 }
 
 .skills-card-title h2 {
@@ -1616,35 +1636,54 @@ textarea.input-base {
   line-height: 1.2;
 }
 
+.skills-card-title::before,
+.skills-card-title::after {
+  content: '';
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%);
+  height: 4px;
+  width: 30px;
+  background-color: #000000;
+}
+
+.skills-card-title::before {
+  left: 32px;
+}
+
+.skills-card-title::after {
+  right: 32px;
+}
+
 /* Grid layouts for different card types */
 .skills-card-grid {
   display: grid;
-  gap: 1rem; /* Gap S selon ton système */
+  gap: 0.3rem;
   justify-items: center;
+  align-items: start;
   width: 100%;
 }
 
-/* Interests card: 2x3 grid (2 colonnes × 3 lignes) */
-.skills-card--interests .skills-card-grid--2x3 {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+/* All skills-card grids - common properties */
+.skills-card-grid {
+  display: grid;
+  gap: 0.3rem;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  grid-template-columns: repeat(2, auto); /* Common to all */
+  justify-content: center; /* Common to all */
 }
 
-/* Soft skills card: 2x2 grid (2 colonnes × 2 lignes, 3 items) */
-.skills-card--soft_skills .skills-card-grid--2x2 {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-}
-
-/* Hard skills card: 2x2 grid (2 colonnes × 2 lignes, 3 items) */
+/* 2x2 grids (soft skills & hard skills) */
+.skills-card--soft_skills .skills-card-grid--2x2,
 .skills-card--hard_skills .skills-card-grid--2x2 {
-  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
 }
 
-/* Languages card: 2x3 grid (2 colonnes × 3 lignes) */
+/* 2x3 grids (interests & languages) */
+.skills-card--interests .skills-card-grid--2x3,
 .skills-card--languages .skills-card-grid--2x3 {
-  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
 
@@ -1652,14 +1691,13 @@ textarea.input-base {
 .skills-card-item {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   width: 100%;
 }
 
 /* Override caption container in skills-card context */
 .skills-card .caption-container {
-  width: 100%;
-  max-width: 98px; /* Match caption title max-width */
+  width: 98px;
 }
 
 /* Ensure captions are properly sized */
