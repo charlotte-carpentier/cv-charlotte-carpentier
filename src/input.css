@@ -1578,7 +1578,7 @@ textarea.input-base {
 
 /* =========================
    SKILLS-CARD ORGANISM
-   v1.1 - Desktop + Tablet Landscape + Mystery Chest
+   v1.3 - Responsive complet (Desktop + Tablet + Mobile)
    ========================= */
 
 .skills-card {
@@ -1588,11 +1588,14 @@ textarea.input-base {
   width: auto;
   min-width: 200px;
   position: relative;
+  z-index: 50;
 }
 
 /* All versions hidden by default */
 .skills-card-desktop,
-.skills-card-tablet-landscape {
+.skills-card-tablet-landscape,
+.skills-card-tablet-portrait,
+.skills-card-mobile {
   display: none;
 }
 
@@ -1608,6 +1611,18 @@ textarea.input-base {
   max-width: 240px;
 }
 
+/* Tablet Portrait Layout */
+.skills-card-tablet-portrait {
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Mobile Layout */
+.skills-card-mobile {
+  width: 100%;
+  max-width: 260px;
+}
+
 .skills-card-content {
   display: flex;
   flex-direction: column;
@@ -1615,12 +1630,6 @@ textarea.input-base {
   gap: 1.5rem;
   padding: 1rem;
   position: relative;
-}
-
-/* Tablet landscape - ajustements */
-.skills-card-tablet-landscape .skills-card-content {
-  gap: 1.2rem;
-  padding: 0.8rem;
 }
 
 .skills-card-content::before,
@@ -1641,31 +1650,12 @@ textarea.input-base {
   right: calc(50% - 98px - 4px);
 }
 
-/* Tablet landscape - bordures ajustées */
-.skills-card-tablet-landscape .skills-card-content::before,
-.skills-card-tablet-landscape .skills-card-content::after {
-  top: 1.5rem;
-  width: 3px;
-}
-
-.skills-card-tablet-landscape .skills-card-content::before {
-  left: calc(50% - 78px - 3px);
-}
-
-.skills-card-tablet-landscape .skills-card-content::after {
-  right: calc(50% - 78px - 3px);
-}
-
 /* Card titles */
 .skills-card-title {
   text-align: center;
   width: 100%;
   margin-bottom: 0.5rem;
   position: relative;
-}
-
-.skills-card-tablet-landscape .skills-card-title {
-  margin-bottom: 0.4rem;
 }
 
 .skills-card-title h2 {
@@ -1693,21 +1683,6 @@ textarea.input-base {
   right: 32px;
 }
 
-/* Tablet landscape - traits ajustés */
-.skills-card-tablet-landscape .skills-card-title::before,
-.skills-card-tablet-landscape .skills-card-title::after {
-  height: 3px;
-  width: 24px;
-}
-
-.skills-card-tablet-landscape .skills-card-title::before {
-  left: 24px;
-}
-
-.skills-card-tablet-landscape .skills-card-title::after {
-  right: 24px;
-}
-
 /* Grid layouts for different card types */
 .skills-card-grid {
   display: grid;
@@ -1717,11 +1692,6 @@ textarea.input-base {
   width: 100%;
   grid-template-columns: repeat(2, auto);
   justify-content: center;
-}
-
-/* Tablet landscape - gaps réduits */
-.skills-card-tablet-landscape .skills-card-grid {
-  gap: 0.25rem;
 }
 
 /* 2x2 grids (soft skills & hard skills) */
@@ -1734,6 +1704,18 @@ textarea.input-base {
 .skills-card--interests .skills-card-grid--2x3,
 .skills-card--languages .skills-card-grid--2x3 {
   grid-template-rows: repeat(3, 1fr);
+}
+
+/* 3x1 grids (soft skills & hard skills tablette) */
+.skills-card-grid--3x1 {
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: 1fr;
+}
+
+/* 3x2 grids (interests tablette) */
+.skills-card-grid--3x2 {
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 /* Skills-card items */
@@ -1749,11 +1731,6 @@ textarea.input-base {
   width: 98px;
 }
 
-/* Tablet landscape - captions plus petites */
-.skills-card-tablet-landscape .caption-container {
-  width: 78px;
-}
-
 /* Ensure captions are properly sized */
 .skills-card .caption-desktop {
   width: 100%;
@@ -1765,16 +1742,110 @@ textarea.input-base {
 .skills-card--hard_skills {}
 .skills-card--languages {}
 
-/* Skills-card - Responsive */
+/* Skills-card - Responsive comme avatar-card */
 @media (min-width: 1025px) {
   .skills-card-desktop {
     display: block;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+@media (min-width: 769px) and (max-width: 1024px) {
+  .skills-card-desktop {
+    display: none;
+  }
+  
   .skills-card-tablet-landscape {
     display: block;
+  }
+  
+  /* Tablet adjustments */
+  .skills-card-tablet-landscape .skills-card-content {
+    gap: 1.2rem;
+    padding: 0.8rem;
+  }
+  
+  /* Traits et bordures 3px */
+  .skills-card-tablet-landscape .skills-card-content::before,
+  .skills-card-tablet-landscape .skills-card-content::after {
+    width: 3px;
+    top: 1.5rem;
+    left: calc(50% - 78px - 3px);
+  }
+  
+  .skills-card-tablet-landscape .skills-card-content::after {
+    right: calc(50% - 78px - 3px);
+    left: auto;
+  }
+  
+  .skills-card-tablet-landscape .skills-card-title {
+    margin-bottom: 0.4rem;
+  }
+  
+  .skills-card-tablet-landscape .skills-card-title::before,
+  .skills-card-tablet-landscape .skills-card-title::after {
+    height: 3px;
+    width: 24px;
+  }
+  
+  .skills-card-tablet-landscape .skills-card-title::before {
+    left: 24px;
+  }
+  
+  .skills-card-tablet-landscape .skills-card-title::after {
+    right: 24px;
+  }
+  
+  /* Tablette captions plus petites */
+  .skills-card-tablet-landscape .caption-container {
+    width: 78px;
+  }
+  
+  /* Override grilles desktop en tablette - FORCE 3 colonnes */
+  .skills-card-tablet-landscape .skills-card-grid--2x2,
+  .skills-card-tablet-landscape .skills-card-grid {
+    grid-template-columns: repeat(3, auto) !important;
+    grid-template-rows: 1fr !important;
+    gap: 0.25rem;
+  }
+  
+  .skills-card-tablet-landscape .skills-card-grid--2x3 {
+    grid-template-columns: repeat(3, auto) !important;
+    grid-template-rows: repeat(2, 1fr) !important;
+    gap: 0.25rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .skills-card-tablet-portrait {
+    display: block;
+  }
+  
+  /* Ajustements spécifiques pour tablet portrait */
+  .skills-card-tablet-portrait .skills-card-content {
+    gap: 1rem;
+    padding: 0.75rem;
+  }
+  
+  /* Caption container pour tablet portrait */
+  .skills-card-tablet-portrait .caption-container {
+    width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-card-mobile {
+    display: block;
+  }
+  
+  /* Ajustements spécifiques pour mobile */
+  .skills-card-mobile .skills-card-content {
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+  
+  /* Caption container pour mobile */
+  .skills-card-mobile .caption-container {
+    width: 60px;
   }
 }
 
