@@ -80,6 +80,49 @@
             </div>
           </div>
         </div>
+
+        {# Tablet Landscape version: Compact card #}
+        <div class="skills-card-tablet-landscape">
+          <div class="skills-card-content">
+            
+            {# Card title #}
+            <div class="skills-card-title">
+              {{ renderTypography({ 
+                name: skillsCardData.title,
+                datas: option.typography_datas
+              }) }}
+            </div>
+            
+            {# Card captions grid #}
+            <div class="skills-card-grid skills-card-grid--{{ skillsCardData.grid_layout }}">
+              
+              {# Render existing captions #}
+              {% for captionName in skillsCardData.captions %}
+                <div class="skills-card-item">
+                  {{ renderCaption({ 
+                    name: captionName,
+                    datas: option.caption_datas,
+                    iconDatas: option.icon_datas,
+                    tooltipDatas: option.tooltip_datas
+                  }) }}
+                </div>
+              {% endfor %}
+              
+              {# Add mystery chests for empty slots #}
+              {% for i in range(missingSlots) %}
+                <div class="skills-card-item">
+                  {{ renderCaption({ 
+                    name: "skills_treasure",
+                    datas: option.caption_datas,
+                    iconDatas: option.icon_datas,
+                    tooltipDatas: option.tooltip_datas
+                  }) }}
+                </div>
+              {% endfor %}
+              
+            </div>
+          </div>
+        </div>
       </div>
     {% endif %}
   {% endif %}
@@ -95,7 +138,7 @@ Summon HAT Components Wisely
 
 2. Call each skills-card individually (mystery chests will auto-populate)
 {{ renderSkillsCard({ 
-    name: "interests_card",
+    name: "interests_card",        // 6 items → 0 coffre
     datas: organisms["skills-card"]["skills-cards"],
     typography_datas: atoms.typography.texts,
     caption_datas: molecules.caption.captions,
@@ -104,7 +147,7 @@ Summon HAT Components Wisely
 }) }}
 
 {{ renderSkillsCard({ 
-    name: "soft_skills_card",
+    name: "soft_skills_card",     // 3 items → 1 coffre  
     datas: organisms["skills-card"]["skills-cards"],
     typography_datas: atoms.typography.texts,
     caption_datas: molecules.caption.captions,
@@ -113,7 +156,7 @@ Summon HAT Components Wisely
 }) }}
 
 {{ renderSkillsCard({ 
-    name: "hard_skills_card",
+    name: "hard_skills_card",     // 3 items → 1 coffre
     datas: organisms["skills-card"]["skills-cards"],
     typography_datas: atoms.typography.texts,
     caption_datas: molecules.caption.captions,
@@ -122,7 +165,7 @@ Summon HAT Components Wisely
 }) }}
 
 {{ renderSkillsCard({ 
-    name: "languages_card",
+    name: "languages_card",       // 5 items → 1 coffre
     datas: organisms["skills-card"]["skills-cards"],
     typography_datas: atoms.typography.texts,
     caption_datas: molecules.caption.captions,

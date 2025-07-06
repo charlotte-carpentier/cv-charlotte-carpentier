@@ -143,31 +143,8 @@ p {
 }
 
 .caption-container .icon-avatar.caption-gradient-grey {
-  background: linear-gradient(to top, theme(--cc-grey-light), transparent 70%);
+  background: theme(--cc-grey-light);
   color: #262626;
-}
-
-/* Mystery chest - SVG color override */
-.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
-  fill: #262626;
-  stroke: #262626;
-  color: #262626;
-}
-
-.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
-  fill: #262626;
-  stroke: #262626;
-}
-
-/* Mystery chest label "???" */
-.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
-  color: #262626;
-  font-weight: bold;
-}
-
-.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
-  color: #262626;
-  font-weight: bold;
 }
 
 /* Icon Avatar - Responsive */
@@ -819,7 +796,7 @@ textarea.input-base {
   visibility: hidden;
   transition: all 0.3s ease;
   pointer-events: none;
-  top: 64px; /* Default position below icon */
+  top: 64px;
   left: 50%;
   transform: translateX(-50%);
   background-color: theme(--cc-white);
@@ -1261,7 +1238,6 @@ textarea.input-base {
   left: 0;
   width: 100%;
   height: auto;
-  z-index: 40;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
@@ -1272,6 +1248,7 @@ textarea.input-base {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  z-index: 100;
 }
 
 .header .mobile-overlay-content {
@@ -1601,7 +1578,7 @@ textarea.input-base {
 
 /* =========================
    SKILLS-CARD ORGANISM
-   v1.0 - Desktop Individual Cards
+   v1.1 - Desktop + Tablet Landscape + Mystery Chest
    ========================= */
 
 .skills-card {
@@ -1610,10 +1587,12 @@ textarea.input-base {
   justify-content: center;
   width: auto;
   min-width: 200px;
+  position: relative;
 }
 
 /* All versions hidden by default */
-.skills-card-desktop {
+.skills-card-desktop,
+.skills-card-tablet-landscape {
   display: none;
 }
 
@@ -1623,13 +1602,25 @@ textarea.input-base {
   max-width: 300px;
 }
 
+/* Tablet Landscape Layout - Compact card */
+.skills-card-tablet-landscape {
+  width: 100%;
+  max-width: 240px;
+}
+
 .skills-card-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
   padding: 1rem;
-  position: relative; /* AJOUTER cette ligne */
+  position: relative;
+}
+
+/* Tablet landscape - ajustements */
+.skills-card-tablet-landscape .skills-card-content {
+  gap: 1.2rem;
+  padding: 0.8rem;
 }
 
 .skills-card-content::before,
@@ -1650,12 +1641,31 @@ textarea.input-base {
   right: calc(50% - 98px - 4px);
 }
 
+/* Tablet landscape - bordures ajustées */
+.skills-card-tablet-landscape .skills-card-content::before,
+.skills-card-tablet-landscape .skills-card-content::after {
+  top: 1.5rem;
+  width: 3px;
+}
+
+.skills-card-tablet-landscape .skills-card-content::before {
+  left: calc(50% - 78px - 3px);
+}
+
+.skills-card-tablet-landscape .skills-card-content::after {
+  right: calc(50% - 78px - 3px);
+}
+
 /* Card titles */
 .skills-card-title {
   text-align: center;
   width: 100%;
   margin-bottom: 0.5rem;
   position: relative;
+}
+
+.skills-card-tablet-landscape .skills-card-title {
+  margin-bottom: 0.4rem;
 }
 
 .skills-card-title h2 {
@@ -1683,6 +1693,21 @@ textarea.input-base {
   right: 32px;
 }
 
+/* Tablet landscape - traits ajustés */
+.skills-card-tablet-landscape .skills-card-title::before,
+.skills-card-tablet-landscape .skills-card-title::after {
+  height: 3px;
+  width: 24px;
+}
+
+.skills-card-tablet-landscape .skills-card-title::before {
+  left: 24px;
+}
+
+.skills-card-tablet-landscape .skills-card-title::after {
+  right: 24px;
+}
+
 /* Grid layouts for different card types */
 .skills-card-grid {
   display: grid;
@@ -1690,17 +1715,13 @@ textarea.input-base {
   justify-items: center;
   align-items: start;
   width: 100%;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
 }
 
-/* All skills-card grids - common properties */
-.skills-card-grid {
-  display: grid;
-  gap: 0.3rem;
-  justify-items: center;
-  align-items: start;
-  width: 100%;
-  grid-template-columns: repeat(2, auto); /* Common to all */
-  justify-content: center; /* Common to all */
+/* Tablet landscape - gaps réduits */
+.skills-card-tablet-landscape .skills-card-grid {
+  gap: 0.25rem;
 }
 
 /* 2x2 grids (soft skills & hard skills) */
@@ -1728,33 +1749,56 @@ textarea.input-base {
   width: 98px;
 }
 
+/* Tablet landscape - captions plus petites */
+.skills-card-tablet-landscape .caption-container {
+  width: 78px;
+}
+
 /* Ensure captions are properly sized */
 .skills-card .caption-desktop {
   width: 100%;
 }
 
-/* Skills-card theme variants for easier positioning */
-.skills-card--interests {
-  /* Could add specific styling for interests card */
-}
-
-.skills-card--soft_skills {
-  /* Could add specific styling for soft skills card */
-}
-
-.skills-card--hard_skills {
-  /* Could add specific styling for hard skills card */
-}
-
-.skills-card--languages {
-  /* Could add specific styling for languages card */
-}
+/* Skills-card theme variants */
+.skills-card--interests {}
+.skills-card--soft_skills {}
+.skills-card--hard_skills {}
+.skills-card--languages {}
 
 /* Skills-card - Responsive */
 @media (min-width: 1025px) {
   .skills-card-desktop {
     display: block;
   }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .skills-card-tablet-landscape {
+    display: block;
+  }
+}
+
+/* Mystery chest - SVG color override */
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
+  fill: #262626;
+  stroke: #262626;
+  color: #262626;
+}
+
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
+  fill: #262626;
+  stroke: #262626;
+}
+
+/* Mystery chest label "???" */
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
+  color: #262626;
+  font-weight: bold;
+}
+
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
+  color: #262626;
+  font-weight: bold;
 }
 
 /* Accessibility for skills-card */
