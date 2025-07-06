@@ -86,6 +86,11 @@
         "description": "Maîtrise l'art du duel avec agilité et stratégie."
       },
       {
+        "name": "skills_treasure",
+        "title": "???", 
+        "description": "Non débloqué. Missions, temps et bonne connexion internet nécessaires."
+      },
+      {
         "name": "avatar_desktop",
         "description_part1": "Classe : sentinelle du web open-source\nSpécialité : action & sécurité\nAlignement : éco-numérique et accessibilité",
         "description_part2": "Illustration © Diane Yoon",

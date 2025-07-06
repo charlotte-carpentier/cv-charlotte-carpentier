@@ -9,6 +9,14 @@
   box-sizing: border-box;
 }
 
+/* Reset for paragraphes */
+p {
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 /* -------------------------------------------------- */
 /* 00 – DESIGN SYSTEM                                 */
 /* -------------------------------------------------- */
@@ -132,6 +140,34 @@
 .caption-container .icon-avatar.caption-gradient-light {
   background: linear-gradient(to top, theme(--cc-green-light), transparent 70%);
   color: theme(--cc-black); /* Icon reste noir */
+}
+
+.caption-container .icon-avatar.caption-gradient-grey {
+  background: linear-gradient(to top, theme(--cc-grey-light), transparent 70%);
+  color: #262626;
+}
+
+/* Mystery chest - SVG color override */
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
+  fill: #262626;
+  stroke: #262626;
+  color: #262626;
+}
+
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
+  fill: #262626;
+  stroke: #262626;
+}
+
+/* Mystery chest label "???" */
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
+  color: #262626;
+  font-weight: bold;
+}
+
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
+  color: #262626;
+  font-weight: bold;
 }
 
 /* Icon Avatar - Responsive */
@@ -480,12 +516,19 @@ textarea.input-base {
 }
 
 .tooltip-box {
-  width: auto;
-  max-width: 319px;
+  width: 319px;
   background-color: theme(--cc-white);
   border: 4px solid theme(--cc-black);
-  padding: 1rem;
+  padding: 0.5rem;
   box-sizing: border-box;
+}
+
+.tooltip-box p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .tooltip-title {
@@ -494,19 +537,22 @@ textarea.input-base {
   font-weight: bold;
   color: theme(--cc-black);
   text-align: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
+  line-height: 1;
 }
 
 .tooltip-divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.75rem;
+  margin-top: 1rem;
   gap: 0.5rem;
 }
 
 .tooltip-line {
-  flex: 1;
+  flex: none;
+  width: 60px;
   height: 2px;
   background-color: theme(--cc-black);
 }
@@ -524,12 +570,8 @@ textarea.input-base {
   font-size: theme(--text-small);
   color: theme(--cc-black);
   text-align: center;
-  line-height: 1.4;
+  line-height: 1;
   white-space: pre-line;
-}
-
-.tooltip-divider + .tooltip-description {
-  margin-top: -0.5rem;
 }
 
 /* === IMAGES === */
@@ -1441,20 +1483,20 @@ textarea.input-base {
  width: 200px;
 }
 
-/* Avatar-card - Responsive */
+/* Avatar-card - Responsive CORRIGÉ */
 @media (min-width: 1025px) {
- .avatar-card-desktop {
-   display: flex;
- }
+  .avatar-card-desktop {
+    display: flex;
+  }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
- .avatar-card-tablet-landscape {
-   display: flex;
- }
+@media (min-width: 769px) and (max-width: 1024px) {
+  .avatar-card-tablet-landscape {
+    display: flex;
+  }
 }
 
-@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+@media (min-width: 481px) and (max-width: 768px) {
   .avatar-card-tablet-portrait {
     display: flex;
     flex-direction: column;
@@ -1557,11 +1599,190 @@ textarea.input-base {
   }
 }
 
+/* =========================
+   SKILLS-CARD ORGANISM
+   v1.0 - Desktop Individual Cards
+   ========================= */
+
+.skills-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 200px;
+}
+
+/* All versions hidden by default */
+.skills-card-desktop {
+  display: none;
+}
+
+/* Desktop Layout - Individual card */
+.skills-card-desktop {
+  width: 100%;
+  max-width: 300px;
+}
+
+.skills-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  position: relative; /* AJOUTER cette ligne */
+}
+
+.skills-card-content::before,
+.skills-card-content::after {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #000000, #ffffff);
+}
+
+.skills-card-content::before {
+  left: calc(50% - 98px - 4px);
+}
+
+.skills-card-content::after {
+  right: calc(50% - 98px - 4px);
+}
+
+/* Card titles */
+.skills-card-title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.skills-card-title h2 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.skills-card-title::before,
+.skills-card-title::after {
+  content: '';
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%);
+  height: 4px;
+  width: 30px;
+  background-color: #000000;
+}
+
+.skills-card-title::before {
+  left: 32px;
+}
+
+.skills-card-title::after {
+  right: 32px;
+}
+
+/* Grid layouts for different card types */
+.skills-card-grid {
+  display: grid;
+  gap: 0.3rem;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+}
+
+/* All skills-card grids - common properties */
+.skills-card-grid {
+  display: grid;
+  gap: 0.3rem;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  grid-template-columns: repeat(2, auto); /* Common to all */
+  justify-content: center; /* Common to all */
+}
+
+/* 2x2 grids (soft skills & hard skills) */
+.skills-card--soft_skills .skills-card-grid--2x2,
+.skills-card--hard_skills .skills-card-grid--2x2 {
+  grid-template-rows: repeat(2, 1fr);
+}
+
+/* 2x3 grids (interests & languages) */
+.skills-card--interests .skills-card-grid--2x3,
+.skills-card--languages .skills-card-grid--2x3 {
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* Skills-card items */
+.skills-card-item {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+}
+
+/* Override caption container in skills-card context */
+.skills-card .caption-container {
+  width: 98px;
+}
+
+/* Ensure captions are properly sized */
+.skills-card .caption-desktop {
+  width: 100%;
+}
+
+/* Skills-card theme variants for easier positioning */
+.skills-card--interests {
+  /* Could add specific styling for interests card */
+}
+
+.skills-card--soft_skills {
+  /* Could add specific styling for soft skills card */
+}
+
+.skills-card--hard_skills {
+  /* Could add specific styling for hard skills card */
+}
+
+.skills-card--languages {
+  /* Could add specific styling for languages card */
+}
+
+/* Skills-card - Responsive */
+@media (min-width: 1025px) {
+  .skills-card-desktop {
+    display: block;
+  }
+}
+
+/* Accessibility for skills-card */
+.skills-card:focus-within {
+  outline: 2px solid theme(--cc-green-light);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-card .caption-desktop {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .skills-card-content {
+    gap: 2rem;
+  }
+  
+  .skills-card-grid {
+    gap: 1.5rem;
+  }
+}
+
 .section-contact {}
 .section-portfolio {}
 .section-timeline {}
 .tab-section {}
-.skills-card {}
 
 /* -------------------------------------------------- */
 /* 04 – BACKGROUNDS                                   */
