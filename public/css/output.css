@@ -1074,25 +1074,8 @@ p {
   color: #000000;
 }
 .caption-container .icon-avatar.caption-gradient-grey {
-  background: linear-gradient(to top, #b3b3b3, transparent 70%);
+  background: #b3b3b3;
   color: #262626;
-}
-.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
-  fill: #262626;
-  stroke: #262626;
-  color: #262626;
-}
-.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
-  fill: #262626;
-  stroke: #262626;
-}
-.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
-  color: #262626;
-  font-weight: bold;
-}
-.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
-  color: #262626;
-  font-weight: bold;
 }
 @media (max-width: 1024px) and (orientation: portrait), (max-width: 480px) {
   .icon-avatar {
@@ -1932,7 +1915,6 @@ textarea.input-base {
   left: 0;
   width: 100%;
   height: auto;
-  z-index: 40;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
@@ -1942,6 +1924,7 @@ textarea.input-base {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  z-index: 100;
 }
 .header .mobile-overlay-content {
   padding: 0;
@@ -2186,13 +2169,18 @@ textarea.input-base {
   justify-content: center;
   width: auto;
   min-width: 200px;
+  position: relative;
 }
-.skills-card-desktop {
+.skills-card-desktop, .skills-card-tablet-landscape {
   display: none;
 }
 .skills-card-desktop {
   width: 100%;
   max-width: 300px;
+}
+.skills-card-tablet-landscape {
+  width: 100%;
+  max-width: 240px;
 }
 .skills-card-content {
   display: flex;
@@ -2201,6 +2189,10 @@ textarea.input-base {
   gap: 1.5rem;
   padding: 1rem;
   position: relative;
+}
+.skills-card-tablet-landscape .skills-card-content {
+  gap: 1.2rem;
+  padding: 0.8rem;
 }
 .skills-card-content::before, .skills-card-content::after {
   content: '';
@@ -2216,11 +2208,24 @@ textarea.input-base {
 .skills-card-content::after {
   right: calc(50% - 98px - 4px);
 }
+.skills-card-tablet-landscape .skills-card-content::before, .skills-card-tablet-landscape .skills-card-content::after {
+  top: 1.5rem;
+  width: 3px;
+}
+.skills-card-tablet-landscape .skills-card-content::before {
+  left: calc(50% - 78px - 3px);
+}
+.skills-card-tablet-landscape .skills-card-content::after {
+  right: calc(50% - 78px - 3px);
+}
 .skills-card-title {
   text-align: center;
   width: 100%;
   margin-bottom: 0.5rem;
   position: relative;
+}
+.skills-card-tablet-landscape .skills-card-title {
+  margin-bottom: 0.4rem;
 }
 .skills-card-title h2 {
   margin: 0;
@@ -2242,12 +2247,15 @@ textarea.input-base {
 .skills-card-title::after {
   right: 32px;
 }
-.skills-card-grid {
-  display: grid;
-  gap: 0.3rem;
-  justify-items: center;
-  align-items: start;
-  width: 100%;
+.skills-card-tablet-landscape .skills-card-title::before, .skills-card-tablet-landscape .skills-card-title::after {
+  height: 3px;
+  width: 24px;
+}
+.skills-card-tablet-landscape .skills-card-title::before {
+  left: 24px;
+}
+.skills-card-tablet-landscape .skills-card-title::after {
+  right: 24px;
 }
 .skills-card-grid {
   display: grid;
@@ -2257,6 +2265,9 @@ textarea.input-base {
   width: 100%;
   grid-template-columns: repeat(2, auto);
   justify-content: center;
+}
+.skills-card-tablet-landscape .skills-card-grid {
+  gap: 0.25rem;
 }
 .skills-card--soft_skills .skills-card-grid--2x2, .skills-card--hard_skills .skills-card-grid--2x2 {
   grid-template-rows: repeat(2, 1fr);
@@ -2273,6 +2284,9 @@ textarea.input-base {
 .skills-card .caption-container {
   width: 98px;
 }
+.skills-card-tablet-landscape .caption-container {
+  width: 78px;
+}
 .skills-card .caption-desktop {
   width: 100%;
 }
@@ -2280,6 +2294,28 @@ textarea.input-base {
   .skills-card-desktop {
     display: block;
   }
+}
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .skills-card-tablet-landscape {
+    display: block;
+  }
+}
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
+  fill: #262626;
+  stroke: #262626;
+  color: #262626;
+}
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
+  fill: #262626;
+  stroke: #262626;
+}
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
+  color: #262626;
+  font-weight: bold;
+}
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
+  color: #262626;
+  font-weight: bold;
 }
 .skills-card:focus-within {
   outline: 2px solid #c4ffcb;
