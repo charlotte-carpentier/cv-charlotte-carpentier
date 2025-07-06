@@ -9,6 +9,14 @@
   box-sizing: border-box;
 }
 
+/* Reset for paragraphes */
+p {
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 /* -------------------------------------------------- */
 /* 00 – DESIGN SYSTEM                                 */
 /* -------------------------------------------------- */
@@ -480,12 +488,19 @@ textarea.input-base {
 }
 
 .tooltip-box {
-  width: auto;
-  max-width: 319px;
+  width: 319px;
   background-color: theme(--cc-white);
   border: 4px solid theme(--cc-black);
-  padding: 1rem;
+  padding: 0.5rem;
   box-sizing: border-box;
+}
+
+.tooltip-box p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .tooltip-title {
@@ -494,19 +509,22 @@ textarea.input-base {
   font-weight: bold;
   color: theme(--cc-black);
   text-align: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
+  line-height: 1;
 }
 
 .tooltip-divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.75rem;
+  margin-top: 1rem;
   gap: 0.5rem;
 }
 
 .tooltip-line {
-  flex: 1;
+  flex: none;
+  width: 60px;
   height: 2px;
   background-color: theme(--cc-black);
 }
@@ -524,12 +542,8 @@ textarea.input-base {
   font-size: theme(--text-small);
   color: theme(--cc-black);
   text-align: center;
-  line-height: 1.4;
+  line-height: 1;
   white-space: pre-line;
-}
-
-.tooltip-divider + .tooltip-description {
-  margin-top: -0.5rem;
 }
 
 /* === IMAGES === */
