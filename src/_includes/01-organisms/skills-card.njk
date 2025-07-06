@@ -1,7 +1,7 @@
 {# 
 =========================
     SKILLS-CARD ORGANISM
-    v1.1 - Charlotte Desktop + Mystery Chest Logic       
+    v1.2 - Charlotte Desktop + Tablet Logic + Mystery Chest       
 =========================
 #}
 
@@ -30,10 +30,15 @@
     {% if not skillsCardData %}
       <span class="text-red-500">Skills-card not found: {{ skillsCardName }}</span>
     {% else %}
-      {# Calculate mystery chests needed #}
+      {# Calculate mystery chests needed for DESKTOP #}
       {% set totalSlots = 4 if skillsCardData.grid_layout == "2x2" else 6 %}
       {% set existingItems = skillsCardData.captions.length %}
       {% set missingSlots = totalSlots - existingItems %}
+      
+      {# Calculate mystery chests needed for TABLET LANDSCAPE #}
+      {# En tablette: coffres uniquement dans languages_card #}
+      {% set isLanguagesCard = (skillsCardData.name == "languages_card") %}
+      {% set tabletteMissingSlots = missingSlots if isLanguagesCard else 0 %}
       
       {# Skills Card Container #}
       <div class="skills-card skills-card--{{ skillsCardData.theme }}" data-skills="{{ skillsCardData.name }}">
@@ -108,8 +113,8 @@
                 </div>
               {% endfor %}
               
-              {# Add mystery chests for empty slots #}
-              {% for i in range(missingSlots) %}
+              {# Add mystery chests UNIQUEMENT pour languages_card en tablette #}
+              {% for i in range(tabletteMissingSlots) %}
                 <div class="skills-card-item">
                   {{ renderCaption({ 
                     name: "skills_treasure",
@@ -136,9 +141,22 @@ Summon HAT Components Wisely
 1. Import the macro at the top of your page
 {% from "01-organisms/skills-card.njk" import renderSkillsCard %}
 
-2. Call each skills-card individually (mystery chests will auto-populate)
+2. Call each skills-card individually 
+
+DESKTOP:
+- interests_card: 6 items → 0 coffre ✅
+- soft_skills_card: 3 items → 1 coffre ✅  
+- hard_skills_card: 3 items → 1 coffre ✅
+- languages_card: 5 items → 1 coffre ✅
+
+TABLET LANDSCAPE:
+- interests_card: 6 items → 0 coffre ✅
+- soft_skills_card: 3 items → 0 coffre ✅  
+- hard_skills_card: 3 items → 0 coffre ✅
+- languages_card: 5 items → 1 coffre ✅
+
 {{ renderSkillsCard({ 
-    name: "interests_card",        // 6 items → 0 coffre
+    name: "interests_card",
     datas: organisms["skills-card"]["skills-cards"],
     typography_datas: atoms.typography.texts,
     caption_datas: molecules.caption.captions,
@@ -146,32 +164,5 @@ Summon HAT Components Wisely
     tooltip_datas: atoms.tooltip.tooltips
 }) }}
 
-{{ renderSkillsCard({ 
-    name: "soft_skills_card",     // 3 items → 1 coffre  
-    datas: organisms["skills-card"]["skills-cards"],
-    typography_datas: atoms.typography.texts,
-    caption_datas: molecules.caption.captions,
-    icon_datas: atoms.icon.icons,
-    tooltip_datas: atoms.tooltip.tooltips
-}) }}
-
-{{ renderSkillsCard({ 
-    name: "hard_skills_card",     // 3 items → 1 coffre
-    datas: organisms["skills-card"]["skills-cards"],
-    typography_datas: atoms.typography.texts,
-    caption_datas: molecules.caption.captions,
-    icon_datas: atoms.icon.icons,
-    tooltip_datas: atoms.tooltip.tooltips
-}) }}
-
-{{ renderSkillsCard({ 
-    name: "languages_card",       // 5 items → 1 coffre
-    datas: organisms["skills-card"]["skills-cards"],
-    typography_datas: atoms.typography.texts,
-    caption_datas: molecules.caption.captions,
-    icon_datas: atoms.icon.icons,
-    tooltip_datas: atoms.tooltip.tooltips
-}) }}
-
-May your mystery chests unlock epic loot! 🗃️✨
+May your responsive grids be forever aligned. 🧙‍♂️✨
 #}
