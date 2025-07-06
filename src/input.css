@@ -142,6 +142,34 @@ p {
   color: theme(--cc-black); /* Icon reste noir */
 }
 
+.caption-container .icon-avatar.caption-gradient-grey {
+  background: linear-gradient(to top, theme(--cc-grey-light), transparent 70%);
+  color: #262626;
+}
+
+/* Mystery chest - SVG color override */
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
+  fill: #262626;
+  stroke: #262626;
+  color: #262626;
+}
+
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
+  fill: #262626;
+  stroke: #262626;
+}
+
+/* Mystery chest label "???" */
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
+  color: #262626;
+  font-weight: bold;
+}
+
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
+  color: #262626;
+  font-weight: bold;
+}
+
 /* Icon Avatar - Responsive */
 @media (max-width: 1024px) and (orientation: portrait), 
        (max-width: 480px) {

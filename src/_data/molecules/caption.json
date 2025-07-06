@@ -101,6 +101,13 @@
       "iconName": "hobbies_painting", 
       "tooltipName": "hobbies_painting",
       "gradientColor": "light"
+    },
+    {
+      "name": "skills_treasure",
+      "iconName": "skills_treasure", 
+      "tooltipName": "skills_treasure",
+      "gradientColor": "grey"
     }
+    
   ]
 }

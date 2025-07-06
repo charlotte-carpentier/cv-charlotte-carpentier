@@ -1,7 +1,7 @@
 {# 
 =========================
       ICON ATOM          
-      v1.0 - Charlotte      
+      v1.1 - Charlotte + SVG Loader      
 =========================
 #}
 
@@ -35,13 +35,12 @@
         {% set cssClasses = cssClasses ~ ' ' ~ option.class %}
       {% endif %}
       
-      {# Render the icon #}
-      <img 
-        src="{{ iconData.path }}" 
-        alt="{{ iconData.alt }}"
+      {# Use SVG loader for inline SVG with color inheritance #}
+      <span 
+        data-svg-src="{{ iconData.path }}"
         class="{{ cssClasses }}"
-        {% if iconData.loading %}loading="{{ iconData.loading }}"{% endif %}
-      >
+        aria-label="{{ iconData.alt }}"
+      ></span>
     {% endif %}
   {% endif %}
 {% endmacro %}
@@ -54,9 +53,9 @@ Summon HAT Components Wisely
 1. Import the macro at the top of your page
 {% from "03-atoms/icon.njk" import renderIcon %}
 
-2. Call a specific icon by its name
+2. Call a specific icon by its name (will load as inline SVG)
 {{ renderIcon({ 
-    name: "home_navigation",
+    name: "skills_treasure",
     datas: atoms.icon.icons
 }) }}
 
@@ -67,5 +66,6 @@ Summon HAT Components Wisely
     class: "hover:opacity-75"
 }) }}
 
-May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+Note: Requires svg-loader.js to be loaded for color inheritance to work.
+May your SVGs inherit colors like true champions! 🎨✨
 #}

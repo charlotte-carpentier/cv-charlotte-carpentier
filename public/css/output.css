@@ -1073,6 +1073,27 @@ p {
   background: linear-gradient(to top, #c4ffcb, transparent 70%);
   color: #000000;
 }
+.caption-container .icon-avatar.caption-gradient-grey {
+  background: linear-gradient(to top, #b3b3b3, transparent 70%);
+  color: #262626;
+}
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
+  fill: #262626;
+  stroke: #262626;
+  color: #262626;
+}
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
+  fill: #262626;
+  stroke: #262626;
+}
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
+  color: #262626;
+  font-weight: bold;
+}
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
+  color: #262626;
+  font-weight: bold;
+}
 @media (max-width: 1024px) and (orientation: portrait), (max-width: 480px) {
   .icon-avatar {
     width: 50px;

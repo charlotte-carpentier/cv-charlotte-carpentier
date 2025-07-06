@@ -1,7 +1,7 @@
 {# 
 =========================
     SKILLS-CARD ORGANISM
-    v1.0 - Charlotte Desktop (Individual Cards)       
+    v1.1 - Charlotte Desktop + Mystery Chest Logic       
 =========================
 #}
 
@@ -30,6 +30,11 @@
     {% if not skillsCardData %}
       <span class="text-red-500">Skills-card not found: {{ skillsCardName }}</span>
     {% else %}
+      {# Calculate mystery chests needed #}
+      {% set totalSlots = 4 if skillsCardData.grid_layout == "2x2" else 6 %}
+      {% set existingItems = skillsCardData.captions.length %}
+      {% set missingSlots = totalSlots - existingItems %}
+      
       {# Skills Card Container #}
       <div class="skills-card skills-card--{{ skillsCardData.theme }}" data-skills="{{ skillsCardData.name }}">
         
@@ -47,6 +52,8 @@
             
             {# Card captions grid #}
             <div class="skills-card-grid skills-card-grid--{{ skillsCardData.grid_layout }}">
+              
+              {# Render existing captions #}
               {% for captionName in skillsCardData.captions %}
                 <div class="skills-card-item">
                   {{ renderCaption({ 
@@ -57,6 +64,19 @@
                   }) }}
                 </div>
               {% endfor %}
+              
+              {# Add mystery chests for empty slots #}
+              {% for i in range(missingSlots) %}
+                <div class="skills-card-item">
+                  {{ renderCaption({ 
+                    name: "skills_treasure",
+                    datas: option.caption_datas,
+                    iconDatas: option.icon_datas,
+                    tooltipDatas: option.tooltip_datas
+                  }) }}
+                </div>
+              {% endfor %}
+              
             </div>
           </div>
         </div>
@@ -73,7 +93,7 @@ Summon HAT Components Wisely
 1. Import the macro at the top of your page
 {% from "01-organisms/skills-card.njk" import renderSkillsCard %}
 
-2. Call each skills-card individually
+2. Call each skills-card individually (mystery chests will auto-populate)
 {{ renderSkillsCard({ 
     name: "interests_card",
     datas: organisms["skills-card"]["skills-cards"],
@@ -110,5 +130,5 @@ Summon HAT Components Wisely
     tooltip_datas: atoms.tooltip.tooltips
 }) }}
 
-May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+May your mystery chests unlock epic loot! 🗃️✨
 #}
