@@ -1441,20 +1441,20 @@ textarea.input-base {
  width: 200px;
 }
 
-/* Avatar-card - Responsive */
+/* Avatar-card - Responsive CORRIGÉ */
 @media (min-width: 1025px) {
- .avatar-card-desktop {
-   display: flex;
- }
+  .avatar-card-desktop {
+    display: flex;
+  }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
- .avatar-card-tablet-landscape {
-   display: flex;
- }
+@media (min-width: 769px) and (max-width: 1024px) {
+  .avatar-card-tablet-landscape {
+    display: flex;
+  }
 }
 
-@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+@media (min-width: 481px) and (max-width: 768px) {
   .avatar-card-tablet-portrait {
     display: flex;
     flex-direction: column;
@@ -1557,11 +1557,152 @@ textarea.input-base {
   }
 }
 
+/* =========================
+   SKILLS-CARD ORGANISM
+   v1.0 - Desktop Individual Cards
+   ========================= */
+
+.skills-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 200px;
+}
+
+/* All versions hidden by default */
+.skills-card-desktop {
+  display: none;
+}
+
+/* Desktop Layout - Individual card */
+.skills-card-desktop {
+  width: 100%;
+  max-width: 300px;
+}
+
+.skills-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Gap M selon ton système */
+  padding: 1rem;
+}
+
+/* Card titles */
+.skills-card-title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0.5rem; /* Gap S selon ton système */
+}
+
+.skills-card-title h2 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* Grid layouts for different card types */
+.skills-card-grid {
+  display: grid;
+  gap: 1rem; /* Gap S selon ton système */
+  justify-items: center;
+  width: 100%;
+}
+
+/* Interests card: 2x3 grid (2 colonnes × 3 lignes) */
+.skills-card--interests .skills-card-grid--2x3 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* Soft skills card: 2x2 grid (2 colonnes × 2 lignes, 3 items) */
+.skills-card--soft_skills .skills-card-grid--2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+/* Hard skills card: 2x2 grid (2 colonnes × 2 lignes, 3 items) */
+.skills-card--hard_skills .skills-card-grid--2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+/* Languages card: 2x3 grid (2 colonnes × 3 lignes) */
+.skills-card--languages .skills-card-grid--2x3 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* Skills-card items */
+.skills-card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Override caption container in skills-card context */
+.skills-card .caption-container {
+  width: 100%;
+  max-width: 98px; /* Match caption title max-width */
+}
+
+/* Ensure captions are properly sized */
+.skills-card .caption-desktop {
+  width: 100%;
+}
+
+/* Skills-card theme variants for easier positioning */
+.skills-card--interests {
+  /* Could add specific styling for interests card */
+}
+
+.skills-card--soft_skills {
+  /* Could add specific styling for soft skills card */
+}
+
+.skills-card--hard_skills {
+  /* Could add specific styling for hard skills card */
+}
+
+.skills-card--languages {
+  /* Could add specific styling for languages card */
+}
+
+/* Skills-card - Responsive */
+@media (min-width: 1025px) {
+  .skills-card-desktop {
+    display: block;
+  }
+}
+
+/* Accessibility for skills-card */
+.skills-card:focus-within {
+  outline: 2px solid theme(--cc-green-light);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-card .caption-desktop {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .skills-card-content {
+    gap: 2rem;
+  }
+  
+  .skills-card-grid {
+    gap: 1.5rem;
+  }
+}
+
 .section-contact {}
 .section-portfolio {}
 .section-timeline {}
 .tab-section {}
-.skills-card {}
 
 /* -------------------------------------------------- */
 /* 04 – BACKGROUNDS                                   */

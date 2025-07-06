@@ -1,0 +1,114 @@
+{# 
+=========================
+    SKILLS-CARD ORGANISM
+    v1.0 - Charlotte Desktop (Individual Cards)       
+=========================
+#}
+
+{# Import molecules and atoms #}
+{% from "02-molecules/caption.njk" import renderCaption %}
+{% from "03-atoms/typography.njk" import renderTypography %}
+
+{% macro renderSkillsCard(option) %}
+  {# Check if datas is provided #}
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No skills-card configuration provided</span>
+  {% else %}
+    {# Retrieve skills-card configuration #}
+    {% set skillsCardConfig = option.datas %}
+    {% set skillsCardName = option.name %}
+    
+    {# Find the specific skills-card by name #}
+    {% set skillsCardData = null %}
+    {% for skillsCard in skillsCardConfig %}
+      {% if skillsCard.name == skillsCardName %}
+        {% set skillsCardData = skillsCard %}
+      {% endif %}
+    {% endfor %}
+
+    {# Fallback if skills-card not found #}
+    {% if not skillsCardData %}
+      <span class="text-red-500">Skills-card not found: {{ skillsCardName }}</span>
+    {% else %}
+      {# Skills Card Container #}
+      <div class="skills-card skills-card--{{ skillsCardData.theme }}" data-skills="{{ skillsCardData.name }}">
+        
+        {# Desktop version: Individual card #}
+        <div class="skills-card-desktop">
+          <div class="skills-card-content">
+            
+            {# Card title #}
+            <div class="skills-card-title">
+              {{ renderTypography({ 
+                name: skillsCardData.title,
+                datas: option.typography_datas
+              }) }}
+            </div>
+            
+            {# Card captions grid #}
+            <div class="skills-card-grid skills-card-grid--{{ skillsCardData.grid_layout }}">
+              {% for captionName in skillsCardData.captions %}
+                <div class="skills-card-item">
+                  {{ renderCaption({ 
+                    name: captionName,
+                    datas: option.caption_datas,
+                    iconDatas: option.icon_datas,
+                    tooltipDatas: option.tooltip_datas
+                  }) }}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{# 
+============================
+Summon HAT Components Wisely
+============================
+
+1. Import the macro at the top of your page
+{% from "01-organisms/skills-card.njk" import renderSkillsCard %}
+
+2. Call each skills-card individually
+{{ renderSkillsCard({ 
+    name: "interests_card",
+    datas: organisms["skills-card"]["skills-cards"],
+    typography_datas: atoms.typography.texts,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
+    tooltip_datas: atoms.tooltip.tooltips
+}) }}
+
+{{ renderSkillsCard({ 
+    name: "soft_skills_card",
+    datas: organisms["skills-card"]["skills-cards"],
+    typography_datas: atoms.typography.texts,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
+    tooltip_datas: atoms.tooltip.tooltips
+}) }}
+
+{{ renderSkillsCard({ 
+    name: "hard_skills_card",
+    datas: organisms["skills-card"]["skills-cards"],
+    typography_datas: atoms.typography.texts,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
+    tooltip_datas: atoms.tooltip.tooltips
+}) }}
+
+{{ renderSkillsCard({ 
+    name: "languages_card",
+    datas: organisms["skills-card"]["skills-cards"],
+    typography_datas: atoms.typography.texts,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
+    tooltip_datas: atoms.tooltip.tooltips
+}) }}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+#}
