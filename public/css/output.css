@@ -2311,6 +2311,16 @@ textarea.input-base {
 .skills-card .caption-desktop {
   width: 100%;
 }
+.skills-card-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 10;
+  display: none;
+}
 @media (min-width: 1025px) {
   .skills-card-desktop {
     display: block;
@@ -2320,6 +2330,9 @@ textarea.input-base {
     margin: 0;
   }
   .skills-card > .skills-card-title, .skills-card > .caption-container {
+    display: none;
+  }
+  .skills-card-close {
     display: none;
   }
 }
@@ -2348,6 +2361,9 @@ textarea.input-base {
     right: 0;
   }
   .skills-card-desktop {
+    display: none;
+  }
+  .skills-card-close {
     display: none;
   }
   .skills-card-title {
@@ -2398,26 +2414,19 @@ textarea.input-base {
     max-width: 320px;
     margin: 0;
     background-color: #ffffff;
-    border-top: 4px solid #000000;
+    border: 3px solid #000000;
     padding: 0.75rem;
     box-sizing: border-box;
+    position: relative;
+  }
+  .skills-card::before, .skills-card::after {
+    display: none;
   }
   .skills-card.active {
     display: block;
   }
-  .skills-card::before, .skills-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(to bottom, #000000, #ffffff);
-  }
-  .skills-card::before {
-    left: 0;
-  }
-  .skills-card::after {
-    right: 0;
+  .skills-card-close {
+    display: block;
   }
   .skills-card-desktop {
     display: none;
@@ -2426,6 +2435,7 @@ textarea.input-base {
     padding-bottom: 1rem;
     margin-bottom: 0.5rem;
     text-align: center;
+    padding-right: 40px;
   }
   .skills-card-title::before, .skills-card-title::after {
     display: none;

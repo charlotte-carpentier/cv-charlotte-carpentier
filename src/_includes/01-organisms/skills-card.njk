@@ -8,6 +8,7 @@
 {# Import molecules and atoms #}
 {% from "02-molecules/caption.njk" import renderCaption %}
 {% from "03-atoms/typography.njk" import renderTypography %}
+{% from "03-atoms/icon.njk" import renderIcon %}
 
 {% macro renderSkillsCard(option) %}
   {# Check if datas is provided #}
@@ -37,6 +38,15 @@
       
       {# Skills Card Container #}
       <div class="skills-card skills-card--{{ skillsCardData.theme }}" data-skills="{{ skillsCardData.name }}">
+        
+        {# Icône de fermeture - Mobile seulement #}
+        <div class="skills-card-close" onclick="closeSkillsCard('{{ skillsCardData.name }}')">
+          {{ renderIcon({ 
+            name: "burger_x",
+            datas: option.icon_datas,
+            class: "icon-interface"
+          }) }}
+        </div>
         
         {# Desktop version: Individual card with tooltips #}
         <div class="skills-card-desktop">
