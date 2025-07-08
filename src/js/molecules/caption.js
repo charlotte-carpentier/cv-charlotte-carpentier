@@ -48,9 +48,9 @@ function showTooltip(tooltip, container) {
   // Get container position for absolute positioning
   const containerRect = container.getBoundingClientRect();
   
-  // Set initial position relative to container
+  // Set initial position relative to container (collé sous l'icône, cache le label)
   tooltip.style.position = 'fixed';
-  tooltip.style.top = (containerRect.bottom + window.scrollY) + 'px';
+  tooltip.style.top = (containerRect.top + 64 + window.scrollY) + 'px'; // Icône fait 64px, donc collé juste en dessous
   tooltip.style.left = (containerRect.left + containerRect.width / 2) + 'px';
   tooltip.style.transform = 'translateX(-50%)';
   tooltip.style.zIndex = '9999';
@@ -70,7 +70,7 @@ function showTooltip(tooltip, container) {
     if (tooltipRect.bottom > viewportHeight - margin) {
       // Disable transition temporarily for instant repositioning
       tooltip.style.transition = 'none';
-      tooltip.style.top = (containerRect.top + window.scrollY - tooltipRect.height - 10) + 'px';
+      tooltip.style.top = (containerRect.top + window.scrollY - tooltipRect.height) + 'px'; // Au-dessus de l'icône
       
       // Re-enable transition after repositioning
       setTimeout(() => {
