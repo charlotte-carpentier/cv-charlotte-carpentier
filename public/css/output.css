@@ -1895,8 +1895,8 @@ textarea.input-base {
   box-sizing: border-box;
 }
 .header-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 1rem 2rem;
   min-height: 80px;
   display: flex;
@@ -1905,31 +1905,49 @@ textarea.input-base {
   box-sizing: border-box;
 }
 .header-brand {
-  flex-shrink: 0;
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
 }
 .header-brand h2 {
   margin: 0;
   color: #4a7c59;
   font-size: 24px;
+  white-space: nowrap;
 }
 .header-title {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 0;
 }
 .header-title h1 {
   margin: 0;
   font-size: 40px;
   text-align: center;
   font-weight: 900;
+  white-space: nowrap;
 }
 .header-navigation {
-  flex-shrink: 0;
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}
+@media (max-width: 1200px) {
+  .header-brand {
+    flex: 0 0 auto;
+  }
+  .header-title {
+    flex: 0 0 auto;
+  }
+  .header-navigation {
+    flex: 0 0 auto;
+  }
 }
 .header-burger {
   background: none;
@@ -1970,7 +1988,6 @@ textarea.input-base {
   transform: translateY(-20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 0;
-  background-color: #ffffff;
   box-sizing: border-box;
 }
 .header-mobile-overlay.active {
@@ -1987,6 +2004,9 @@ textarea.input-base {
 }
 .header-mobile-overlay .tab-menu-mobile {
   display: block;
+}
+.header-mobile-overlay .tab-menu {
+  visibility: visible;
 }
 .header h1, .header h2, .header p {
   margin: 0;

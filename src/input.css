@@ -1353,8 +1353,8 @@ textarea.input-base {
 }
 
 .header-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 1rem 2rem;
   min-height: 80px;
   display: flex;
@@ -1365,15 +1365,18 @@ textarea.input-base {
 
 /* Brand section */
 .header-brand {
-  flex-shrink: 0;
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  min-width: 0; /* Allow shrinking */
 }
 
 .header-brand h2 {
   margin: 0;
   color: theme(--cc-green-dark);
   font-size: theme(--text-h2);
+  white-space: nowrap;
 }
 
 /* Title section */
@@ -1382,6 +1385,7 @@ textarea.input-base {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 0; /* Allow shrinking */
 }
 
 .header-title h1 {
@@ -1389,13 +1393,31 @@ textarea.input-base {
   font-size: theme(--text-h1);
   text-align: center;
   font-weight: 900;
+  white-space: nowrap;
 }
 
 /* Navigation section */
 .header-navigation {
-  flex-shrink: 0;
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  min-width: 0; /* Allow shrinking */
+}
+
+/* Media query pour basculer en space-between quand nécessaire */
+@media (max-width: 1200px) {
+  .header-brand {
+    flex: 0 0 auto; /* Ne plus grandir/rétrécir */
+  }
+  
+  .header-title {
+    flex: 0 0 auto; /* Ne plus grandir/rétrécir */
+  }
+  
+  .header-navigation {
+    flex: 0 0 auto; /* Ne plus grandir/rétrécir */
+  }
 }
 
 /* Burger button */
@@ -1445,7 +1467,6 @@ textarea.input-base {
   transform: translateY(-20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 0;
-  background-color: theme(--cc-white);
   box-sizing: border-box;
 }
 
@@ -1467,6 +1488,11 @@ textarea.input-base {
 
 .header-mobile-overlay .tab-menu-mobile {
   display: block;
+}
+
+/* CORRECTION CLÉS - Visibilité du tab-menu dans l'overlay */
+.header-mobile-overlay .tab-menu {
+  visibility: visible;
 }
 
 /* Typography and reset for header */
