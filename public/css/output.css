@@ -1377,7 +1377,7 @@ textarea.input-base {
   margin: 0;
   padding: 0;
 }
-.checkbox-required {
+.radio-required {
   color: #ef4444;
   margin-left: 0.25rem;
 }
@@ -1754,7 +1754,7 @@ textarea.input-base {
   flex-direction: column;
   gap: 0.625rem;
 }
-.list-form-checkbox {
+.list-form-radio {
   width: 100%;
 }
 .list-form-inputs {

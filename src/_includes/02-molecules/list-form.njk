@@ -4,7 +4,7 @@
 ========================= #}
 
 {# Import atoms #}
-{% from "03-atoms/checkbox.njk" import renderCheckbox %}
+{% from "03-atoms/radio.njk" import renderRadio %}
 {% from "03-atoms/input.njk" import renderInput %}
 
 {% macro renderListForm(option) %}
@@ -32,12 +32,12 @@
       <div class="list-form-container">
         <form class="list-form" method="POST" action="#" novalidate>
           
-          {# Checkbox section #}
-          {% if listFormData.checkboxName %}
-            <div class="list-form-checkbox">
-              {{ renderCheckbox({ 
-                  name: listFormData.checkboxName,
-                  datas: option.checkboxDatas
+          {# Radio section #}
+          {% if listFormData.radioName %}
+            <div class="list-form-radio">
+              {{ renderRadio({ 
+                  name: listFormData.radioName,
+                  datas: option.radioDatas
               }) }}
             </div>
           {% endif %}
@@ -70,7 +70,7 @@ Summon HAT Components Wisely
 {{ renderListForm({ 
     name: "contact_form",
     datas: molecules["list-form"]["list-forms"],
-    checkboxDatas: atoms.checkbox.checkboxes,
+    radioDatas: atoms.radio.radios,
     inputDatas: atoms.input.inputs
 }) }}
 

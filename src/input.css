@@ -521,8 +521,8 @@ textarea.input-base {
 }
 
 /* ============================================================
-   @ATOM - RADIO & CHECKBOX
-   - Radio and checkbox basic styles
+   @ATOM - RADIO
+   - Radio basic styles
 ============================================================ */
 
 .radio-group {
@@ -613,7 +613,7 @@ textarea.input-base {
   padding: 0;
 }
 
-.checkbox-required {
+.radio-required {
   color: #ef4444;
   margin-left: 0.25rem;
 }
@@ -1104,7 +1104,7 @@ textarea.input-base {
 /* ==========================================================================
    @MOLECULE - LIST FORM
    - Container and layout for form list elements
-   - Overrides input, checkbox, radio, and group styles within list-form
+   - Overrides input, radio, and group styles within list-form
    - Responsive max-width adjustment for mobile
    ========================================================================== */
 
@@ -1122,7 +1122,7 @@ textarea.input-base {
   gap: 0.625rem;
 }
 
-.list-form-checkbox {
+.list-form-radio {
   width: 100%;
 }
 

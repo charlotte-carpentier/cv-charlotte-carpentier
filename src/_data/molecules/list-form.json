@@ -2,7 +2,7 @@
   "list-forms": [
     {
       "name": "contact_form",
-      "checkboxName": "nature_request",
+      "radioName": "nature_request",
       "inputs": [
         {
           "inputName": "username",

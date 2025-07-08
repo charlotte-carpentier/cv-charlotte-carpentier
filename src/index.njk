@@ -3,14 +3,12 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "01-organisms/avatar-card.njk" import renderAvatarCard %}
+{% from "02-molecules/list-form.njk" import renderListForm %}
 
-2. Call the specific avatar-card by its name
-{{ renderAvatarCard({ 
-    name: "charlotte_main",
-    datas: organisms["avatar-card"]["avatar-cards"],
-    image_datas: atoms.image.images,
-    typography_datas: atoms.typography.texts,
-    button_datas: atoms.button.buttons,
-    tooltip_datas: atoms.tooltip.tooltips
+2. Call a specific list-form by its name
+{{ renderListForm({ 
+    name: "contact_form",
+    datas: molecules["list-form"]["list-forms"],
+    radioDatas: atoms.radio.radios,
+    inputDatas: atoms.input.inputs
 }) }}
