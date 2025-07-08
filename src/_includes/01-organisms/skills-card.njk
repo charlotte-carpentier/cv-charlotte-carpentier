@@ -1,7 +1,7 @@
 {# 
 =========================
     SKILLS-CARD ORGANISM
-    v1.2 - Charlotte Desktop + Tablet Logic + Mystery Chest       
+    v1.5 - Desktop + Tablette unifiée       
 =========================
 #}
 
@@ -30,20 +30,15 @@
     {% if not skillsCardData %}
       <span class="text-red-500">Skills-card not found: {{ skillsCardName }}</span>
     {% else %}
-      {# Calculate mystery chests needed for DESKTOP #}
+      {# Calculate mystery chests needed for DESKTOP only #}
       {% set totalSlots = 4 if skillsCardData.grid_layout == "2x2" else 6 %}
       {% set existingItems = skillsCardData.captions.length %}
       {% set missingSlots = totalSlots - existingItems %}
       
-      {# Calculate mystery chests needed for TABLET LANDSCAPE #}
-      {# En tablette: coffres uniquement dans languages_card #}
-      {% set isLanguagesCard = (skillsCardData.name == "languages_card") %}
-      {% set tabletteMissingSlots = missingSlots if isLanguagesCard else 0 %}
-      
       {# Skills Card Container #}
       <div class="skills-card skills-card--{{ skillsCardData.theme }}" data-skills="{{ skillsCardData.name }}">
         
-        {# Desktop version: Individual card #}
+        {# Desktop version: Individual card with tooltips #}
         <div class="skills-card-desktop">
           <div class="skills-card-content">
             
@@ -86,38 +81,26 @@
           </div>
         </div>
 
-        {# Tablet Landscape version: Compact card #}
-        <div class="skills-card-tablet-landscape">
-          <div class="skills-card-content">
+        {# Tablette version: Layout avec descriptions visibles #}
+        <div class="skills-card-tablet">
+          <div class="skills-card-tablet-content">
             
             {# Card title #}
-            <div class="skills-card-title">
+            <div class="skills-card-tablet-title">
               {{ renderTypography({ 
                 name: skillsCardData.title,
                 datas: option.typography_datas
               }) }}
             </div>
             
-            {# Card captions grid #}
-            <div class="skills-card-grid skills-card-grid--{{ skillsCardData.grid_layout }}">
+            {# Card captions list #}
+            <div class="skills-card-tablet-list">
               
-              {# Render existing captions #}
+              {# Render existing captions avec version mobile (description visible) #}
               {% for captionName in skillsCardData.captions %}
-                <div class="skills-card-item">
+                <div class="skills-card-tablet-item">
                   {{ renderCaption({ 
                     name: captionName,
-                    datas: option.caption_datas,
-                    iconDatas: option.icon_datas,
-                    tooltipDatas: option.tooltip_datas
-                  }) }}
-                </div>
-              {% endfor %}
-              
-              {# Add mystery chests UNIQUEMENT pour languages_card en tablette #}
-              {% for i in range(tabletteMissingSlots) %}
-                <div class="skills-card-item">
-                  {{ renderCaption({ 
-                    name: "skills_treasure",
                     datas: option.caption_datas,
                     iconDatas: option.icon_datas,
                     tooltipDatas: option.tooltip_datas
@@ -128,6 +111,13 @@
             </div>
           </div>
         </div>
+
+        {# Mobile version: À implémenter plus tard #}
+        <div class="skills-card-mobile">
+          <div class="skills-card-mobile-content">
+            {# TODO: Mobile version #}
+          </div>
+        </div>
       </div>
     {% endif %}
   {% endif %}
@@ -135,28 +125,16 @@
 
 {# 
 ============================
-Summon HAT Components Wisely
+Usage des Skills Cards
 ============================
 
-1. Import the macro at the top of your page
+1. Import de la macro
 {% from "01-organisms/skills-card.njk" import renderSkillsCard %}
 
-2. Call each skills-card individually 
-
-DESKTOP:
-- interests_card: 6 items → 0 coffre ✅
-- soft_skills_card: 3 items → 1 coffre ✅  
-- hard_skills_card: 3 items → 1 coffre ✅
-- languages_card: 5 items → 1 coffre ✅
-
-TABLET LANDSCAPE:
-- interests_card: 6 items → 0 coffre ✅
-- soft_skills_card: 3 items → 0 coffre ✅  
-- hard_skills_card: 3 items → 0 coffre ✅
-- languages_card: 5 items → 1 coffre ✅
+2. Utilisation individuelle pour chaque carte
 
 {{ renderSkillsCard({ 
-    name: "interests_card",
+    name: "soft_skills_card",
     datas: organisms["skills-card"]["skills-cards"],
     typography_datas: atoms.typography.texts,
     caption_datas: molecules.caption.captions,
@@ -164,5 +142,14 @@ TABLET LANDSCAPE:
     tooltip_datas: atoms.tooltip.tooltips
 }) }}
 
-May your responsive grids be forever aligned. 🧙‍♂️✨
+{{ renderSkillsCard({ 
+    name: "hard_skills_card",
+    datas: organisms["skills-card"]["skills-cards"],
+    typography_datas: atoms.typography.texts,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
+    tooltip_datas: atoms.tooltip.tooltips
+}) }}
+
+3. Layout en tablette : les 2 cartes seront côte à côte automatiquement
 #}

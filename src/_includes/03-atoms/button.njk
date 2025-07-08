@@ -1,8 +1,8 @@
 {# 
-=========================
-      BUTTON ATOM
-      v1.0 - Charlotte        
-=========================
+==========================================================================
+   BUTTON ATOM
+   v2.0 - Simplifié        
+==========================================================================
 #}
 
 {% macro renderButton(option) %}
@@ -14,7 +14,7 @@
     {% set buttonsConfig = option.datas %}
     {% set buttonName = option.name %}
     
-    {# Find the specific button by name - buttonsConfig is already the array #}
+    {# Find the specific button by name #}
     {% set buttonData = null %}
     {% for button in buttonsConfig %}
       {% if button.name == buttonName %}
@@ -26,7 +26,7 @@
     {% if not buttonData %}
       <span class="text-red-500">Button not found: {{ buttonName }}</span>
     {% else %}
-      {# Build CSS classes - Using variant from JSON data #}
+      {# Build CSS classes #}
       {% set variant = buttonData.variant | default('primary') %}
       {% set cssClasses = 'button button--' ~ variant %}
       
@@ -43,40 +43,7 @@
         {% if option.onclick %}onclick="{{ option.onclick }}"{% endif %}
         {% if option.id %}id="{{ option.id }}"{% endif %}
       >
-        {# Before icon #}
-        {% if buttonData.iconBefore %}
-          {% if buttonData.iconBefore.endsWith('.svg') %}
-            <span data-svg-src="{{ buttonData.iconBefore }}" class="button__icon button__icon--before">
-              <!-- SVG will be loaded here -->
-            </span>
-          {% else %}
-            <img 
-              src="{{ buttonData.iconBefore }}" 
-              alt="Icon" 
-              class="button__icon button__icon--before"
-            />
-          {% endif %}
-        {% endif %}
-        
-      {# Button text #}
-        {% if buttonData.text %}
-          <span class="button__text">{{ buttonData.text }}</span>
-        {% endif %}
-        
-        {# After icon #}
-        {% if buttonData.iconAfter %}
-          {% if buttonData.iconAfter.endsWith('.svg') %}
-            <span data-svg-src="{{ buttonData.iconAfter }}" class="button__icon button__icon--after">
-              <!-- SVG will be loaded here -->
-            </span>
-          {% else %}
-            <img 
-              src="{{ buttonData.iconAfter }}" 
-              alt="Icon" 
-              class="button__icon button__icon--after"
-            />
-          {% endif %}
-        {% endif %}
+        {{ buttonData.text }}
       </button>
     {% endif %}
   {% endif %}
