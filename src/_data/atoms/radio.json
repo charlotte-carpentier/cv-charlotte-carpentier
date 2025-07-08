@@ -1,5 +1,5 @@
 {
-    "checkboxes": [
+    "radios": [
       {
         "name": "nature_request",
         "label": "Quelle est la nature de votre requête ?",

@@ -3,14 +3,22 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "01-organisms/avatar-card.njk" import renderAvatarCard %}
+{% from "01-organisms/skills-card.njk" import renderSkillsCard %}
 
-2. Call the specific avatar-card by its name
-{{ renderAvatarCard({ 
-    name: "charlotte_main",
-    datas: organisms["avatar-card"]["avatar-cards"],
-    image_datas: atoms.image.images,
+{{ renderSkillsCard({ 
+    name: "soft_skills_card",
+    datas: organisms["skills-card"]["skills-cards"],
     typography_datas: atoms.typography.texts,
-    button_datas: atoms.button.buttons,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
+    tooltip_datas: atoms.tooltip.tooltips
+}) }}
+
+{{ renderSkillsCard({ 
+    name: "hard_skills_card",
+    datas: organisms["skills-card"]["skills-cards"],
+    typography_datas: atoms.typography.texts,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
     tooltip_datas: atoms.tooltip.tooltips
 }) }}

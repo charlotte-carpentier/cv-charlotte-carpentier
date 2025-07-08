@@ -81,43 +81,26 @@
           </div>
         </div>
 
-        {# Tablette version: Layout avec descriptions visibles #}
-        <div class="skills-card-tablet">
-          <div class="skills-card-tablet-content">
-            
-            {# Card title #}
-            <div class="skills-card-tablet-title">
-              {{ renderTypography({ 
-                name: skillsCardData.title,
-                datas: option.typography_datas
-              }) }}
-            </div>
-            
-            {# Card captions list #}
-            <div class="skills-card-tablet-list">
-              
-              {# Render existing captions avec version mobile (description visible) #}
-              {% for captionName in skillsCardData.captions %}
-                <div class="skills-card-tablet-item">
-                  {{ renderCaption({ 
-                    name: captionName,
-                    datas: option.caption_datas,
-                    iconDatas: option.icon_datas,
-                    tooltipDatas: option.tooltip_datas
-                  }) }}
-                </div>
-              {% endfor %}
-              
-            </div>
-          </div>
+        {# Tablette version: Layout simplifié avec descriptions visibles #}
+        {# Card title #}
+        <div class="skills-card-title">
+          {{ renderTypography({ 
+            name: skillsCardData.title,
+            datas: option.typography_datas
+          }) }}
         </div>
+        
+        {# Render existing captions avec version mobile (description visible) #}
+        {% for captionName in skillsCardData.captions %}
+          {{ renderCaption({ 
+            name: captionName,
+            datas: option.caption_datas,
+            iconDatas: option.icon_datas,
+            tooltipDatas: option.tooltip_datas
+          }) }}
+        {% endfor %}
 
-        {# Mobile version: À implémenter plus tard #}
-        <div class="skills-card-mobile">
-          <div class="skills-card-mobile-content">
-            {# TODO: Mobile version #}
-          </div>
-        </div>
+
       </div>
     {% endif %}
   {% endif %}
