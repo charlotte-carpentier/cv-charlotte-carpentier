@@ -194,6 +194,9 @@
   .absolute {
     position: absolute;
   }
+  .fixed {
+    position: fixed;
+  }
   .relative {
     position: relative;
   }
@@ -1408,7 +1411,6 @@ textarea.input-base {
 }
 .tooltip-container {
   position: absolute;
-  z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -1658,7 +1660,6 @@ textarea.input-base {
 }
 .tooltip-popup {
   position: absolute;
-  z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -1671,9 +1672,6 @@ textarea.input-base {
 .caption-container:hover .tooltip-popup, .caption-container:focus-within .tooltip-popup {
   opacity: 1;
   visibility: visible;
-}
-.caption-container:hover .caption-title-desktop, .caption-container:focus-within .caption-title-desktop {
-  z-index: 500;
 }
 @media (min-width: 1025px) {
   .caption-desktop {
@@ -1853,7 +1851,6 @@ textarea.input-base {
   position: absolute;
   bottom: -15px;
   right: 0;
-  z-index: 10;
 }
 .content-block-title {
   text-align: left;
@@ -1987,14 +1984,12 @@ textarea.input-base {
   visibility: hidden;
   transform: translateY(-20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 0;
   box-sizing: border-box;
 }
 .header-mobile-overlay.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  z-index: 100;
 }
 .mobile-overlay-content {
   padding: 1rem 2rem;
@@ -2183,7 +2178,6 @@ textarea.input-base {
   position: relative;
   display: inline-block;
   cursor: default;
-  z-index: 50;
 }
 .avatar-tooltip-container::before {
   content: '';
@@ -2192,7 +2186,6 @@ textarea.input-base {
   left: 85px;
   width: 180px;
   height: 650px;
-  z-index: 1;
 }
 .avatar-tooltip-container .tooltip-popup {
   position: fixed;
@@ -2202,7 +2195,6 @@ textarea.input-base {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  z-index: 1000;
 }
 .avatar-tooltip-container:focus-within {
   outline: 2px solid #c4ffcb;
@@ -2247,7 +2239,6 @@ textarea.input-base {
 }
 .skills-card {
   position: relative;
-  z-index: 50;
 }
 .skills-card-desktop {
   display: none;
@@ -2338,7 +2329,6 @@ textarea.input-base {
   width: 32px;
   height: 32px;
   cursor: pointer;
-  z-index: 10;
   display: none;
 }
 @media (min-width: 1025px) {
@@ -2533,7 +2523,6 @@ textarea.input-base {
 }
 .main-content {
   position: relative;
-  z-index: 1;
 }
 body.charlotte-bg {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
@@ -2552,6 +2541,39 @@ body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
   }
+}
+.main-content {
+  z-index: 1;
+}
+.skills-card {
+  z-index: 1;
+}
+.caption-container {
+  z-index: 10;
+}
+.content-block--preview .content-block-button {
+  z-index: 10;
+}
+.avatar-tooltip-container {
+  z-index: 50;
+}
+.avatar-tooltip-container::before {
+  z-index: 1;
+}
+.skills-card-close {
+  z-index: 60;
+}
+.skills-card .caption-container {
+  z-index: 100;
+}
+.header-mobile-overlay.active {
+  z-index: 100;
+}
+.caption-container:hover .caption-title-desktop, .caption-container:focus-within .caption-title-desktop {
+  z-index: 500;
+}
+.tooltip-popup, .tooltip-container, .avatar-tooltip-container .tooltip-popup {
+  z-index: 1000;
 }
 @property --tw-translate-x {
   syntax: "*";

@@ -658,7 +658,6 @@ textarea.input-base {
 
 .tooltip-container {
   position: absolute;
-  z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -987,7 +986,6 @@ textarea.input-base {
 /* Tooltip popup positioning */
 .tooltip-popup {
   position: absolute;
-  z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -1002,12 +1000,6 @@ textarea.input-base {
 .caption-container:focus-within .tooltip-popup {
   opacity: 1;
   visibility: visible;
-}
-
-/* Title z-index when tooltip active */
-.caption-container:hover .caption-title-desktop,
-.caption-container:focus-within .caption-title-desktop {
-  z-index: 500;
 }
 
 /* Responsive */
@@ -1275,7 +1267,6 @@ textarea.input-base {
   position: absolute;
   bottom: -15px;
   right: 0;
-  z-index: 10;
 }
 
 /* Title styles */
@@ -1466,7 +1457,6 @@ textarea.input-base {
   visibility: hidden;
   transform: translateY(-20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 0;
   box-sizing: border-box;
 }
 
@@ -1474,7 +1464,6 @@ textarea.input-base {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  z-index: 100;
 }
 
 .mobile-overlay-content {
@@ -1747,7 +1736,6 @@ textarea.input-base {
   position: relative;
   display: inline-block;
   cursor: default;
-  z-index: 50;
 }
 
 /* Tooltip active zone */
@@ -1758,7 +1746,6 @@ textarea.input-base {
   left: 85px;
   width: 180px;
   height: 650px;
-  z-index: 1;
 }
 
 /* Tooltip popup hidden by default */
@@ -1770,7 +1757,6 @@ textarea.input-base {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  z-index: 1000;
 }
 
 /* Focus state for accessibility */
@@ -1840,7 +1826,6 @@ textarea.input-base {
 
 .skills-card {
   position: relative;
-  z-index: 50;
 }
 
 /* Hide desktop version by default */
@@ -1956,7 +1941,6 @@ textarea.input-base {
   width: 32px;
   height: 32px;
   cursor: pointer;
-  z-index: 10;
   display: none; /* Hidden by default */
 }
 
@@ -2236,7 +2220,6 @@ textarea.input-base {
 /* Alternative container for content layering */
 .main-content {
   position: relative;
-  z-index: 1;
 }
 
 /* Optional background applied to body */
@@ -2261,4 +2244,63 @@ body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
   }
+}
+
+/* ==========================================================================
+   @SYSTEM - Z-INDEX MANAGEMENT
+   - Centralized z-index values for consistent layering
+   - Organized by elevation levels for better maintainability
+   ========================================================================== */
+
+/* Base layer - Foundation elements */
+.main-content {
+  z-index: 1;
+}
+
+.skills-card {
+  z-index: 1;
+}
+
+/* Interactive layer - Standard interactive elements */
+.caption-container {
+  z-index: 10;
+}
+
+.content-block--preview .content-block-button {
+  z-index: 10;
+}
+
+/* Elevated layer - Important UI elements */
+.avatar-tooltip-container {
+  z-index: 50;
+}
+
+.avatar-tooltip-container::before {
+  z-index: 1;
+}
+
+.skills-card-close {
+  z-index: 60;
+}
+
+/* High priority layer - Context-sensitive elements */
+.skills-card .caption-container {
+  z-index: 100;
+}
+
+.header-mobile-overlay.active {
+  z-index: 100;
+}
+
+/* Active state layer - Hover and focus states */
+.caption-container:hover .caption-title-desktop,
+.caption-container:focus-within .caption-title-desktop {
+  z-index: 500;
+}
+
+/* Top layer - Tooltips and modal elements */
+.tooltip-popup,
+.tooltip-container,
+.avatar-tooltip-container .tooltip-popup {
+  z-index: 1000;
 }

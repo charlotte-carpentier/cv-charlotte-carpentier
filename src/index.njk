@@ -7,7 +7,7 @@ layout: '00-core/base.njk'
 
 <div class="skills-wrapper">
   {{ renderSkillsCard({ 
-      name: "soft_skills_card",
+      name: "languages_card",
       datas: organisms["skills-card"]["skills-cards"],
       typography_datas: atoms.typography.texts,
       caption_datas: molecules.caption.captions,
@@ -15,6 +15,15 @@ layout: '00-core/base.njk'
       tooltip_datas: atoms.tooltip.tooltips
   }) }}
 
+  {{ renderSkillsCard({ 
+      name: "soft_skills_card",
+      datas: organisms["skills-card"]["skills-cards"],
+      typography_datas: atoms.typography.texts,
+      caption_datas: molecules.caption.captions,
+      icon_datas: atoms.icon.icons,
+      tooltip_datas: atoms.tooltip.tooltips
+  }) }}
+  
   {{ renderSkillsCard({ 
       name: "hard_skills_card",
       datas: organisms["skills-card"]["skills-cards"],
@@ -26,15 +35,6 @@ layout: '00-core/base.njk'
 
   {{ renderSkillsCard({ 
       name: "interests_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-
-  {{ renderSkillsCard({ 
-      name: "languages_card",
       datas: organisms["skills-card"]["skills-cards"],
       typography_datas: atoms.typography.texts,
       caption_datas: molecules.caption.captions,
