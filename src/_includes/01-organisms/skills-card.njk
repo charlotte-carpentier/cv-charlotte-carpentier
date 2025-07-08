@@ -1,7 +1,7 @@
 {# 
 =========================
     SKILLS-CARD ORGANISM
-    v1.5 - Desktop + Tablette unifiée       
+    v2.0 - Single call responsive layout       
 =========================
 #}
 
@@ -81,8 +81,7 @@
           </div>
         </div>
 
-        {# Tablette version: Layout simplifié avec descriptions visibles #}
-        {# Card title #}
+        {# Tablet/Mobile version: Same title and captions but different layout #}
         <div class="skills-card-title">
           {{ renderTypography({ 
             name: skillsCardData.title,
@@ -90,7 +89,6 @@
           }) }}
         </div>
         
-        {# Render existing captions avec version mobile (description visible) #}
         {% for captionName in skillsCardData.captions %}
           {{ renderCaption({ 
             name: captionName,
@@ -100,7 +98,6 @@
           }) }}
         {% endfor %}
 
-
       </div>
     {% endif %}
   {% endif %}
@@ -108,31 +105,53 @@
 
 {# 
 ============================
-Usage des Skills Cards
+Summon HAT Components Wisely
 ============================
 
-1. Import de la macro
+1. Import the macro at the top of your page
 {% from "01-organisms/skills-card.njk" import renderSkillsCard %}
 
-2. Utilisation individuelle pour chaque carte
+2. Wrap your 4 skills cards in a wrapper div for grid layout
+<div class="skills-wrapper">
+  {{ renderSkillsCard({ 
+      name: "soft_skills_card",
+      datas: organisms["skills-card"]["skills-cards"],
+      typography_datas: atoms.typography.texts,
+      caption_datas: molecules.caption.captions,
+      icon_datas: atoms.icon.icons,
+      tooltip_datas: atoms.tooltip.tooltips
+  }) }}
+  
+  {{ renderSkillsCard({ 
+      name: "hard_skills_card",
+      datas: organisms["skills-card"]["skills-cards"],
+      typography_datas: atoms.typography.texts,
+      caption_datas: molecules.caption.captions,
+      icon_datas: atoms.icon.icons,
+      tooltip_datas: atoms.tooltip.tooltips
+  }) }}
+  
+  {{ renderSkillsCard({ 
+      name: "interests_card",
+      datas: organisms["skills-card"]["skills-cards"],
+      typography_datas: atoms.typography.texts,
+      caption_datas: molecules.caption.captions,
+      icon_datas: atoms.icon.icons,
+      tooltip_datas: atoms.tooltip.tooltips
+  }) }}
+  
+  {{ renderSkillsCard({ 
+      name: "languages_card",
+      datas: organisms["skills-card"]["skills-cards"],
+      typography_datas: atoms.typography.texts,
+      caption_datas: molecules.caption.captions,
+      icon_datas: atoms.icon.icons,
+      tooltip_datas: atoms.tooltip.tooltips
+  }) }}
+</div>
 
-{{ renderSkillsCard({ 
-    name: "soft_skills_card",
-    datas: organisms["skills-card"]["skills-cards"],
-    typography_datas: atoms.typography.texts,
-    caption_datas: molecules.caption.captions,
-    icon_datas: atoms.icon.icons,
-    tooltip_datas: atoms.tooltip.tooltips
-}) }}
+3. Desktop/Tablet: All 4 cards visible in 2x2 grid
+4. Mobile: Cards hidden by default, shown via JS buttons (.active class)
 
-{{ renderSkillsCard({ 
-    name: "hard_skills_card",
-    datas: organisms["skills-card"]["skills-cards"],
-    typography_datas: atoms.typography.texts,
-    caption_datas: molecules.caption.captions,
-    icon_datas: atoms.icon.icons,
-    tooltip_datas: atoms.tooltip.tooltips
-}) }}
-
-3. Layout en tablette : les 2 cartes seront côte à côte automatiquement
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
 #}
