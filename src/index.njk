@@ -3,12 +3,22 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "02-molecules/list-form.njk" import renderListForm %}
+{% from "01-organisms/skills-card.njk" import renderSkillsCard %}
 
-2. Call a specific list-form by its name
-{{ renderListForm({ 
-    name: "contact_form",
-    datas: molecules["list-form"]["list-forms"],
-    radioDatas: atoms.radio.radios,
-    inputDatas: atoms.input.inputs
+{{ renderSkillsCard({ 
+    name: "soft_skills_card",
+    datas: organisms["skills-card"]["skills-cards"],
+    typography_datas: atoms.typography.texts,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
+    tooltip_datas: atoms.tooltip.tooltips
+}) }}
+
+{{ renderSkillsCard({ 
+    name: "hard_skills_card",
+    datas: organisms["skills-card"]["skills-cards"],
+    typography_datas: atoms.typography.texts,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
+    tooltip_datas: atoms.tooltip.tooltips
 }) }}
