@@ -1,25 +1,126 @@
+/* ============================================================
+   @IMPORTS
+   - TailwindCSS core
+============================================================ */
+
 @import "tailwindcss";
+
+/* ============================================================
+   @SOURCE
+   - Fichiers templates surveillés
+============================================================ */
 
 @source "./src/**/*.njk";
 
-/* Reset global */
-* {
-  margin: 0;
-  padding: 0;
+/* ============================================================
+   @RESET
+   - CSS Reset and base layout standardization
+============================================================ */
+
+/* Use border-box by default for all elements */
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* Reset for paragraphes */
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure full height for layout */
+html, body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Inherit font and reset input elements */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  appearance: none;
+  box-shadow: none;
+}
+
+/* Reset button styles */
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+/* Reset anchor styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Make media elements responsive */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove list default styles */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove margin and block spacing from paragraphs */
 p {
   margin: 0;
   padding: 0;
   margin-block-start: 0;
   margin-block-end: 0;
+  width: 100%;
 }
 
-/* -------------------------------------------------- */
-/* 00 – DESIGN SYSTEM                                 */
-/* -------------------------------------------------- */
+/* Remove automatic quote styles */
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+}
+
+/* Reset focus outlines */
+:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Font smoothing for better rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   @THEME
+   - Design system du projet
+============================================================ */
 
 @theme {
   /* Color styles */
@@ -51,11 +152,12 @@ p {
   --ls-h1-mobile: 3%;
 }
 
-/* -------------------------------------------------- */
-/* 01 – ATOMS                                         */
-/* -------------------------------------------------- */
+/* ==========================================================================
+   @ATOM - TYPOGRAPHY
+   - Base font styles for text elements (titles, paragraphs, codes, small text)
+   - Responsive font sizes for mobile
+   ========================================================================== */
 
-/* === TYPOGRAPHY === */
 .text-h1 {
   font-family: theme(--font-title);
   font-size: theme(--text-h1);
@@ -86,36 +188,45 @@ p {
 }
 
 /* Typography - Responsive */
-@media (max-width: 768px) {
-  .text-h1 { font-size: theme(--text-h1-mobile); letter-spacing: theme(--ls-h1-mobile); }
-  .text-h2 { font-size: theme(--text-h2-mobile); }
-  .text-p { font-size: theme(--text-p-mobile); }
-  .text-code { font-size: theme(--text-code-mobile); }
-  .text-small { font-size: theme(--text-small-mobile); }
-}
-
-/* === ICONS === */
-/* Icon Pillar - Desktop default */
-.icon-pillar { 
-  width: 603px; 
-  height: 603px; 
-}
-
-/* Icon Pillar - Responsive */
-@media (max-width: 1024px) and (min-width: 769px) and (orientation: landscape) {
-  .icon-pillar {
-    width: 400px;
-    height: 400px;
+@media (max-width: 1024px) {
+  .text-h1 {
+    font-size: theme(--text-h1-mobile);
+    letter-spacing: theme(--ls-h1-mobile);
+  }
+  .text-h2 {
+    font-size: theme(--text-h2-mobile);
+  }
+  .text-p {
+    font-size: theme(--text-p-mobile);
+  }
+  .text-code {
+    font-size: theme(--text-code-mobile);
+  }
+  .text-small {
+    font-size: theme(--text-small-mobile);
   }
 }
 
-@media (max-width: 1024px) and (min-width: 481px) and (orientation: portrait) {
+/* ============================================================
+   @ATOMS - ICONS
+   - Icon components with responsive sizes and theme overlays
+============================================================ */
+
+/* Icon Pillar - Desktop default size */
+.icon-pillar {
+  width: 603px;
+  height: 603px;
+}
+
+/* Icon Pillar - Tablet size */
+@media (min-width: 481px) and (max-width: 1024px) {
   .icon-pillar {
     width: 300px;
     height: 300px;
   }
 }
 
+/* Icon Pillar - Mobile size */
 @media (max-width: 480px) {
   .icon-pillar {
     width: 160px;
@@ -124,22 +235,22 @@ p {
 }
 
 /* Icon Avatar - Base styles */
-.icon-avatar { 
-  width: 64px; 
+.icon-avatar {
+  width: 64px;
   height: 64px;
   position: relative;
   overflow: hidden;
 }
 
-/* Icon Avatar - Gradient overlay (uniquement dans Caption) */
+/* Icon Avatar - Gradient overlays inside caption containers */
 .caption-container .icon-avatar.caption-gradient-dark {
   background: linear-gradient(to top, theme(--cc-green-dark), transparent 70%);
-  color: theme(--cc-black); /* Icon reste noir */
+  color: theme(--cc-black); /* Keep icon color black */
 }
 
 .caption-container .icon-avatar.caption-gradient-light {
   background: linear-gradient(to top, theme(--cc-green-light), transparent 70%);
-  color: theme(--cc-black); /* Icon reste noir */
+  color: theme(--cc-black); /* Keep icon color black */
 }
 
 .caption-container .icon-avatar.caption-gradient-grey {
@@ -147,26 +258,30 @@ p {
   color: #262626;
 }
 
-/* Icon Avatar - Responsive */
-@media (max-width: 1024px) and (orientation: portrait), 
-       (max-width: 480px) {
+/* Icon Avatar - Responsive adjustment */
+@media (max-width: 1024px) {
   .icon-avatar {
     width: 50px;
     height: 50px;
   }
 }
 
-/* Icon Interface - Fixed sizes */
-.icon-interface { 
-  width: 32px; 
-  height: 32px; 
+/* Icon Interface - Fixed size */
+.icon-interface {
+  width: 32px;
+  height: 32px;
 }
 
-/* === BUTTONS === */
+/* ============================================================
+   @ATOMS - BUTTONS
+   - Button styles with primary and disabled states
+   - Responsive adjustments included
+============================================================ */
+
 .button {
   font-family: theme(--font-text);
-  padding: 0.3rem 1.5rem 0rem 1.5rem;
-  border-radius: 0rem;
+  padding: 0.3rem 1.5rem 0 1.5rem;
+  border-radius: 0;
   font-weight: bold;
   font-size: theme(--text-code);
   transition: all 0.2s ease;
@@ -177,33 +292,37 @@ p {
   justify-content: center;
 }
 
-.button--primary {
+/* Primary button style */
+.button.button--primary {
   background-color: theme(--cc-white);
   color: theme(--cc-black);
   border-color: theme(--cc-black);
 }
 
-.button--primary:hover {
+/* Primary button hover state */
+.button.button--primary:hover {
   background-color: theme(--cc-white);
   color: theme(--cc-black);
   border-color: theme(--cc-green-dark);
 }
 
-.button--primary:focus {
+/* Primary button focus state */
+.button.button--primary:focus {
   background-color: theme(--cc-white);
   color: theme(--cc-grey-light);
   border-color: #0044aa;
   outline: none;
 }
 
-.button--primary:active {
+/* Primary button active state */
+.button.button--primary:active {
   background-color: theme(--cc-white);
   color: theme(--cc-black);
   border-color: #0044aa;
 }
 
-.button--primary:disabled,
-.button--disabled {
+/* Disabled button style */
+.button.button--disabled {
   background-color: theme(--cc-grey-light);
   color: theme(--cc-grey-dark);
   border-color: theme(--cc-grey-dark);
@@ -211,32 +330,39 @@ p {
   opacity: 0.6;
 }
 
-/* Button - Responsive */
-@media (max-width: 768px) {
-  .button--primary {
-    padding: 0.3rem 1rem 0rem 1rem;
+/* Responsive adjustments for primary button */
+@media (max-width: 480px) {
+  .button.button--primary {
+    padding: 0.3rem 1rem 0 1rem;
     font-size: theme(--text-code-mobile);
-    border: 3px solid;
+    border-width: 3px;
   }
 }
 
-/* === LINKS === */
+/* ============================================================
+   @ATOMS - LINKS
+   - Link base styles with variants: navigation, tab, external
+   - Focus, disabled states and responsive included
+============================================================ */
+
 .link {
   transition: color 0.2s;
   outline: none;
   cursor: pointer;
 }
 
+/* Focus outline for accessibility */
 .link:focus {
   outline: 2px solid #0044aa;
 }
 
+/* Disabled state */
 .link:disabled {
   color: theme(--cc-grey-light);
   pointer-events: none;
 }
 
-/* Link Nav variant */
+/* Navigation link variant */
 .link--nav {
   font-family: theme(--font-title);
   font-size: theme(--text-h2);
@@ -244,10 +370,12 @@ p {
   text-decoration: underline;
 }
 
+/* Navigation link hover */
 .link--nav:hover {
   text-decoration: none;
 }
 
+/* Navigation link current/page active state */
 .link--nav.current,
 .link--nav[aria-current="page"] {
   color: theme(--cc-green-dark);
@@ -255,7 +383,7 @@ p {
   font-weight: bold;
 }
 
-/* Link Tab variant */
+/* Tab link variant */
 .link--tab {
   font-family: theme(--font-text);
   font-size: theme(--text-code);
@@ -266,10 +394,12 @@ p {
   border-bottom: 2px solid transparent;
 }
 
+/* Tab link hover */
 .link--tab:hover {
   color: theme(--cc-green-dark);
 }
 
+/* Tab link current/page active state */
 .link--tab.current,
 .link--tab[aria-current="page"] {
   color: theme(--cc-green-dark);
@@ -277,7 +407,7 @@ p {
   border-bottom-color: theme(--cc-green-dark);
 }
 
-/* Link External variant */
+/* External link variant */
 .link--external {
   font-family: theme(--font-text);
   font-size: theme(--text-p);
@@ -285,12 +415,13 @@ p {
   text-decoration: underline;
 }
 
+/* External link hover */
 .link--external:hover {
   color: theme(--cc-green-dark);
 }
 
-/* Links - Responsive */
-@media (max-width: 768px) {
+/* Responsive font sizes */
+@media (max-width: 480px) {
   .link--nav {
     font-size: theme(--text-h2-mobile);
   }
@@ -304,13 +435,20 @@ p {
   }
 }
 
-/* === INPUTS === */
+/* ============================================================
+   @ATOMS - INPUTS
+   - Base styles for inputs and textarea
+   - States: default, hover, focus, active, filled, critical, disabled
+   - Input group with label styling
+============================================================ */
+
 .input-base {
   font-family: theme(--font-text);
   font-size: theme(--text-code);
   padding: 0.75rem 0.5rem;
   border-radius: 0.25rem;
   border-width: 2px;
+  border-style: solid;
   outline: none;
   transition: border-color 0.3s, color 0.3s;
   color: theme(--cc-grey-light);
@@ -323,56 +461,70 @@ p {
   opacity: 1;
 }
 
+/* Default border color */
 .input-default { 
   border-color: theme(--cc-grey-light); 
 }
 
+/* Hover state */
 .input-hover:hover { 
   border-color: theme(--cc-grey-dark); 
 }
 
+/* Focus state */
 .input-focus:focus { 
   border-color: theme(--cc-green-dark);
   color: theme(--cc-black);
 }
 
+/* Active state */
 .input-active { 
   border-color: theme(--cc-green-dark);
   color: theme(--cc-black);
 }
 
+/* Filled input */
 .input-filled { 
   background-color: theme(--cc-green-light);
   color: theme(--cc-black);
 }
 
+/* Critical/Error state */
 .input-critical { 
   border-color: red; 
 }
 
+/* Disabled input */
 .input-disabled {
   background-color: theme(--cc-grey-light);
   cursor: not-allowed;
   opacity: 0.6;
 }
 
+/* Input group container */
 .input-group {
   margin-bottom: 1rem;
 }
 
+/* Label inside input group */
 .input-group label {
   color: theme(--cc-white);
   display: block;
   margin-bottom: 0.5rem;
 }
 
+/* Textarea specific adjustments */
 textarea.input-base {
   line-height: 1.4;
   resize: vertical;
   min-height: 80px;
 }
 
-/* === RADIO/CHECKBOX === */
+/* ============================================================
+   @ATOM - RADIO & CHECKBOX
+   - Radio and checkbox basic styles
+============================================================ */
+
 .radio-group {
   margin-bottom: 1rem;
   width: 280px;
@@ -466,8 +618,8 @@ textarea.input-base {
   margin-left: 0.25rem;
 }
 
-/* Radio/Checkbox - Responsive */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 480px) {
   .radio-group-label {
     font-size: theme(--text-code-mobile);
   }
@@ -477,7 +629,11 @@ textarea.input-base {
   }
 }
 
-/* === TOOLTIPS === */
+/* ============================================================
+   @ATOM - TOOLTIP
+   - Tooltip container and box styles with smooth transitions
+============================================================ */
+
 .tooltip-container {
   position: absolute;
   z-index: 1000;
@@ -551,7 +707,12 @@ textarea.input-base {
   white-space: pre-line;
 }
 
-/* === IMAGES === */
+/* ==========================================================================
+   @ATOM - IMAGES
+   - Avatar and mission images with size variants for desktop, tablet, and mobile
+   - Borders styled consistently with theme variables
+   ========================================================================== */
+
 .image-avatar-desktop { 
   width: 351px; 
   height: 686px; 
@@ -579,11 +740,12 @@ textarea.input-base {
   border: 3px solid theme(--cc-black);
 }
 
-/* -------------------------------------------------- */
-/* 02 – MOLECULES                                     */
-/* -------------------------------------------------- */
+/* ==========================================================================
+   @MOLECULE - CONTACT BLOCK
+   - Layout for contact info with icons and text
+   - Responsive adjustments for smaller screens
+   ========================================================================== */
 
-/* === CONTACT BLOCK === */
 .contact-block {
   display: flex;
   flex-direction: column;
@@ -604,7 +766,7 @@ textarea.input-base {
   flex: 1;
 }
 
-/* Contact Block - Force icon sizes */
+/* Force icon size */
 .contact-block .contact-icon .icon-interface {
   width: 32px;
   height: 32px;
@@ -614,8 +776,8 @@ textarea.input-base {
   font-size: theme(--text-p);
 }
 
-/* Contact Block - Responsive */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 480px) {
   .contact-block {
     gap: 0.75rem;
   }
@@ -634,7 +796,13 @@ textarea.input-base {
   }
 }
 
-/* === TAB MENU === */
+
+/* ==========================================================================
+   @MOLECULE - TAB MENU
+   - Horizontal desktop menu and vertical mobile menu
+   - Responsive switching between desktop and mobile layouts
+   ========================================================================== */
+
 .tab-menu {
   position: relative;
   visibility: hidden;
@@ -680,8 +848,8 @@ textarea.input-base {
   margin: 0;
 }
 
-/* Tab Menu - Responsive */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 480px) {
   .tab-menu-desktop {
     display: none;
   }
@@ -696,13 +864,19 @@ textarea.input-base {
   }
 }
 
-/* === CAPTION === */
+/* ==========================================================================
+   @MOLECULE - CAPTION
+   - Container with icon and title for desktop and mobile
+   - Tooltip popup positioning and hover/focus interactions
+   - Responsive layout switching between desktop and mobile versions
+   ========================================================================== */
+
 .caption-container {
   position: relative;
   display: inline-block;
 }
 
-/* Caption Desktop Layout */
+/* Desktop layout */
 .caption-desktop {
   display: flex;
   flex-direction: column;
@@ -741,7 +915,7 @@ textarea.input-base {
   transform: scale(1.05);
 }
 
-/* Caption Mobile Layout */
+/* Mobile layout */
 .caption-mobile {
   display: none;
   align-items: flex-start;
@@ -788,7 +962,7 @@ textarea.input-base {
   font-weight: 400;
 }
 
-/* Caption Tooltip Positioning */
+/* Tooltip popup positioning */
 .tooltip-popup {
   position: absolute;
   z-index: 1000;
@@ -808,14 +982,26 @@ textarea.input-base {
   visibility: visible;
 }
 
-/* Title stays behind tooltip when active */
+/* Title z-index when tooltip active */
 .caption-container:hover .caption-title-desktop,
 .caption-container:focus-within .caption-title-desktop {
   z-index: 500;
 }
 
-/* Caption - Responsive */
-@media (max-width: 768px) {
+/* Responsive */
+/* Desktop only (1025px and up) */
+@media (min-width: 1025px) {
+  .caption-desktop {
+    display: flex;
+  }
+  
+  .caption-mobile {
+    display: none;
+  }
+}
+
+/* Tablet + Mobile (1024px and below) */
+@media (max-width: 1024px) {
   .caption-desktop {
     display: none;
   }
@@ -833,41 +1019,12 @@ textarea.input-base {
   }
 }
 
-@media (min-width: 769px) {
-  .caption-desktop {
-    display: flex;
-  }
-  
-  .caption-mobile {
-    display: none;
-  }
-}
+/* ==========================================================================
+   @MOLECULE - PROGRESS BAR
+   - Container with track, fill, and text for progress display
+   - Responsive adjustments for mobile devices
+   ========================================================================== */
 
-/* Caption Accessibility */
-.caption-container:focus-within {
-  outline: 2px solid theme(--cc-green-light);
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .caption-icon-desktop,
-  .tooltip-popup,
-  .caption-desktop {
-    transition: none;
-  }
-}
-
-@media (prefers-contrast: high) {
-  .caption-container .tooltip-box {
-    border-width: 6px;
-  }
-  
-  .caption-mobile {
-    border-width: 6px;
-  }
-}
-
-/* === PROGRESS-BAR === */
 .progress-bar-container {
   display: flex;
   flex-direction: column;
@@ -921,8 +1078,9 @@ textarea.input-base {
   line-height: 1;
 }
 
-/* Progress-bar - Responsive */
-@media (max-width: 768px) {
+/* Responsive */
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
   .progress-bar {
     max-width: 150px;
   }
@@ -943,7 +1101,13 @@ textarea.input-base {
   }
 }
 
-/* === LIST-FORM === */
+/* ==========================================================================
+   @MOLECULE - LIST FORM
+   - Container and layout for form list elements
+   - Overrides input, checkbox, radio, and group styles within list-form
+   - Responsive max-width adjustment for mobile
+   ========================================================================== */
+
 .list-form-container {
   display: flex;
   justify-content: center;
@@ -969,39 +1133,47 @@ textarea.input-base {
   gap: 0.625rem;
 }
 
-/* Override input width in list-form context */
+/* Override input width inside list-form */
 .list-form .input-base {
   width: 100%;
   max-width: none;
 }
 
-/* Override radio group width in list-form context */
+/* Override radio group width inside list-form */
 .list-form .radio-group {
   width: 100%;
   max-width: none;
   margin-bottom: 0;
 }
 
-/* Override input group margin in list-form context */
+/* Remove bottom margin for input groups inside list-form */
 .list-form .input-group {
   margin-bottom: 0;
 }
 
-/* List-form - Responsive */
-@media (max-width: 768px) {
+/* Responsive */
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
   .list-form {
     max-width: 300px;
   }
 }
 
-/* === CONTENT-BLOCK === */
+/* ==========================================================================
+   @MOLECULE - CONTENT BLOCK
+   - General container with max-width and centering
+   - Variants: chronology, text, preview
+   - Typography reset inside the block
+   - Responsive adjustments for mobile
+   ========================================================================== */
+
 .content-block {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
 }
 
-/* Chronology variant */
+/* Chronology variant layout */
 .content-block--chronology .content-block-chronology {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -1009,6 +1181,7 @@ textarea.input-base {
   align-items: start;
 }
 
+/* Date styling */
 .content-block-date {
   text-align: left;
   color: theme(--cc-green-dark);
@@ -1021,17 +1194,18 @@ textarea.input-base {
   line-height: 1.2;
 }
 
-.content-block-content .content-block-title {
-  line-height: 1;
-}
-
+/* Content block main content */
 .content-block-content {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-/* Text variant */
+.content-block-content .content-block-title {
+  line-height: 1;
+}
+
+/* Text variant styles */
 .content-block--text .content-block-text-only {
   text-align: left;
   line-height: 1.2;
@@ -1043,7 +1217,7 @@ textarea.input-base {
   line-height: 1.1;
 }
 
-/* Text colors */
+/* Text color variants */
 .content-block-text-color--black,
 .content-block-text-color--black h1,
 .content-block-text-color--black h2,
@@ -1058,7 +1232,7 @@ textarea.input-base {
   color: theme(--cc-green-dark);
 }
 
-/* Preview variant */
+/* Preview variant layout */
 .content-block--preview .content-block-preview {
   display: flex;
   flex-direction: column;
@@ -1066,7 +1240,7 @@ textarea.input-base {
   gap: 0;
 }
 
-/* Gap only between image and button */
+/* Image positioning inside preview */
 .content-block--preview .content-block-image {
   position: relative;
   width: 100%;
@@ -1074,6 +1248,7 @@ textarea.input-base {
   justify-content: center;
 }
 
+/* Button positioning inside preview */
 .content-block--preview .content-block-button {
   position: absolute;
   bottom: -15px;
@@ -1081,32 +1256,27 @@ textarea.input-base {
   z-index: 10;
 }
 
+/* Title styles */
 .content-block-title {
   text-align: left;
   width: 100%;
 }
 
-/* Preview variant - centered title */
+/* Preview variant centers the title */
 .content-block--preview .content-block-title {
   text-align: center;
 }
 
+/* Text block margin and padding reset */
 .content-block-text {
   margin: 0;
   padding: 0;
 }
 
-/* Override typography margins in content-block context */
+/* Typography reset inside content-block */
 .content-block .content-block-title h1,
 .content-block .content-block-title h2,
-.content-block .content-block-title p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  margin-block-start: 0;
-  margin-block-end: 0;
-}
-
+.content-block .content-block-title p,
 .content-block .content-block-text h1,
 .content-block .content-block-text h2,
 .content-block .content-block-text p {
@@ -1117,7 +1287,7 @@ textarea.input-base {
   margin-block-end: 0;
 }
 
-/* More specific selectors for stubborn elements */
+/* More specific reset for chronology variant */
 .content-block-chronology .content-block-title h1,
 .content-block-chronology .content-block-title h2,
 .content-block-chronology .content-block-title p,
@@ -1129,38 +1299,40 @@ textarea.input-base {
   line-height: 1;
 }
 
+/* Button container alignment */
 .content-block-button {
   display: flex;
   justify-content: center;
 }
 
-/* Content-block - Responsive */
-@media (max-width: 768px) {
+/* Responsive adjustments */
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
   .content-block {
     max-width: 300px;
   }
 }
 
-/* -------------------------------------------------- */
-/* 03 – ORGANISMS                                     */
-/* -------------------------------------------------- */
-
-/* 
-=========================
-    HEADER ORGANISM
-      v1.0 - Renommé       
-=========================
-*/
+/* ==========================================================================
+   @ORGANISM - HEADER
+   - Full width container with background and border
+   - Flexbox layout for brand, title, and navigation
+   - Burger menu button with open/close icons
+   - Mobile overlay menu styles and animation
+   - Responsive display and layout changes for mobile/tablet/desktop
+   ========================================================================== */
 
 .header {
+  width: 100%;
   background-color: theme(--cc-white);
   color: theme(--cc-black);
   border: 4px solid theme(--cc-black);
-  width: 100%;
+  box-sizing: border-box;
 }
 
-.header .header-container {
-  width: 100%;
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 1rem 2rem;
   min-height: 80px;
   display: flex;
@@ -1169,208 +1341,212 @@ textarea.input-base {
   box-sizing: border-box;
 }
 
-/* Brand section - Logo typography */
-.header .header-brand {
+/* Brand section */
+.header-brand {
   flex-shrink: 0;
-  display: flex; /* Toujours visible */
+  display: flex;
+  align-items: center;
 }
 
-.header .header-brand h2 {
+.header-brand h2 {
   margin: 0;
   color: theme(--cc-green-dark);
+  font-size: theme(--text-h2);
 }
 
 /* Title section */
-.header .header-title {
+.header-title {
   flex: 1;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.header .header-title h1 {
+.header-title h1 {
   margin: 0;
+  font-size: theme(--text-h1);
   text-align: center;
+  font-weight: 900;
 }
 
 /* Navigation section */
-.header .header-navigation {
+.header-navigation {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
-/* Mobile burger button */
-.header .header-burger {
+/* Burger button */
+.header-burger {
   background: none;
   border: none;
   cursor: pointer;
   width: 48px;
   height: 48px;
   position: relative;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Icons burger - Animation entre les deux */
-.header .burger-icon {
+/* Burger icons */
+.burger-icon {
   width: 32px;
   height: 32px;
-  transition: opacity 0.3s ease;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
 }
 
-.header .burger-icon-close {
+.burger-icon-close {
   opacity: 0;
 }
 
-.header .header-burger[aria-expanded="true"] .burger-icon-open {
+.header-burger[aria-expanded="true"] .burger-icon-open {
   opacity: 0;
 }
 
-.header .header-burger[aria-expanded="true"] .burger-icon-close {
+.header-burger[aria-expanded="true"] .burger-icon-close {
   opacity: 1;
 }
 
-/* Mobile overlay */
-.header .header-mobile-overlay {
+/* Mobile overlay menu */
+.header-mobile-overlay {
   position: fixed;
   top: 88px;
   left: 0;
   width: 100%;
-  height: auto;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 0;
+  background-color: theme(--cc-white);
+  box-sizing: border-box;
 }
 
-.header .header-mobile-overlay.active {
+.header-mobile-overlay.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   z-index: 100;
 }
 
-.header .mobile-overlay-content {
-  padding: 0;
+.mobile-overlay-content {
+  padding: 1rem 2rem;
 }
 
-/* Override tab-menu dans l'overlay */
-.header .header-mobile-overlay .tab-menu-desktop {
+/* Hide desktop menu in overlay on mobile */
+.header-mobile-overlay .tab-menu-desktop {
   display: none;
 }
 
-.header .header-mobile-overlay .tab-menu-mobile {
+.header-mobile-overlay .tab-menu-mobile {
   display: block;
 }
 
-.header .header-mobile-overlay .tab-menu {
-  visibility: visible;
+/* Typography and reset for header */
+.header h1,
+.header h2,
+.header p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
-/* ===================================== */
-/* RESPONSIVE BREAKPOINTS - MOBILE FIRST */
-/* ===================================== */
+/* Responsive adjustments */
 
-/* 📱 BASE : Mobile - Logo + Burger */
-.header .header-title {
-  display: none;
-}
-
-.header .header-navigation {
-  display: none;
-}
-
-.header .header-burger {
-  display: flex;
-}
-
-/* 📱 TABLET PORTRAIT (481px - 1024px) : Logo + Contact */
-@media (min-width: 481px) and (max-width: 1024px) and (orientation: portrait) {
-  .header .header-title {
-    display: none;
-  }
-  
-  .header .header-navigation {
-    display: flex;
-  }
-  
-  .header .header-burger {
-    display: none;
-  }
-}
-
-/* 📱 TABLET PAYSAGE (769px - 1024px) : Logo + Contact */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-  .header .header-title {
-    display: none;
-  }
-  
-  .header .header-navigation {
-    display: flex;
-  }
-  
-  .header .header-burger {
-    display: none;
-  }
-}
-
-/* 🖥️ DESKTOP (1025px+) : Logo + Titre + Contact */
-@media (min-width: 1025px) {
-  .header .header-title {
-    display: flex;
-  }
-  
-  .header .header-navigation {
-    display: flex;
-  }
-  
-  .header .header-burger {
-    display: none;
-  }
-}
-
-/* Responsive typography */
-@media (max-width: 768px) {
-  .header .header-container {
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .header-container {
     padding: 0.75rem 1rem;
     min-height: 64px;
   }
-  
-  .header .header-brand h2 {
+
+  .header-title {
+    display: none;
+  }
+
+  .header-navigation {
+    display: none;
+  }
+
+  .header-burger {
+    display: flex;
+  }
+
+  .header-brand h2 {
     font-size: theme(--text-h2-mobile);
   }
-  
-  .header .header-mobile-overlay {
+
+  .header-mobile-overlay {
     top: 72px;
   }
 }
 
-/* =========================
-   FOOTER ORGANISM - Charlotte
-   Syntaxe CSS standard pour input.css
-   ========================= */
+/* Tablet (481px to 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .header-title {
+    display: none;
+  }
+
+  .header-navigation {
+    display: flex;
+  }
+
+  .header-burger {
+    display: none;
+  }
+}
+
+/* Desktop (1025px and above) */
+@media (min-width: 1025px) {
+  .header-title {
+    display: flex;
+  }
+
+  .header-navigation {
+    display: flex;
+  }
+
+  .header-burger {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   @ORGANISM - FOOTER
+   - Full width footer container
+   - Minimal variant with centered content and border
+   - Inline text and links forced inside
+   - Responsive border and padding adjustments
+   ========================================================================== */
 
 .footer {
   width: 100%;
   background-color: theme(--cc-white);
+  box-sizing: border-box;
 }
 
-/* Minimal variant */
+/* Minimal variant container */
 .footer--minimal .footer__content {
-  border: 4px solid #000000;
+  border: 4px solid theme(--cc-black);
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
+/* Text container */
 .footer--minimal .footer__text {
   white-space: nowrap;
   text-align: center;
 }
 
-/* Force tous les éléments internes à rester inline sans changer les tailles */
+/* Force inline display without margin/padding on paragraphs */
 .footer--minimal .footer__text p {
   margin: 0;
   padding: 0;
@@ -1378,20 +1554,32 @@ textarea.input-base {
   white-space: nowrap;
 }
 
+/* Force inline display without margin/padding on links */
 .footer--minimal .footer__text a {
   margin: 0;
   padding: 0;
   display: inline;
   white-space: nowrap;
+  color: inherit;
+  text-decoration: underline;
+  transition: color 0.3s ease;
 }
 
-/* Responsive breakpoints */
+.footer--minimal .footer__text a:hover,
+.footer--minimal .footer__text a:focus {
+  color: theme(--cc-green-dark);
+  outline: none;
+}
+
+/* Responsive adjustments */
+/* Tablet and below */
 @media (max-width: 1024px) {
   .footer--minimal .footer__content {
     border-width: 3px;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .footer--minimal .footer__content {
     border-width: 3px;
@@ -1399,140 +1587,114 @@ textarea.input-base {
   }
 }
 
-/* =========================
-  AVATAR-CARD ORGANISM
-  ========================= */
+/* ==========================================================================
+   @ORGANISM - AVATAR-CARD
+   - Responsive avatar card with desktop, tablet, and mobile variants
+   - Layout switches based on viewport width
+   - Buttons grid inside card
+   - Tooltip system for desktop with accessibility focus styles
+   ========================================================================== */
 
 .avatar-card {
- width: 100%;
- display: flex;
- align-items: center;
- justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-/* All versions hidden by default */
+/* Hide all variants by default */
 .avatar-card-desktop,
-.avatar-card-tablet-landscape,
-.avatar-card-tablet-portrait,
+.avatar-card-tablet,
 .avatar-card-mobile {
- display: none;
+  display: none;
 }
 
-/* Desktop version */
+/* Desktop variant */
 .avatar-card-desktop {
- align-items: center;
- justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-/* Tablet Landscape version */
-.avatar-card-tablet-landscape {
- align-items: center;
- justify-content: center;
+/* Tablet variant */
+.avatar-card-tablet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
+  box-sizing: border-box;
 }
 
-/* Tablet Portrait version */
-.avatar-card-tablet-portrait {
- flex-direction: column;
- align-items: center;
- gap: 1rem;
+.avatar-card-tablet .avatar-card-title {
+  text-align: center;
+  width: 245px;
+  margin-bottom: -1rem;
 }
 
-.avatar-card-tablet-portrait .avatar-card-title {
- text-align: center;
- width: 312px;
-}
-
-/* Mobile version */
+/* Mobile variant */
 .avatar-card-mobile {
- flex-direction: column;
- align-items: center;
- gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
+  position: relative;
+  box-sizing: border-box;
 }
 
-.avatar-card-mobile .avatar-card-title-mobile {
- text-align: center;
- width: 245px;
+.avatar-card-mobile .avatar-card-title {
+  text-align: center;
+  width: 245px;
+  margin-bottom: -1rem;
 }
 
+/* Buttons container */
 .avatar-card-buttons {
- display: grid;
- grid-template-columns: 1fr 1fr;
- width: 200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 200px;
+  gap: 0.5rem;
+  box-sizing: border-box;
 }
 
-/* Avatar-card - Responsive CORRIGÉ */
-@media (min-width: 1025px) {
-  .avatar-card-desktop {
-    display: flex;
-  }
+/* Mobile buttons tweaks */
+.avatar-card-mobile .avatar-card-buttons .button {
+  width: auto;
+  min-width: auto;
+  padding: 0.2rem 0.4rem 0 0.4rem;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .avatar-card-tablet-landscape {
-    display: flex;
-  }
+/* Mobile specific button positioning */
+.avatar-card-mobile .avatar-card-button {
+  position: absolute;
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
-  .avatar-card-tablet-portrait {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 2rem;
-  }
-  
-  .avatar-card-tablet-portrait .avatar-card-title {
-    text-align: center;
-    width: 245px;
-    margin-bottom: -1rem;
-  }
+.avatar-card-mobile .avatar-card-button:nth-child(1) {
+  top: 55%;
+  left: 25px;
+  transform: translateY(-50%);
 }
 
-@media (max-width: 480px) {
-  .avatar-card-mobile {
-    display: flex;
-    padding-top: 2rem;
-    position: relative;
-  }
-  
-  .avatar-card-mobile .avatar-card-title-mobile {
-    margin-bottom: -1rem;
-  }
-  
-  .avatar-card-buttons .button {
-    width: auto;
-    min-width: auto;
-    padding: 0.2rem 0.4rem 0rem 0.4rem;
-  }
-  
-  .avatar-card-mobile .avatar-card-button {
-    position: absolute;
-  }
-
-  .avatar-card-mobile .avatar-card-button:nth-child(1) {
-    top: 55%;
-    left: 25px;
-    transform: translateY(-50%);
-  }
-
-  .avatar-card-mobile .avatar-card-button:nth-child(2) {
-    top: 42%;
-    right: 0px;
-  }
-
-  .avatar-card-mobile .avatar-card-button:nth-child(3) {
-    top: 58%;
-    right: 0px;
-    transform: translateY(-50%);
-  }
-
-  .avatar-card-mobile .avatar-card-button:nth-child(4) {
-    bottom: 26%;
-    right: 0px;
-  }
+.avatar-card-mobile .avatar-card-button:nth-child(2) {
+  top: 42%;
+  right: 0;
 }
 
-/* Avatar tooltip for desktop */
+.avatar-card-mobile .avatar-card-button:nth-child(3) {
+  top: 58%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.avatar-card-mobile .avatar-card-button:nth-child(4) {
+  bottom: 26%;
+  right: 0;
+}
+
+/* Tooltip container for avatar (desktop only) */
 .avatar-tooltip-container {
   position: relative;
   display: inline-block;
@@ -1540,7 +1702,7 @@ textarea.input-base {
   z-index: 50;
 }
 
-/* Active zone for tooltip - only the black frame area */
+/* Tooltip active zone */
 .avatar-tooltip-container::before {
   content: '';
   position: absolute;
@@ -1551,35 +1713,70 @@ textarea.input-base {
   z-index: 1;
 }
 
-/* Tooltip popup */
+/* Tooltip popup hidden by default */
 .avatar-tooltip-container .tooltip-popup {
   position: fixed;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
   top: 0;
   left: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
 }
 
-/* Avatar tooltip accessibility */
+/* Focus state for accessibility */
 .avatar-tooltip-container:focus-within {
   outline: 2px solid theme(--cc-green-light);
   outline-offset: 2px;
 }
 
-/* Responsive - hide tooltip on mobile/tablet */
-@media (max-width: 768px) {
+/* Responsive display rules */
+
+/* Desktop breakpoint */
+@media (min-width: 1025px) {
+  .avatar-card-desktop {
+    display: flex;
+  }
+  .avatar-card-tablet,
+  .avatar-card-mobile {
+    display: none;
+  }
+}
+
+/* Tablet breakpoint */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .avatar-card-tablet {
+    display: flex;
+  }
+  .avatar-card-desktop,
+  .avatar-card-mobile {
+    display: none;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 480px) {
+  .avatar-card-mobile {
+    display: flex;
+  }
+  .avatar-card-desktop,
+  .avatar-card-tablet {
+    display: none;
+  }
+
+  /* Hide tooltip on mobile */
   .avatar-tooltip-container .tooltip-popup {
     display: none;
   }
 }
 
-/* =========================
-   SKILLS-CARD ORGANISM
-   v1.3 - Responsive complet (Desktop + Tablet + Mobile)
-   ========================= */
+/* ==========================================================================
+   @ORGANISM - SKILLS-CARD
+   - Responsive skills card with desktop, tablet, and mobile variants
+   - Layout switches based on viewport width
+   - Tooltip system for desktop with accessibility focus styles
+   ========================================================================== */
 
 .skills-card {
   display: flex;
@@ -1591,36 +1788,18 @@ textarea.input-base {
   z-index: 50;
 }
 
-/* All versions hidden by default */
+/* Hide all variants by default */
 .skills-card-desktop,
-.skills-card-tablet-landscape,
-.skills-card-tablet-portrait,
+.skills-card-tablet,
 .skills-card-mobile {
   display: none;
 }
 
-/* Desktop Layout - Individual card */
+/* Desktop variant */
 .skills-card-desktop {
   width: 100%;
   max-width: 300px;
-}
-
-/* Tablet Landscape Layout - Compact card */
-.skills-card-tablet-landscape {
-  width: 100%;
-  max-width: 240px;
-}
-
-/* Tablet Portrait Layout */
-.skills-card-tablet-portrait {
-  width: 100%;
-  max-width: 280px;
-}
-
-/* Mobile Layout */
-.skills-card-mobile {
-  width: 100%;
-  max-width: 260px;
+  display: none; /* will be enabled by media query */
 }
 
 .skills-card-content {
@@ -1650,7 +1829,6 @@ textarea.input-base {
   right: calc(50% - 98px - 4px);
 }
 
-/* Card titles */
 .skills-card-title {
   text-align: center;
   width: 100%;
@@ -1668,7 +1846,7 @@ textarea.input-base {
 .skills-card-title::after {
   content: '';
   position: absolute;
-  top: 50%; 
+  top: 50%;
   transform: translateY(-50%);
   height: 4px;
   width: 30px;
@@ -1683,7 +1861,6 @@ textarea.input-base {
   right: 32px;
 }
 
-/* Grid layouts for different card types */
 .skills-card-grid {
   display: grid;
   gap: 0.3rem;
@@ -1694,31 +1871,16 @@ textarea.input-base {
   justify-content: center;
 }
 
-/* 2x2 grids (soft skills & hard skills) */
 .skills-card--soft_skills .skills-card-grid--2x2,
 .skills-card--hard_skills .skills-card-grid--2x2 {
   grid-template-rows: repeat(2, 1fr);
 }
 
-/* 2x3 grids (interests & languages) */
 .skills-card--interests .skills-card-grid--2x3,
 .skills-card--languages .skills-card-grid--2x3 {
   grid-template-rows: repeat(3, 1fr);
 }
 
-/* 3x1 grids (soft skills & hard skills tablette) */
-.skills-card-grid--3x1 {
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: 1fr;
-}
-
-/* 3x2 grids (interests tablette) */
-.skills-card-grid--3x2 {
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(2, 1fr);
-}
-
-/* Skills-card items */
 .skills-card-item {
   display: flex;
   justify-content: center;
@@ -1726,130 +1888,143 @@ textarea.input-base {
   width: 100%;
 }
 
-/* Override caption container in skills-card context */
 .skills-card .caption-container {
   width: 98px;
 }
 
-/* Ensure captions are properly sized */
 .skills-card .caption-desktop {
   width: 100%;
 }
 
-/* Skills-card theme variants */
-.skills-card--interests {}
-.skills-card--soft_skills {}
-.skills-card--hard_skills {}
-.skills-card--languages {}
+/* Tablet variant */
+.skills-card-tablet {
+  width: 320px;
+  background-color: theme(--cc-white);
+  position: relative;
+  height: auto;
+  border-top: 4px solid theme(--cc-black);
+  display: none; /* will be enabled by media query */
+}
 
-/* Skills-card - Responsive comme avatar-card */
+.skills-card-tablet::before,
+.skills-card-tablet::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #000000, #ffffff);
+}
+
+.skills-card-tablet::before {
+  left: 0;
+}
+
+.skills-card-tablet::after {
+  right: 0;
+}
+
+.skills-card-tablet-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skills-card-tablet-title {
+  text-align: center;
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.skills-card-tablet-title h2 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.skills-card-tablet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skills-card-tablet-item {
+  width: 100%;
+}
+
+.skills-card-tablet .caption-desktop {
+  display: none;
+}
+
+.skills-card-tablet .caption-mobile {
+  display: flex;
+  width: 100%;
+  max-width: none;
+  flex: none;
+}
+
+.skills-card-tablet .caption-content-mobile {
+  flex: 1;
+}
+
+.skills-card-tablet .caption-icon-mobile {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.skills-card-tablet .caption-label-mobile {
+  font-size: theme(--text-code);
+  font-weight: 700;
+}
+
+.skills-card-tablet .caption-description-mobile {
+  font-size: theme(--text-small);
+  line-height: 1.4;
+}
+
+/* Mobile variant */
+.skills-card-mobile {
+  display: none; /* will be enabled by media query */
+}
+
+/* Responsive breakpoints */
+
+/* Desktop breakpoint */
 @media (min-width: 1025px) {
   .skills-card-desktop {
     display: block;
   }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .skills-card-desktop {
+  .skills-card-tablet,
+  .skills-card-mobile {
     display: none;
   }
-  
-  .skills-card-tablet-landscape {
+}
+
+/* Tablet breakpoint */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .skills-card-tablet {
     display: block;
   }
-  
-  /* Tablet adjustments */
-  .skills-card-tablet-landscape .skills-card-content {
-    gap: 1.2rem;
-    padding: 0.8rem;
-  }
-  
-  /* Traits et bordures 3px */
-  .skills-card-tablet-landscape .skills-card-content::before,
-  .skills-card-tablet-landscape .skills-card-content::after {
-    width: 3px;
-    top: 1.5rem;
-    left: calc(50% - 78px - 3px);
-  }
-  
-  .skills-card-tablet-landscape .skills-card-content::after {
-    right: calc(50% - 78px - 3px);
-    left: auto;
-  }
-  
-  .skills-card-tablet-landscape .skills-card-title {
-    margin-bottom: 0.4rem;
-  }
-  
-  .skills-card-tablet-landscape .skills-card-title::before,
-  .skills-card-tablet-landscape .skills-card-title::after {
-    height: 3px;
-    width: 24px;
-  }
-  
-  .skills-card-tablet-landscape .skills-card-title::before {
-    left: 24px;
-  }
-  
-  .skills-card-tablet-landscape .skills-card-title::after {
-    right: 24px;
-  }
-  
-  /* Tablette captions plus petites */
-  .skills-card-tablet-landscape .caption-container {
-    width: 78px;
-  }
-  
-  /* Override grilles desktop en tablette - FORCE 3 colonnes */
-  .skills-card-tablet-landscape .skills-card-grid--2x2,
-  .skills-card-tablet-landscape .skills-card-grid {
-    grid-template-columns: repeat(3, auto) !important;
-    grid-template-rows: 1fr !important;
-    gap: 0.25rem;
-  }
-  
-  .skills-card-tablet-landscape .skills-card-grid--2x3 {
-    grid-template-columns: repeat(3, auto) !important;
-    grid-template-rows: repeat(2, 1fr) !important;
-    gap: 0.25rem;
+  .skills-card-desktop,
+  .skills-card-mobile {
+    display: none;
   }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
-  .skills-card-tablet-portrait {
-    display: block;
-  }
-  
-  /* Ajustements spécifiques pour tablet portrait */
-  .skills-card-tablet-portrait .skills-card-content {
-    gap: 1rem;
-    padding: 0.75rem;
-  }
-  
-  /* Caption container pour tablet portrait */
-  .skills-card-tablet-portrait .caption-container {
-    width: 70px;
-  }
-}
-
+/* Mobile breakpoint */
 @media (max-width: 480px) {
   .skills-card-mobile {
     display: block;
   }
-  
-  /* Ajustements spécifiques pour mobile */
-  .skills-card-mobile .skills-card-content {
-    gap: 0.75rem;
-    padding: 0.5rem;
-  }
-  
-  /* Caption container pour mobile */
-  .skills-card-mobile .caption-container {
-    width: 60px;
+  .skills-card-desktop,
+  .skills-card-tablet {
+    display: none;
   }
 }
 
-/* Mystery chest - SVG color override */
+/* Mystery chest styles - desktop only */
 .skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
   fill: #262626;
   stroke: #262626;
@@ -1861,7 +2036,6 @@ textarea.input-base {
   stroke: #262626;
 }
 
-/* Mystery chest label "???" */
 .skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
   color: #262626;
   font-weight: bold;
@@ -1872,7 +2046,8 @@ textarea.input-base {
   font-weight: bold;
 }
 
-/* Accessibility for skills-card */
+/* Accessibility & performance */
+
 .skills-card:focus-within {
   outline: 2px solid theme(--cc-green-light);
   outline-offset: 2px;
@@ -1888,9 +2063,13 @@ textarea.input-base {
   .skills-card-content {
     gap: 2rem;
   }
-  
+
   .skills-card-grid {
     gap: 1.5rem;
+  }
+
+  .skills-card-tablet {
+    border-width: 6px;
   }
 }
 
@@ -1899,11 +2078,13 @@ textarea.input-base {
 .section-timeline {}
 .tab-section {}
 
-/* -------------------------------------------------- */
-/* 04 – BACKGROUNDS                                   */
-/* -------------------------------------------------- */
+/* ==========================================================================
+   @ORGANISM - BACKGROUNDS
+   - Responsive background images for desktop, tablet, and mobile
+   - Uses fixed attachment on desktop and tablet, scroll on mobile
+   - Applies background to both a container and optionally to body
+   ========================================================================== */
 
-/* === BACKGROUND ICONS === */
 .background-icons {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
@@ -1915,21 +2096,14 @@ textarea.input-base {
   position: relative;
 }
 
-/* Tablet Landscape */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-  .background-icons {
-    background-image: url('/assets/images/backgrounds/bg-icons-tablet-land.svg');
-  }
-}
-
-/* Tablet Portrait */
-@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+/* Tablet variant */
+@media (min-width: 481px) and (max-width: 1024px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
   }
 }
 
-/* Mobile */
+/* Mobile variant */
 @media (max-width: 480px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
@@ -1937,13 +2111,13 @@ textarea.input-base {
   }
 }
 
-/* Alternative pour cibler spécifiquement les éléments */
+/* Alternative container for content layering */
 .main-content {
   position: relative;
   z-index: 1;
 }
 
-/* Si tu veux appliquer le background uniquement au body */
+/* Optional background applied to body */
 body.charlotte-bg {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
@@ -1952,18 +2126,14 @@ body.charlotte-bg {
   background-attachment: fixed;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-  body.charlotte-bg {
-    background-image: url('/assets/images/backgrounds/bg-icons-tablet-land.svg');
-  }
-}
-
-@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+/* Tablet variant on body */
+@media (min-width: 481px) and (max-width: 1024px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
   }
 }
 
+/* Mobile variant on body */
 @media (max-width: 480px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');

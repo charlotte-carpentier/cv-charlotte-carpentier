@@ -1,7 +1,7 @@
 {# 
 =========================
     AVATAR-CARD ORGANISM
-    v1.1 - Charlotte + Tooltip       
+    v2.0 - Tablette Unifiée + Tooltip       
 =========================
 #}
 
@@ -53,16 +53,8 @@
           </div>
         </div>
 
-        {# Tablet Landscape version: Avatar moyen #}
-        <div class="avatar-card-tablet-landscape">
-          {{ renderImage({ 
-            name: avatar_card_data.avatar_tablet,
-            datas: option.image_datas
-          }) }}
-        </div>
-
-        {# Tablet Portrait version: Titre + Avatar petit #}
-        <div class="avatar-card-tablet-portrait">
+        {# Tablet version UNIFIÉ: Titre + Avatar (ex-portrait) #}
+        <div class="avatar-card-tablet">
           {# Title #}
           <div class="avatar-card-title">
             {{ renderTypography({ 
@@ -82,16 +74,16 @@
 
         {# Mobile version: Titre + Avatar + 4 boutons #}
         <div class="avatar-card-mobile">
-          {# Title #}
-          <div class="avatar-card-title-mobile">
+          {# Title - Même classe que tablet pour cohérence #}
+          <div class="avatar-card-title">
             {{ renderTypography({ 
               name: avatar_card_data.title_name,
               datas: option.typography_datas
             }) }}
           </div>
           
-          {# Avatar #}
-          <div class="avatar-card-image-mobile">
+          {# Avatar - Même classe que tablet pour cohérence #}
+          <div class="avatar-card-image">
             {{ renderImage({ 
               name: avatar_card_data.avatar_mobile,
               datas: option.image_datas
@@ -132,6 +124,11 @@ Summon HAT Components Wisely
     button_datas: atoms.button.buttons,
     tooltip_datas: atoms.tooltip.tooltips
 }) }}
+
+BREAKPOINTS UNIFORMES:
+- Desktop (1025px+): Avatar + Tooltip
+- Tablet (481px-1024px): Titre + Avatar vertical
+- Mobile (≤480px): Titre + Avatar + 4 boutons
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
 #}
