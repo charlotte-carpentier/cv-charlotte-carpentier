@@ -3,16 +3,9 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "01-organisms/avatar-skills-wrapper.njk" import renderAvatarSkillsWrapper %}
+   {% from "03-atoms/button.njk" import renderButton %}
 
-{{ renderAvatarSkillsWrapper({ 
-    avatar_name: "charlotte_main",
-    avatar_datas: organisms["avatar-card"]["avatar-cards"],
-    skills_datas: organisms["skills-card"]["skills-cards"],
-    image_datas: atoms.image.images,
-    typography_datas: atoms.typography.texts,
-    button_datas: atoms.button.buttons,
-    tooltip_datas: atoms.tooltip.tooltips,
-    caption_datas: molecules.caption.captions,
-    icon_datas: atoms.icon.icons
-}) }}
+   {{ renderButton({ 
+       name: "button_default",
+       datas: atoms.button.buttons
+   }) }}

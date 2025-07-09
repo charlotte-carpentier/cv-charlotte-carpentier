@@ -93,16 +93,16 @@ class AvatarSkillsWrapper {
     // Hide all other skills containers first (accordion-like behavior)
     this.hideAllSkillsContainers(buttonId);
 
-    // Toggle the current container
-    const isCurrentlyVisible = container.classList.contains('block');
+    // Check if container is currently visible (check if it has 'mobile-visible' class)
+    const isCurrentlyVisible = container.classList.contains('mobile-visible');
     
     if (isCurrentlyVisible) {
-      container.classList.remove('block');
-      container.classList.add('hidden');
+      // Hide the container
+      container.classList.remove('mobile-visible');
       button.setAttribute('aria-expanded', 'false');
     } else {
-      container.classList.remove('hidden');
-      container.classList.add('block');
+      // Show the container
+      container.classList.add('mobile-visible');
       button.setAttribute('aria-expanded', 'true');
     }
 
@@ -132,8 +132,7 @@ class AvatarSkillsWrapper {
       const button = document.querySelector(`[data-button="${buttonId}"]`);
       
       if (container) {
-        container.classList.remove('block');
-        container.classList.add('hidden');
+        container.classList.remove('mobile-visible');
       }
       
       if (button) {
@@ -170,7 +169,7 @@ class AvatarSkillsWrapper {
     }
 
     const container = document.getElementById(containerId);
-    return container ? container.classList.contains('block') : false;
+    return container ? container.classList.contains('mobile-visible') : false;
   }
 
   // Public method to hide all skills cards
