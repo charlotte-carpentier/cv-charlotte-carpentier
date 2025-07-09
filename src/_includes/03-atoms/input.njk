@@ -1,9 +1,7 @@
-{# 
-=========================
-      INPUT ATOM
-      v1.0 - Charlotte RPG       
-=========================
-#}
+{# ===========================================================
+   @ATOMS - INPUT
+   - Reusable input component
+=========================================================== #}
 
 {% macro renderInput(option) %}
   {# Check if datas is provided #}
@@ -91,11 +89,9 @@
   {% endif %}
 {% endmacro %}
 
-{# 
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
 {% from "03-atoms/input.njk" import renderInput %}
 
@@ -113,4 +109,4 @@ Summon HAT Components Wisely
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-#}
+=========================================================== #}

@@ -1,9 +1,7 @@
-{# 
-=========================
-      ICON ATOM          
-      v1.1 - Charlotte + SVG Loader      
-=========================
-#}
+{# ===========================================================
+   @ATOMS - ICON
+   - Reusable icon component
+=========================================================== #}
 
 {% macro renderIcon(option) %}
   {# Check if datas is provided #}
@@ -30,6 +28,15 @@
       {% set variant = iconData.variant | default('interface') %}
       {% set cssClasses = 'icon-' ~ variant %}
       
+      {# Add responsive classes based on variant #}
+      {% if variant == 'pillar' %}
+        {% set cssClasses = cssClasses ~ ' w-40 h-40 sm:w-80 sm:h-80 lg:w-[603px] lg:h-[603px]' %}
+      {% elif variant == 'avatar' %}
+        {% set cssClasses = cssClasses ~ ' w-16 h-16 lg:w-[64px] lg:h-[64px] relative overflow-hidden' %}
+      {% elif variant == 'interface' %}
+        {% set cssClasses = cssClasses ~ ' w-8 h-8' %}
+      {% endif %}
+      
       {# Add any additional classes #}
       {% if option.class %}
         {% set cssClasses = cssClasses ~ ' ' ~ option.class %}
@@ -45,11 +52,9 @@
   {% endif %}
 {% endmacro %}
 
-{# 
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
 {% from "03-atoms/icon.njk" import renderIcon %}
 
@@ -66,6 +71,5 @@ Summon HAT Components Wisely
     class: "hover:opacity-75"
 }) }}
 
-Note: Requires svg-loader.js to be loaded for color inheritance to work.
-May your SVGs inherit colors like true champions! 🎨✨
-#}
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+=========================================================== #}

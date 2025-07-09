@@ -3,9 +3,9 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-   {% from "03-atoms/button.njk" import renderButton %}
+{% from "03-atoms/icon.njk" import renderIcon %}
 
-   {{ renderButton({ 
-       name: "button_default",
-       datas: atoms.button.buttons
-   }) }}
+{{ renderIcon({ 
+    name: "skills_treasure",
+    datas: atoms.icon.icons
+}) }}

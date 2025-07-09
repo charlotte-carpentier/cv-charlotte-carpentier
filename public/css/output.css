@@ -326,6 +326,9 @@
   .h-16 {
     height: calc(var(--spacing) * 16);
   }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
   .h-\[500px\] {
     height: 500px;
   }
@@ -364,6 +367,9 @@
   }
   .w-16 {
     width: calc(var(--spacing) * 16);
+  }
+  .w-40 {
+    width: calc(var(--spacing) * 40);
   }
   .w-auto {
     width: auto;
@@ -766,6 +772,16 @@
       grid-column-start: 2;
     }
   }
+  .sm\:h-80 {
+    @media (width >= 40rem) {
+      height: calc(var(--spacing) * 80);
+    }
+  }
+  .sm\:w-80 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 80);
+    }
+  }
   .sm\:border-\[3px\] {
     @media (width >= 40rem) {
       border-style: var(--tw-border-style);
@@ -932,6 +948,16 @@
       height: calc(var(--spacing) * 16);
     }
   }
+  .lg\:h-\[64px\] {
+    @media (width >= 64rem) {
+      height: 64px;
+    }
+  }
+  .lg\:h-\[603px\] {
+    @media (width >= 64rem) {
+      height: 603px;
+    }
+  }
   .lg\:w-1\/2 {
     @media (width >= 64rem) {
       width: calc(1/2 * 100%);
@@ -945,6 +971,16 @@
   .lg\:w-16 {
     @media (width >= 64rem) {
       width: calc(var(--spacing) * 16);
+    }
+  }
+  .lg\:w-\[64px\] {
+    @media (width >= 64rem) {
+      width: 64px;
+    }
+  }
+  .lg\:w-\[603px\] {
+    @media (width >= 64rem) {
+      width: 603px;
     }
   }
   .lg\:grid-cols-2 {
@@ -1095,6 +1131,41 @@ body {
     font-size: 1rem;
   }
 }
+.caption-container .icon-avatar.caption-gradient-dark {
+  background: linear-gradient(to top, #4a7c59, transparent 70%);
+  color: #000000;
+}
+.caption-container .icon-avatar.caption-gradient-light {
+  background: linear-gradient(to top, #c4ffcb, transparent 70%);
+  color: #000000;
+}
+.caption-container .icon-avatar.caption-gradient-grey {
+  background: linear-gradient(to top, #b3b3b3, transparent 70%);
+  color: #262626;
+}
+@media (max-width: 1024px) {
+  .icon-avatar {
+    width: 50px;
+    height: 50px;
+  }
+}
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
+  fill: #262626;
+  stroke: #262626;
+  color: #262626;
+}
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
+  fill: #262626;
+  stroke: #262626;
+}
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
+  color: #262626;
+  font-weight: bold;
+}
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
+  color: #262626;
+  font-weight: bold;
+}
 .text-h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.5rem;
@@ -1136,67 +1207,6 @@ body {
   .text-small {
     font-size: 0.75rem;
   }
-}
-.icon-pillar {
-  width: 603px;
-  height: 603px;
-}
-@media (min-width: 481px) and (max-width: 1024px) {
-  .icon-pillar {
-    width: 300px;
-    height: 300px;
-  }
-}
-@media (max-width: 480px) {
-  .icon-pillar {
-    width: 160px;
-    height: 160px;
-  }
-}
-.icon-avatar {
-  width: 64px;
-  height: 64px;
-  position: relative;
-  overflow: hidden;
-}
-.caption-container .icon-avatar.caption-gradient-dark {
-  background: linear-gradient(to top, #4a7c59, transparent 70%);
-  color: #000000;
-}
-.caption-container .icon-avatar.caption-gradient-light {
-  background: linear-gradient(to top, #c4ffcb, transparent 70%);
-  color: #000000;
-}
-.caption-container .icon-avatar.caption-gradient-grey {
-  background: linear-gradient(to top, #b3b3b3, transparent 70%);
-  color: #262626;
-}
-@media (max-width: 1024px) {
-  .icon-avatar {
-    width: 50px;
-    height: 50px;
-  }
-}
-.icon-interface {
-  width: 32px;
-  height: 32px;
-}
-.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
-  fill: #262626;
-  stroke: #262626;
-  color: #262626;
-}
-.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
-  fill: #262626;
-  stroke: #262626;
-}
-.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
-  color: #262626;
-  font-weight: bold;
-}
-.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
-  color: #262626;
-  font-weight: bold;
 }
 .link {
   transition: color 0.2s;

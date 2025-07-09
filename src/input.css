@@ -123,6 +123,57 @@ body {
   }
 }
 
+/* ============================================================
+   @ATOMS - ICONS
+   - Icon components with theme overlays and complex styles
+============================================================ */
+
+/* Icon Avatar - Gradient overlays inside caption containers */
+.caption-container .icon-avatar.caption-gradient-dark {
+  background: linear-gradient(to top, theme(--cc-green-dark), transparent 70%);
+  color: theme(--cc-black); /* Keep icon color black */
+}
+
+.caption-container .icon-avatar.caption-gradient-light {
+  background: linear-gradient(to top, theme(--cc-green-light), transparent 70%);
+  color: theme(--cc-black); /* Keep icon color black */
+}
+
+.caption-container .icon-avatar.caption-gradient-grey {
+  background: linear-gradient(to top, theme(--cc-grey-light), transparent 70%);
+  color: #262626;
+}
+
+/* Icon Avatar - Responsive adjustment for medium screens */
+@media (max-width: 1024px) {
+  .icon-avatar {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Mystery chest styles - SVG and text color only */
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
+  fill: #262626;
+  stroke: #262626;
+  color: #262626;
+}
+
+.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
+  fill: #262626;
+  stroke: #262626;
+}
+
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
+  color: #262626;
+  font-weight: bold;
+}
+
+.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
+  color: #262626;
+  font-weight: bold;
+}
+
 /* ==========================================================================
    @ATOM - TYPOGRAPHY
    - Base font styles for text elements (titles, paragraphs, codes, small text)
@@ -176,93 +227,6 @@ body {
   .text-small {
     font-size: theme(--text-small-mobile);
   }
-}
-
-/* ============================================================
-   @ATOMS - ICONS
-   - Icon components with responsive sizes and theme overlays
-============================================================ */
-
-/* Icon Pillar - Desktop default size */
-.icon-pillar {
-  width: 603px;
-  height: 603px;
-}
-
-/* Icon Pillar - Tablet size */
-@media (min-width: 481px) and (max-width: 1024px) {
-  .icon-pillar {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-/* Icon Pillar - Mobile size */
-@media (max-width: 480px) {
-  .icon-pillar {
-    width: 160px;
-    height: 160px;
-  }
-}
-
-/* Icon Avatar - Base styles */
-.icon-avatar {
-  width: 64px;
-  height: 64px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Icon Avatar - Gradient overlays inside caption containers */
-.caption-container .icon-avatar.caption-gradient-dark {
-  background: linear-gradient(to top, theme(--cc-green-dark), transparent 70%);
-  color: theme(--cc-black); /* Keep icon color black */
-}
-
-.caption-container .icon-avatar.caption-gradient-light {
-  background: linear-gradient(to top, theme(--cc-green-light), transparent 70%);
-  color: theme(--cc-black); /* Keep icon color black */
-}
-
-.caption-container .icon-avatar.caption-gradient-grey {
-  background: linear-gradient(to top, theme(--cc-grey-light), transparent 70%);
-  color: #262626;
-}
-
-/* Icon Avatar - Responsive adjustment */
-@media (max-width: 1024px) {
-  .icon-avatar {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-/* Icon Interface - Fixed size */
-.icon-interface {
-  width: 32px;
-  height: 32px;
-}
-
-/* Mystery chest styles - SVG and text color only */
-.skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
-  fill: #262626;
-  stroke: #262626;
-  color: #262626;
-}
-
-.skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
-  fill: #262626;
-  stroke: #262626;
-}
-
-.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
-  color: #262626;
-  font-weight: bold;
-}
-
-.skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
-  color: #262626;
-  font-weight: bold;
 }
 
 /* ============================================================
