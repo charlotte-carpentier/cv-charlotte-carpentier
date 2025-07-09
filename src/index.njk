@@ -3,9 +3,9 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "03-atoms/link.njk" import renderLink %}
+{% from "03-atoms/typography.njk" import renderTypography %}
 
-{{ renderLink({ 
-    name: "nav_contact",
-    datas: atoms.link.links
+{{ renderTypography({ 
+    name: "missions_title",
+    datas: atoms.typography.texts
 }) }}

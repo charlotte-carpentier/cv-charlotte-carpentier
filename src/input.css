@@ -359,108 +359,24 @@ body {
   }
 }
 
-/* ==========================================================================
-   @ATOM - TYPOGRAPHY
-   - Base font styles for text elements (titles, paragraphs, codes, small text)
-   - Responsive font sizes for mobile
-   ========================================================================== */
-
-.text-h1 {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h1);
-  letter-spacing: theme(--ls-h1);
-  font-weight: 900;
-}
-
-.text-h2 {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h2);
-  font-weight: 700;
-}
-
-.text-p {
-  font-family: theme(--font-text);
-  font-size: theme(--text-p);
-}
-
-.text-code {
-  font-family: theme(--font-text);
-  font-weight: bold;
-  font-size: theme(--text-code);
-}
-
-.text-small {
-  font-family: theme(--font-text);
-  font-size: theme(--text-small);
-}
-
-/* Typography - Responsive */
-@media (max-width: 1024px) {
-  .text-h1 {
-    font-size: theme(--text-h1-mobile);
-    letter-spacing: theme(--ls-h1-mobile);
-  }
-  .text-h2 {
-    font-size: theme(--text-h2-mobile);
-  }
-  .text-p {
-    font-size: theme(--text-p-mobile);
-  }
-  .text-code {
-    font-size: theme(--text-code-mobile);
-  }
-  .text-small {
-    font-size: theme(--text-small-mobile);
-  }
-}
-
 /* ============================================================
    @ATOM - RADIO
    - Radio basic styles
 ============================================================ */
 
-.radio-group {
-  margin-bottom: 1rem;
-  width: 280px;
-}
-
 .radio-group-label {
-  display: block;
   color: theme(--cc-black);
   font-family: theme(--font-text);
   font-size: theme(--text-code);
-  margin-bottom: 0.5rem;
-  font-weight: normal;
-  text-align: center;
-}
-
-.radio-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  width: 100%;
 }
 
 .radio-option {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0.5rem 0.75rem;
-  border: 2px solid theme(--cc-grey-light);
+  border-color: theme(--cc-grey-light);
   background-color: theme(--cc-white);
-  cursor: pointer;
-  transition: all 0.3s;
-  min-height: 50px;
-  box-sizing: border-box;
 }
 
 .radio-option:hover {
   border-color: theme(--cc-grey-dark);
-}
-
-.radio-input {
-  position: absolute;
-  opacity: 0;
 }
 
 .radio-option:has(.radio-input:checked) {
@@ -469,14 +385,7 @@ body {
 }
 
 .radio-custom {
-  width: 16px;
-  height: 16px;
-  border: 2px solid theme(--cc-grey-light);
-  border-radius: 50%;
-  margin-right: 0.5rem;
-  position: relative;
-  flex-shrink: 0;
-  align-self: center;
+  border-color: theme(--cc-grey-light);
 }
 
 .radio-input:checked + .radio-custom {
@@ -498,22 +407,10 @@ body {
   font-family: theme(--font-text);
   font-size: theme(--text-code);
   color: theme(--cc-black);
-  line-height: 1.2;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.radio-required {
-  color: #ef4444;
-  margin-left: 0.25rem;
 }
 
 /* Responsive */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .radio-group-label {
     font-size: theme(--text-code-mobile);
   }
@@ -598,6 +495,61 @@ body {
   text-align: center;
   line-height: 1;
   white-space: pre-line;
+}
+
+/* ==========================================================================
+   @ATOM - TYPOGRAPHY
+   - Base font styles for text elements (titles, paragraphs, codes, small text)
+   - Responsive font sizes for mobile
+   ========================================================================== */
+
+.text-h1 {
+  font-family: theme(--font-title);
+  font-size: theme(--text-h1);
+  letter-spacing: theme(--ls-h1);
+  font-weight: 900;
+}
+
+.text-h2 {
+  font-family: theme(--font-title);
+  font-size: theme(--text-h2);
+  font-weight: 700;
+}
+
+.text-p {
+  font-family: theme(--font-text);
+  font-size: theme(--text-p);
+}
+
+.text-code {
+  font-family: theme(--font-text);
+  font-weight: bold;
+  font-size: theme(--text-code);
+}
+
+.text-small {
+  font-family: theme(--font-text);
+  font-size: theme(--text-small);
+}
+
+/* Typography - Responsive */
+@media (max-width: 1024px) {
+  .text-h1 {
+    font-size: theme(--text-h1-mobile);
+    letter-spacing: theme(--ls-h1-mobile);
+  }
+  .text-h2 {
+    font-size: theme(--text-h2-mobile);
+  }
+  .text-p {
+    font-size: theme(--text-p-mobile);
+  }
+  .text-code {
+    font-size: theme(--text-code-mobile);
+  }
+  .text-small {
+    font-size: theme(--text-small-mobile);
+  }
 }
 
 /* ==========================================================================
