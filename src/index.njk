@@ -3,10 +3,10 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "02-molecules/progress-bar.njk" import renderProgressBar %}
+{% from "02-molecules/tab-menu.njk" import renderTabMenu %}
 
-{{ renderProgressBar({ 
-    name: "learning_loop",
-    datas: molecules["progress-bar"]["progress-bars"],
-    typographyDatas: atoms.typography.texts
+{{ renderTabMenu({ 
+    name: "main_navigation",
+    datas: molecules["tab-menu"].tab_menus,
+    linkDatas: atoms.link.links
 }) }}
