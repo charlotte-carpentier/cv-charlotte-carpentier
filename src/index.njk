@@ -3,42 +3,16 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "01-organisms/skills-card.njk" import renderSkillsCard %}
+{% from "01-organisms/avatar-skills-wrapper.njk" import renderAvatarSkillsWrapper %}
 
-<div class="skills-wrapper">
-  {{ renderSkillsCard({ 
-      name: "languages_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-
-  {{ renderSkillsCard({ 
-      name: "soft_skills_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-  
-  {{ renderSkillsCard({ 
-      name: "hard_skills_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-
-  {{ renderSkillsCard({ 
-      name: "interests_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-</div>
+{{ renderAvatarSkillsWrapper({ 
+    avatar_name: "charlotte_main",
+    avatar_datas: organisms["avatar-card"]["avatar-cards"],
+    skills_datas: organisms["skills-card"]["skills-cards"],
+    image_datas: atoms.image.images,
+    typography_datas: atoms.typography.texts,
+    button_datas: atoms.button.buttons,
+    tooltip_datas: atoms.tooltip.tooltips,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons
+}) }}
