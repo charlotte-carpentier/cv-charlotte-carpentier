@@ -3,9 +3,9 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "03-atoms/typography.njk" import renderTypography %}
+{% from "03-atoms/tooltip.njk" import renderTooltip %}
 
-{{ renderTypography({ 
-    name: "missions_title",
-    datas: atoms.typography.texts
+{{ renderTooltip({ 
+    name: "softskills_empathie",
+    datas: atoms.tooltip.tooltips
 }) }}
