@@ -3,11 +3,10 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "02-molecules/caption.njk" import renderCaption %}
+{% from "02-molecules/tab-menu.njk" import renderTabMenu %}
 
-{{ renderCaption({ 
-    name: "languages_symfony",
-    datas: molecules.caption.captions,
-    iconDatas: atoms.icon.icons,
-    tooltipDatas: atoms.tooltip.tooltips
+{{ renderTabMenu({ 
+    name: "main_navigation",
+    datas: molecules["tab-menu"].tab_menus,
+    linkDatas: atoms.link.links
 }) }}

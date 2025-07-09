@@ -28,16 +28,16 @@
       <span class="text-red-500">Progress-bar not found: {{ progressBarName }}</span>
     {% else %}
       {# Render progress-bar molecule #}
-      <div class="progress-bar-container">
+      <div class="progress-bar-container flex flex-col items-center gap-2 sm:gap-2 w-full">
         {# Progress bar visual #}
-        <div class="progress-bar">
+        <div class="progress-bar w-full max-w-[150px]">
           <div class="progress-bar-track">
             <div class="progress-bar-fill" style="width: {{ progressBarData.value }}%;"></div>
           </div>
         </div>
         
         {# Typography atoms for label and description #}
-        <div class="progress-bar-text">
+        <div class="progress-bar-text flex flex-col items-center gap-0 text-center">
           {{ renderTypography({ 
               name: progressBarData.labelName,
               datas: option.typographyDatas,

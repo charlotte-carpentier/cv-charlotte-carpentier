@@ -31,25 +31,25 @@
       <span class="text-red-500">Content-block not found: {{ contentBlockName }}</span>
     {% else %}
       {# Render content-block molecule based on variant #}
-      <div class="content-block content-block--{{ contentBlockData.variant }}">
+      <div class="content-block content-block--{{ contentBlockData.variant }} w-full max-w-[400px] sm:max-w-[400px] mx-auto">
         
         {# Chronology variant #}
         {% if contentBlockData.variant == "chronology" %}
-          <div class="content-block-chronology">
-            <div class="content-block-date">
+          <div class="content-block-chronology grid grid-cols-[auto_1fr] gap-4 items-start">
+            <div class="content-block-date text-left">
               {{ renderTypography({ 
                   name: contentBlockData.dateTypographyName,
                   datas: option.typographyDatas
               }) }}
             </div>
-            <div class="content-block-content">
-              <div class="content-block-title">
+            <div class="content-block-content flex flex-col gap-1">
+              <div class="content-block-title text-left w-full">
                 {{ renderTypography({ 
                     name: contentBlockData.titleTypographyName,
                     datas: option.typographyDatas
                 }) }}
               </div>
-              <div class="content-block-text">
+              <div class="content-block-text m-0 p-0">
                 {{ renderTypography({ 
                     name: contentBlockData.textTypographyName,
                     datas: option.typographyDatas
@@ -60,7 +60,7 @@
         
         {# Text variant #}
         {% elif contentBlockData.variant == "text" %}
-          <div class="content-block-text-only{% if contentBlockData.textColor %} content-block-text-color--{{ contentBlockData.textColor }}{% endif %}">
+          <div class="content-block-text-only{% if contentBlockData.textColor %} content-block-text-color--{{ contentBlockData.textColor }}{% endif %} text-left">
             {{ renderTypography({ 
                 name: contentBlockData.textTypographyName,
                 datas: option.typographyDatas
@@ -69,19 +69,19 @@
         
         {# Preview variant #}
         {% elif contentBlockData.variant == "preview" %}
-          <div class="content-block-preview">
-            <div class="content-block-title">
+          <div class="content-block-preview flex flex-col items-start gap-0">
+            <div class="content-block-title text-center w-full">
               {{ renderTypography({ 
                   name: contentBlockData.titleTypographyName,
                   datas: option.typographyDatas
               }) }}
             </div>
-            <div class="content-block-image">
+            <div class="content-block-image relative w-full flex justify-center">
               {{ renderImage({ 
                   name: contentBlockData.imageName,
                   datas: option.imageDatas
               }) }}
-              <div class="content-block-button">
+              <div class="content-block-button absolute bottom-[-15px] right-0 flex justify-center">
                 {{ renderButton({ 
                     name: contentBlockData.buttonName,
                     datas: option.buttonDatas

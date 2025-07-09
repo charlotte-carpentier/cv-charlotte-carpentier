@@ -533,11 +533,6 @@ body {
    - Responsive layout switching between desktop and mobile versions
    ========================================================================== */
 
-.caption-container {
-  position: relative;
-  display: inline-block;
-}
-
 /* Desktop layout */
 .caption-desktop {
   display: flex;
@@ -594,13 +589,6 @@ body {
   width: 50px;
   height: 50px;
   flex-shrink: 0;
-}
-
-.caption-content-mobile {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  flex: 1;
 }
 
 .caption-label-mobile {
@@ -676,29 +664,9 @@ body {
 
 /* ==========================================================================
    @MOLECULE - CONTACT BLOCK
-   - Layout for contact info with icons and text
+   - Icon sizing and text font-size using theme variables
    - Responsive adjustments for smaller screens
    ========================================================================== */
-
-.contact-block {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.contact-icon {
-  flex-shrink: 0;
-}
-
-.contact-text {
-  flex: 1;
-}
 
 /* Force icon size */
 .contact-block .contact-icon .icon-interface {
@@ -711,15 +679,7 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 480px) {
-  .contact-block {
-    gap: 0.75rem;
-  }
-  
-  .contact-item {
-    gap: 0.75rem;
-  }
-  
+@media (max-width: 639px) {
   .contact-block .contact-icon .icon-interface {
     width: 24px;
     height: 24px;
@@ -731,213 +691,6 @@ body {
 }
 
 /* ==========================================================================
-   @MOLECULE - TAB MENU
-   - Horizontal desktop menu and vertical mobile menu
-   - Responsive switching between desktop and mobile layouts
-   ========================================================================== */
-
-.tab-menu {
-  position: relative;
-  visibility: hidden;
-}
-
-.tab-menu-desktop {
-  display: block;
-  padding: 1rem 0;
-}
-
-.tab-menu-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.tab-menu-item {
-  margin: 0;
-}
-
-.tab-menu-mobile {
-  display: none;
-}
-
-.mobile-menu-list {
-  list-style: none;
-  margin: 0;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-  border: 4px solid theme(--cc-black);
-  background-color: theme(--cc-white);
-}
-
-.mobile-menu-item {
-  margin: 0;
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-  .tab-menu-desktop {
-    display: none;
-  }
-  
-  .tab-menu-mobile {
-    display: block;
-  }
-  
-  .tab-menu-list {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-}
-
-/* ==========================================================================
-   @MOLECULE - PROGRESS BAR
-   - Container with track, fill, and text for progress display
-   - Responsive adjustments for mobile devices
-   ========================================================================== */
-
-.progress-bar-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.progress-bar {
-  width: 100%;
-  max-width: 150px;
-}
-
-.progress-bar-track {
-  width: 100%;
-  height: 15px;
-  background-color: theme(--cc-grey-light);
-  border: 4px solid theme(--cc-black);
-  border-radius: 6px;
-  position: relative;
-  overflow: hidden;
-}
-
-.progress-bar-fill {
-  height: 100%;
-  background-color: theme(--cc-green-light);
-  border-right: 4px solid theme(--cc-black);
-  border-radius: 2px;
-  transition: width 0.3s ease;
-}
-
-.progress-bar-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  text-align: center;
-}
-
-.progress-bar-text span {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  display: block;
-}
-
-.progress-bar-text span.text-code,
-.progress-bar-text span.text-small {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-/* Responsive */
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
-  .progress-bar {
-    max-width: 150px;
-  }
-  
-  .progress-bar-track {
-    height: 15px;
-    border: 3px solid theme(--cc-black);
-    border-radius: 6px;
-  }
-  
-  .progress-bar-fill {
-    border-right: 3px solid theme(--cc-black);
-    border-radius: 2px;
-  }
-  
-  .progress-bar-container {
-    gap: 0.375rem;
-  }
-}
-
-/* ==========================================================================
-   @MOLECULE - LIST FORM
-   - Container and layout for form list elements
-   - Overrides input, radio, and group styles within list-form
-   - Responsive max-width adjustment for mobile
-   ========================================================================== */
-
-.list-form-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.list-form {
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-}
-
-.list-form-radio {
-  width: 100%;
-}
-
-.list-form-inputs {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-}
-
-/* Override input width inside list-form */
-.list-form .input-base {
-  width: 100%;
-  max-width: none;
-}
-
-/* Override radio group width inside list-form */
-.list-form .radio-group {
-  width: 100%;
-  max-width: none;
-  margin-bottom: 0;
-}
-
-/* Remove bottom margin for input groups inside list-form */
-.list-form .input-group {
-  margin-bottom: 0;
-}
-
-/* Responsive */
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
-  .list-form {
-    max-width: 300px;
-  }
-}
-
-/* ==========================================================================
    @MOLECULE - CONTENT BLOCK
    - General container with max-width and centering
    - Variants: chronology, text, preview
@@ -945,23 +698,8 @@ body {
    - Responsive adjustments for mobile
    ========================================================================== */
 
-.content-block {
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-/* Chronology variant layout */
-.content-block--chronology .content-block-chronology {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-/* Date styling */
+/* Date styling with theme color */
 .content-block-date {
-  text-align: left;
   color: theme(--cc-green-dark);
   line-height: 1.4;
 }
@@ -972,20 +710,13 @@ body {
   line-height: 1.2;
 }
 
-/* Content block main content */
-.content-block-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
+/* Content block title line-height */
 .content-block-content .content-block-title {
   line-height: 1;
 }
 
 /* Text variant styles */
 .content-block--text .content-block-text-only {
-  text-align: left;
   line-height: 1.2;
 }
 
@@ -995,7 +726,7 @@ body {
   line-height: 1.1;
 }
 
-/* Text color variants */
+/* Text color variants with theme colors */
 .content-block-text-color--black,
 .content-block-text-color--black h1,
 .content-block-text-color--black h2,
@@ -1008,46 +739,6 @@ body {
 .content-block-text-color--green-dark h2,
 .content-block-text-color--green-dark p {
   color: theme(--cc-green-dark);
-}
-
-/* Preview variant layout */
-.content-block--preview .content-block-preview {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
-}
-
-/* Image positioning inside preview */
-.content-block--preview .content-block-image {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-/* Button positioning inside preview */
-.content-block--preview .content-block-button {
-  position: absolute;
-  bottom: -15px;
-  right: 0;
-}
-
-/* Title styles */
-.content-block-title {
-  text-align: left;
-  width: 100%;
-}
-
-/* Preview variant centers the title */
-.content-block--preview .content-block-title {
-  text-align: center;
-}
-
-/* Text block margin and padding reset */
-.content-block-text {
-  margin: 0;
-  padding: 0;
 }
 
 /* Typography reset inside content-block */
@@ -1076,17 +767,114 @@ body {
   line-height: 1;
 }
 
-/* Button container alignment */
-.content-block-button {
-  display: flex;
-  justify-content: center;
-}
-
 /* Responsive adjustments */
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
   .content-block {
     max-width: 300px;
+  }
+}
+
+/* ==========================================================================
+   @MOLECULE - LIST FORM
+   - Container and layout for form list elements
+   - Overrides input, radio, and group styles within list-form
+   ========================================================================== */
+
+/* Override input width inside list-form */
+.list-form .input-base {
+  width: 100%;
+  max-width: none;
+}
+
+/* Override radio group width inside list-form */
+.list-form .radio-group {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 0;
+}
+
+/* Remove bottom margin for input groups inside list-form */
+.list-form .input-group {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   @MOLECULE - PROGRESS BAR
+   - Container with track, fill, and text for progress display
+   - Responsive adjustments for mobile devices
+   ========================================================================== */
+
+.progress-bar-track {
+  width: 100%;
+  height: 15px;
+  background-color: theme(--cc-grey-light);
+  border: 4px solid theme(--cc-black);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: theme(--cc-green-light);
+  border-right: 4px solid theme(--cc-black);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar-text span {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: block;
+}
+
+.progress-bar-text span.text-code,
+.progress-bar-text span.text-small {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Responsive */
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .progress-bar-track {
+    height: 15px;
+    border: 3px solid theme(--cc-black);
+    border-radius: 6px;
+  }
+  
+  .progress-bar-fill {
+    border-right: 3px solid theme(--cc-black);
+    border-radius: 2px;
+  }
+  
+  .progress-bar-container {
+    gap: 0.375rem;
+  }
+}
+
+/* ==========================================================================
+   @MOLECULE - TAB MENU
+   - Horizontal desktop menu and vertical mobile menu
+   - Responsive switching between desktop and mobile layouts
+   ========================================================================== */
+
+.mobile-menu-list {
+  border: 4px solid theme(--cc-black);
+  background-color: theme(--cc-white);
+}
+
+/* Responsive */
+@media (max-width: 639px) {
+  .tab-menu-desktop {
+    display: none;
+  }
+  
+  .tab-menu-mobile {
+    display: block;
   }
 }
 

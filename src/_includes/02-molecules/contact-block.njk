@@ -29,11 +29,11 @@
       <span class="text-red-500">Contact-block not found: {{ contactBlockName }}</span>
     {% else %}
       {# Contact block container #}
-      <div class="contact-block">
+      <div class="contact-block flex flex-col gap-4 sm:gap-3">
         {% for item in contactBlockData.items %}
-          <div class="contact-item">
+          <div class="contact-item flex items-center gap-4 sm:gap-3">
             {# Icon #}
-            <div class="contact-icon">
+            <div class="contact-icon flex-shrink-0">
               {{ renderIcon({ 
                   name: item.icon,
                   datas: option.iconDatas
@@ -41,7 +41,7 @@
             </div>
             
             {# Text #}
-            <div class="contact-text">
+            <div class="contact-text flex-1">
               {{ renderTypography({ 
                   name: item.text,
                   datas: option.typographyDatas

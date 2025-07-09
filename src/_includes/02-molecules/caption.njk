@@ -37,7 +37,7 @@
         {% endif %}
       {% endfor %}
       {# Caption container with tooltip logic #}
-      <div class="caption-container" data-tooltip="{{ captionData.name }}" tabindex="0">
+      <div class="caption-container relative inline-block" data-tooltip="{{ captionData.name }}" tabindex="0">
         
         {# Desktop version: Icon + Title + Tooltip (tooltip appears below, title hides) #}
         <div class="caption-desktop">
@@ -70,7 +70,7 @@
           }) }}
           
           {# Content container (label + description stacked) #}
-          <div class="caption-content-mobile">
+          <div class="caption-content-mobile flex flex-col flex-1">
             {# Label - Typography classes #}
             <div class="caption-label-mobile text-code">{{ tooltipData.title if tooltipData else captionData.name }}</div>
             
