@@ -3,11 +3,10 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "02-molecules/list-form.njk" import renderListForm %}
+{% from "02-molecules/progress-bar.njk" import renderProgressBar %}
 
-{{ renderListForm({ 
-    name: "contact_form",
-    datas: molecules["list-form"]["list-forms"],
-    radioDatas: atoms.radio.radios,
-    inputDatas: atoms.input.inputs
+{{ renderProgressBar({ 
+    name: "learning_loop",
+    datas: molecules["progress-bar"]["progress-bars"],
+    typographyDatas: atoms.typography.texts
 }) }}
