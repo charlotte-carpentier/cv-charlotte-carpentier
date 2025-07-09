@@ -209,59 +209,75 @@ body {
   }
 }
 
-/* ==========================================================================
-   @ATOM - TYPOGRAPHY
-   - Base font styles for text elements (titles, paragraphs, codes, small text)
-   - Responsive font sizes for mobile
-   ========================================================================== */
+/* ============================================================
+   @ATOMS - INPUTS
+   - Base styles for inputs and textarea
+   - States: default, hover, focus, active, filled, critical, disabled
+   - Input group with label styling
+============================================================ */
 
-.text-h1 {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h1);
-  letter-spacing: theme(--ls-h1);
-  font-weight: 900;
-}
-
-.text-h2 {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h2);
-  font-weight: 700;
-}
-
-.text-p {
+.input-base {
   font-family: theme(--font-text);
-  font-size: theme(--text-p);
-}
-
-.text-code {
-  font-family: theme(--font-text);
-  font-weight: bold;
   font-size: theme(--text-code);
+  color: theme(--cc-grey-light);
 }
 
-.text-small {
-  font-family: theme(--font-text);
-  font-size: theme(--text-small);
+.input-base::placeholder {
+  color: theme(--cc-grey-light);
+  opacity: 1;
 }
 
-/* Typography - Responsive */
-@media (max-width: 1024px) {
-  .text-h1 {
-    font-size: theme(--text-h1-mobile);
-    letter-spacing: theme(--ls-h1-mobile);
-  }
-  .text-h2 {
-    font-size: theme(--text-h2-mobile);
-  }
-  .text-p {
-    font-size: theme(--text-p-mobile);
-  }
-  .text-code {
-    font-size: theme(--text-code-mobile);
-  }
-  .text-small {
-    font-size: theme(--text-small-mobile);
-  }
+/* Default border color */
+.input-default { 
+  border-color: theme(--cc-grey-light); 
+}
+
+/* Hover state */
+.input-hover:hover { 
+  border-color: theme(--cc-grey-dark); 
+}
+
+/* Focus state */
+.input-focus:focus { 
+  border-color: theme(--cc-green-dark);
+  color: theme(--cc-black);
+}
+
+/* Active state */
+.input-active { 
+  border-color: theme(--cc-green-dark);
+  color: theme(--cc-black);
+}
+
+/* Filled input */
+.input-filled { 
+  background-color: theme(--cc-green-light);
+  color: theme(--cc-black);
+}
+
+/* Critical/Error state */
+.input-critical { 
+  border-color: red; 
+}
+
+/* Disabled input */
+.input-disabled {
+  background-color: theme(--cc-grey-light);
+}
+
+/* Label inside input group */
+.input-label {
+  color: theme(--cc-white);
+}
+
+/* Help text styling */
+.input-help {
+  color: theme(--cc-grey-light);
+}
+
+/* Character counter styling */
+.input-counter {
+  color: theme(--cc-grey-light);
 }
 
 /* ============================================================
@@ -269,23 +285,6 @@ body {
    - Link base styles with variants: navigation, tab, external
    - Focus, disabled states and responsive included
 ============================================================ */
-
-.link {
-  transition: color 0.2s;
-  outline: none;
-  cursor: pointer;
-}
-
-/* Focus outline for accessibility */
-.link:focus {
-  outline: 2px solid #0044aa;
-}
-
-/* Disabled state */
-.link:disabled {
-  color: theme(--cc-grey-light);
-  pointer-events: none;
-}
 
 /* Navigation link variant */
 .link--nav {
@@ -346,7 +345,7 @@ body {
 }
 
 /* Responsive font sizes */
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .link--nav {
     font-size: theme(--text-h2-mobile);
   }
@@ -361,137 +360,23 @@ body {
 }
 
 /* ============================================================
-   @ATOMS - INPUTS
-   - Base styles for inputs and textarea
-   - States: default, hover, focus, active, filled, critical, disabled
-   - Input group with label styling
-============================================================ */
-
-.input-base {
-  font-family: theme(--font-text);
-  font-size: theme(--text-code);
-  padding: 0.75rem 0.5rem;
-  border-radius: 0.25rem;
-  border-width: 2px;
-  border-style: solid;
-  outline: none;
-  transition: border-color 0.3s, color 0.3s;
-  color: theme(--cc-grey-light);
-  width: 280px;
-  line-height: 1.2;
-}
-
-.input-base::placeholder {
-  color: theme(--cc-grey-light);
-  opacity: 1;
-}
-
-/* Default border color */
-.input-default { 
-  border-color: theme(--cc-grey-light); 
-}
-
-/* Hover state */
-.input-hover:hover { 
-  border-color: theme(--cc-grey-dark); 
-}
-
-/* Focus state */
-.input-focus:focus { 
-  border-color: theme(--cc-green-dark);
-  color: theme(--cc-black);
-}
-
-/* Active state */
-.input-active { 
-  border-color: theme(--cc-green-dark);
-  color: theme(--cc-black);
-}
-
-/* Filled input */
-.input-filled { 
-  background-color: theme(--cc-green-light);
-  color: theme(--cc-black);
-}
-
-/* Critical/Error state */
-.input-critical { 
-  border-color: red; 
-}
-
-/* Disabled input */
-.input-disabled {
-  background-color: theme(--cc-grey-light);
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* Input group container */
-.input-group {
-  margin-bottom: 1rem;
-}
-
-/* Label inside input group */
-.input-group label {
-  color: theme(--cc-white);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-/* Textarea specific adjustments */
-textarea.input-base {
-  line-height: 1.4;
-  resize: vertical;
-  min-height: 80px;
-}
-
-/* ============================================================
    @ATOM - RADIO
    - Radio basic styles
 ============================================================ */
 
-.radio-group {
-  margin-bottom: 1rem;
-  width: 280px;
-}
-
 .radio-group-label {
-  display: block;
   color: theme(--cc-black);
   font-family: theme(--font-text);
   font-size: theme(--text-code);
-  margin-bottom: 0.5rem;
-  font-weight: normal;
-  text-align: center;
-}
-
-.radio-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  width: 100%;
 }
 
 .radio-option {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0.5rem 0.75rem;
-  border: 2px solid theme(--cc-grey-light);
+  border-color: theme(--cc-grey-light);
   background-color: theme(--cc-white);
-  cursor: pointer;
-  transition: all 0.3s;
-  min-height: 50px;
-  box-sizing: border-box;
 }
 
 .radio-option:hover {
   border-color: theme(--cc-grey-dark);
-}
-
-.radio-input {
-  position: absolute;
-  opacity: 0;
 }
 
 .radio-option:has(.radio-input:checked) {
@@ -500,14 +385,7 @@ textarea.input-base {
 }
 
 .radio-custom {
-  width: 16px;
-  height: 16px;
-  border: 2px solid theme(--cc-grey-light);
-  border-radius: 50%;
-  margin-right: 0.5rem;
-  position: relative;
-  flex-shrink: 0;
-  align-self: center;
+  border-color: theme(--cc-grey-light);
 }
 
 .radio-input:checked + .radio-custom {
@@ -529,22 +407,10 @@ textarea.input-base {
   font-family: theme(--font-text);
   font-size: theme(--text-code);
   color: theme(--cc-black);
-  line-height: 1.2;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.radio-required {
-  color: #ef4444;
-  margin-left: 0.25rem;
 }
 
 /* Responsive */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .radio-group-label {
     font-size: theme(--text-code-mobile);
   }
@@ -629,6 +495,61 @@ textarea.input-base {
   text-align: center;
   line-height: 1;
   white-space: pre-line;
+}
+
+/* ==========================================================================
+   @ATOM - TYPOGRAPHY
+   - Base font styles for text elements (titles, paragraphs, codes, small text)
+   - Responsive font sizes for mobile
+   ========================================================================== */
+
+.text-h1 {
+  font-family: theme(--font-title);
+  font-size: theme(--text-h1);
+  letter-spacing: theme(--ls-h1);
+  font-weight: 900;
+}
+
+.text-h2 {
+  font-family: theme(--font-title);
+  font-size: theme(--text-h2);
+  font-weight: 700;
+}
+
+.text-p {
+  font-family: theme(--font-text);
+  font-size: theme(--text-p);
+}
+
+.text-code {
+  font-family: theme(--font-text);
+  font-weight: bold;
+  font-size: theme(--text-code);
+}
+
+.text-small {
+  font-family: theme(--font-text);
+  font-size: theme(--text-small);
+}
+
+/* Typography - Responsive */
+@media (max-width: 1024px) {
+  .text-h1 {
+    font-size: theme(--text-h1-mobile);
+    letter-spacing: theme(--ls-h1-mobile);
+  }
+  .text-h2 {
+    font-size: theme(--text-h2-mobile);
+  }
+  .text-p {
+    font-size: theme(--text-p-mobile);
+  }
+  .text-code {
+    font-size: theme(--text-code-mobile);
+  }
+  .text-small {
+    font-size: theme(--text-small-mobile);
+  }
 }
 
 /* ==========================================================================
