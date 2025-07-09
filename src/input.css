@@ -533,11 +533,6 @@ body {
    - Responsive layout switching between desktop and mobile versions
    ========================================================================== */
 
-.caption-container {
-  position: relative;
-  display: inline-block;
-}
-
 /* Desktop layout */
 .caption-desktop {
   display: flex;
@@ -594,13 +589,6 @@ body {
   width: 50px;
   height: 50px;
   flex-shrink: 0;
-}
-
-.caption-content-mobile {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  flex: 1;
 }
 
 .caption-label-mobile {

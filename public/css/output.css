@@ -329,6 +329,9 @@
   .inline {
     display: inline;
   }
+  .inline-block {
+    display: inline-block;
+  }
   .inline-flex {
     display: inline-flex;
   }
@@ -445,6 +448,9 @@
   }
   .min-w-\[100\%\] {
     min-width: 100%;
+  }
+  .flex-1 {
+    flex: 1;
   }
   .flex-none {
     flex: none;
@@ -1554,10 +1560,6 @@ body {
     font-size: 0.75rem;
   }
 }
-.caption-container {
-  position: relative;
-  display: inline-block;
-}
 .caption-desktop {
   display: flex;
   flex-direction: column;
@@ -1605,12 +1607,6 @@ body {
   width: 50px;
   height: 50px;
   flex-shrink: 0;
-}
-.caption-content-mobile {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  flex: 1;
 }
 .caption-label-mobile {
   color: #000000;
