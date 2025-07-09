@@ -29,12 +29,12 @@
       <span class="text-red-500">List-form not found: {{ listFormName }}</span>
     {% else %}
       {# Render list-form molecule #}
-      <div class="list-form-container">
-        <form class="list-form" method="POST" action="#" novalidate>
+      <div class="list-form-container flex justify-center w-full">
+        <form class="list-form w-full max-w-sm sm:max-w-md flex flex-col gap-2.5" method="POST" action="#" novalidate>
           
           {# Radio section #}
           {% if listFormData.radioName %}
-            <div class="list-form-radio">
+            <div class="list-form-radio w-full">
               {{ renderRadio({ 
                   name: listFormData.radioName,
                   datas: option.radioDatas
@@ -43,7 +43,7 @@
           {% endif %}
           
           {# Inputs section #}
-          <div class="list-form-inputs">
+          <div class="list-form-inputs w-full flex flex-col gap-2.5">
             {% for inputItem in listFormData.inputs %}
               {{ renderInput({ 
                   name: inputItem.inputName,
