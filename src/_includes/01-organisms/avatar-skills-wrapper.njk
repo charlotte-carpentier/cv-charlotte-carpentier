@@ -1,9 +1,7 @@
-{# 
-=========================
-    AVATAR-SKILLS-WRAPPER ORGANISM
-    v2.0 - Multi-skills responsive wrapper       
-=========================
-#}
+{# ===========================================================
+   @ORGANISMS - AVATAR-SKILLS-WRAPPER
+   - Reusable avatar-skills-wrapper component
+=========================================================== #}
 
 {# Import organisms #}
 {% from "01-organisms/avatar-card.njk" import renderAvatarCard %}
@@ -82,11 +80,9 @@
   {% endif %}
 {% endmacro %}
 
-{# 
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
 {% from "01-organisms/avatar-skills-wrapper.njk" import renderAvatarSkillsWrapper %}
 
@@ -103,19 +99,5 @@ Summon HAT Components Wisely
     icon_datas: atoms.icon.icons
 }) }}
 
-3. Don't forget to include the JavaScript file:
-<script src="path/to/avatar-skills-wrapper.js"></script>
-
-RESPONSIVE BEHAVIOR:
-- Desktop/Tablet (md+): Avatar + All 4 Skills always visible
-- Mobile (<md): Avatar visible, All skills hidden by default
-- Mobile interaction: Each button toggles its corresponding skills card
-
-BUTTON → CONTAINER MAPPING:
-- button_languages → skills-card-languages
-- button_hard_skills → skills-card-hard-skills  
-- button_soft_skills → skills-card-soft-skills
-- button_interests → skills-card-interests
-
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-#}
+=========================================================== #}

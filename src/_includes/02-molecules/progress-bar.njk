@@ -1,7 +1,7 @@
-{# ========================= 
-    PROGRESS-BAR MOLECULE 
-    v1.0 - Charlotte RPG 
-========================= #}
+{# ===========================================================
+   @MOLECULES - PROGRESS-BAR
+   - Reusable progress-bar component
+=========================================================== #}
 
 {# Import atoms #}
 {% from "03-atoms/typography.njk" import renderTypography %}
@@ -54,11 +54,9 @@
   {% endif %}
 {% endmacro %}
 
-{# 
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
 {% from "02-molecules/progress-bar.njk" import renderProgressBar %}
 
@@ -69,6 +67,5 @@ Summon HAT Components Wisely
     typographyDatas: atoms.typography.texts
 }) }}
 
-May your progress bars always reach 100%! ⚔️🎮✨
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-#}
+=========================================================== #}

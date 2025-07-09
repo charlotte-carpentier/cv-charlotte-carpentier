@@ -3,9 +3,11 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "03-atoms/typography.njk" import renderTypography %}
+{% from "02-molecules/caption.njk" import renderCaption %}
 
-{{ renderTypography({ 
-    name: "missions_title",
-    datas: atoms.typography.texts
+{{ renderCaption({ 
+    name: "languages_symfony",
+    datas: molecules.caption.captions,
+    iconDatas: atoms.icon.icons,
+    tooltipDatas: atoms.tooltip.tooltips
 }) }}

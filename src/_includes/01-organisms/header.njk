@@ -1,9 +1,7 @@
-{# 
-=========================
-    HEADER ORGANISM
-      v1.0 - Renommé       
-=========================
-#}
+{# ===========================================================
+   @ORGANISMS - HEADER
+   - Reusable header component
+=========================================================== #}
 
 {% macro renderHeader(option) %}
   {# Import required molecules and atoms #}
@@ -112,11 +110,9 @@
   {% endif %}
 {% endmacro %}
 
-{# 
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
 {% from "01-organisms/header.njk" import renderHeader %}
 
@@ -130,8 +126,5 @@ Summon HAT Components Wisely
     iconDatas: atoms.icon.icons
 }) }}
 
-3. Include the JavaScript for mobile menu functionality
-<script src="/js/organisms/header.js"></script>
-
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-#}
+=========================================================== #}
