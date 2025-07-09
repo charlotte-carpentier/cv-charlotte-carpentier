@@ -1,9 +1,7 @@
-{# 
-=========================
-    AVATAR-CARD ORGANISM
-    v2.0 - Tablette Unifiée + Tooltip       
-=========================
-#}
+{# ===========================================================
+   @ORGANISMS - AVATAR-CARD
+   - Reusable caption component
+=========================================================== #}
 
 {# Import atoms #}
 {% from "03-atoms/image.njk" import renderImage %}
@@ -107,11 +105,9 @@
   {% endif %}
 {% endmacro %}
 
-{# 
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
 {% from "01-organisms/avatar-card.njk" import renderAvatarCard %}
 
@@ -125,10 +121,5 @@ Summon HAT Components Wisely
     tooltip_datas: atoms.tooltip.tooltips
 }) }}
 
-BREAKPOINTS UNIFORMES:
-- Desktop (1025px+): Avatar + Tooltip
-- Tablet (481px-1024px): Titre + Avatar vertical
-- Mobile (≤480px): Titre + Avatar + 4 boutons
-
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-#}
+=========================================================== #}

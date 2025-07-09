@@ -1,7 +1,7 @@
-{# ========================= 
-    LIST-FORM MOLECULE 
-    v1.0 - Charlotte 
-========================= #}
+{# ===========================================================
+   @MOLECULES - LIST-FORM
+   - Reusable list-form component
+=========================================================== #}
 
 {# Import atoms #}
 {% from "03-atoms/radio.njk" import renderRadio %}
@@ -58,11 +58,9 @@
   {% endif %}
 {% endmacro %}
 
-{# 
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
 {% from "02-molecules/list-form.njk" import renderListForm %}
 
@@ -75,4 +73,4 @@ Summon HAT Components Wisely
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-#}
+=========================================================== #}

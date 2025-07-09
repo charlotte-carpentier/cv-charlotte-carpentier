@@ -1,9 +1,7 @@
-{# 
-=========================
-    SKILLS-CARD ORGANISM
-    v2.0 - Single call responsive layout       
-=========================
-#}
+{# ===========================================================
+   @ORGANISMS - SKILLS-CARD
+   - Reusable skills-card component
+=========================================================== #}
 
 {# Import molecules and atoms #}
 {% from "02-molecules/caption.njk" import renderCaption %}
@@ -113,11 +111,9 @@
   {% endif %}
 {% endmacro %}
 
-{# 
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
 {% from "01-organisms/skills-card.njk" import renderSkillsCard %}
 
@@ -160,8 +156,5 @@ Summon HAT Components Wisely
   }) }}
 </div>
 
-3. Desktop/Tablet: All 4 cards visible in 2x2 grid
-4. Mobile: Cards hidden by default, shown via JS buttons (.active class)
-
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-#}
+=========================================================== #}

@@ -3,9 +3,11 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "03-atoms/tooltip.njk" import renderTooltip %}
+{% from "02-molecules/caption.njk" import renderCaption %}
 
-{{ renderTooltip({ 
-    name: "softskills_empathie",
-    datas: atoms.tooltip.tooltips
+{{ renderCaption({ 
+    name: "languages_symfony",
+    datas: molecules.caption.captions,
+    iconDatas: atoms.icon.icons,
+    tooltipDatas: atoms.tooltip.tooltips
 }) }}
