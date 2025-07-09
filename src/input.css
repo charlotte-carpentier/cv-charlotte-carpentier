@@ -691,6 +691,91 @@ body {
 }
 
 /* ==========================================================================
+   @MOLECULE - CONTENT BLOCK
+   - General container with max-width and centering
+   - Variants: chronology, text, preview
+   - Typography reset inside the block
+   - Responsive adjustments for mobile
+   ========================================================================== */
+
+/* Date styling with theme color */
+.content-block-date {
+  color: theme(--cc-green-dark);
+  line-height: 1.4;
+}
+
+.content-block-date h1,
+.content-block-date h2,
+.content-block-date p {
+  line-height: 1.2;
+}
+
+/* Content block title line-height */
+.content-block-content .content-block-title {
+  line-height: 1;
+}
+
+/* Text variant styles */
+.content-block--text .content-block-text-only {
+  line-height: 1.2;
+}
+
+.content-block--text .content-block-text-only h1,
+.content-block--text .content-block-text-only h2,
+.content-block--text .content-block-text-only p {
+  line-height: 1.1;
+}
+
+/* Text color variants with theme colors */
+.content-block-text-color--black,
+.content-block-text-color--black h1,
+.content-block-text-color--black h2,
+.content-block-text-color--black p {
+  color: theme(--cc-black);
+}
+
+.content-block-text-color--green-dark,
+.content-block-text-color--green-dark h1,
+.content-block-text-color--green-dark h2,
+.content-block-text-color--green-dark p {
+  color: theme(--cc-green-dark);
+}
+
+/* Typography reset inside content-block */
+.content-block .content-block-title h1,
+.content-block .content-block-title h2,
+.content-block .content-block-title p,
+.content-block .content-block-text h1,
+.content-block .content-block-text h2,
+.content-block .content-block-text p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* More specific reset for chronology variant */
+.content-block-chronology .content-block-title h1,
+.content-block-chronology .content-block-title h2,
+.content-block-chronology .content-block-title p,
+.content-block-chronology .content-block-text h1,
+.content-block-chronology .content-block-text h2,
+.content-block-chronology .content-block-text p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Responsive adjustments */
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .content-block {
+    max-width: 300px;
+  }
+}
+
+/* ==========================================================================
    @MOLECULE - TAB MENU
    - Horizontal desktop menu and vertical mobile menu
    - Responsive switching between desktop and mobile layouts
@@ -893,159 +978,6 @@ body {
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
   .list-form {
-    max-width: 300px;
-  }
-}
-
-/* ==========================================================================
-   @MOLECULE - CONTENT BLOCK
-   - General container with max-width and centering
-   - Variants: chronology, text, preview
-   - Typography reset inside the block
-   - Responsive adjustments for mobile
-   ========================================================================== */
-
-.content-block {
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-/* Chronology variant layout */
-.content-block--chronology .content-block-chronology {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-/* Date styling */
-.content-block-date {
-  text-align: left;
-  color: theme(--cc-green-dark);
-  line-height: 1.4;
-}
-
-.content-block-date h1,
-.content-block-date h2,
-.content-block-date p {
-  line-height: 1.2;
-}
-
-/* Content block main content */
-.content-block-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.content-block-content .content-block-title {
-  line-height: 1;
-}
-
-/* Text variant styles */
-.content-block--text .content-block-text-only {
-  text-align: left;
-  line-height: 1.2;
-}
-
-.content-block--text .content-block-text-only h1,
-.content-block--text .content-block-text-only h2,
-.content-block--text .content-block-text-only p {
-  line-height: 1.1;
-}
-
-/* Text color variants */
-.content-block-text-color--black,
-.content-block-text-color--black h1,
-.content-block-text-color--black h2,
-.content-block-text-color--black p {
-  color: theme(--cc-black);
-}
-
-.content-block-text-color--green-dark,
-.content-block-text-color--green-dark h1,
-.content-block-text-color--green-dark h2,
-.content-block-text-color--green-dark p {
-  color: theme(--cc-green-dark);
-}
-
-/* Preview variant layout */
-.content-block--preview .content-block-preview {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
-}
-
-/* Image positioning inside preview */
-.content-block--preview .content-block-image {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-/* Button positioning inside preview */
-.content-block--preview .content-block-button {
-  position: absolute;
-  bottom: -15px;
-  right: 0;
-}
-
-/* Title styles */
-.content-block-title {
-  text-align: left;
-  width: 100%;
-}
-
-/* Preview variant centers the title */
-.content-block--preview .content-block-title {
-  text-align: center;
-}
-
-/* Text block margin and padding reset */
-.content-block-text {
-  margin: 0;
-  padding: 0;
-}
-
-/* Typography reset inside content-block */
-.content-block .content-block-title h1,
-.content-block .content-block-title h2,
-.content-block .content-block-title p,
-.content-block .content-block-text h1,
-.content-block .content-block-text h2,
-.content-block .content-block-text p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  margin-block-start: 0;
-  margin-block-end: 0;
-}
-
-/* More specific reset for chronology variant */
-.content-block-chronology .content-block-title h1,
-.content-block-chronology .content-block-title h2,
-.content-block-chronology .content-block-title p,
-.content-block-chronology .content-block-text h1,
-.content-block-chronology .content-block-text h2,
-.content-block-chronology .content-block-text p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-/* Button container alignment */
-.content-block-button {
-  display: flex;
-  justify-content: center;
-}
-
-/* Responsive adjustments */
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
-  .content-block {
     max-width: 300px;
   }
 }
