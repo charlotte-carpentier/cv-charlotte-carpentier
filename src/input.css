@@ -175,6 +175,41 @@ body {
 }
 
 /* ==========================================================================
+   @ATOM - IMAGES
+   - Avatar and mission images with size variants for desktop, tablet, and mobile
+   - Borders styled consistently with theme variables
+   ========================================================================== */
+
+.image-avatar-desktop { 
+  width: 351px; 
+  height: 686px; 
+}
+
+.image-avatar-tablet { 
+  width: 295px; 
+  height: 287px; 
+}
+
+.image-avatar-mobile { 
+  width: 291px; 
+  height: 222px; 
+}
+
+.image-mission { 
+  width: 400px; 
+  height: 200px; 
+  border: 4px solid theme(--cc-black);
+}
+
+@media (max-width: 639px) {
+  .image-mission {
+    width: 300px;
+    max-width: 157px;
+    border: 3px solid theme(--cc-black);
+  }
+}
+
+/* ==========================================================================
    @ATOM - TYPOGRAPHY
    - Base font styles for text elements (titles, paragraphs, codes, small text)
    - Responsive font sizes for mobile
@@ -594,39 +629,6 @@ textarea.input-base {
   text-align: center;
   line-height: 1;
   white-space: pre-line;
-}
-
-/* ==========================================================================
-   @ATOM - IMAGES
-   - Avatar and mission images with size variants for desktop, tablet, and mobile
-   - Borders styled consistently with theme variables
-   ========================================================================== */
-
-.image-avatar-desktop { 
-  width: 351px; 
-  height: 686px; 
-}
-
-.image-avatar-tablet { 
-  width: 295px; 
-  height: 287px; 
-}
-
-.image-avatar-mobile { 
-  width: 291px; 
-  height: 222px; 
-}
-
-.image-mission { 
-  width: 400px; 
-  height: 200px; 
-  border: 4px solid theme(--cc-black);
-}
-
-.image-mission-mobile { 
-  width: 300px; 
-  max-width: 157px; 
-  border: 3px solid theme(--cc-black);
 }
 
 /* ==========================================================================

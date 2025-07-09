@@ -3,9 +3,9 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "03-atoms/icon.njk" import renderIcon %}
+{% from "03-atoms/image.njk" import renderImage %}
 
-{{ renderIcon({ 
-    name: "skills_treasure",
-    datas: atoms.icon.icons
+{{ renderImage({ 
+    name: "avatar_desktop",
+    datas: atoms.image.images
 }) }}
