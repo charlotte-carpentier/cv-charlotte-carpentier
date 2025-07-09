@@ -3,11 +3,11 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "02-molecules/caption.njk" import renderCaption %}
+{% from "02-molecules/contact-block.njk" import renderContactBlock %}
 
-{{ renderCaption({ 
-    name: "languages_symfony",
-    datas: molecules.caption.captions,
+{{ renderContactBlock({ 
+    name: "main_contact",
+    datas: molecules["contact-block"].contact_blocks,
     iconDatas: atoms.icon.icons,
-    tooltipDatas: atoms.tooltip.tooltips
+    typographyDatas: atoms.typography.texts
 }) }}
