@@ -46,7 +46,7 @@
       {# Render the link #}
       <a 
         href="{{ linkData.href }}" 
-        class="{{ cssClasses }}"
+        class="{{ cssClasses }} transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
         {% if isCurrentPage %}aria-current="page"{% endif %}
         {% if linkData.target %}target="{{ linkData.target }}"{% endif %}
         {% if linkData.download %}download{% endif %}

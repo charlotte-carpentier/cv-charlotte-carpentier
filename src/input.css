@@ -280,83 +280,11 @@ body {
   color: theme(--cc-grey-light);
 }
 
-/* ==========================================================================
-   @ATOM - TYPOGRAPHY
-   - Base font styles for text elements (titles, paragraphs, codes, small text)
-   - Responsive font sizes for mobile
-   ========================================================================== */
-
-.text-h1 {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h1);
-  letter-spacing: theme(--ls-h1);
-  font-weight: 900;
-}
-
-.text-h2 {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h2);
-  font-weight: 700;
-}
-
-.text-p {
-  font-family: theme(--font-text);
-  font-size: theme(--text-p);
-}
-
-.text-code {
-  font-family: theme(--font-text);
-  font-weight: bold;
-  font-size: theme(--text-code);
-}
-
-.text-small {
-  font-family: theme(--font-text);
-  font-size: theme(--text-small);
-}
-
-/* Typography - Responsive */
-@media (max-width: 1024px) {
-  .text-h1 {
-    font-size: theme(--text-h1-mobile);
-    letter-spacing: theme(--ls-h1-mobile);
-  }
-  .text-h2 {
-    font-size: theme(--text-h2-mobile);
-  }
-  .text-p {
-    font-size: theme(--text-p-mobile);
-  }
-  .text-code {
-    font-size: theme(--text-code-mobile);
-  }
-  .text-small {
-    font-size: theme(--text-small-mobile);
-  }
-}
-
 /* ============================================================
    @ATOMS - LINKS
    - Link base styles with variants: navigation, tab, external
    - Focus, disabled states and responsive included
 ============================================================ */
-
-.link {
-  transition: color 0.2s;
-  outline: none;
-  cursor: pointer;
-}
-
-/* Focus outline for accessibility */
-.link:focus {
-  outline: 2px solid #0044aa;
-}
-
-/* Disabled state */
-.link:disabled {
-  color: theme(--cc-grey-light);
-  pointer-events: none;
-}
 
 /* Navigation link variant */
 .link--nav {
@@ -417,7 +345,7 @@ body {
 }
 
 /* Responsive font sizes */
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .link--nav {
     font-size: theme(--text-h2-mobile);
   }
@@ -428,6 +356,61 @@ body {
   
   .link--external {
     font-size: theme(--text-p-mobile);
+  }
+}
+
+/* ==========================================================================
+   @ATOM - TYPOGRAPHY
+   - Base font styles for text elements (titles, paragraphs, codes, small text)
+   - Responsive font sizes for mobile
+   ========================================================================== */
+
+.text-h1 {
+  font-family: theme(--font-title);
+  font-size: theme(--text-h1);
+  letter-spacing: theme(--ls-h1);
+  font-weight: 900;
+}
+
+.text-h2 {
+  font-family: theme(--font-title);
+  font-size: theme(--text-h2);
+  font-weight: 700;
+}
+
+.text-p {
+  font-family: theme(--font-text);
+  font-size: theme(--text-p);
+}
+
+.text-code {
+  font-family: theme(--font-text);
+  font-weight: bold;
+  font-size: theme(--text-code);
+}
+
+.text-small {
+  font-family: theme(--font-text);
+  font-size: theme(--text-small);
+}
+
+/* Typography - Responsive */
+@media (max-width: 1024px) {
+  .text-h1 {
+    font-size: theme(--text-h1-mobile);
+    letter-spacing: theme(--ls-h1-mobile);
+  }
+  .text-h2 {
+    font-size: theme(--text-h2-mobile);
+  }
+  .text-p {
+    font-size: theme(--text-p-mobile);
+  }
+  .text-code {
+    font-size: theme(--text-code-mobile);
+  }
+  .text-small {
+    font-size: theme(--text-small-mobile);
   }
 }
 
