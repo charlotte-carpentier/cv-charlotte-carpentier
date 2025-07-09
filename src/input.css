@@ -209,6 +209,77 @@ body {
   }
 }
 
+/* ============================================================
+   @ATOMS - INPUTS
+   - Base styles for inputs and textarea
+   - States: default, hover, focus, active, filled, critical, disabled
+   - Input group with label styling
+============================================================ */
+
+.input-base {
+  font-family: theme(--font-text);
+  font-size: theme(--text-code);
+  color: theme(--cc-grey-light);
+}
+
+.input-base::placeholder {
+  color: theme(--cc-grey-light);
+  opacity: 1;
+}
+
+/* Default border color */
+.input-default { 
+  border-color: theme(--cc-grey-light); 
+}
+
+/* Hover state */
+.input-hover:hover { 
+  border-color: theme(--cc-grey-dark); 
+}
+
+/* Focus state */
+.input-focus:focus { 
+  border-color: theme(--cc-green-dark);
+  color: theme(--cc-black);
+}
+
+/* Active state */
+.input-active { 
+  border-color: theme(--cc-green-dark);
+  color: theme(--cc-black);
+}
+
+/* Filled input */
+.input-filled { 
+  background-color: theme(--cc-green-light);
+  color: theme(--cc-black);
+}
+
+/* Critical/Error state */
+.input-critical { 
+  border-color: red; 
+}
+
+/* Disabled input */
+.input-disabled {
+  background-color: theme(--cc-grey-light);
+}
+
+/* Label inside input group */
+.input-label {
+  color: theme(--cc-white);
+}
+
+/* Help text styling */
+.input-help {
+  color: theme(--cc-grey-light);
+}
+
+/* Character counter styling */
+.input-counter {
+  color: theme(--cc-grey-light);
+}
+
 /* ==========================================================================
    @ATOM - TYPOGRAPHY
    - Base font styles for text elements (titles, paragraphs, codes, small text)
@@ -358,91 +429,6 @@ body {
   .link--external {
     font-size: theme(--text-p-mobile);
   }
-}
-
-/* ============================================================
-   @ATOMS - INPUTS
-   - Base styles for inputs and textarea
-   - States: default, hover, focus, active, filled, critical, disabled
-   - Input group with label styling
-============================================================ */
-
-.input-base {
-  font-family: theme(--font-text);
-  font-size: theme(--text-code);
-  padding: 0.75rem 0.5rem;
-  border-radius: 0.25rem;
-  border-width: 2px;
-  border-style: solid;
-  outline: none;
-  transition: border-color 0.3s, color 0.3s;
-  color: theme(--cc-grey-light);
-  width: 280px;
-  line-height: 1.2;
-}
-
-.input-base::placeholder {
-  color: theme(--cc-grey-light);
-  opacity: 1;
-}
-
-/* Default border color */
-.input-default { 
-  border-color: theme(--cc-grey-light); 
-}
-
-/* Hover state */
-.input-hover:hover { 
-  border-color: theme(--cc-grey-dark); 
-}
-
-/* Focus state */
-.input-focus:focus { 
-  border-color: theme(--cc-green-dark);
-  color: theme(--cc-black);
-}
-
-/* Active state */
-.input-active { 
-  border-color: theme(--cc-green-dark);
-  color: theme(--cc-black);
-}
-
-/* Filled input */
-.input-filled { 
-  background-color: theme(--cc-green-light);
-  color: theme(--cc-black);
-}
-
-/* Critical/Error state */
-.input-critical { 
-  border-color: red; 
-}
-
-/* Disabled input */
-.input-disabled {
-  background-color: theme(--cc-grey-light);
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* Input group container */
-.input-group {
-  margin-bottom: 1rem;
-}
-
-/* Label inside input group */
-.input-group label {
-  color: theme(--cc-white);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-/* Textarea specific adjustments */
-textarea.input-base {
-  line-height: 1.4;
-  resize: vertical;
-  min-height: 80px;
 }
 
 /* ============================================================

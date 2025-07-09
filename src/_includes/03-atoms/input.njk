@@ -25,12 +25,12 @@
       <span class="text-red-500">Input not found: {{ inputName }}</span>
     {% else %}
       {# Input container #}
-      <div class="input-group">
+      <div class="input-group mb-4">
         {# Label #}
         {% if inputData.label %}
-          <label for="{{ inputData.id }}" class="text-p">
+          <label for="{{ inputData.id }}" class="text-p input-label block mb-2">
             {{ inputData.label }}
-            {% if inputData.required %}<span style="color: #ef4444; margin-left: 0.25rem;">*</span>{% endif %}
+            {% if inputData.required %}<span class="text-red-500 ml-1">*</span>{% endif %}
           </label>
         {% endif %}
         
@@ -40,12 +40,12 @@
             type="{{ inputData.type }}"
             id="{{ inputData.id }}"
             name="{{ inputData.name or inputData.id }}"
-            class="input-base input-default input-hover input-focus"
+            class="input-base input-default input-hover input-focus w-full sm:w-80 px-2 py-3 border-2 border-solid rounded focus:outline-none transition-colors duration-300 leading-tight"
             placeholder="{{ inputData.placeholder }}"
             {% if inputData.required %}required{% endif %}
             {% if inputData.maxLength %}maxlength="{{ inputData.maxLength }}"{% endif %}
             {% if inputData.pattern %}pattern="{{ inputData.pattern }}"{% endif %}
-            {% if option.disabled %}disabled{% endif %}
+            {% if option.disabled %}disabled class="input-base input-default input-hover input-focus w-full sm:w-80 px-2 py-3 border-2 border-solid rounded focus:outline-none transition-colors duration-300 leading-tight disabled:opacity-60 disabled:cursor-not-allowed input-disabled"{% endif %}
             aria-describedby="{% if inputData.patternMessage %}{{ inputData.id }}-help{% endif %} {% if inputData.errorMessage %}{{ inputData.id }}-error{% endif %}"
           />
         
@@ -54,18 +54,18 @@
           <textarea 
             id="{{ inputData.id }}"
             name="{{ inputData.name or inputData.id }}"
-            class="input-base input-default input-hover input-focus"
+            class="input-base input-default input-hover input-focus w-full sm:w-80 px-2 py-3 border-2 border-solid rounded focus:outline-none transition-colors duration-300 leading-snug resize-y min-h-20"
             placeholder="{{ inputData.placeholder }}"
             rows="{{ inputData.rows or 3 }}"
             {% if inputData.required %}required{% endif %}
             {% if inputData.maxLength %}maxlength="{{ inputData.maxLength }}"{% endif %}
-            {% if option.disabled %}disabled{% endif %}
+            {% if option.disabled %}disabled class="input-base input-default input-hover input-focus w-full sm:w-80 px-2 py-3 border-2 border-solid rounded focus:outline-none transition-colors duration-300 leading-snug resize-y min-h-20 disabled:opacity-60 disabled:cursor-not-allowed input-disabled"{% endif %}
             aria-describedby="{% if inputData.maxLength %}{{ inputData.id }}-count{% endif %} {% if inputData.errorMessage %}{{ inputData.id }}-error{% endif %}"
           ></textarea>
           
           {# Character counter for textarea #}
           {% if inputData.maxLength %}
-            <div id="{{ inputData.id }}-count" class="text-small" style="color: var(--cc-grey-light); margin-top: 0.25rem; text-align: right;">
+            <div id="{{ inputData.id }}-count" class="text-small input-counter text-right mt-1">
               0/{{ inputData.maxLength }}
             </div>
           {% endif %}
@@ -73,14 +73,14 @@
         
         {# Help text #}
         {% if inputData.patternMessage %}
-          <div id="{{ inputData.id }}-help" class="text-small" style="color: var(--cc-grey-light); margin-top: 0.25rem;">
+          <div id="{{ inputData.id }}-help" class="text-small input-help mt-1">
             {{ inputData.patternMessage }}
           </div>
         {% endif %}
         
         {# Error message container #}
         {% if inputData.errorMessage %}
-          <div id="{{ inputData.id }}-error" class="text-small" style="color: #ef4444; margin-top: 0.25rem; display: none;" role="alert">
+          <div id="{{ inputData.id }}-error" class="text-small text-red-500 mt-1 hidden" role="alert">
             {{ inputData.errorMessage }}
           </div>
         {% endif %}
