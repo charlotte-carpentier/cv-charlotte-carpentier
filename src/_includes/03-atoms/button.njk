@@ -1,20 +1,18 @@
-{# 
-==========================================================================
-   BUTTON ATOM
-   v2.0 - Simplifié        
-==========================================================================
-#}
+{# ===========================================================
+   @ATOMS - BUTTON
+   - Reusable button component with variant handling
+   - Supports disabled state and JS events
+   - Usage example included below
+=========================================================== #}
 
 {% macro renderButton(option) %}
-  {# Check if datas is provided #}
+  {# Validate input data #}
   {% if not option.datas %}
     <span class="text-red-500">Error: No button configuration provided</span>
   {% else %}
-    {# Retrieve button configuration #}
+    {# Retrieve button config and find matching button by name #}
     {% set buttonsConfig = option.datas %}
     {% set buttonName = option.name %}
-    
-    {# Find the specific button by name #}
     {% set buttonData = null %}
     {% for button in buttonsConfig %}
       {% if button.name == buttonName %}
@@ -26,19 +24,17 @@
     {% if not buttonData %}
       <span class="text-red-500">Button not found: {{ buttonName }}</span>
     {% else %}
-      {# Build CSS classes #}
+      {# Compose CSS classes with variant and disabled state #}
       {% set variant = buttonData.variant | default('primary') %}
       {% set cssClasses = 'button button--' ~ variant %}
-      
-      {# Add disabled class if needed #}
       {% if option.disabled or buttonData.disabled %}
         {% set cssClasses = cssClasses ~ ' button--disabled' %}
       {% endif %}
-      
-      {# Render the button #}
+
+      {# Render the actual button element #}
       <button 
         type="{{ option.type | default(buttonData.type) | default('button') }}"
-        class="{{ cssClasses }}"
+        class="{{ cssClasses }} font-bold transition-all duration-200 ease-in-out cursor-pointer border-4 border-solid inline-flex items-center justify-center rounded-none px-6 py-1 sm:px-4 sm:py-1 sm:border-[3px] disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none"
         {% if option.disabled or buttonData.disabled %}disabled{% endif %}
         {% if option.onclick %}onclick="{{ option.onclick }}"{% endif %}
         {% if option.id %}id="{{ option.id }}"{% endif %}
@@ -49,19 +45,17 @@
   {% endif %}
 {% endmacro %}
 
-{# 
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
-{% from "03-atoms/button.njk" import renderButton %}
+   {% from "03-atoms/button.njk" import renderButton %}
 
 2. Call a specific button by its name
-{{ renderButton({ 
-    name: "button_default",
-    datas: atoms.button.buttons
-}) }}
+   {{ renderButton({ 
+       name: "button_default",
+       datas: atoms.button.buttons
+   }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-#}
+=========================================================== #}
