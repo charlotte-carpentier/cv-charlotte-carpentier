@@ -28,11 +28,11 @@
       <span class="text-red-500">Tab-menu not found: {{ tabMenuName }}</span>
     {% else %}
       {# Tab menu container #}
-      <nav class="tab-menu relative invisible" aria-label="Navigation principale">
+      <nav class="tab-menu relative" aria-label="Navigation principale">
         
         {# Desktop Navigation #}
-        <div class="tab-menu-desktop block py-4 sm:block">
-          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0 sm:flex-col sm:gap-6">
+        <div class="tab-menu-desktop hidden sm:block py-4">
+          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0">
             {% for linkName in tabMenuData.desktop_links %}
               <li class="m-0">
                 {{ renderLink({ 
@@ -45,7 +45,7 @@
         </div>
         
         {# Mobile Navigation #}
-        <div class="tab-menu-mobile hidden sm:hidden">
+        <div class="tab-menu-mobile block sm:hidden">
           <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center">
             {% for linkName in tabMenuData.mobile_links %}
               <li class="m-0">
