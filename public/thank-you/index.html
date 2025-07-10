@@ -98,11 +98,11 @@
       
       
       
-      <header class="header w-full border-4 border-solid box-border" id="main-header">
-        <div class="header-container w-full m-0 px-8 py-4 min-h-20 flex items-center justify-between box-border sm:px-4 sm:py-3 sm:min-h-16 lg:px-8 lg:py-4 lg:min-h-20">
+      <header class="header w-full box-border" id="main-header">
+        <div class="header-container w-full m-0 px-8 py-4 sm:px-4 sm:py-3 min-h-[80px] sm:min-h-[64px] flex items-center justify-between box-border">
           
           
-          <div class="header-brand flex-1 flex items-center justify-start min-w-0 sm:flex-none lg:flex-1">
+          <div class="header-brand flex-1 sm:flex-none flex items-center justify-start min-w-0">
             
   
   
@@ -315,7 +315,7 @@
           </div>
           
           
-          <div class="header-title flex-1 flex justify-center items-center min-w-0 hidden sm:hidden lg:flex">
+          <div class="header-title flex-1 hidden lg:flex justify-center items-center min-w-0">
             
   
   
@@ -528,7 +528,7 @@
           </div>
           
           
-          <div class="header-navigation flex-1 flex items-center justify-end min-w-0 hidden sm:flex lg:flex">
+          <div class="header-navigation flex-1 sm:flex-none hidden sm:flex lg:flex items-center justify-end min-w-0">
             
   
   
@@ -597,12 +597,12 @@
           
           
           <button 
-            class="header-burger bg-transparent border-0 cursor-pointer w-12 h-12 relative flex items-center justify-center sm:hidden lg:hidden"
+            class="header-burger bg-transparent border-none cursor-pointer w-12 h-12 relative flex sm:hidden items-center justify-center" 
             id="burger-toggle"
             aria-label="Toggle mobile menu"
             aria-expanded="false"
           >
-            <span class="burger-icon w-8 h-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300">
+            <span class="burger-icon burger-icon-open w-8 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300">
               
   
   
@@ -700,7 +700,7 @@
   
 
             </span>
-            <span class="burger-icon burger-icon-close w-8 h-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 opacity-0">
+            <span class="burger-icon burger-icon-close w-8 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300">
               
   
   
@@ -805,8 +805,8 @@
         
         
         
-        <div class="header-mobile-overlay fixed left-0 w-full opacity-0 invisible -translate-y-5 transition-all duration-300 box-border" id="mobile-overlay">
-          <div class="mobile-overlay-content px-8 py-4 sm:px-4 sm:py-4">
+        <div class="header-mobile-overlay fixed left-0 w-full opacity-0 invisible transform -translate-y-5 transition-opacity duration-300 ease-linear box-border" id="mobile-overlay">
+          <div class="mobile-overlay-content px-8 py-4 sm:px-4">
             
             
   
