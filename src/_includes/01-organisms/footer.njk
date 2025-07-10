@@ -28,10 +28,10 @@
       {% set cssClasses = 'footer footer--' ~ variant %}
       
       {# Render the footer #}
-      <footer class="{{ cssClasses }}">
-        <div class="footer__content">
+      <footer class="{{ cssClasses }} w-full bg-white box-border">
+        <div class="footer__content p-4 sm:p-4 lg:p-4 flex items-center justify-center box-border">
           {# Copyright text #}
-          <div class="footer__copyright">
+          <div class="footer__copyright whitespace-nowrap text-center">
             {{ renderTypography({ 
                 name: footerData.copyright.name,
                 datas: option.typographyDatas
@@ -39,7 +39,7 @@
           </div>
           
           {# Legal link #}
-          <div class="footer__legal">
+          <div class="footer__legal whitespace-nowrap text-center">
             {{ renderLink({ 
                 name: footerData.legal_link.name,
                 datas: option.linkDatas

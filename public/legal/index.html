@@ -98,11 +98,11 @@
       
       
       
-      <header class="header" id="main-header">
-        <div class="header-container">
+      <header class="header w-full border-4 border-solid box-border" id="main-header">
+        <div class="header-container w-full m-0 px-8 py-4 min-h-20 flex items-center justify-between box-border sm:px-4 sm:py-3 sm:min-h-16 lg:px-8 lg:py-4 lg:min-h-20">
           
           
-          <div class="header-brand">
+          <div class="header-brand flex-1 flex items-center justify-start min-w-0 sm:flex-none lg:flex-1">
             
   
   
@@ -315,7 +315,7 @@
           </div>
           
           
-          <div class="header-title">
+          <div class="header-title flex-1 flex justify-center items-center min-w-0 hidden sm:hidden lg:flex">
             
   
   
@@ -528,7 +528,7 @@
           </div>
           
           
-          <div class="header-navigation">
+          <div class="header-navigation flex-1 flex items-center justify-end min-w-0 hidden sm:flex lg:flex">
             
   
   
@@ -597,12 +597,12 @@
           
           
           <button 
-            class="header-burger" 
+            class="header-burger bg-transparent border-0 cursor-pointer w-12 h-12 relative flex items-center justify-center sm:hidden lg:hidden"
             id="burger-toggle"
             aria-label="Toggle mobile menu"
             aria-expanded="false"
           >
-            <span class="burger-icon burger-icon-open">
+            <span class="burger-icon w-8 h-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300">
               
   
   
@@ -700,7 +700,7 @@
   
 
             </span>
-            <span class="burger-icon burger-icon-close">
+            <span class="burger-icon burger-icon-close w-8 h-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 opacity-0">
               
   
   
@@ -805,8 +805,8 @@
         
         
         
-        <div class="header-mobile-overlay" id="mobile-overlay">
-          <div class="mobile-overlay-content">
+        <div class="header-mobile-overlay fixed left-0 w-full opacity-0 invisible -translate-y-5 transition-all duration-300 box-border" id="mobile-overlay">
+          <div class="mobile-overlay-content px-8 py-4 sm:px-4 sm:py-4">
             
             
   
@@ -1550,10 +1550,10 @@
       
       
       
-      <footer class="footer footer--minimal">
-        <div class="footer__content">
+      <footer class="footer footer--minimal w-full bg-white box-border">
+        <div class="footer__content p-4 sm:p-4 lg:p-4 flex items-center justify-center box-border">
           
-          <div class="footer__copyright">
+          <div class="footer__copyright whitespace-nowrap text-center">
             
   
   
@@ -1758,7 +1758,7 @@
       
       
       
-        <p class="text-code max-w-prose leading-relaxed">© 2025 - </p>
+        <p class="text-code max-w-prose leading-relaxed">© 2025 -&nbsp;</p>
       
     
   
@@ -1766,7 +1766,7 @@
           </div>
           
           
-          <div class="footer__legal">
+          <div class="footer__legal whitespace-nowrap text-center">
             
   
   

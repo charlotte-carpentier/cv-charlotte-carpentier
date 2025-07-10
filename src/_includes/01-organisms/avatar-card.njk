@@ -1,6 +1,6 @@
 {# ===========================================================
    @ORGANISMS - AVATAR-CARD
-   - Reusable caption component
+   - Reusable avatar-card component
 =========================================================== #}
 
 {# Import atoms #}
@@ -31,18 +31,18 @@
       <span class="text-red-500">Avatar-card not found: {{ avatar_card_name }}</span>
     {% else %}
       {# Avatar Card Container #}
-      <div class="avatar-card" data-avatar="{{ avatar_card_data.name }}">
+      <div class="avatar-card w-full flex items-center justify-center box-border" data-avatar="{{ avatar_card_data.name }}">
         
         {# Desktop version: Avatar avec tooltip au hover #}
-        <div class="avatar-card-desktop">
-          <div class="caption-container avatar-tooltip-container" data-tooltip="avatar_desktop" tabindex="0">
+        <div class="avatar-card-desktop hidden lg:flex items-center justify-center box-border">
+          <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0">
             {{ renderImage({ 
               name: avatar_card_data.avatar_desktop,
               datas: option.image_datas
             }) }}
             
             {# Tooltip popup #}
-            <div class="tooltip-popup" id="tooltip-avatar-desktop">
+            <div class="tooltip-popup fixed top-0 left-0 opacity-0 invisible pointer-events-none transition-opacity duration-300" id="tooltip-avatar-desktop">
               {{ renderTooltip({ 
                 name: "avatar_desktop",
                 datas: option.tooltip_datas
@@ -52,9 +52,9 @@
         </div>
 
         {# Tablet version UNIFIÉ: Titre + Avatar (ex-portrait) #}
-        <div class="avatar-card-tablet">
+        <div class="avatar-card-tablet hidden sm:flex lg:hidden flex-col items-center gap-4 pt-8 box-border">
           {# Title #}
-          <div class="avatar-card-title">
+          <div class="avatar-card-title text-center w-[245px] -mb-4">
             {{ renderTypography({ 
               name: avatar_card_data.title_name,
               datas: option.typography_datas
@@ -71,9 +71,9 @@
         </div>
 
         {# Mobile version: Titre + Avatar + 4 boutons #}
-        <div class="avatar-card-mobile">
+        <div class="avatar-card-mobile flex sm:hidden flex-col items-center gap-4 pt-8 relative box-border">
           {# Title - Même classe que tablet pour cohérence #}
-          <div class="avatar-card-title">
+          <div class="avatar-card-title text-center w-[245px] -mb-4">
             {{ renderTypography({ 
               name: avatar_card_data.title_name,
               datas: option.typography_datas
@@ -89,9 +89,9 @@
           </div>
           
           {# Skills Buttons Grid #}
-          <div class="avatar-card-buttons">
+          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border">
             {% for button_name in avatar_card_data.skills_buttons %}
-              <div class="avatar-card-button">
+              <div class="avatar-card-button absolute">
                 {{ renderButton({ 
                   name: button_name,
                   datas: option.button_datas

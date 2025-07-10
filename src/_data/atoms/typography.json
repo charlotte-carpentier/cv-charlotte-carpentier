@@ -542,7 +542,7 @@
     },
     {
       "name": "footer_title",
-      "text": "© 2025 - ",
+      "text": "© 2025 -&nbsp;",
       "tag": "p",
       "variant": "code"
     }

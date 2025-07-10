@@ -98,11 +98,11 @@
       
       
       
-      <header class="header" id="main-header">
-        <div class="header-container">
+      <header class="header w-full border-4 border-solid box-border" id="main-header">
+        <div class="header-container w-full m-0 px-8 py-4 min-h-20 flex items-center justify-between box-border sm:px-4 sm:py-3 sm:min-h-16 lg:px-8 lg:py-4 lg:min-h-20">
           
           
-          <div class="header-brand">
+          <div class="header-brand flex-1 flex items-center justify-start min-w-0 sm:flex-none lg:flex-1">
             
   
   
@@ -315,7 +315,7 @@
           </div>
           
           
-          <div class="header-title">
+          <div class="header-title flex-1 flex justify-center items-center min-w-0 hidden sm:hidden lg:flex">
             
   
   
@@ -528,7 +528,7 @@
           </div>
           
           
-          <div class="header-navigation">
+          <div class="header-navigation flex-1 flex items-center justify-end min-w-0 hidden sm:flex lg:flex">
             
   
   
@@ -597,12 +597,12 @@
           
           
           <button 
-            class="header-burger" 
+            class="header-burger bg-transparent border-0 cursor-pointer w-12 h-12 relative flex items-center justify-center sm:hidden lg:hidden"
             id="burger-toggle"
             aria-label="Toggle mobile menu"
             aria-expanded="false"
           >
-            <span class="burger-icon burger-icon-open">
+            <span class="burger-icon w-8 h-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300">
               
   
   
@@ -700,7 +700,7 @@
   
 
             </span>
-            <span class="burger-icon burger-icon-close">
+            <span class="burger-icon burger-icon-close w-8 h-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 opacity-0">
               
   
   
@@ -805,8 +805,8 @@
         
         
         
-        <div class="header-mobile-overlay" id="mobile-overlay">
-          <div class="mobile-overlay-content">
+        <div class="header-mobile-overlay fixed left-0 w-full opacity-0 invisible -translate-y-5 transition-all duration-300 box-border" id="mobile-overlay">
+          <div class="mobile-overlay-content px-8 py-4 sm:px-4 sm:py-4">
             
             
   
@@ -1526,9 +1526,6 @@
 
   
   
-
-  
-  
     
     
     
@@ -1544,14 +1541,12 @@
     
     
       
-      <nav class="tab-menu relative" aria-label="Navigation principale">
+      <div class="avatar-card w-full flex items-center justify-center box-border" data-avatar="charlotte_main">
         
         
-        <div class="tab-menu-desktop hidden sm:block py-4">
-          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0">
+        <div class="avatar-card-desktop hidden lg:flex items-center justify-center box-border">
+          <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0">
             
-              <li class="m-0">
-                
   
   
     
@@ -1560,23 +1555,9 @@
     
     
     
-    
-      
     
       
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -1595,95 +1576,22 @@
       
       
       
-      
-      
-      
-      
-      
-      
-      <a 
-        href="#missions" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
+      <img 
+        src="/assets/images/avatar/avatar_charlotte_desktop.png" 
+        alt="Une fille de bande dessinée, de plein pied, avec des lunettes, tenant un ordinateur portable, prête à conquérir le monde virtuel." 
+        class="image-avatar-desktop block"
+        loading="lazy"
+        decoding="async"
         
         
-        
-        
-      >
-        Missions
-      </a>
+      />
     
   
 
-              </li>
             
-              <li class="m-0">
-                
-  
-  
-    
-    
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a 
-        href="#profile" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
-        
-        
-        
-        
-      >
-        Profil
-      </a>
-    
-  
-
-              </li>
             
-              <li class="m-0">
-                
+            <div class="tooltip-popup fixed top-0 left-0 opacity-0 invisible pointer-events-none transition-opacity duration-300" id="tooltip-avatar-desktop">
+              
   
   
     
@@ -1692,6 +1600,36 @@
     
     
     
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
@@ -1701,194 +1639,49 @@
     
       
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
 
     
     
       
+      <div class="tooltip-box w-80 p-2 box-border">
+      
+      <div class="tooltip-title text-center mb-1 mt-2 leading-none font-bold"></div>
       
       
       
+        <div class="tooltip-description text-center leading-none whitespace-pre-line">Classe : sentinelle du web open-source
+Spécialité : action &amp; sécurité
+Alignement : éco-numérique et accessibilité</div>
       
       
       
+      <div class="flex items-center justify-center mt-4 gap-2">
+        <div class="tooltip-line flex-none w-15 h-0.5"></div>
+        <div class="tooltip-diamond w-2 h-2 rotate-45 flex-shrink-0"></div>
+        <div class="tooltip-line flex-none w-15 h-0.5"></div>
+      </div>
       
       
-      
-      
-      <a 
-        href="#journey" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
+      <div class="tooltip-description text-center leading-none whitespace-pre-line">
         
+          Illustration © Diane Yoon
         
-        
-        
-      >
-        Parcours
-      </a>
+      </div>
+    </div>
     
   
 
-              </li>
-            
-              <li class="m-0">
-                
-  
-  
-    
-    
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a 
-        href="#knowledge" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
-        
-        
-        
-        
-      >
-        Savoirs
-      </a>
-    
-  
-
-              </li>
-            
-              <li class="m-0">
-                
-  
-  
-    
-    
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a 
-        href="#contact" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
-        
-        
-        
-        
-      >
-        Contact
-      </a>
-    
-  
-
-              </li>
-            
-          </ul>
+            </div>
+          </div>
         </div>
+
         
-        
-        <div class="tab-menu-mobile block sm:hidden">
-          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center">
+        <div class="avatar-card-tablet hidden sm:flex lg:hidden flex-col items-center gap-4 pt-8 box-border">
+          
+          <div class="avatar-card-title text-center w-[245px] -mb-4">
             
-              <li class="m-0">
-                
   
   
     
@@ -1897,11 +1690,169 @@
     
     
     
-    
-      
     
       
         
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
       
     
       
@@ -1934,27 +1885,16 @@
       
       
       
+        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
-      
-      
-      
-      <a 
-        href="#missions" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
-        
-        
-        
-        
-      >
-        Missions
-      </a>
     
   
 
-              </li>
+          </div>
+          
+          
+          <div class="avatar-card-image">
             
-              <li class="m-0">
-                
   
   
     
@@ -1970,20 +1910,6 @@
     
       
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -1998,229 +1924,472 @@
       
       
       
-      
-      
-      
-      
-      
-      
-      <a 
-        href="#profile" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
+      <img 
+        src="/assets/images/avatar/avatar_charlotte_mobile.png" 
+        alt="Une fille de bande dessinée, plan poitrine, avec des lunettes, tenant un ordinateur portable, prête à conquérir le monde virtuel." 
+        class="image-avatar-mobile block"
+        loading="lazy"
+        decoding="async"
         
         
-        
-        
-      >
-        Profil
-      </a>
+      />
     
   
 
-              </li>
-            
-              <li class="m-0">
-                
-  
-  
-    
-    
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a 
-        href="#journey" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
-        
-        
-        
-        
-      >
-        Parcours
-      </a>
-    
-  
-
-              </li>
-            
-              <li class="m-0">
-                
-  
-  
-    
-    
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a 
-        href="#knowledge" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
-        
-        
-        
-        
-      >
-        Savoirs
-      </a>
-    
-  
-
-              </li>
-            
-              <li class="m-0">
-                
-  
-  
-    
-    
-    
-    
-    
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a 
-        href="#contact" 
-        class="link link--tab transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
-        
-        
-        
-        
-      >
-        Contact
-      </a>
-    
-  
-
-              </li>
-            
-          </ul>
+          </div>
         </div>
+
         
-      </nav>
+        <div class="avatar-card-mobile flex sm:hidden flex-col items-center gap-4 pt-8 relative box-border">
+          
+          <div class="avatar-card-title text-center w-[245px] -mb-4">
+            
+  
+  
+    
+    
+    
+    
+    
+    
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+      
+    
+  
+
+          </div>
+          
+          
+          <div class="avatar-card-image">
+            
+  
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+
+    
+    
+      
+      
+      
+      
+      
+      <img 
+        src="/assets/images/avatar/avatar_charlotte_mobile.png" 
+        alt="Une fille de bande dessinée, plan poitrine, avec des lunettes, tenant un ordinateur portable, prête à conquérir le monde virtuel." 
+        class="image-avatar-mobile block"
+        loading="lazy"
+        decoding="async"
+        
+        
+      />
+    
+  
+
+          </div>
+          
+          
+          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border">
+            
+              <div class="avatar-card-button absolute">
+                
+  
+  
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+    
+      
+      
+      
+      
+
+      
+      <button 
+        type="button"
+        class="button button--primary font-bold transition-all duration-200 ease-in-out cursor-pointer border-4 border-solid inline-flex items-center justify-center rounded-none px-6 py-1 sm:px-4 sm:py-1 sm:border-[3px] disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none"
+        
+        
+        
+      >
+        Langages
+      </button>
+    
+  
+
+              </div>
+            
+              <div class="avatar-card-button absolute">
+                
+  
+  
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+
+    
+    
+      
+      
+      
+      
+
+      
+      <button 
+        type="button"
+        class="button button--primary font-bold transition-all duration-200 ease-in-out cursor-pointer border-4 border-solid inline-flex items-center justify-center rounded-none px-6 py-1 sm:px-4 sm:py-1 sm:border-[3px] disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none"
+        
+        
+        
+      >
+        Hard skills
+      </button>
+    
+  
+
+              </div>
+            
+              <div class="avatar-card-button absolute">
+                
+  
+  
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+
+    
+    
+      
+      
+      
+      
+
+      
+      <button 
+        type="button"
+        class="button button--primary font-bold transition-all duration-200 ease-in-out cursor-pointer border-4 border-solid inline-flex items-center justify-center rounded-none px-6 py-1 sm:px-4 sm:py-1 sm:border-[3px] disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none"
+        
+        
+        
+      >
+        Soft skills
+      </button>
+    
+  
+
+              </div>
+            
+              <div class="avatar-card-button absolute">
+                
+  
+  
+    
+    
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+
+    
+    
+      
+      
+      
+      
+
+      
+      <button 
+        type="button"
+        class="button button--primary font-bold transition-all duration-200 ease-in-out cursor-pointer border-4 border-solid inline-flex items-center justify-center rounded-none px-6 py-1 sm:px-4 sm:py-1 sm:border-[3px] disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none"
+        
+        
+        
+      >
+        Intérêts
+      </button>
+    
+  
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
     
   
 
@@ -2251,10 +2420,10 @@
       
       
       
-      <footer class="footer footer--minimal">
-        <div class="footer__content">
+      <footer class="footer footer--minimal w-full bg-white box-border">
+        <div class="footer__content p-4 sm:p-4 lg:p-4 flex items-center justify-center box-border">
           
-          <div class="footer__copyright">
+          <div class="footer__copyright whitespace-nowrap text-center">
             
   
   
@@ -2459,7 +2628,7 @@
       
       
       
-        <p class="text-code max-w-prose leading-relaxed">© 2025 - </p>
+        <p class="text-code max-w-prose leading-relaxed">© 2025 -&nbsp;</p>
       
     
   
@@ -2467,7 +2636,7 @@
           </div>
           
           
-          <div class="footer__legal">
+          <div class="footer__legal whitespace-nowrap text-center">
             
   
   

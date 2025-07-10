@@ -879,382 +879,12 @@ body {
 }
 
 /* ==========================================================================
-   @ORGANISM - HEADER
-   - Full width container with background and border
-   - Flexbox layout for brand, title, and navigation
-   - Burger menu button with open/close icons
-   - Mobile overlay menu styles and animation
-   - Responsive display and layout changes for mobile/tablet/desktop
-   ========================================================================== */
-
-.header {
-  width: 100%;
-  background-color: theme(--cc-white);
-  color: theme(--cc-black);
-  border: 4px solid theme(--cc-black);
-  box-sizing: border-box;
-}
-
-.header-container {
-  width: 100%;
-  margin: 0;
-  padding: 1rem 2rem;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-/* Brand section */
-.header-brand {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 0; /* Allow shrinking */
-}
-
-.header-brand h2 {
-  margin: 0;
-  color: theme(--cc-green-dark);
-  font-size: theme(--text-h2);
-  white-space: nowrap;
-}
-
-/* Title section */
-.header-title {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 0; /* Allow shrinking */
-}
-
-.header-title h1 {
-  margin: 0;
-  font-size: theme(--text-h1);
-  text-align: center;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-/* Navigation section */
-.header-navigation {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-width: 0; /* Allow shrinking */
-}
-
-/* Media query pour basculer en space-between quand nécessaire */
-@media (max-width: 1200px) {
-  .header-brand {
-    flex: 0 0 auto; /* Ne plus grandir/rétrécir */
-  }
-  
-  .header-title {
-    flex: 0 0 auto; /* Ne plus grandir/rétrécir */
-  }
-  
-  .header-navigation {
-    flex: 0 0 auto; /* Ne plus grandir/rétrécir */
-  }
-}
-
-/* Burger button */
-.header-burger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 48px;
-  height: 48px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Burger icons */
-.burger-icon {
-  width: 32px;
-  height: 32px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease;
-}
-
-.burger-icon-close {
-  opacity: 0;
-}
-
-.header-burger[aria-expanded="true"] .burger-icon-open {
-  opacity: 0;
-}
-
-.header-burger[aria-expanded="true"] .burger-icon-close {
-  opacity: 1;
-}
-
-/* Mobile overlay menu */
-.header-mobile-overlay {
-  position: fixed;
-  top: 88px;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  box-sizing: border-box;
-}
-
-.header-mobile-overlay.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.mobile-overlay-content {
-  padding: 1rem 2rem;
-}
-
-/* Hide desktop menu in overlay on mobile */
-.header-mobile-overlay .tab-menu-desktop {
-  display: none;
-}
-
-.header-mobile-overlay .tab-menu-mobile {
-  display: block;
-}
-
-/* CORRECTION CLÉS - Visibilité du tab-menu dans l'overlay */
-.header-mobile-overlay .tab-menu {
-  visibility: visible;
-}
-
-/* Typography and reset for header */
-.header h1,
-.header h2,
-.header p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-/* Responsive adjustments */
-
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
-  .header-container {
-    padding: 0.75rem 1rem;
-    min-height: 64px;
-  }
-
-  .header-title {
-    display: none;
-  }
-
-  .header-navigation {
-    display: none;
-  }
-
-  .header-burger {
-    display: flex;
-  }
-
-  .header-brand h2 {
-    font-size: theme(--text-h2-mobile);
-  }
-
-  .header-mobile-overlay {
-    top: 72px;
-  }
-}
-
-/* Tablet (481px to 1024px) */
-@media (min-width: 481px) and (max-width: 1024px) {
-  .header-title {
-    display: none;
-  }
-
-  .header-navigation {
-    display: flex;
-  }
-
-  .header-burger {
-    display: none;
-  }
-}
-
-/* Desktop (1025px and above) */
-@media (min-width: 1025px) {
-  .header-title {
-    display: flex;
-  }
-
-  .header-navigation {
-    display: flex;
-  }
-
-  .header-burger {
-    display: none;
-  }
-}
-
-/* ==========================================================================
-   @ORGANISM - FOOTER
-   - Full width footer container
-   - Minimal variant with centered content and border
-   - Inline text and links forced inside
-   - Responsive border and padding adjustments
-   ========================================================================== */
-
-.footer {
-  width: 100%;
-  background-color: theme(--cc-white);
-  box-sizing: border-box;
-}
-
-/* Minimal variant container */
-.footer--minimal .footer__content {
-  border: 4px solid theme(--cc-black);
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-/* Text container */
-.footer--minimal .footer__text {
-  white-space: nowrap;
-  text-align: center;
-}
-
-/* Force inline display without margin/padding on paragraphs */
-.footer--minimal .footer__text p {
-  margin: 0;
-  padding: 0;
-  display: inline;
-  white-space: nowrap;
-}
-
-/* Force inline display without margin/padding on links */
-.footer--minimal .footer__text a {
-  margin: 0;
-  padding: 0;
-  display: inline;
-  white-space: nowrap;
-  color: inherit;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.footer--minimal .footer__text a:hover,
-.footer--minimal .footer__text a:focus {
-  color: theme(--cc-green-dark);
-  outline: none;
-}
-
-/* Responsive adjustments */
-/* Tablet and below */
-@media (max-width: 1024px) {
-  .footer--minimal .footer__content {
-    border-width: 3px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .footer--minimal .footer__content {
-    border-width: 3px;
-    padding: 0.5rem;
-  }
-}
-
-/* ==========================================================================
    @ORGANISM - AVATAR-CARD
    - Responsive avatar card with desktop, tablet, and mobile variants
    - Layout switches based on viewport width
    - Buttons grid inside card
    - Tooltip system for desktop with accessibility focus styles
    ========================================================================== */
-
-.avatar-card {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-/* Hide all variants by default */
-.avatar-card-desktop,
-.avatar-card-tablet,
-.avatar-card-mobile {
-  display: none;
-}
-
-/* Desktop variant */
-.avatar-card-desktop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-/* Tablet variant */
-.avatar-card-tablet {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 2rem;
-  box-sizing: border-box;
-}
-
-.avatar-card-tablet .avatar-card-title {
-  text-align: center;
-  width: 245px;
-  margin-bottom: -1rem;
-}
-
-/* Mobile variant */
-.avatar-card-mobile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 2rem;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.avatar-card-mobile .avatar-card-title {
-  text-align: center;
-  width: 245px;
-  margin-bottom: -1rem;
-}
-
-/* Buttons container */
-.avatar-card-buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: 200px;
-  gap: 0.5rem;
-  box-sizing: border-box;
-}
-
-/* Mobile buttons tweaks */
-.avatar-card-mobile .avatar-card-buttons .button {
-  width: auto;
-  min-width: auto;
-  padding: 0.2rem 0.4rem 0 0.4rem;
-}
 
 /* Mobile specific button positioning */
 .avatar-card-mobile .avatar-card-button {
@@ -1283,11 +913,17 @@ body {
   right: 0;
 }
 
+/* Mobile buttons tweaks */
+.avatar-card-mobile .avatar-card-buttons .button {
+  width: auto;
+  min-width: auto;
+  padding: 0.2rem 0.4rem 0 0.4rem;
+}
+
 /* Tooltip container for avatar (desktop only) */
 .avatar-tooltip-container {
   position: relative;
   display: inline-block;
-  cursor: default;
 }
 
 /* Tooltip active zone */
@@ -1300,61 +936,159 @@ body {
   height: 650px;
 }
 
-/* Tooltip popup hidden by default */
-.avatar-tooltip-container .tooltip-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
 /* Focus state for accessibility */
 .avatar-tooltip-container:focus-within {
   outline: 2px solid theme(--cc-green-light);
   outline-offset: 2px;
 }
 
-/* Responsive display rules */
-
-/* Desktop breakpoint */
-@media (min-width: 1025px) {
-  .avatar-card-desktop {
-    display: flex;
-  }
-  .avatar-card-tablet,
-  .avatar-card-mobile {
-    display: none;
-  }
-}
-
-/* Tablet breakpoint */
-@media (min-width: 481px) and (max-width: 1024px) {
-  .avatar-card-tablet {
-    display: flex;
-  }
-  .avatar-card-desktop,
-  .avatar-card-mobile {
-    display: none;
-  }
-}
-
-/* Mobile breakpoint */
-@media (max-width: 480px) {
-  .avatar-card-mobile {
-    display: flex;
-  }
-  .avatar-card-desktop,
-  .avatar-card-tablet {
-    display: none;
-  }
-
-  /* Hide tooltip on mobile */
+/* Hide tooltip on mobile */
+@media (max-width: 639px) {
   .avatar-tooltip-container .tooltip-popup {
     display: none;
   }
+}
+
+/* ==========================================================================
+   @ORGANISM - FOOTER
+   - Minimal variant with custom border colors and responsive adjustments
+   - Complex styles using theme variables that cannot be converted to Tailwind
+   ========================================================================== */
+
+/* Minimal variant container with custom border color */
+.footer--minimal .footer__content {
+  border: 4px solid theme(--cc-black);
+}
+
+/* Force inline display without margin/padding on paragraphs */
+.footer--minimal .footer__copyright p,
+.footer--minimal .footer__legal p {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  white-space: nowrap;
+}
+
+/* Force inline display without margin/padding on links with custom colors */
+.footer--minimal .footer__copyright a,
+.footer--minimal .footer__legal a {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  white-space: nowrap;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer--minimal .footer__copyright a:hover,
+.footer--minimal .footer__copyright a:focus,
+.footer--minimal .footer__legal a:hover,
+.footer--minimal .footer__legal a:focus {
+  color: theme(--cc-green-dark);
+  outline: none;
+}
+
+/* Responsive border adjustments using custom breakpoints */
+@media (max-width: 1024px) {
+  .footer--minimal .footer__content {
+    border-width: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer--minimal .footer__content {
+    border-width: 3px;
+    padding: 0.5rem;
+  }
+}
+
+/* ==========================================================================
+   @ORGANISM - HEADER
+   - Styles spécifiques utilisant les variables de thème
+   - Styles d'état complexes et interactions JavaScript
+   ========================================================================== */
+
+.header {
+  background-color: theme(--cc-white);
+  color: theme(--cc-black);
+  border-color: theme(--cc-black);
+}
+
+.header-brand h2 {
+  color: theme(--cc-green-dark);
+  font-size: theme(--text-h2);
+}
+
+.header-title h1 {
+  font-size: theme(--text-h1);
+  font-weight: 900;
+}
+
+/* Media query pour adapter la flexbox à 1200px */
+@media (max-width: 1200px) {
+  .header-brand {
+    flex: 0 0 auto;
+  }
+  
+  .header-title {
+    flex: 0 0 auto;
+  }
+  
+  .header-navigation {
+    flex: 0 0 auto;
+  }
+}
+
+/* Burger button states - managed by JavaScript */
+.header-burger[aria-expanded="true"] .burger-icon:not(.burger-icon-close) {
+  opacity: 0;
+}
+
+.header-burger[aria-expanded="true"] .burger-icon-close {
+  opacity: 1;
+}
+
+/* Mobile overlay states - managed by JavaScript */
+.header-mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Hide desktop menu in overlay on mobile */
+.header-mobile-overlay .tab-menu-desktop {
+  display: none;
+}
+
+.header-mobile-overlay .tab-menu-mobile {
+  display: block;
+}
+
+/* Visibilité du tab-menu dans l'overlay */
+.header-mobile-overlay .tab-menu {
+  visibility: visible;
+}
+
+/* Typography reset for header */
+.header h1,
+.header h2,
+.header p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Responsive adjustments spécifiques */
+@media (max-width: 480px) {
+  .header-brand h2 {
+    font-size: theme(--text-h2-mobile);
+  }
+}
+
+/* Position fixe pour le menu mobile sur tous les écrans */
+.header-mobile-overlay {
+  top: 88px;
 }
 
 /* ==========================================================================
