@@ -3,10 +3,13 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "02-molecules/tab-menu.njk" import renderTabMenu %}
+{% from "01-organisms/avatar-card.njk" import renderAvatarCard %}
 
-{{ renderTabMenu({ 
-    name: "main_navigation",
-    datas: molecules["tab-menu"].tab_menus,
-    linkDatas: atoms.link.links
+{{ renderAvatarCard({ 
+    name: "charlotte_main",
+    datas: organisms["avatar-card"]["avatar-cards"],
+    image_datas: atoms.image.images,
+    typography_datas: atoms.typography.texts,
+    button_datas: atoms.button.buttons,
+    tooltip_datas: atoms.tooltip.tooltips
 }) }}

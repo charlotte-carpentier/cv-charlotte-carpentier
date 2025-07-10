@@ -879,6 +879,77 @@ body {
 }
 
 /* ==========================================================================
+   @ORGANISM - AVATAR-CARD
+   - Responsive avatar card with desktop, tablet, and mobile variants
+   - Layout switches based on viewport width
+   - Buttons grid inside card
+   - Tooltip system for desktop with accessibility focus styles
+   ========================================================================== */
+
+/* Mobile specific button positioning */
+.avatar-card-mobile .avatar-card-button {
+  position: absolute;
+}
+
+.avatar-card-mobile .avatar-card-button:nth-child(1) {
+  top: 55%;
+  left: 25px;
+  transform: translateY(-50%);
+}
+
+.avatar-card-mobile .avatar-card-button:nth-child(2) {
+  top: 42%;
+  right: 0;
+}
+
+.avatar-card-mobile .avatar-card-button:nth-child(3) {
+  top: 58%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.avatar-card-mobile .avatar-card-button:nth-child(4) {
+  bottom: 26%;
+  right: 0;
+}
+
+/* Mobile buttons tweaks */
+.avatar-card-mobile .avatar-card-buttons .button {
+  width: auto;
+  min-width: auto;
+  padding: 0.2rem 0.4rem 0 0.4rem;
+}
+
+/* Tooltip container for avatar (desktop only) */
+.avatar-tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip active zone */
+.avatar-tooltip-container::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 85px;
+  width: 180px;
+  height: 650px;
+}
+
+/* Focus state for accessibility */
+.avatar-tooltip-container:focus-within {
+  outline: 2px solid theme(--cc-green-light);
+  outline-offset: 2px;
+}
+
+/* Hide tooltip on mobile */
+@media (max-width: 639px) {
+  .avatar-tooltip-container .tooltip-popup {
+    display: none;
+  }
+}
+
+/* ==========================================================================
    @ORGANISM - HEADER
    - Full width container with background and border
    - Flexbox layout for brand, title, and navigation
@@ -1173,187 +1244,6 @@ body {
   .footer--minimal .footer__content {
     border-width: 3px;
     padding: 0.5rem;
-  }
-}
-
-/* ==========================================================================
-   @ORGANISM - AVATAR-CARD
-   - Responsive avatar card with desktop, tablet, and mobile variants
-   - Layout switches based on viewport width
-   - Buttons grid inside card
-   - Tooltip system for desktop with accessibility focus styles
-   ========================================================================== */
-
-.avatar-card {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-/* Hide all variants by default */
-.avatar-card-desktop,
-.avatar-card-tablet,
-.avatar-card-mobile {
-  display: none;
-}
-
-/* Desktop variant */
-.avatar-card-desktop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-/* Tablet variant */
-.avatar-card-tablet {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 2rem;
-  box-sizing: border-box;
-}
-
-.avatar-card-tablet .avatar-card-title {
-  text-align: center;
-  width: 245px;
-  margin-bottom: -1rem;
-}
-
-/* Mobile variant */
-.avatar-card-mobile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 2rem;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.avatar-card-mobile .avatar-card-title {
-  text-align: center;
-  width: 245px;
-  margin-bottom: -1rem;
-}
-
-/* Buttons container */
-.avatar-card-buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: 200px;
-  gap: 0.5rem;
-  box-sizing: border-box;
-}
-
-/* Mobile buttons tweaks */
-.avatar-card-mobile .avatar-card-buttons .button {
-  width: auto;
-  min-width: auto;
-  padding: 0.2rem 0.4rem 0 0.4rem;
-}
-
-/* Mobile specific button positioning */
-.avatar-card-mobile .avatar-card-button {
-  position: absolute;
-}
-
-.avatar-card-mobile .avatar-card-button:nth-child(1) {
-  top: 55%;
-  left: 25px;
-  transform: translateY(-50%);
-}
-
-.avatar-card-mobile .avatar-card-button:nth-child(2) {
-  top: 42%;
-  right: 0;
-}
-
-.avatar-card-mobile .avatar-card-button:nth-child(3) {
-  top: 58%;
-  right: 0;
-  transform: translateY(-50%);
-}
-
-.avatar-card-mobile .avatar-card-button:nth-child(4) {
-  bottom: 26%;
-  right: 0;
-}
-
-/* Tooltip container for avatar (desktop only) */
-.avatar-tooltip-container {
-  position: relative;
-  display: inline-block;
-  cursor: default;
-}
-
-/* Tooltip active zone */
-.avatar-tooltip-container::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 85px;
-  width: 180px;
-  height: 650px;
-}
-
-/* Tooltip popup hidden by default */
-.avatar-tooltip-container .tooltip-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-/* Focus state for accessibility */
-.avatar-tooltip-container:focus-within {
-  outline: 2px solid theme(--cc-green-light);
-  outline-offset: 2px;
-}
-
-/* Responsive display rules */
-
-/* Desktop breakpoint */
-@media (min-width: 1025px) {
-  .avatar-card-desktop {
-    display: flex;
-  }
-  .avatar-card-tablet,
-  .avatar-card-mobile {
-    display: none;
-  }
-}
-
-/* Tablet breakpoint */
-@media (min-width: 481px) and (max-width: 1024px) {
-  .avatar-card-tablet {
-    display: flex;
-  }
-  .avatar-card-desktop,
-  .avatar-card-mobile {
-    display: none;
-  }
-}
-
-/* Mobile breakpoint */
-@media (max-width: 480px) {
-  .avatar-card-mobile {
-    display: flex;
-  }
-  .avatar-card-desktop,
-  .avatar-card-tablet {
-    display: none;
-  }
-
-  /* Hide tooltip on mobile */
-  .avatar-tooltip-container .tooltip-popup {
-    display: none;
   }
 }
 
