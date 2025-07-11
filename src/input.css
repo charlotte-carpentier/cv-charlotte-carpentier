@@ -139,7 +139,7 @@ body {
 }
 
 /* Icon Avatar - Responsive adjustment for medium screens */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .icon-avatar {
     width: 50px;
     height: 50px;
@@ -424,7 +424,7 @@ body {
 }
 
 /* Typography - Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .text-h1 {
     font-size: theme(--text-h1-mobile);
     letter-spacing: theme(--ls-h1-mobile);
@@ -549,8 +549,8 @@ body {
 }
 
 /* Responsive */
-/* Desktop only (1025px and up) */
-@media (min-width: 1025px) {
+/* Desktop only (1024px and up) */
+@media (min-width: 1024px) {
   .caption-desktop {
     display: flex;
   }
@@ -560,8 +560,8 @@ body {
   }
 }
 
-/* Tablet + Mobile (1024px and below) */
-@media (max-width: 1024px) {
+/* Tablet + Mobile (1023px and below) */
+@media (max-width: 1023px) {
   .caption-desktop {
     display: none;
   }
@@ -685,8 +685,8 @@ body {
 }
 
 /* Responsive adjustments */
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
+/* Mobile (639px and below) */
+@media (max-width: 639px) {
   .content-block {
     max-width: 300px;
   }
@@ -755,8 +755,8 @@ body {
 }
 
 /* Responsive */
-/* Mobile (max-width: 480px) */
-@media (max-width: 480px) {
+/* Mobile (max-width: 639px) */
+@media (max-width: 639px) {
   .progress-bar-track {
     height: 15px;
     border: 3px solid theme(--cc-black);
@@ -874,14 +874,14 @@ body {
 
 /* Responsive adjustments */
 /* Tablet and below */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .footer--minimal .footer__content {
     border-width: 3px;
   }
 }
 
 /* Mobile */
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .footer--minimal .footer__content {
     border-width: 3px;
     padding: 0.5rem;
@@ -994,8 +994,8 @@ body {
   line-height: 1;
 }
 
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
+/* Mobile (639px and below) */
+@media (max-width: 639px) {
   .header-brand h2 {
     font-size: theme(--text-h2-mobile);
   }
@@ -1072,8 +1072,8 @@ body {
 
 /* Responsive breakpoints avec variables custom */
 
-/* Desktop breakpoint - 1025px+ */
-@media (min-width: 1025px) {
+/* Desktop breakpoint - 1024px+ */
+@media (min-width: 1024px) {
   /* Hide the direct content of .skills-card on desktop */
   .skills-card > .skills-card-title,
   .skills-card > .caption-container {
@@ -1086,8 +1086,8 @@ body {
   }
 }
 
-/* Tablet breakpoint - 481px to 1024px */
-@media (min-width: 481px) and (max-width: 1024px) {
+/* Tablet breakpoint - 640px to 1023px */
+@media (min-width: 640px) and (max-width: 1023px) {
   /* Add gradient borders for tablet */
   .skills-card::before,
   .skills-card::after {
@@ -1167,8 +1167,8 @@ body {
   }
 }
 
-/* Mobile breakpoint - 480px and below */
-@media (max-width: 480px) {
+/* Mobile breakpoint - 639px and below */
+@media (max-width: 639px) {
   .skills-wrapper {
     grid-template-columns: 1fr;
   }
@@ -1298,14 +1298,14 @@ body {
 }
 
 /* Tablet variant */
-@media (min-width: 481px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 1023px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
   }
 }
 
 /* Mobile variant */
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
@@ -1327,14 +1327,14 @@ body.charlotte-bg {
 }
 
 /* Tablet variant on body */
-@media (min-width: 481px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 1023px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
   }
 }
 
 /* Mobile variant on body */
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
