@@ -74,6 +74,7 @@ body {
    @ATOMS - BUTTONS
    - Button styles with primary and disabled states
    - Only complex styles using theme variables remain here
+   - MODIFICATION: Media queries breakpoint supprimées, migrées vers Tailwind
 ============================================================ */
 
 .button {
@@ -116,13 +117,6 @@ body {
   border-color: theme(--cc-grey-dark);
 }
 
-/* Responsive adjustments for primary button */
-@media (max-width: 639px) {
-  .button.button--primary {
-    font-size: theme(--text-code-mobile);
-  }
-}
-
 /* ============================================================
    @ATOMS - ICONS
    - Icon components with theme overlays and complex styles
@@ -145,7 +139,7 @@ body {
 }
 
 /* Icon Avatar - Responsive adjustment for medium screens */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .icon-avatar {
     width: 50px;
     height: 50px;
@@ -196,17 +190,7 @@ body {
 }
 
 .image-mission { 
-  width: 400px; 
-  height: 200px; 
-  border: 4px solid theme(--cc-black);
-}
-
-@media (max-width: 639px) {
-  .image-mission {
-    width: 300px;
-    max-width: 157px;
-    border: 3px solid theme(--cc-black);
-  }
+  border-color: theme(--cc-black);
 }
 
 /* ============================================================
@@ -289,7 +273,6 @@ body {
 /* Navigation link variant */
 .link--nav {
   font-family: theme(--font-title);
-  font-size: theme(--text-h2);
   color: theme(--cc-black);
   text-decoration: underline;
 }
@@ -310,7 +293,6 @@ body {
 /* Tab link variant */
 .link--tab {
   font-family: theme(--font-text);
-  font-size: theme(--text-code);
   font-weight: bold;
   color: theme(--cc-black);
   text-decoration: none;
@@ -334,7 +316,6 @@ body {
 /* External link variant */
 .link--external {
   font-family: theme(--font-text);
-  font-size: theme(--text-p);
   color: theme(--cc-black);
   text-decoration: underline;
 }
@@ -342,21 +323,6 @@ body {
 /* External link hover */
 .link--external:hover {
   color: theme(--cc-green-dark);
-}
-
-/* Responsive font sizes */
-@media (max-width: 639px) {
-  .link--nav {
-    font-size: theme(--text-h2-mobile);
-  }
-  
-  .link--tab {
-    font-size: theme(--text-code-mobile);
-  }
-  
-  .link--external {
-    font-size: theme(--text-p-mobile);
-  }
 }
 
 /* ============================================================
@@ -420,56 +386,7 @@ body {
   }
 }
 
-/* ============================================================
-   @ATOM - TOOLTIP
-   - Tooltip container and box styles with smooth transitions
-============================================================ */
 
-.tooltip-container {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  pointer-events: none;
-}
-
-.tooltip-container.tooltip-visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.tooltip-box {
-  background-color: theme(--cc-white);
-  border: 4px solid theme(--cc-black);
-}
-
-.tooltip-box p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  margin-block-start: 0;
-  margin-block-end: 0;
-}
-
-.tooltip-title {
-  font-family: theme(--font-text);
-  font-size: theme(--text-code);
-  color: theme(--cc-black);
-}
-
-.tooltip-line {
-  background-color: theme(--cc-black);
-}
-
-.tooltip-diamond {
-  background-color: theme(--cc-black);
-}
-
-.tooltip-description {
-  font-family: theme(--font-text);
-  font-size: theme(--text-small);
-  color: theme(--cc-black);
-}
 
 /* ==========================================================================
    @ATOM - TYPOGRAPHY
@@ -507,7 +424,7 @@ body {
 }
 
 /* Typography - Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .text-h1 {
     font-size: theme(--text-h1-mobile);
     letter-spacing: theme(--ls-h1-mobile);
@@ -632,8 +549,8 @@ body {
 }
 
 /* Responsive */
-/* Desktop only (1025px and up) */
-@media (min-width: 1025px) {
+/* Desktop only (1024px and up) */
+@media (min-width: 1024px) {
   .caption-desktop {
     display: flex;
   }
@@ -643,8 +560,8 @@ body {
   }
 }
 
-/* Tablet + Mobile (1024px and below) */
-@media (max-width: 1024px) {
+/* Tablet + Mobile (1023px and below) */
+@media (max-width: 1023px) {
   .caption-desktop {
     display: none;
   }
@@ -768,8 +685,8 @@ body {
 }
 
 /* Responsive adjustments */
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
+/* Mobile (639px and below) */
+@media (max-width: 639px) {
   .content-block {
     max-width: 300px;
   }
@@ -838,8 +755,8 @@ body {
 }
 
 /* Responsive */
-/* Mobile (max-width: 480px) */
-@media (max-width: 480px) {
+/* Mobile (max-width: 639px) */
+@media (max-width: 639px) {
   .progress-bar-track {
     height: 15px;
     border: 3px solid theme(--cc-black);
@@ -865,17 +782,6 @@ body {
 .mobile-menu-list {
   border: 4px solid theme(--cc-black);
   background-color: theme(--cc-white);
-}
-
-/* Responsive */
-@media (max-width: 639px) {
-  .tab-menu-desktop {
-    display: none;
-  }
-  
-  .tab-menu-mobile {
-    display: block;
-  }
 }
 
 /* ==========================================================================
@@ -942,13 +848,6 @@ body {
   outline-offset: 2px;
 }
 
-/* Hide tooltip on mobile */
-@media (max-width: 639px) {
-  .avatar-tooltip-container .tooltip-popup {
-    display: none;
-  }
-}
-
 /* ==========================================================================
    @ORGANISM - FOOTER
    - Full width footer container
@@ -971,6 +870,22 @@ body {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+/* Tablet and below */
+@media (max-width: 1023px) {
+  .footer--minimal .footer__content {
+    border-width: 3px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 639px) {
+  .footer--minimal .footer__content {
+    border-width: 3px;
+    padding: 0.5rem;
+  }
 }
 
 /* Text container */
@@ -1004,22 +919,6 @@ body {
   outline: none;
 }
 
-/* Responsive adjustments */
-/* Tablet and below */
-@media (max-width: 1024px) {
-  .footer--minimal .footer__content {
-    border-width: 3px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .footer--minimal .footer__content {
-    border-width: 3px;
-    padding: 0.5rem;
-  }
-}
-
 /* ==========================================================================
    @ORGANISM - HEADER
    - Styles using custom theme variables and complex states
@@ -1028,13 +927,13 @@ body {
 .header {
   background-color: theme(--cc-white);
   color: theme(--cc-black);
-  border: 4px solid theme(--cc-black);
+  border: 3px solid theme(--cc-black);
 }
 
-/* Mobile/Tablet border override */
-@media (max-width: 1023px) {
+/* Desktop border override */
+@media (min-width: 1024px) {
   .header {
-    border-width: 3px;
+    border-width: 4px;
   }
 }
 
@@ -1095,38 +994,8 @@ body {
   line-height: 1;
 }
 
-/* Brand section */
-.header-brand {
-  flex: 1;
-}
-
-/* Title section */
-.header-title {
-  flex: 1;
-}
-
-/* Navigation section */
-.header-navigation {
-  flex: 1;
-}
-
-/* Media query pour basculer en space-between quand nécessaire */
-@media (max-width: 1200px) {
-  .header-brand {
-    flex: 0 0 auto;
-  }
-  
-  .header-title {
-    flex: 0 0 auto;
-  }
-  
-  .header-navigation {
-    flex: 0 0 auto;
-  }
-}
-
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
+/* Mobile (639px and below) */
+@media (max-width: 639px) {
   .header-brand h2 {
     font-size: theme(--text-h2-mobile);
   }
@@ -1203,8 +1072,8 @@ body {
 
 /* Responsive breakpoints avec variables custom */
 
-/* Desktop breakpoint - 1025px+ */
-@media (min-width: 1025px) {
+/* Desktop breakpoint - 1024px+ */
+@media (min-width: 1024px) {
   /* Hide the direct content of .skills-card on desktop */
   .skills-card > .skills-card-title,
   .skills-card > .caption-container {
@@ -1217,8 +1086,8 @@ body {
   }
 }
 
-/* Tablet breakpoint - 481px to 1024px */
-@media (min-width: 481px) and (max-width: 1024px) {
+/* Tablet breakpoint - 640px to 1023px */
+@media (min-width: 640px) and (max-width: 1023px) {
   /* Add gradient borders for tablet */
   .skills-card::before,
   .skills-card::after {
@@ -1298,8 +1167,8 @@ body {
   }
 }
 
-/* Mobile breakpoint - 480px and below */
-@media (max-width: 480px) {
+/* Mobile breakpoint - 639px and below */
+@media (max-width: 639px) {
   .skills-wrapper {
     grid-template-columns: 1fr;
   }
@@ -1429,14 +1298,14 @@ body {
 }
 
 /* Tablet variant */
-@media (min-width: 481px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 1023px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
   }
 }
 
 /* Mobile variant */
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
@@ -1458,14 +1327,14 @@ body.charlotte-bg {
 }
 
 /* Tablet variant on body */
-@media (min-width: 481px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 1023px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
   }
 }
 
 /* Mobile variant on body */
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;

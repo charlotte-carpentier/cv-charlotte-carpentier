@@ -2,6 +2,7 @@
    @ATOMS - BUTTON
    - Reusable button component with variant handling
    - Supports disabled state and JS events
+   - MODIFICATION: Media queries breakpoint migrées vers classes Tailwind
    - Usage example included below
 =========================================================== #}
 
@@ -34,7 +35,7 @@
       {# Render the actual button element #}
       <button 
         type="{{ option.type | default(buttonData.type) | default('button') }}"
-        class="{{ cssClasses }} font-bold transition-all duration-200 ease-in-out cursor-pointer border-4 border-solid inline-flex items-center justify-center rounded-none px-6 py-1 sm:px-4 sm:py-1 sm:border-[3px] disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none"
+        class="{{ cssClasses }} font-bold transition-all duration-200 ease-in-out cursor-pointer border-4 border-solid inline-flex items-center justify-center rounded-none px-6 py-1 sm:px-4 sm:py-1 sm:border-[3px] disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none text-xs sm:text-base"
         {% if option.disabled or buttonData.disabled %}disabled{% endif %}
         {% if option.onclick %}onclick="{{ option.onclick }}"{% endif %}
         {% if option.id %}id="{{ option.id }}"{% endif %}
