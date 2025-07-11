@@ -74,6 +74,7 @@ body {
    @ATOMS - BUTTONS
    - Button styles with primary and disabled states
    - Only complex styles using theme variables remain here
+   - MODIFICATION: Media queries breakpoint supprimées, migrées vers Tailwind
 ============================================================ */
 
 .button {
@@ -114,13 +115,6 @@ body {
   background-color: theme(--cc-grey-light);
   color: theme(--cc-grey-dark);
   border-color: theme(--cc-grey-dark);
-}
-
-/* Responsive adjustments for primary button */
-@media (max-width: 639px) {
-  .button.button--primary {
-    font-size: theme(--text-code-mobile);
-  }
 }
 
 /* ============================================================
