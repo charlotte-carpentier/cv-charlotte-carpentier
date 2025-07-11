@@ -83,7 +83,7 @@ class AvatarSkillsWrapper {
 
   toggleSkillsVisibility(container, button, buttonId) {
     // Check if we're on mobile (adjust breakpoint as needed)
-    const isMobile = window.innerWidth < 768; // md breakpoint
+    const isMobile = window.innerWidth < 640; // md breakpoint
     
     // Only toggle on mobile devices
     if (!isMobile) {
