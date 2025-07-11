@@ -397,6 +397,9 @@
   .h-40 {
     height: calc(var(--spacing) * 40);
   }
+  .h-\[200px\] {
+    height: 200px;
+  }
   .h-\[500px\] {
     height: 500px;
   }
@@ -405,6 +408,9 @@
   }
   .h-full {
     height: 100%;
+  }
+  .max-h-\[157px\] {
+    max-height: 157px;
   }
   .min-h-20 {
     min-height: calc(var(--spacing) * 20);
@@ -471,6 +477,12 @@
   }
   .w-\[245px\] {
     width: 245px;
+  }
+  .w-\[300px\] {
+    width: 300px;
+  }
+  .w-\[400px\] {
+    width: 400px;
   }
   .w-auto {
     width: auto;
@@ -715,6 +727,10 @@
   .border-4 {
     border-style: var(--tw-border-style);
     border-width: 4px;
+  }
+  .border-\[3px\] {
+    border-style: var(--tw-border-style);
+    border-width: 3px;
   }
   .border-none {
     --tw-border-style: none;
@@ -1072,6 +1088,22 @@
       opacity: 60%;
     }
   }
+  .max-sm\:max-h-\[157px\] {
+    @media (width < 40rem) {
+      max-height: 157px;
+    }
+  }
+  .max-sm\:w-\[300px\] {
+    @media (width < 40rem) {
+      width: 300px;
+    }
+  }
+  .max-sm\:border-3 {
+    @media (width < 40rem) {
+      border-style: var(--tw-border-style);
+      border-width: 3px;
+    }
+  }
   .min-\[900px\]\:block {
     @media (width >= 900px) {
       display: block;
@@ -1117,6 +1149,16 @@
       height: calc(var(--spacing) * 80);
     }
   }
+  .sm\:h-\[200px\] {
+    @media (width >= 40rem) {
+      height: 200px;
+    }
+  }
+  .sm\:max-h-none {
+    @media (width >= 40rem) {
+      max-height: none;
+    }
+  }
   .sm\:min-h-\[64px\] {
     @media (width >= 40rem) {
       min-height: 64px;
@@ -1125,6 +1167,11 @@
   .sm\:w-80 {
     @media (width >= 40rem) {
       width: calc(var(--spacing) * 80);
+    }
+  }
+  .sm\:w-\[400px\] {
+    @media (width >= 40rem) {
+      width: 400px;
     }
   }
   .sm\:w-full {
@@ -1166,6 +1213,12 @@
     @media (width >= 40rem) {
       border-style: var(--tw-border-style);
       border-width: 3px;
+    }
+  }
+  .sm\:border-\[4px\] {
+    @media (width >= 40rem) {
+      border-style: var(--tw-border-style);
+      border-width: 4px;
     }
   }
   .sm\:p-3 {
@@ -1605,16 +1658,7 @@ body {
   height: 222px;
 }
 .image-mission {
-  width: 400px;
-  height: 200px;
-  border: 4px solid #000000;
-}
-@media (max-width: 639px) {
-  .image-mission {
-    width: 300px;
-    max-width: 157px;
-    border: 3px solid #000000;
-  }
+  border-color: #000000;
 }
 .input-base {
   font-family: 'Manjari', sans-serif;

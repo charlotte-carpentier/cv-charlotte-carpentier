@@ -24,9 +24,14 @@
     {% if not imageData %}
       <span class="text-red-500">Image not found: {{ imageName }}</span>
     {% else %}
-      {# Build CSS classes - Using existing image classes from input.css #}
+      {# Build CSS classes - Using existing image classes from input.css with Tailwind breakpoints #}
       {% set variant = imageData.variant | default('mission') %}
       {% set cssClasses = 'image-' ~ variant %}
+      
+      {# Add Tailwind breakpoint classes for mission variant #}
+      {% if variant == 'mission' %}
+        {% set cssClasses = cssClasses ~ ' w-[300px] max-h-[157px] border-[3px] sm:w-[400px] sm:h-[200px] sm:border-[4px] sm:max-h-none' %}
+      {% endif %}
       
       {# Render the image #}
       <img 
