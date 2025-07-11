@@ -386,56 +386,7 @@ body {
   }
 }
 
-/* ============================================================
-   @ATOM - TOOLTIP
-   - Tooltip container and box styles with smooth transitions
-============================================================ */
 
-.tooltip-container {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  pointer-events: none;
-}
-
-.tooltip-container.tooltip-visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.tooltip-box {
-  background-color: theme(--cc-white);
-  border: 4px solid theme(--cc-black);
-}
-
-.tooltip-box p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  margin-block-start: 0;
-  margin-block-end: 0;
-}
-
-.tooltip-title {
-  font-family: theme(--font-text);
-  font-size: theme(--text-code);
-  color: theme(--cc-black);
-}
-
-.tooltip-line {
-  background-color: theme(--cc-black);
-}
-
-.tooltip-diamond {
-  background-color: theme(--cc-black);
-}
-
-.tooltip-description {
-  font-family: theme(--font-text);
-  font-size: theme(--text-small);
-  color: theme(--cc-black);
-}
 
 /* ==========================================================================
    @ATOM - TYPOGRAPHY
@@ -895,13 +846,6 @@ body {
 .avatar-tooltip-container:focus-within {
   outline: 2px solid theme(--cc-green-light);
   outline-offset: 2px;
-}
-
-/* Hide tooltip on mobile */
-@media (max-width: 639px) {
-  .avatar-tooltip-container .tooltip-popup {
-    display: none;
-  }
 }
 
 /* ==========================================================================

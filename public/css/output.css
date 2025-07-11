@@ -1749,44 +1749,6 @@ body {
     font-size: 1rem;
   }
 }
-.tooltip-container {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  pointer-events: none;
-}
-.tooltip-container.tooltip-visible {
-  opacity: 1;
-  visibility: visible;
-}
-.tooltip-box {
-  background-color: #ffffff;
-  border: 4px solid #000000;
-}
-.tooltip-box p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  margin-block-start: 0;
-  margin-block-end: 0;
-}
-.tooltip-title {
-  font-family: 'Manjari', sans-serif;
-  font-size: 1.125rem;
-  color: #000000;
-}
-.tooltip-line {
-  background-color: #000000;
-}
-.tooltip-diamond {
-  background-color: #000000;
-}
-.tooltip-description {
-  font-family: 'Manjari', sans-serif;
-  font-size: 0.875rem;
-  color: #000000;
-}
 .text-h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.5rem;
@@ -2085,11 +2047,6 @@ body {
 .avatar-tooltip-container:focus-within {
   outline: 2px solid #c4ffcb;
   outline-offset: 2px;
-}
-@media (max-width: 639px) {
-  .avatar-tooltip-container .tooltip-popup {
-    display: none;
-  }
 }
 .footer {
   width: 100%;
