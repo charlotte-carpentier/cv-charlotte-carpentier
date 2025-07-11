@@ -1138,9 +1138,7 @@ body {
 
 /* ==========================================================================
    @ORGANISM - SKILLS-CARD
-   - Responsive skills card with automatic layout
-   - Desktop/Tablet: 4 cards visible in 2x2 grid
-   - Mobile: Cards hidden by default, shown via JS buttons
+   - Styles complexes et variables custom uniquement
    ========================================================================== */
 
 /* Wrapper pour forcer le layout 2x2 */
@@ -1155,30 +1153,7 @@ body {
   justify-items: center;
 }
 
-.skills-card {
-  position: relative;
-}
-
-/* Hide desktop version by default */
-.skills-card-desktop {
-  display: none;
-}
-
-/* Desktop variant */
-.skills-card-desktop {
-  width: 100%;
-  max-width: 300px;
-}
-
-.skills-card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem;
-  position: relative;
-}
-
+/* Desktop variant - Pseudo-elements avec gradients */
 .skills-card-content::before,
 .skills-card-content::after {
   content: '';
@@ -1197,19 +1172,7 @@ body {
   right: calc(50% - 98px - 4px);
 }
 
-.skills-card-title {
-  text-align: center;
-  width: 100%;
-  margin-bottom: 0.5rem;
-  position: relative;
-}
-
-.skills-card-title h2 {
-  margin: 0;
-  padding: 0;
-  line-height: 1.2;
-}
-
+/* Title decorative lines */
 .skills-card-title::before,
 .skills-card-title::after {
   content: '';
@@ -1229,33 +1192,7 @@ body {
   right: 40px;
 }
 
-.skills-card-grid {
-  display: grid;
-  gap: 0.3rem;
-  justify-items: center;
-  align-items: start;
-  width: 100%;
-  grid-template-columns: repeat(2, auto);
-  justify-content: center;
-}
-
-.skills-card--soft_skills .skills-card-grid--2x2,
-.skills-card--hard_skills .skills-card-grid--2x2 {
-  grid-template-rows: repeat(2, 1fr);
-}
-
-.skills-card--interests .skills-card-grid--2x3,
-.skills-card--languages .skills-card-grid--2x3 {
-  grid-template-rows: repeat(3, 1fr);
-}
-
-.skills-card-item {
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  width: 100%;
-}
-
+/* Caption width constraints */
 .skills-card .caption-container {
   width: 98px;
 }
@@ -1264,30 +1201,10 @@ body {
   width: 100%;
 }
 
-/* Icône de fermeture - Mobile seulement */
-.skills-card-close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  display: none; /* Hidden by default */
-}
+/* Responsive breakpoints avec variables custom */
 
-/* Responsive breakpoints */
-
-/* Desktop breakpoint */
+/* Desktop breakpoint - 1025px+ */
 @media (min-width: 1025px) {
-  .skills-card-desktop {
-    display: block;
-  }
-  
-  .skills-card {
-    width: 100%;
-    margin: 0;
-  }
-  
   /* Hide the direct content of .skills-card on desktop */
   .skills-card > .skills-card-title,
   .skills-card > .caption-container {
@@ -1300,19 +1217,9 @@ body {
   }
 }
 
-/* Tablet breakpoint - Use grid layout */
+/* Tablet breakpoint - 481px to 1024px */
 @media (min-width: 481px) and (max-width: 1024px) {
-  .skills-card {
-    width: 100%;
-    max-width: 320px;
-    margin: 0;
-    background-color: theme(--cc-white);
-    border-top: 4px solid theme(--cc-black);
-    padding: 0.75rem;
-    box-sizing: border-box;
-  }
-  
-  /* Add gradient borders */
+  /* Add gradient borders for tablet */
   .skills-card::before,
   .skills-card::after {
     content: '';
@@ -1331,6 +1238,12 @@ body {
     right: 0;
   }
   
+  /* Background and border with theme variables */
+  .skills-card {
+    background-color: theme(--cc-white);
+    border-top: 4px solid theme(--cc-black);
+  }
+  
   /* Hide desktop version */
   .skills-card-desktop {
     display: none;
@@ -1339,13 +1252,6 @@ body {
   /* Hide close icon on tablet */
   .skills-card-close {
     display: none;
-  }
-  
-  /* Adjust title */
-  .skills-card-title {
-    padding-bottom: 1rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
   }
   
   /* Remove title decorative lines */
@@ -1392,22 +1298,15 @@ body {
   }
 }
 
-/* Mobile breakpoint - Single column, hidden by default */
+/* Mobile breakpoint - 480px and below */
 @media (max-width: 480px) {
   .skills-wrapper {
     grid-template-columns: 1fr;
   }
-  
+  /* Background and border with theme variables */
   .skills-card {
-    display: none; /* Hidden by default */
-    width: 100%;
-    max-width: 320px;
-    margin: 0;
     background-color: theme(--cc-white);
-    border: 3px solid theme(--cc-black); /* Bordure complète 3px */
-    padding: 0.75rem;
-    box-sizing: border-box;
-    position: relative; /* Pour positionner l'icône de fermeture */
+    border: 3px solid theme(--cc-black);
   }
   
   /* Supprimer les pseudo-éléments dégradés pour mobile */
@@ -1431,18 +1330,15 @@ body {
     display: none;
   }
   
-  /* Adjust title */
-  .skills-card-title {
-    padding-bottom: 1rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
-    padding-right: 40px; /* Espace pour l'icône de fermeture */
-  }
-  
   /* Remove title decorative lines */
   .skills-card-title::before,
   .skills-card-title::after {
     display: none;
+  }
+  
+  /* Adjust title spacing for close icon */
+  .skills-card-title {
+    padding-right: 40px;
   }
   
   /* Force caption mobile display */
@@ -1484,7 +1380,6 @@ body {
 }
 
 /* Accessibility & performance */
-
 .skills-card:focus-within {
   outline: 2px solid theme(--cc-green-light);
   outline-offset: 2px;
