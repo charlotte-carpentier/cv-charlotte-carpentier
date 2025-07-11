@@ -36,8 +36,8 @@ function initTooltips() {
  * Adjusts position vertically (top/bottom) and horizontally (left/center/right)
  */
 function showTooltip(tooltip, container) {
-  // Only show tooltips on desktop
-  if (window.innerWidth <= 768) return;
+  // Only show tooltips on desktop (lg breakpoint)
+  if (window.innerWidth < 1024) return;
   
   // Hide all other tooltips first to avoid overlap
   hideAllTooltips();

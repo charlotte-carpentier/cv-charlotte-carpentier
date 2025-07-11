@@ -25,8 +25,8 @@ function initAvatarTooltip() {
   
   avatarContainer.appendChild(activeZone);
   
-  activeZone.addEventListener('mouseenter', () => {
-    if (window.innerWidth > 768) {
+activeZone.addEventListener('mouseenter', () => {
+    if (window.innerWidth >= 1024) { // lg breakpoint
       tooltip.style.opacity = '1';
       tooltip.style.visibility = 'visible';
     }
@@ -38,7 +38,7 @@ function initAvatarTooltip() {
   });
   
   activeZone.addEventListener('mousemove', (e) => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth >= 1024) { // lg breakpoint
       const tooltipRect = tooltip.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       const viewportWidth = window.innerWidth;
