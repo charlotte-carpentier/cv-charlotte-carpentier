@@ -903,22 +903,6 @@ body {
   outline: none;
 }
 
-/* Responsive adjustments */
-/* Tablet and below */
-@media (max-width: 1024px) {
-  .footer--minimal .footer__content {
-    border-width: 3px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .footer--minimal .footer__content {
-    border-width: 3px;
-    padding: 0.5rem;
-  }
-}
-
 /* ==========================================================================
    @ORGANISM - HEADER
    - Styles using custom theme variables and complex states
