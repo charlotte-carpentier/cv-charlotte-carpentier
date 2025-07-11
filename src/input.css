@@ -273,7 +273,6 @@ body {
 /* Navigation link variant */
 .link--nav {
   font-family: theme(--font-title);
-  font-size: theme(--text-h2);
   color: theme(--cc-black);
   text-decoration: underline;
 }
@@ -294,7 +293,6 @@ body {
 /* Tab link variant */
 .link--tab {
   font-family: theme(--font-text);
-  font-size: theme(--text-code);
   font-weight: bold;
   color: theme(--cc-black);
   text-decoration: none;
@@ -318,7 +316,6 @@ body {
 /* External link variant */
 .link--external {
   font-family: theme(--font-text);
-  font-size: theme(--text-p);
   color: theme(--cc-black);
   text-decoration: underline;
 }
@@ -326,21 +323,6 @@ body {
 /* External link hover */
 .link--external:hover {
   color: theme(--cc-green-dark);
-}
-
-/* Responsive font sizes */
-@media (max-width: 639px) {
-  .link--nav {
-    font-size: theme(--text-h2-mobile);
-  }
-  
-  .link--tab {
-    font-size: theme(--text-code-mobile);
-  }
-  
-  .link--external {
-    font-size: theme(--text-p-mobile);
-  }
 }
 
 /* ============================================================

@@ -28,6 +28,15 @@
       {% set variant = linkData.variant | default('external') %}
       {% set cssClasses = 'link link--' ~ variant %}
       
+      {# Add responsive font size classes based on variant #}
+      {% if variant == 'nav' %}
+        {% set cssClasses = cssClasses ~ ' text-h2-mobile sm:text-h2' %}
+      {% elif variant == 'tab' %}
+        {% set cssClasses = cssClasses ~ ' text-code-mobile sm:text-code' %}
+      {% elif variant == 'external' %}
+        {% set cssClasses = cssClasses ~ ' text-p-mobile sm:text-p' %}
+      {% endif %}
+      
       {# Check if current page/section - add current state #}
       {% set isCurrentPage = false %}
       {% if linkData.href == page.url %}
