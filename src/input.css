@@ -833,17 +833,6 @@ body {
   background-color: theme(--cc-white);
 }
 
-/* Responsive */
-@media (max-width: 639px) {
-  .tab-menu-desktop {
-    display: none;
-  }
-  
-  .tab-menu-mobile {
-    display: block;
-  }
-}
-
 /* ==========================================================================
    @ORGANISM - AVATAR-CARD
    - Responsive avatar card with desktop, tablet, and mobile variants

@@ -2044,14 +2044,6 @@ body {
   border: 4px solid #000000;
   background-color: #ffffff;
 }
-@media (max-width: 639px) {
-  .tab-menu-desktop {
-    display: none;
-  }
-  .tab-menu-mobile {
-    display: block;
-  }
-}
 .avatar-card-mobile .avatar-card-button {
   position: absolute;
 }
