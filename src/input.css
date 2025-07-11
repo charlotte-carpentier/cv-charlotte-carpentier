@@ -951,51 +951,68 @@ body {
 
 /* ==========================================================================
    @ORGANISM - FOOTER
-   - Minimal variant with custom border colors and responsive adjustments
-   - Complex styles using theme variables that cannot be converted to Tailwind
+   - Full width footer container
+   - Minimal variant with centered content and border
+   - Inline text and links forced inside
+   - Responsive border and padding adjustments
    ========================================================================== */
 
-/* Minimal variant container with custom border color */
+.footer {
+  width: 100%;
+  background-color: theme(--cc-white);
+  box-sizing: border-box;
+}
+
+/* Minimal variant container */
 .footer--minimal .footer__content {
   border: 4px solid theme(--cc-black);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Text container */
+.footer--minimal .footer__text {
+  white-space: nowrap;
+  text-align: center;
 }
 
 /* Force inline display without margin/padding on paragraphs */
-.footer--minimal .footer__copyright p,
-.footer--minimal .footer__legal p {
+.footer--minimal .footer__text p {
   margin: 0;
   padding: 0;
   display: inline;
   white-space: nowrap;
 }
 
-/* Force inline display without margin/padding on links with custom colors */
-.footer--minimal .footer__copyright a,
-.footer--minimal .footer__legal a {
+/* Force inline display without margin/padding on links */
+.footer--minimal .footer__text a {
   margin: 0;
   padding: 0;
   display: inline;
   white-space: nowrap;
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
   transition: color 0.3s ease;
 }
 
-.footer--minimal .footer__copyright a:hover,
-.footer--minimal .footer__copyright a:focus,
-.footer--minimal .footer__legal a:hover,
-.footer--minimal .footer__legal a:focus {
+.footer--minimal .footer__text a:hover,
+.footer--minimal .footer__text a:focus {
   color: theme(--cc-green-dark);
   outline: none;
 }
 
-/* Responsive border adjustments using custom breakpoints */
+/* Responsive adjustments */
+/* Tablet and below */
 @media (max-width: 1024px) {
   .footer--minimal .footer__content {
     border-width: 3px;
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .footer--minimal .footer__content {
     border-width: 3px;
@@ -1005,27 +1022,95 @@ body {
 
 /* ==========================================================================
    @ORGANISM - HEADER
-   - Styles spécifiques utilisant les variables de thème
-   - Styles d'état complexes et interactions JavaScript
+   - Styles using custom theme variables and complex states
    ========================================================================== */
 
 .header {
   background-color: theme(--cc-white);
   color: theme(--cc-black);
-  border-color: theme(--cc-black);
+  border: 4px solid theme(--cc-black);
+}
+
+/* Mobile/Tablet border override */
+@media (max-width: 1023px) {
+  .header {
+    border-width: 3px;
+  }
 }
 
 .header-brand h2 {
+  margin: 0;
   color: theme(--cc-green-dark);
   font-size: theme(--text-h2);
+  white-space: nowrap;
 }
 
 .header-title h1 {
+  margin: 0;
   font-size: theme(--text-h1);
+  text-align: center;
   font-weight: 900;
+  white-space: nowrap;
 }
 
-/* Media query pour adapter la flexbox à 1200px */
+.burger-icon-close {
+  opacity: 0;
+}
+
+.header-burger[aria-expanded="true"] .burger-icon-open {
+  opacity: 0;
+}
+
+.header-burger[aria-expanded="true"] .burger-icon-close {
+  opacity: 1;
+}
+
+.header-mobile-overlay {
+  top: 88px;
+}
+
+.header-mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.header-mobile-overlay .tab-menu-desktop {
+  display: none;
+}
+
+.header-mobile-overlay .tab-menu-mobile {
+  display: block;
+}
+
+.header-mobile-overlay .tab-menu {
+  visibility: visible;
+}
+
+.header h1,
+.header h2,
+.header p {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Brand section */
+.header-brand {
+  flex: 1;
+}
+
+/* Title section */
+.header-title {
+  flex: 1;
+}
+
+/* Navigation section */
+.header-navigation {
+  flex: 1;
+}
+
+/* Media query pour basculer en space-between quand nécessaire */
 @media (max-width: 1200px) {
   .header-brand {
     flex: 0 0 auto;
@@ -1040,62 +1125,20 @@ body {
   }
 }
 
-/* Burger button states - managed by JavaScript */
-.header-burger[aria-expanded="true"] .burger-icon:not(.burger-icon-close) {
-  opacity: 0;
-}
-
-.header-burger[aria-expanded="true"] .burger-icon-close {
-  opacity: 1;
-}
-
-/* Mobile overlay states - managed by JavaScript */
-.header-mobile-overlay.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* Hide desktop menu in overlay on mobile */
-.header-mobile-overlay .tab-menu-desktop {
-  display: none;
-}
-
-.header-mobile-overlay .tab-menu-mobile {
-  display: block;
-}
-
-/* Visibilité du tab-menu dans l'overlay */
-.header-mobile-overlay .tab-menu {
-  visibility: visible;
-}
-
-/* Typography reset for header */
-.header h1,
-.header h2,
-.header p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-/* Responsive adjustments spécifiques */
+/* Mobile (480px and below) */
 @media (max-width: 480px) {
   .header-brand h2 {
     font-size: theme(--text-h2-mobile);
   }
-}
 
-/* Position fixe pour le menu mobile sur tous les écrans */
-.header-mobile-overlay {
-  top: 88px;
+  .header-mobile-overlay {
+    top: 72px;
+  }
 }
 
 /* ==========================================================================
    @ORGANISM - SKILLS-CARD
-   - Responsive skills card with automatic layout
-   - Desktop/Tablet: 4 cards visible in 2x2 grid
-   - Mobile: Cards hidden by default, shown via JS buttons
+   - Styles complexes et variables custom uniquement
    ========================================================================== */
 
 /* Wrapper pour forcer le layout 2x2 */
@@ -1110,30 +1153,7 @@ body {
   justify-items: center;
 }
 
-.skills-card {
-  position: relative;
-}
-
-/* Hide desktop version by default */
-.skills-card-desktop {
-  display: none;
-}
-
-/* Desktop variant */
-.skills-card-desktop {
-  width: 100%;
-  max-width: 300px;
-}
-
-.skills-card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem;
-  position: relative;
-}
-
+/* Desktop variant - Pseudo-elements avec gradients */
 .skills-card-content::before,
 .skills-card-content::after {
   content: '';
@@ -1152,19 +1172,7 @@ body {
   right: calc(50% - 98px - 4px);
 }
 
-.skills-card-title {
-  text-align: center;
-  width: 100%;
-  margin-bottom: 0.5rem;
-  position: relative;
-}
-
-.skills-card-title h2 {
-  margin: 0;
-  padding: 0;
-  line-height: 1.2;
-}
-
+/* Title decorative lines */
 .skills-card-title::before,
 .skills-card-title::after {
   content: '';
@@ -1184,33 +1192,7 @@ body {
   right: 40px;
 }
 
-.skills-card-grid {
-  display: grid;
-  gap: 0.3rem;
-  justify-items: center;
-  align-items: start;
-  width: 100%;
-  grid-template-columns: repeat(2, auto);
-  justify-content: center;
-}
-
-.skills-card--soft_skills .skills-card-grid--2x2,
-.skills-card--hard_skills .skills-card-grid--2x2 {
-  grid-template-rows: repeat(2, 1fr);
-}
-
-.skills-card--interests .skills-card-grid--2x3,
-.skills-card--languages .skills-card-grid--2x3 {
-  grid-template-rows: repeat(3, 1fr);
-}
-
-.skills-card-item {
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  width: 100%;
-}
-
+/* Caption width constraints */
 .skills-card .caption-container {
   width: 98px;
 }
@@ -1219,30 +1201,10 @@ body {
   width: 100%;
 }
 
-/* Icône de fermeture - Mobile seulement */
-.skills-card-close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  display: none; /* Hidden by default */
-}
+/* Responsive breakpoints avec variables custom */
 
-/* Responsive breakpoints */
-
-/* Desktop breakpoint */
+/* Desktop breakpoint - 1025px+ */
 @media (min-width: 1025px) {
-  .skills-card-desktop {
-    display: block;
-  }
-  
-  .skills-card {
-    width: 100%;
-    margin: 0;
-  }
-  
   /* Hide the direct content of .skills-card on desktop */
   .skills-card > .skills-card-title,
   .skills-card > .caption-container {
@@ -1255,19 +1217,9 @@ body {
   }
 }
 
-/* Tablet breakpoint - Use grid layout */
+/* Tablet breakpoint - 481px to 1024px */
 @media (min-width: 481px) and (max-width: 1024px) {
-  .skills-card {
-    width: 100%;
-    max-width: 320px;
-    margin: 0;
-    background-color: theme(--cc-white);
-    border-top: 4px solid theme(--cc-black);
-    padding: 0.75rem;
-    box-sizing: border-box;
-  }
-  
-  /* Add gradient borders */
+  /* Add gradient borders for tablet */
   .skills-card::before,
   .skills-card::after {
     content: '';
@@ -1286,6 +1238,12 @@ body {
     right: 0;
   }
   
+  /* Background and border with theme variables */
+  .skills-card {
+    background-color: theme(--cc-white);
+    border-top: 4px solid theme(--cc-black);
+  }
+  
   /* Hide desktop version */
   .skills-card-desktop {
     display: none;
@@ -1294,13 +1252,6 @@ body {
   /* Hide close icon on tablet */
   .skills-card-close {
     display: none;
-  }
-  
-  /* Adjust title */
-  .skills-card-title {
-    padding-bottom: 1rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
   }
   
   /* Remove title decorative lines */
@@ -1347,22 +1298,15 @@ body {
   }
 }
 
-/* Mobile breakpoint - Single column, hidden by default */
+/* Mobile breakpoint - 480px and below */
 @media (max-width: 480px) {
   .skills-wrapper {
     grid-template-columns: 1fr;
   }
-  
+  /* Background and border with theme variables */
   .skills-card {
-    display: none; /* Hidden by default */
-    width: 100%;
-    max-width: 320px;
-    margin: 0;
     background-color: theme(--cc-white);
-    border: 3px solid theme(--cc-black); /* Bordure complète 3px */
-    padding: 0.75rem;
-    box-sizing: border-box;
-    position: relative; /* Pour positionner l'icône de fermeture */
+    border: 3px solid theme(--cc-black);
   }
   
   /* Supprimer les pseudo-éléments dégradés pour mobile */
@@ -1386,18 +1330,15 @@ body {
     display: none;
   }
   
-  /* Adjust title */
-  .skills-card-title {
-    padding-bottom: 1rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
-    padding-right: 40px; /* Espace pour l'icône de fermeture */
-  }
-  
   /* Remove title decorative lines */
   .skills-card-title::before,
   .skills-card-title::after {
     display: none;
+  }
+  
+  /* Adjust title spacing for close icon */
+  .skills-card-title {
+    padding-right: 40px;
   }
   
   /* Force caption mobile display */
@@ -1439,7 +1380,6 @@ body {
 }
 
 /* Accessibility & performance */
-
 .skills-card:focus-within {
   outline: 2px solid theme(--cc-green-light);
   outline-offset: 2px;

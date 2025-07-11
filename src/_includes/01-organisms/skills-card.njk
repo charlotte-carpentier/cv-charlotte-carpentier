@@ -35,10 +35,10 @@
       {% set missingSlots = totalSlots - existingItems %}
       
       {# Skills Card Container #}
-      <div class="skills-card skills-card--{{ skillsCardData.theme }}" data-skills="{{ skillsCardData.name }}">
+      <div class="skills-card skills-card--{{ skillsCardData.theme }} relative hidden sm:block sm:w-full sm:max-w-80 sm:m-0 sm:p-3 sm:box-border lg:w-full lg:m-0 lg:p-0" data-skills="{{ skillsCardData.name }}">
         
         {# Icône de fermeture - Mobile seulement #}
-        <div class="skills-card-close" onclick="closeSkillsCard('{{ skillsCardData.name }}')">
+        <div class="skills-card-close absolute top-2 right-2 w-8 h-8 cursor-pointer hidden" onclick="closeSkillsCard('{{ skillsCardData.name }}')">
           {{ renderIcon({ 
             name: "burger_x",
             datas: option.icon_datas,
@@ -47,11 +47,11 @@
         </div>
         
         {# Desktop version: Individual card with tooltips #}
-        <div class="skills-card-desktop">
-          <div class="skills-card-content">
+        <div class="skills-card-desktop hidden lg:block w-full max-w-75">
+          <div class="skills-card-content flex flex-col items-center gap-3 p-2 relative">
             
             {# Card title #}
-            <div class="skills-card-title">
+            <div class="skills-card-title text-center w-full mb-2 relative">
               {{ renderTypography({ 
                 name: skillsCardData.title,
                 datas: option.typography_datas
@@ -59,11 +59,11 @@
             </div>
             
             {# Card captions grid #}
-            <div class="skills-card-grid skills-card-grid--{{ skillsCardData.grid_layout }}">
+            <div class="skills-card-grid grid gap-1 items-start w-fit grid-cols-2 justify-center mx-auto {% if skillsCardData.grid_layout == '2x2' %}grid-rows-2{% else %}grid-rows-3{% endif %}">
               
               {# Render existing captions #}
               {% for captionName in skillsCardData.captions %}
-                <div class="skills-card-item">
+                <div class="skills-card-item flex justify-center items-start w-full">
                   {{ renderCaption({ 
                     name: captionName,
                     datas: option.caption_datas,
@@ -75,7 +75,7 @@
               
               {# Add mystery chests for empty slots #}
               {% for i in range(missingSlots) %}
-                <div class="skills-card-item">
+                <div class="skills-card-item flex justify-center items-start w-full">
                   {{ renderCaption({ 
                     name: "skills_treasure",
                     datas: option.caption_datas,
@@ -90,7 +90,7 @@
         </div>
 
         {# Tablet/Mobile version: Same title and captions but different layout #}
-        <div class="skills-card-title">
+        <div class="skills-card-title pb-4 mb-2 text-center pr-0 sm:pr-0">
           {{ renderTypography({ 
             name: skillsCardData.title,
             datas: option.typography_datas
