@@ -437,8 +437,6 @@ body {
   color: theme(--cc-black);
 }
 
-/*
-
 /* ==========================================================================
    @ATOM - TYPOGRAPHY
    - Base font styles for text elements (titles, paragraphs, codes, small text)
@@ -831,7 +829,7 @@ body {
    ========================================================================== */
 
 .mobile-menu-list {
-  border: 4px solid theme(--cc-black);
+  border: 3px solid theme(--cc-black);
   background-color: theme(--cc-white);
 }
 
@@ -1017,12 +1015,14 @@ body {
 
 .header-mobile-overlay {
   top: 88px;
+  z-index: 1; /* Behind header on desktop */
 }
 
 .header-mobile-overlay.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  z-index: 50; /* In front when active (mobile) */
 }
 
 .header-mobile-overlay .tab-menu-desktop {
@@ -1052,7 +1052,7 @@ body {
   }
 
   .header-mobile-overlay {
-    top: 72px;
+    top: 87px; /* Lowered for better spacing */
   }
 }
 
