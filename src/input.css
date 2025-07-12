@@ -25,7 +25,11 @@
 
 /* Custom focus outlines for accessibility */
 :focus {
-  outline: 2px solid transparent;
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid theme(--cc-green-dark);
   outline-offset: 2px;
 }
 
@@ -98,9 +102,15 @@ body {
 
 /* Primary button focus state */
 .button.button--primary:focus {
+  outline: none;
+}
+
+.button.button--primary:focus-visible {
   background-color: theme(--cc-white);
   color: theme(--cc-grey-light);
-  border-color: #0044aa;
+  border-color: theme(--cc-green-dark);
+  outline: 2px solid theme(--cc-green-dark);
+  outline-offset: 2px;
 }
 
 /* Primary button active state */
@@ -1505,4 +1515,30 @@ body:has(.header-mobile-overlay.active) .avatar-skills-wrapper {
 .tooltip-container,
 .avatar-tooltip-container .tooltip-popup {
   z-index: 1000;
+}
+
+/* ==========================================================================
+   @ACCESSIBILITY - MOBILE FOCUS MANAGEMENT
+   - Focus visible only for keyboard navigation on mobile elements
+   ========================================================================== */
+
+/* Avatar mobile buttons - keyboard only */
+.avatar-card-mobile .button:focus {
+  outline: none;
+}
+
+.avatar-card-mobile .button:focus-visible {
+  outline: 2px solid theme(--cc-green-dark);
+  outline-offset: 2px;
+}
+
+/* Skills card close button - keyboard only */
+.skills-card-close:focus {
+  outline: none;
+}
+
+.skills-card-close:focus-visible {
+  outline: 2px solid theme(--cc-green-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

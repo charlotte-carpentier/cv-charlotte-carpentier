@@ -1632,7 +1632,10 @@
   box-sizing: border-box;
 }
 :focus {
-  outline: 2px solid transparent;
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid #4a7c59;
   outline-offset: 2px;
 }
 body {
@@ -1654,9 +1657,14 @@ body {
   border-color: #4a7c59;
 }
 .button.button--primary:focus {
+  outline: none;
+}
+.button.button--primary:focus-visible {
   background-color: #ffffff;
   color: #b3b3b3;
-  border-color: #0044aa;
+  border-color: #4a7c59;
+  outline: 2px solid #4a7c59;
+  outline-offset: 2px;
 }
 .button.button--primary:active {
   background-color: #ffffff;
@@ -2584,6 +2592,21 @@ body.charlotte-bg {
 }
 .tooltip-popup, .tooltip-container, .avatar-tooltip-container .tooltip-popup {
   z-index: 1000;
+}
+.avatar-card-mobile .button:focus {
+  outline: none;
+}
+.avatar-card-mobile .button:focus-visible {
+  outline: 2px solid #4a7c59;
+  outline-offset: 2px;
+}
+.skills-card-close:focus {
+  outline: none;
+}
+.skills-card-close:focus-visible {
+  outline: 2px solid #4a7c59;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 @property --tw-translate-x {
   syntax: "*";
