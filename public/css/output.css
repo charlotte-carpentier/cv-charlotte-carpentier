@@ -407,8 +407,8 @@
   .min-h-\[50px\] {
     min-height: 50px;
   }
-  .min-h-\[80px\] {
-    min-height: 80px;
+  .min-h-\[64px\] {
+    min-height: 64px;
   }
   .min-h-\[120px\] {
     min-height: 120px;
@@ -765,6 +765,9 @@
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
@@ -806,9 +809,6 @@
   }
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
-  }
-  .pr-0 {
-    padding-right: calc(var(--spacing) * 0);
   }
   .pb-0 {
     padding-bottom: calc(var(--spacing) * 0);
@@ -1212,11 +1212,6 @@
       padding-block: calc(var(--spacing) * 3);
     }
   }
-  .sm\:pr-0 {
-    @media (width >= 40rem) {
-      padding-right: calc(var(--spacing) * 0);
-    }
-  }
   .sm\:text-base {
     @media (width >= 40rem) {
       font-size: var(--text-base);
@@ -1433,6 +1428,11 @@
       height: 603px;
     }
   }
+  .lg\:min-h-\[80px\] {
+    @media (width >= 64rem) {
+      min-height: 80px;
+    }
+  }
   .lg\:w-1\/2 {
     @media (width >= 64rem) {
       width: calc(1/2 * 100%);
@@ -1548,6 +1548,11 @@
   .lg\:px-8 {
     @media (width >= 64rem) {
       padding-inline: calc(var(--spacing) * 8);
+    }
+  }
+  .lg\:py-4 {
+    @media (width >= 64rem) {
+      padding-block: calc(var(--spacing) * 4);
     }
   }
   .lg\:py-10 {
@@ -2145,25 +2150,31 @@ body {
   border: 3px solid #000000;
   background-color: #ffffff;
 }
+@media (max-width: 639px) {
+  .mobile-menu-list {
+    min-width: 296px;
+    padding: 1rem;
+  }
+}
 .avatar-card-mobile .avatar-card-button {
   position: absolute;
 }
 .avatar-card-mobile .avatar-card-button:nth-child(1) {
-  top: 55%;
-  left: 25px;
+  top: 52%;
+  left: 27px;
   transform: translateY(-50%);
 }
 .avatar-card-mobile .avatar-card-button:nth-child(2) {
-  top: 42%;
+  top: 37%;
   right: 0;
 }
 .avatar-card-mobile .avatar-card-button:nth-child(3) {
-  top: 58%;
+  top: 56%;
   right: 0;
   transform: translateY(-50%);
 }
 .avatar-card-mobile .avatar-card-button:nth-child(4) {
-  bottom: 26%;
+  bottom: 25%;
   right: 0;
 }
 .avatar-card-mobile .avatar-card-buttons .button {
@@ -2174,6 +2185,9 @@ body {
 @media (max-width: 639px) {
   .avatar-card-mobile .avatar-card-buttons .button {
     border-width: 3px;
+  }
+  .avatar-card-mobile {
+    gap: 0rem;
   }
 }
 .avatar-tooltip-container {
@@ -2272,7 +2286,7 @@ body {
   opacity: 1;
 }
 .header-mobile-overlay {
-  top: 88px;
+  top: 87px;
   z-index: 1;
 }
 .header-mobile-overlay.active {
@@ -2300,7 +2314,10 @@ body {
     font-size: 1.25rem;
   }
   .header-mobile-overlay {
-    top: 87px;
+    top: 75px;
+  }
+  .mobile-overlay-content {
+    padding: 0.75rem 0rem;
   }
 }
 .skills-wrapper {
@@ -2427,6 +2444,7 @@ body {
   .skills-card {
     background-color: #ffffff;
     border: 3px solid #000000;
+    padding: 1rem;
   }
   .skills-card::before, .skills-card::after {
     display: none;
@@ -2442,9 +2460,6 @@ body {
   }
   .skills-card-title::before, .skills-card-title::after {
     display: none;
-  }
-  .skills-card-title {
-    padding-right: 40px;
   }
   .skills-card .caption-desktop {
     display: none;
@@ -2500,6 +2515,10 @@ body {
   .avatar-skills-avatar img, .avatar-skills-avatar button, .avatar-skills-avatar [data-tooltip], .avatar-skills-avatar .caption-container {
     pointer-events: auto;
   }
+}
+.avatar-skills-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 @media (max-width: 639px) {
   .avatar-skills-wrapper .skills-card-container.active {
