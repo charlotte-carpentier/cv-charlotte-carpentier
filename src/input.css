@@ -515,7 +515,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  cursor: pointer;
+  cursor: default;
   transition: all 0.3s ease;
 }
 
@@ -917,12 +917,6 @@ body {
   left: 85px;
   width: 180px;
   height: 650px;
-}
-
-/* Focus state for accessibility */
-.avatar-tooltip-container:focus-within {
-  outline: 2px solid theme(--cc-green-light);
-  outline-offset: 2px;
 }
 
 /* ==========================================================================
@@ -1333,12 +1327,6 @@ body {
     font-size: theme(--text-small-mobile);
     line-height: 1.4;
   }
-}
-
-/* Accessibility & performance */
-.skills-card:focus-within {
-  outline: 2px solid theme(--cc-green-light);
-  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

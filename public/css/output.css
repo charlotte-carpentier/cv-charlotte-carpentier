@@ -1940,7 +1940,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  cursor: pointer;
+  cursor: default;
   transition: all 0.3s ease;
 }
 .caption-icon-desktop {
@@ -2201,10 +2201,6 @@ body {
   left: 85px;
   width: 180px;
   height: 650px;
-}
-.avatar-tooltip-container:focus-within {
-  outline: 2px solid #c4ffcb;
-  outline-offset: 2px;
 }
 .footer {
   width: 100%;
@@ -2490,10 +2486,6 @@ body {
     font-size: 0.75rem;
     line-height: 1.4;
   }
-}
-.skills-card:focus-within {
-  outline: 2px solid #c4ffcb;
-  outline-offset: 2px;
 }
 @media (prefers-reduced-motion: reduce) {
   .skills-card .caption-desktop {
