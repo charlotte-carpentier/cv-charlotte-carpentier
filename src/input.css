@@ -1121,6 +1121,14 @@ body {
   width: 100%;
 }
 
+.avatar-skills-wrapper .skills-card-title::before {
+  left: calc(50% - 100px);
+}
+
+.avatar-skills-wrapper .skills-card-title::after {
+  right: calc(50% - 100px);
+}
+
 /* Responsive breakpoints avec variables custom */
 
 /* Desktop breakpoint - 1024px+ */
@@ -1329,6 +1337,20 @@ body {
 .section-portfolio {}
 .section-timeline {}
 .tab-section {}
+
+/* ==========================================================================
+   @ORGANISM - AVATAR-SKILLS-WRAPPER
+   - Gestion des pointer-events pour interactions overlay
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+  .avatar-skills-avatar img,
+  .avatar-skills-avatar button,
+  .avatar-skills-avatar [data-tooltip],
+  .avatar-skills-avatar .caption-container {
+    pointer-events: auto;
+  }
+}
 
 /* ==========================================================================
    @ORGANISM - BACKGROUNDS
