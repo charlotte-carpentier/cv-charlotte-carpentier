@@ -875,6 +875,13 @@ body {
   padding: 0.2rem 0.4rem 0 0.4rem;
 }
 
+/* Mobile buttons border consistency */
+@media (max-width: 639px) {
+  .avatar-card-mobile .avatar-card-buttons .button {
+    border-width: 3px;
+  }
+}
+
 /* Tooltip container for avatar (desktop only) */
 .avatar-tooltip-container {
   position: relative;
@@ -1340,7 +1347,7 @@ body {
 
 /* ==========================================================================
    @ORGANISM - AVATAR-SKILLS-WRAPPER
-   - Gestion des pointer-events pour interactions overlay
+   - Pointer-events management for overlay interactions
    ========================================================================== */
 
 @media (min-width: 1024px) {
@@ -1349,6 +1356,17 @@ body {
   .avatar-skills-avatar [data-tooltip],
   .avatar-skills-avatar .caption-container {
     pointer-events: auto;
+  }
+}
+
+/* Mobile skills cards visibility toggle */
+@media (max-width: 639px) {
+  .avatar-skills-wrapper .skills-card-container.active {
+    display: block;
+  }
+  
+  .avatar-card-mobile .avatar-card-buttons .button {
+    border-width: 3px;
   }
 }
 
@@ -1451,6 +1469,16 @@ body.charlotte-bg {
   z-index: 60;
 }
 
+/* Avatar-skills-wrapper positioning relative to burger menu */
+.avatar-skills-wrapper {
+  z-index: 90;
+}
+
+.avatar-card-mobile .avatar-card-button,
+.avatar-card-mobile .avatar-card-buttons .button {
+  z-index: 95;
+}
+
 /* High priority layer - Context-sensitive elements */
 .skills-card .caption-container {
   z-index: 100;
@@ -1458,6 +1486,12 @@ body.charlotte-bg {
 
 .header-mobile-overlay.active {
   z-index: 100;
+}
+
+/* When burger menu is active, lower avatar-skills-wrapper */
+.header-mobile-overlay.active ~ * .avatar-skills-wrapper,
+body:has(.header-mobile-overlay.active) .avatar-skills-wrapper {
+  z-index: 50;
 }
 
 /* Active state layer - Hover and focus states */
