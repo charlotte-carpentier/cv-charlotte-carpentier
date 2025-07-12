@@ -12,10 +12,11 @@
   {% if not option.avatar_datas or not option.skills_datas %}
     <span class="text-red-500">Error: Missing avatar or skills configuration</span>
   {% else %}
-    {# Avatar Skills Wrapper Container - Position relative pour avatar absolu #}
-    <div class="avatar-skills-wrapper lg:relative lg:grid lg:grid-cols-2 lg:gap-2 lg:max-w-4xl lg:mx-auto lg:p-2" data-component="avatar-skills-wrapper">
+    
+    {# Desktop version #}
+    <div class="avatar-skills-wrapper hidden lg:block lg:relative lg:grid lg:grid-cols-2 lg:gap-2 lg:max-w-4xl lg:mx-auto lg:p-2" data-component="avatar-skills-wrapper-desktop">
       
-      {# Avatar Card - Position absolue au centre, pointer-events désactivés sauf pour les éléments interactifs #}
+      {# Avatar Card - Absolute center position #}
       <div class="avatar-skills-avatar lg:absolute lg:top-[53.9%] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 lg:z-10 lg:pointer-events-none">
         {{ renderAvatarCard({ 
           name: option.avatar_name or "charlotte_main",
@@ -27,9 +28,9 @@
         }) }}
       </div>
       
-      {# Colonne gauche - Skills Cards #}
+      {# Left column - Skills Cards #}
       <div class="lg:flex lg:flex-col lg:gap-1 lg:items-center">
-        <div id="skills-card-languages" class="skills-card-container hidden md:block">
+        <div id="skills-card-languages" class="skills-card-container">
           {{ renderSkillsCard({ 
             name: "languages_card",
             datas: option.skills_datas,
@@ -40,7 +41,7 @@
           }) }}
         </div>
         
-        <div id="skills-card-soft-skills" class="skills-card-container hidden md:block">
+        <div id="skills-card-soft-skills" class="skills-card-container">
           {{ renderSkillsCard({ 
             name: "soft_skills_card",
             datas: option.skills_datas,
@@ -52,9 +53,9 @@
         </div>
       </div>
       
-      {# Colonne droite - Skills Cards #}
+      {# Right column - Skills Cards #}
       <div class="lg:flex lg:flex-col lg:gap-1 lg:items-center">
-        <div id="skills-card-hard-skills" class="skills-card-container hidden md:block">
+        <div id="skills-card-hard-skills" class="skills-card-container">
           {{ renderSkillsCard({ 
             name: "hard_skills_card",
             datas: option.skills_datas,
@@ -65,7 +66,7 @@
           }) }}
         </div>
         
-        <div id="skills-card-interests" class="skills-card-container hidden md:block">
+        <div id="skills-card-interests" class="skills-card-container">
           {{ renderSkillsCard({ 
             name: "interests_card",
             datas: option.skills_datas,
@@ -78,16 +79,140 @@
       </div>
       
     </div>
+    
+    {# Tablet version #}
+    <div class="avatar-skills-wrapper hidden sm:block lg:hidden flex flex-col gap-4 max-w-3xl mx-auto p-4" data-component="avatar-skills-wrapper-tablet">
+      
+      <div class="avatar-skills-avatar flex justify-center mb-4">
+        {{ renderAvatarCard({ 
+          name: option.avatar_name or "charlotte_main",
+          datas: option.avatar_datas,
+          image_datas: option.image_datas,
+          typography_datas: option.typography_datas,
+          button_datas: option.button_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+      </div>
+      
+      <div class="flex gap-2 justify-center">
+        <div class="flex flex-col gap-0">
+          <div id="skills-card-languages-tablet" class="skills-card-container w-fit h-fit">
+            {{ renderSkillsCard({ 
+              name: "languages_card",
+              datas: option.skills_datas,
+              typography_datas: option.typography_datas,
+              caption_datas: option.caption_datas,
+              icon_datas: option.icon_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
+          </div>
+          
+          <div id="skills-card-soft-skills-tablet" class="skills-card-container w-fit h-fit">
+            {{ renderSkillsCard({ 
+              name: "soft_skills_card",
+              datas: option.skills_datas,
+              typography_datas: option.typography_datas,
+              caption_datas: option.caption_datas,
+              icon_datas: option.icon_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
+          </div>
+        </div>
+        
+        <div class="flex flex-col gap-0">
+          <div id="skills-card-hard-skills-tablet" class="skills-card-container w-fit h-fit">
+            {{ renderSkillsCard({ 
+              name: "hard_skills_card",
+              datas: option.skills_datas,
+              typography_datas: option.typography_datas,
+              caption_datas: option.caption_datas,
+              icon_datas: option.icon_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
+          </div>
+          
+          <div id="skills-card-interests-tablet" class="skills-card-container w-fit h-fit">
+            {{ renderSkillsCard({ 
+              name: "interests_card",
+              datas: option.skills_datas,
+              typography_datas: option.typography_datas,
+              caption_datas: option.caption_datas,
+              icon_datas: option.icon_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    {# Mobile version - Interactive skills cards #}
+    <div class="avatar-skills-wrapper block sm:hidden flex flex-col gap-4 max-w-sm mx-auto p-4" data-component="avatar-skills-wrapper-mobile">
+      
+      <div class="avatar-skills-avatar flex justify-center">
+        {{ renderAvatarCard({ 
+          name: option.avatar_name or "charlotte_main",
+          datas: option.avatar_datas,
+          image_datas: option.image_datas,
+          typography_datas: option.typography_datas,
+          button_datas: option.button_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+      </div>
+      
+      {# Skills cards mobile - TOUTES VISIBLES pour démarrer #}
+      <div id="skills-card-languages-mobile" class="skills-card-container block w-full mb-4">
+        {{ renderSkillsCard({ 
+          name: "languages_card",
+          datas: option.skills_datas,
+          typography_datas: option.typography_datas,
+          caption_datas: option.caption_datas,
+          icon_datas: option.icon_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+      </div>
+      
+      <div id="skills-card-hard-skills-mobile" class="skills-card-container block w-full mb-4">
+        {{ renderSkillsCard({ 
+          name: "hard_skills_card",
+          datas: option.skills_datas,
+          typography_datas: option.typography_datas,
+          caption_datas: option.caption_datas,
+          icon_datas: option.icon_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+      </div>
+      
+      <div id="skills-card-soft-skills-mobile" class="skills-card-container block w-full mb-4">
+        {{ renderSkillsCard({ 
+          name: "soft_skills_card",
+          datas: option.skills_datas,
+          typography_datas: option.typography_datas,
+          caption_datas: option.caption_datas,
+          icon_datas: option.icon_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+      </div>
+      
+      <div id="skills-card-interests-mobile" class="skills-card-container block w-full mb-4">
+        {{ renderSkillsCard({ 
+          name: "interests_card",
+          datas: option.skills_datas,
+          typography_datas: option.typography_datas,
+          caption_datas: option.caption_datas,
+          icon_datas: option.icon_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+      </div>
+      
+    </div>
+    
   {% endif %}
 {% endmacro %}
 
 {# ===========================================================
    Summon HAT Components Wisely
 -----------------------------------------------------------
-1. Import the macro at the top of your page
-{% from "01-organisms/avatar-skills-wrapper.njk" import renderAvatarSkillsWrapper %}
-
-2. Call the wrapper with all required data
 {{ renderAvatarSkillsWrapper({ 
     avatar_name: "charlotte_main",
     avatar_datas: organisms["avatar-card"]["avatar-cards"],
@@ -99,6 +224,4 @@
     caption_datas: molecules.caption.captions,
     icon_datas: atoms.icon.icons
 }) }}
-
-May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
 =========================================================== #}

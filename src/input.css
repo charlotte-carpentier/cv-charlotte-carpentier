@@ -25,7 +25,11 @@
 
 /* Custom focus outlines for accessibility */
 :focus {
-  outline: 2px solid transparent;
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid theme(--cc-green-dark);
   outline-offset: 2px;
 }
 
@@ -98,9 +102,15 @@ body {
 
 /* Primary button focus state */
 .button.button--primary:focus {
+  outline: none;
+}
+
+.button.button--primary:focus-visible {
   background-color: theme(--cc-white);
   color: theme(--cc-grey-light);
-  border-color: #0044aa;
+  border-color: theme(--cc-green-dark);
+  outline: 2px solid theme(--cc-green-dark);
+  outline-offset: 2px;
 }
 
 /* Primary button active state */
@@ -833,6 +843,13 @@ body {
   background-color: theme(--cc-white);
 }
 
+@media (max-width: 639px) {
+  .mobile-menu-list {
+    min-width: 296px;
+    padding: 1rem;
+  }
+}
+
 /* ==========================================================================
    @ORGANISM - AVATAR-CARD
    - Responsive avatar card with desktop, tablet, and mobile variants
@@ -847,24 +864,24 @@ body {
 }
 
 .avatar-card-mobile .avatar-card-button:nth-child(1) {
-  top: 55%;
-  left: 25px;
+  top: 52%;
+  left: 27px;
   transform: translateY(-50%);
 }
 
 .avatar-card-mobile .avatar-card-button:nth-child(2) {
-  top: 42%;
+  top: 37%;
   right: 0;
 }
 
 .avatar-card-mobile .avatar-card-button:nth-child(3) {
-  top: 58%;
+  top: 56%;
   right: 0;
   transform: translateY(-50%);
 }
 
 .avatar-card-mobile .avatar-card-button:nth-child(4) {
-  bottom: 26%;
+  bottom: 25%;
   right: 0;
 }
 
@@ -873,6 +890,17 @@ body {
   width: auto;
   min-width: auto;
   padding: 0.2rem 0.4rem 0 0.4rem;
+}
+
+/* Mobile buttons border consistency */
+@media (max-width: 639px) {
+  .avatar-card-mobile .avatar-card-buttons .button {
+    border-width: 3px;
+  }
+  
+  .avatar-card-mobile {
+    gap: 0rem;
+  }
 }
 
 /* Tooltip container for avatar (desktop only) */
@@ -1014,7 +1042,7 @@ body {
 }
 
 .header-mobile-overlay {
-  top: 88px;
+  top: 87px;
   z-index: 1; /* Behind header on desktop */
 }
 
@@ -1052,7 +1080,11 @@ body {
   }
 
   .header-mobile-overlay {
-    top: 87px; /* Lowered for better spacing */
+    top: 75px; /* ou ta valeur modifiée */
+  }
+  
+  .mobile-overlay-content {
+    padding: 0.75rem 0rem;
   }
 }
 
@@ -1235,6 +1267,7 @@ body {
   .skills-card {
     background-color: theme(--cc-white);
     border: 3px solid theme(--cc-black);
+    padding: 1rem;
   }
   
   /* Supprimer les pseudo-éléments dégradés pour mobile */
@@ -1262,11 +1295,6 @@ body {
   .skills-card-title::before,
   .skills-card-title::after {
     display: none;
-  }
-  
-  /* Adjust title spacing for close icon */
-  .skills-card-title {
-    padding-right: 40px;
   }
   
   /* Force caption mobile display */
@@ -1340,7 +1368,7 @@ body {
 
 /* ==========================================================================
    @ORGANISM - AVATAR-SKILLS-WRAPPER
-   - Gestion des pointer-events pour interactions overlay
+   - Pointer-events management for overlay interactions
    ========================================================================== */
 
 @media (min-width: 1024px) {
@@ -1349,6 +1377,22 @@ body {
   .avatar-skills-avatar [data-tooltip],
   .avatar-skills-avatar .caption-container {
     pointer-events: auto;
+  }
+}
+
+.avatar-skills-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Mobile skills cards visibility toggle */
+@media (max-width: 639px) {
+  .avatar-skills-wrapper .skills-card-container.active {
+    display: block;
+  }
+  
+  .avatar-card-mobile .avatar-card-buttons .button {
+    border-width: 3px;
   }
 }
 
@@ -1451,6 +1495,16 @@ body.charlotte-bg {
   z-index: 60;
 }
 
+/* Avatar-skills-wrapper positioning relative to burger menu */
+.avatar-skills-wrapper {
+  z-index: 90;
+}
+
+.avatar-card-mobile .avatar-card-button,
+.avatar-card-mobile .avatar-card-buttons .button {
+  z-index: 95;
+}
+
 /* High priority layer - Context-sensitive elements */
 .skills-card .caption-container {
   z-index: 100;
@@ -1458,6 +1512,12 @@ body.charlotte-bg {
 
 .header-mobile-overlay.active {
   z-index: 100;
+}
+
+/* When burger menu is active, lower avatar-skills-wrapper */
+.header-mobile-overlay.active ~ * .avatar-skills-wrapper,
+body:has(.header-mobile-overlay.active) .avatar-skills-wrapper {
+  z-index: 50;
 }
 
 /* Active state layer - Hover and focus states */
@@ -1471,4 +1531,30 @@ body.charlotte-bg {
 .tooltip-container,
 .avatar-tooltip-container .tooltip-popup {
   z-index: 1000;
+}
+
+/* ==========================================================================
+   @ACCESSIBILITY - MOBILE FOCUS MANAGEMENT
+   - Focus visible only for keyboard navigation on mobile elements
+   ========================================================================== */
+
+/* Avatar mobile buttons - keyboard only */
+.avatar-card-mobile .button:focus {
+  outline: none;
+}
+
+.avatar-card-mobile .button:focus-visible {
+  outline: 2px solid theme(--cc-green-dark);
+  outline-offset: 2px;
+}
+
+/* Skills card close button - keyboard only */
+.skills-card-close:focus {
+  outline: none;
+}
+
+.skills-card-close:focus-visible {
+  outline: 2px solid theme(--cc-green-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

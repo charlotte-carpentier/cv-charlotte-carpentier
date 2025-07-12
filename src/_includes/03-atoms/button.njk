@@ -33,6 +33,7 @@
       <button 
         type="{{ option.type | default(buttonData.type) | default('button') }}"
         class="{{ cssClasses }} font-bold transition-all duration-200 ease-in-out cursor-pointer border-4 border-solid inline-flex items-center justify-center rounded-none px-6 py-1 sm:px-4 sm:py-1 sm:border-[3px] disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none text-xs sm:text-base"
+        data-button="{{ buttonData.name }}"
         {% if option.disabled or buttonData.disabled %}disabled{% endif %}
         {% if option.onclick %}onclick="{{ option.onclick }}"{% endif %}
         {% if option.id %}id="{{ option.id }}"{% endif %}

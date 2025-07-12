@@ -34,10 +34,10 @@
       {% set existingItems = skillsCardData.captions.length %}
       {% set missingSlots = totalSlots - existingItems %}
       
-      {# Skills Card Container #}
-      <div class="skills-card skills-card--{{ skillsCardData.theme }} relative hidden sm:block sm:w-full sm:max-w-80 sm:m-0 sm:p-3 sm:box-border lg:w-full lg:m-0 lg:p-0" data-skills="{{ skillsCardData.name }}">
+      {# Skills Card Container - MOBILE SUPPORT ADDED #}
+      <div class="skills-card skills-card--{{ skillsCardData.theme }} relative block sm:w-full sm:max-w-80 sm:m-0 sm:p-3 sm:box-border lg:w-full lg:m-0 lg:p-0" data-skills="{{ skillsCardData.name }}">
         
-        {# Icône de fermeture - Mobile seulement #}
+        {# Close icon - Mobile only #}
         <div class="skills-card-close absolute top-2 right-2 w-8 h-8 cursor-pointer hidden" onclick="closeSkillsCard('{{ skillsCardData.name }}')">
           {{ renderIcon({ 
             name: "burger_x",
@@ -90,21 +90,23 @@
         </div>
 
         {# Tablet/Mobile version: Same title and captions but different layout #}
-        <div class="skills-card-title pb-4 mb-2 text-center pr-0 sm:pr-0">
+        <div class="skills-card-title pb-4 mb-2 text-center lg:hidden">
           {{ renderTypography({ 
             name: skillsCardData.title,
             datas: option.typography_datas
           }) }}
         </div>
         
-        {% for captionName in skillsCardData.captions %}
-          {{ renderCaption({ 
-            name: captionName,
-            datas: option.caption_datas,
-            iconDatas: option.icon_datas,
-            tooltipDatas: option.tooltip_datas
-          }) }}
-        {% endfor %}
+        <div class="lg:hidden">
+          {% for captionName in skillsCardData.captions %}
+            {{ renderCaption({ 
+              name: captionName,
+              datas: option.caption_datas,
+              iconDatas: option.icon_datas,
+              tooltipDatas: option.tooltip_datas
+            }) }}
+          {% endfor %}
+        </div>
 
       </div>
     {% endif %}
