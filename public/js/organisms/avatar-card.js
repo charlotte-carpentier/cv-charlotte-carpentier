@@ -13,6 +13,9 @@ function initAvatarTooltip() {
   const tooltip = avatarContainer.querySelector('.tooltip-popup');
   if (!tooltip) return;
   
+  // Force hide tooltip initially
+  tooltip.style.display = 'none';
+  
   const activeZone = document.createElement('div');
   activeZone.style.position = 'absolute';
   activeZone.style.top = '10px';
@@ -25,20 +28,35 @@ function initAvatarTooltip() {
   
   avatarContainer.appendChild(activeZone);
   
-activeZone.addEventListener('mouseenter', () => {
+  activeZone.addEventListener('mouseenter', (e) => {
     if (window.innerWidth >= 1024) { // lg breakpoint
+      // Position tooltip at mouse position
+      tooltip.style.left = (e.clientX + 15) + 'px';
+      tooltip.style.top = (e.clientY + 15) + 'px';
+      
+      // Show tooltip with display block first, then opacity
+      tooltip.style.display = 'block';
       tooltip.style.opacity = '1';
       tooltip.style.visibility = 'visible';
     }
   });
   
   activeZone.addEventListener('mouseleave', () => {
+    // Re-enable transition for smooth fade out
+    tooltip.style.transition = 'opacity 0.3s ease';
     tooltip.style.opacity = '0';
     tooltip.style.visibility = 'hidden';
+    // Hide completely after transition
+    setTimeout(() => {
+      tooltip.style.display = 'none';
+    }, 300);
   });
   
   activeZone.addEventListener('mousemove', (e) => {
     if (window.innerWidth >= 1024) { // lg breakpoint
+      // Disable transition for smooth mouse following
+      tooltip.style.transition = 'none';
+      
       const tooltipRect = tooltip.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       const viewportWidth = window.innerWidth;
@@ -48,12 +66,10 @@ activeZone.addEventListener('mouseenter', () => {
       let y = e.clientY + 15;
       
       if (y + tooltipRect.height > viewportHeight - margin) {
-
         y = e.clientY - tooltipRect.height - 15;
       }
       
       if (x + tooltipRect.width > viewportWidth - margin) {
-
         x = e.clientX - tooltipRect.width - 15;
       }
       
