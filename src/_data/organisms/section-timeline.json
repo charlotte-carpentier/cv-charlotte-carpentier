@@ -1,0 +1,49 @@
+{
+  "sections": [
+    {
+      "name": "charlotte_journey",
+      "id": "journey",
+      "header": {
+        "title": "journey_title"
+      },
+      "content": {
+        "blocks": [
+          "journey_freelance",
+          "journey_ehpad",
+          "journey_efs"
+        ]
+      }
+    },
+    {
+      "name": "charlotte_knowledge",
+      "id": "knowledge",
+      "header": {
+        "title": "knowledge_title"
+      },
+      "content": {
+        "blocks": [
+          "knowledge_dev",
+          "knowledge_master",
+          "knowledge_bachelor",
+          "knowledge_prepa"
+        ],
+        "progress_bar": "learning_loop"
+      }
+    },
+    {
+      "name": "charlotte_profile",
+      "id": "profile",
+      "header": {
+        "title": "profile_title"
+      },
+      "content": {
+        "blocks": [
+          "profile_quote",
+          "profile_past",
+          "profile_transition",
+          "profile_values"
+        ]
+      }
+    }
+  ]
+}

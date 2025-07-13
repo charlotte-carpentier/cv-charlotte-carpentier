@@ -1,6 +1,7 @@
 {# ===========================================================
    @MOLECULES - LIST-FORM
    - Organizes form inputs with radio and text fields
+   - Supports Netlify Forms integration
 =========================================================== #}
 
 {# Import atoms #}
@@ -30,7 +31,21 @@
     {% else %}
       {# Render list-form molecule #}
       <div class="list-form-container flex justify-center w-full">
-        <form class="list-form w-full max-w-sm sm:max-w-md flex flex-col gap-2.5" method="POST" action="#" novalidate>
+        <form class="list-form w-full max-w-sm sm:max-w-md flex flex-col gap-2.5" 
+              method="POST" 
+              {% if option.netlify %}
+              name="contact"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              {% else %}
+              action="#"
+              {% endif %}
+              novalidate>
+          
+          {% if option.netlify %}
+          {# Hidden honeypot field for spam protection #}
+          <input type="hidden" name="bot-field" />
+          {% endif %}
           
           {# Radio section #}
           {% if listFormData.radioName %}
@@ -69,7 +84,8 @@
     name: "contact_form",
     datas: molecules["list-form"]["list-forms"],
     radioDatas: atoms.radio.radios,
-    inputDatas: atoms.input.inputs
+    inputDatas: atoms.input.inputs,
+    netlify: true
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨

@@ -25,20 +25,12 @@ function initAvatarTooltip() {
   
   avatarContainer.appendChild(activeZone);
   
-activeZone.addEventListener('mouseenter', () => {
-    if (window.innerWidth >= 1024) { // lg breakpoint
-      tooltip.style.opacity = '1';
-      tooltip.style.visibility = 'visible';
-    }
-  });
-  
-  activeZone.addEventListener('mouseleave', () => {
-    tooltip.style.opacity = '0';
-    tooltip.style.visibility = 'hidden';
-  });
-  
-  activeZone.addEventListener('mousemove', (e) => {
-    if (window.innerWidth >= 1024) { // lg breakpoint
+  activeZone.addEventListener('mouseenter', (e) => {
+    if (window.innerWidth >= 1024) {
+      // Désactiver toutes les transitions temporairement
+      tooltip.style.transition = 'none';
+      
+      // Positionner immédiatement
       const tooltipRect = tooltip.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       const viewportWidth = window.innerWidth;
@@ -48,12 +40,50 @@ activeZone.addEventListener('mouseenter', () => {
       let y = e.clientY + 15;
       
       if (y + tooltipRect.height > viewportHeight - margin) {
-
         y = e.clientY - tooltipRect.height - 15;
       }
       
       if (x + tooltipRect.width > viewportWidth - margin) {
-
+        x = e.clientX - tooltipRect.width - 15;
+      }
+      
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+      tooltip.style.opacity = '1';
+      tooltip.style.visibility = 'visible';
+      
+      // Réactiver les transitions après un micro-délai
+      requestAnimationFrame(() => {
+        tooltip.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+      });
+    }
+  });
+  
+  activeZone.addEventListener('mouseleave', () => {
+    // Réactiver les transitions pour le fade out
+    tooltip.style.transition = 'opacity 0.3s ease, visibility 0.3s ease';
+    tooltip.style.opacity = '0';
+    tooltip.style.visibility = 'hidden';
+  });
+  
+  activeZone.addEventListener('mousemove', (e) => {
+    if (window.innerWidth >= 1024) {
+      // Désactiver transitions pour un suivi fluide
+      tooltip.style.transition = 'none';
+      
+      const tooltipRect = tooltip.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const viewportWidth = window.innerWidth;
+      const margin = 20;
+      
+      let x = e.clientX + 15;
+      let y = e.clientY + 15;
+      
+      if (y + tooltipRect.height > viewportHeight - margin) {
+        y = e.clientY - tooltipRect.height - 15;
+      }
+      
+      if (x + tooltipRect.width > viewportWidth - margin) {
         x = e.clientX - tooltipRect.width - 15;
       }
       

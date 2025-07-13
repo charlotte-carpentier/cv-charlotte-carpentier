@@ -515,7 +515,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  cursor: pointer;
+  cursor: default;
   transition: all 0.3s ease;
 }
 
@@ -919,12 +919,6 @@ body {
   height: 650px;
 }
 
-/* Focus state for accessibility */
-.avatar-tooltip-container:focus-within {
-  outline: 2px solid theme(--cc-green-light);
-  outline-offset: 2px;
-}
-
 /* ==========================================================================
    @ORGANISM - FOOTER
    - Full width footer container
@@ -1085,6 +1079,164 @@ body {
   
   .mobile-overlay-content {
     padding: 0.75rem 0rem;
+  }
+}
+
+/* ==========================================================================
+   @ORGANISM - SECTION-CONTACT
+   - Typography reset, button border adjustments and gradient separator
+   - Tailwind classes handle all layout, spacing, and responsive behavior
+   ========================================================================== */
+
+/* Typography reset inside section-contact */
+.section-contact .section-contact-header h1,
+.section-contact .section-contact-header h2,
+.section-contact .section-contact-header h3,
+.section-contact .section-contact-header p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* Horizontal separator with gradient fade effect */
+.section-contact-separator-line {
+  width: 400px;
+  height: 3px; /* Mobile/tablet default */
+  background: linear-gradient(to right, transparent, theme(--cc-black) 20%, theme(--cc-black) 80%, transparent);
+}
+
+/* Desktop separator */
+@media (min-width: 1024px) {
+  .section-contact-separator-line {
+    height: 4px;
+  }
+}
+
+/* Mobile separator width adjustment */
+@media (max-width: 639px) {
+  .section-contact-separator-line {
+    width: 300px;
+  }
+}
+
+/* Button border thickness override for section-contact */
+.section-contact .section-contact-button .button {
+  border-width: 3px; /* Mobile/tablet default */
+}
+
+/* Desktop border override */
+@media (min-width: 1024px) {
+  .section-contact .section-contact-button .button {
+    border-width: 4px;
+  }
+}
+
+/* ==========================================================================
+   @ORGANISM - SECTION-PORTFOLIO
+   - Typography reset, carousel scrollbar hiding and dots navigation
+   - Tailwind classes handle all layout, spacing, and responsive behavior
+   ========================================================================== */
+
+/* Typography reset inside section-portfolio */
+.section-portfolio .section-portfolio-header h1,
+.section-portfolio .section-portfolio-header h2,
+.section-portfolio .section-portfolio-header h3,
+.section-portfolio .section-portfolio-header p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* Hide scrollbar for carousel while maintaining scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+/* Carousel dots styling */
+.portfolio-dot {
+  background-color: theme(--cc-white);
+  border: 3px solid theme(--cc-black);
+  cursor: pointer;
+}
+
+.portfolio-dot.active {
+  background-color: theme(--cc-green-light);
+  border: 3px solid theme(--cc-black);
+}
+
+.portfolio-dot:hover {
+  background-color: theme(--cc-green-light);
+}
+
+/* Responsive dots border */
+@media (max-width: 639px) {
+  .portfolio-dot {
+    border-width: 3px;
+  }
+  
+  .portfolio-dot.active {
+    border-width: 3px;
+  }
+}
+
+/* ==========================================================================
+   @ORGANISM - SECTION-TIMELINE
+   - Typography reset, gradient separator and content-block alignment
+   - Tailwind classes handle all layout, spacing, and responsive behavior
+   ========================================================================== */
+
+/* Typography reset inside section-timeline */
+.section-timeline .section-timeline-header h1,
+.section-timeline .section-timeline-header h2,
+.section-timeline .section-timeline-header h3,
+.section-timeline .section-timeline-header p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* Content-block chronology alignment fix */
+.section-timeline .content-block--chronology .content-block-chronology {
+  grid-template-columns: 80px 1fr; /* Fixed width for date column */
+  gap: 1.5rem; /* Increased gap between date column and content column */
+}
+
+/* Responsive alignment for smaller screens */
+@media (max-width: 639px) {
+  .section-timeline .content-block--chronology .content-block-chronology {
+    grid-template-columns: 70px 1fr; /* Smaller fixed width for mobile */
+  }
+}
+
+/* Horizontal separator with gradient fade effect before progress bar */
+.section-timeline-separator-line {
+  width: 400px;
+  height: 3px; /* Mobile/tablet default */
+  background: linear-gradient(to right, transparent, theme(--cc-black) 20%, theme(--cc-black) 80%, transparent);
+}
+
+/* Desktop separator */
+@media (min-width: 1024px) {
+  .section-timeline-separator-line {
+    height: 4px;
+  }
+}
+
+/* Mobile separator width adjustment */
+@media (max-width: 639px) {
+  .section-timeline-separator-line {
+    width: 300px;
   }
 }
 
@@ -1335,12 +1487,6 @@ body {
   }
 }
 
-/* Accessibility & performance */
-.skills-card:focus-within {
-  outline: 2px solid theme(--cc-green-light);
-  outline-offset: 2px;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .skills-card .caption-desktop {
     transition: none;
@@ -1361,9 +1507,7 @@ body {
   }
 }
 
-.section-contact {}
 .section-portfolio {}
-.section-timeline {}
 .tab-section {}
 
 /* ==========================================================================
