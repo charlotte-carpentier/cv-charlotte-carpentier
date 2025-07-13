@@ -3,16 +3,14 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "01-organisms/section-contact.njk" import renderSectionContact %}
+{% from "01-organisms/section-timeline.njk" import renderSectionTimeline %}
 
-{{ renderSectionContact({ 
-    name: "charlotte_contact",
-    datas: organisms["section-contact"].sections,
+{{ renderSectionTimeline({ 
+    name: "charlotte_knowledge",
+    datas: organisms["section-timeline"].sections,
     typographyDatas: atoms.typography.texts,
-    contactBlockDatas: molecules["contact-block"].contact_blocks,
-    listFormDatas: molecules["list-form"]["list-forms"],
-    iconDatas: atoms.icon.icons,
-    radioDatas: atoms.radio.radios,
-    inputDatas: atoms.input.inputs,
+    contentBlockDatas: molecules["content-block"]["content-blocks"],
+    progressBarDatas: molecules["progress-bar"]["progress-bars"],
+    imageDatas: atoms.image.images,
     buttonDatas: atoms.button.buttons
 }) }}

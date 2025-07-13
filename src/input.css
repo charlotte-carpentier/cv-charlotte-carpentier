@@ -1134,6 +1134,58 @@ body {
 }
 
 /* ==========================================================================
+   @ORGANISM - SECTION-TIMELINE
+   - Typography reset, gradient separator and content-block alignment
+   - Tailwind classes handle all layout, spacing, and responsive behavior
+   ========================================================================== */
+
+/* Typography reset inside section-timeline */
+.section-timeline .section-timeline-header h1,
+.section-timeline .section-timeline-header h2,
+.section-timeline .section-timeline-header h3,
+.section-timeline .section-timeline-header p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* Content-block chronology alignment fix */
+.section-timeline .content-block--chronology .content-block-chronology {
+  grid-template-columns: 80px 1fr; /* Fixed width for date column */
+  gap: 1.5rem; /* Increased gap between date column and content column */
+}
+
+/* Responsive alignment for smaller screens */
+@media (max-width: 639px) {
+  .section-timeline .content-block--chronology .content-block-chronology {
+    grid-template-columns: 70px 1fr; /* Smaller fixed width for mobile */
+  }
+}
+
+/* Horizontal separator with gradient fade effect before progress bar */
+.section-timeline-separator-line {
+  width: 400px;
+  height: 3px; /* Mobile/tablet default */
+  background: linear-gradient(to right, transparent, theme(--cc-black) 20%, theme(--cc-black) 80%, transparent);
+}
+
+/* Desktop separator */
+@media (min-width: 1024px) {
+  .section-timeline-separator-line {
+    height: 4px;
+  }
+}
+
+/* Mobile separator width adjustment */
+@media (max-width: 639px) {
+  .section-timeline-separator-line {
+    width: 300px;
+  }
+}
+
+/* ==========================================================================
    @ORGANISM - SKILLS-CARD
    - Styles complexes et variables custom uniquement
    ========================================================================== */
@@ -1400,9 +1452,7 @@ body {
   }
 }
 
-.section-contact {}
 .section-portfolio {}
-.section-timeline {}
 .tab-section {}
 
 /* ==========================================================================
