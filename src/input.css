@@ -1083,6 +1083,57 @@ body {
 }
 
 /* ==========================================================================
+   @ORGANISM - SECTION-CONTACT
+   - Typography reset, button border adjustments and gradient separator
+   - Tailwind classes handle all layout, spacing, and responsive behavior
+   ========================================================================== */
+
+/* Typography reset inside section-contact */
+.section-contact .section-contact-header h1,
+.section-contact .section-contact-header h2,
+.section-contact .section-contact-header h3,
+.section-contact .section-contact-header p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* Horizontal separator with gradient fade effect */
+.section-contact-separator-line {
+  width: 400px;
+  height: 3px; /* Mobile/tablet default */
+  background: linear-gradient(to right, transparent, theme(--cc-black) 20%, theme(--cc-black) 80%, transparent);
+}
+
+/* Desktop separator */
+@media (min-width: 1024px) {
+  .section-contact-separator-line {
+    height: 4px;
+  }
+}
+
+/* Mobile separator width adjustment */
+@media (max-width: 639px) {
+  .section-contact-separator-line {
+    width: 300px;
+  }
+}
+
+/* Button border thickness override for section-contact */
+.section-contact .section-contact-button .button {
+  border-width: 3px; /* Mobile/tablet default */
+}
+
+/* Desktop border override */
+@media (min-width: 1024px) {
+  .section-contact .section-contact-button .button {
+    border-width: 4px;
+  }
+}
+
+/* ==========================================================================
    @ORGANISM - SKILLS-CARD
    - Styles complexes et variables custom uniquement
    ========================================================================== */

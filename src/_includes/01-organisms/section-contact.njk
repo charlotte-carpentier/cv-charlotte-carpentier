@@ -1,76 +1,124 @@
-{#
-=========================
-     SECTION-CONTACT        
-=========================
-#}
+{# ===========================================================
+   @ORGANISMS - SECTION-CONTACT
+   - Contact section with title, contact info and form
+=========================================================== #}
 
-{% from "02-molecules/list-form.njk" import renderListForm %}
+{% macro renderSectionContact(option) %}
+  {# Import required molecules and atoms #}
+  {% from "02-molecules/contact-block.njk" import renderContactBlock %}
+  {% from "02-molecules/list-form.njk" import renderListForm %}
+  {% from "03-atoms/typography.njk" import renderTypography %}
+  {% from "03-atoms/button.njk" import renderButton %}
 
-{% macro renderSectionContact(options) %}
-  {# Check if data is provided #}
-  {% if options.datas %}
-    {# Get global styling and container styles #}
-    {% set globalStyle = options.datas.globalStyle %}
-    {% set containerStyle = options.datas.containerStyle | default('container mx-auto') %}
-    
-    {# Find specific section configuration #}
-    {% set sectionData = null %}
-    {% if options.name %}
-      {% for section in options.datas.sections %}
-        {% if section.name == options.name %}
-          {% set sectionData = section %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-
-    {# Fallback to first section if not found #}
-    {% if not sectionData %}
-      {% set sectionData = options.datas.sections[0] %}
-    {% endif %}
-    
-    {# Render contact section with form #}
-    <section class="{{ globalStyle }} bg-[#2b3947] text-white py-8 {{ options.class | default('') }}">
-      <div class="{{ containerStyle }} grid grid-cols-6">
-        <div class="col-span-6 px-4 sm:px-0 sm:col-start-2 sm:col-span-4">
-          <div class="flex justify-center">
-            <div class="w-full lg:w-1/2 {{ sectionData.form.wrapperStyle }}">
-              {# Honeypot field for spam protection #}
-              <div aria-hidden="true" style="position: absolute; left: -9999px; top: -9999px;">
-                <input type="text" name="website" tabindex="-1" autocomplete="off">
-              </div>
-              
-              {# Call list-form component with simplified version #}
-              {{ renderListForm({
-                name: sectionData.form.name,
-                datas: options.listForms,
-                atoms: options.atoms
-              }) }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  {# Check if datas is provided #}
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No section-contact configuration provided</span>
   {% else %}
-    <span class="text-red-500">Section contact data not found</span>
+    {# Retrieve section-contact configuration #}
+    {% set sectionsConfig = option.datas %}
+    {% set sectionName = option.name %}
+    
+    {# Find the specific section by name #}
+    {% set sectionData = null %}
+    {% for section in sectionsConfig %}
+      {% if section.name == sectionName %}
+        {% set sectionData = section %}
+      {% endif %}
+    {% endfor %}
+
+    {# Fallback if section not found #}
+    {% if not sectionData %}
+      <span class="text-red-500">Section-contact not found: {{ sectionName }}</span>
+    {% else %}
+      {# Build CSS classes from section name #}
+      {% set cssClasses = 'section-contact' %}
+      
+      {# Add any additional classes #}
+      {% if option.class %}
+        {% set cssClasses = cssClasses ~ ' ' ~ option.class %}
+      {% endif %}
+      
+      {# Section container #}
+      <section class="{{ cssClasses }} w-full bg-white" id="contact">
+        
+        {# Section content with responsive padding and max-width #}
+        <div class="section-contact-content px-6 py-12 lg:px-24 lg:py-16 max-w-prose mx-auto">
+          
+          {# Section header with system gaps #}
+          <div class="section-contact-header mb-4 lg:mb-12 text-center">
+            {{ renderTypography({ 
+                name: sectionData.header.title,
+                datas: option.typographyDatas
+            }) }}
+          </div>
+          
+          {# Section content container with reduced gaps #}
+          <div class="section-contact-body flex flex-col gap-2 lg:gap-6">
+            
+            {# Contact information block - centered container with left-aligned text #}
+            <div class="section-contact-info flex justify-center">
+              <div class="text-left">
+                {{ renderContactBlock({ 
+                    name: sectionData.content.contact_block,
+                    datas: option.contactBlockDatas,
+                    iconDatas: option.iconDatas,
+                    typographyDatas: option.typographyDatas
+                }) }}
+              </div>
+            </div>
+            
+            {# Horizontal separator with gradient #}
+            <div class="section-contact-separator flex justify-center">
+              <div class="section-contact-separator-line"></div>
+            </div>
+            
+            {# Contact form with Netlify integration #}
+            <div class="section-contact-form">
+              {{ renderListForm({ 
+                  name: sectionData.content.form,
+                  datas: option.listFormDatas,
+                  radioDatas: option.radioDatas,
+                  inputDatas: option.inputDatas,
+                  netlify: true
+              }) }}
+              
+              {# Form submit button with reduced spacing #}
+              <div class="section-contact-button mt-2 lg:mt-6 flex justify-center">
+                {{ renderButton({ 
+                    name: sectionData.content.button,
+                    datas: option.buttonDatas,
+                    type: "submit"
+                }) }}
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </section>
+    {% endif %}
   {% endif %}
 {% endmacro %}
 
-
-{#
-============================
-Summon HAT Components Wisely
-============================
-
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
 1. Import the macro at the top of your page
 {% from "01-organisms/section-contact.njk" import renderSectionContact %}
 
-2. Call a specific section-contact by its name
+2. Call the section-contact
 {{ renderSectionContact({ 
-    name: "default",
-    datas: organisms["section-contacts"],
-    listForms: molecules["list-forms"],
-    atoms: atoms
+    name: "charlotte_contact",
+    datas: organisms["section-contact"].sections,
+    typographyDatas: atoms.typography.texts,
+    contactBlockDatas: molecules["contact-block"].contact_blocks,
+    listFormDatas: molecules["list-form"]["list-forms"],
+    iconDatas: atoms.icon.icons,
+    radioDatas: atoms.radio.radios,
+    inputDatas: atoms.input.inputs,
+    buttonDatas: atoms.button.buttons
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-#}
+=========================================================== #}
