@@ -3,14 +3,13 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "01-organisms/section-timeline.njk" import renderSectionTimeline %}
+{% from "01-organisms/section-portfolio.njk" import renderSectionPortfolio %}
 
-{{ renderSectionTimeline({ 
-    name: "charlotte_knowledge",
-    datas: organisms["section-timeline"].sections,
+{{ renderSectionPortfolio({ 
+    name: "charlotte_missions",
+    datas: organisms["section-portfolio"].sections,
     typographyDatas: atoms.typography.texts,
     contentBlockDatas: molecules["content-block"]["content-blocks"],
-    progressBarDatas: molecules["progress-bar"]["progress-bars"],
     imageDatas: atoms.image.images,
     buttonDatas: atoms.button.buttons
 }) }}

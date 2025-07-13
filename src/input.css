@@ -1134,6 +1134,61 @@ body {
 }
 
 /* ==========================================================================
+   @ORGANISM - SECTION-PORTFOLIO
+   - Typography reset, carousel scrollbar hiding and dots navigation
+   - Tailwind classes handle all layout, spacing, and responsive behavior
+   ========================================================================== */
+
+/* Typography reset inside section-portfolio */
+.section-portfolio .section-portfolio-header h1,
+.section-portfolio .section-portfolio-header h2,
+.section-portfolio .section-portfolio-header h3,
+.section-portfolio .section-portfolio-header p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/* Hide scrollbar for carousel while maintaining scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+/* Carousel dots styling */
+.portfolio-dot {
+  background-color: theme(--cc-white);
+  border: 3px solid theme(--cc-black);
+  cursor: pointer;
+}
+
+.portfolio-dot.active {
+  background-color: theme(--cc-green-light);
+  border: 3px solid theme(--cc-black);
+}
+
+.portfolio-dot:hover {
+  background-color: theme(--cc-green-light);
+}
+
+/* Responsive dots border */
+@media (max-width: 639px) {
+  .portfolio-dot {
+    border-width: 3px;
+  }
+  
+  .portfolio-dot.active {
+    border-width: 3px;
+  }
+}
+
+/* ==========================================================================
    @ORGANISM - SECTION-TIMELINE
    - Typography reset, gradient separator and content-block alignment
    - Tailwind classes handle all layout, spacing, and responsive behavior
