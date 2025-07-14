@@ -3,13 +3,24 @@ permalink: "/"
 layout: '00-core/base.njk'
 ---
 
-{% from "01-organisms/section-portfolio.njk" import renderSectionPortfolio %}
+{% from "01-organisms/tab-sections.njk" import renderTabSections %}
 
-{{ renderSectionPortfolio({ 
-    name: "charlotte_missions",
-    datas: organisms["section-portfolio"].sections,
+{{ renderTabSections({ 
+    name: "charlotte_main",
+    datas: organisms["tab-sections"]["tab-sections"],
+    tabMenuDatas: molecules["tab-menu"].tab_menus,
+    linkDatas: atoms.link.links,
+    portfolioDatas: organisms["section-portfolio"].sections,
+    timelineDatas: organisms["section-timeline"].sections,
+    contactDatas: organisms["section-contact"].sections,
     typographyDatas: atoms.typography.texts,
     contentBlockDatas: molecules["content-block"]["content-blocks"],
+    contactBlockDatas: molecules["contact-block"].contact_blocks,
+    listFormDatas: molecules["list-form"]["list-forms"],
+    progressBarDatas: molecules["progress-bar"]["progress-bars"],
     imageDatas: atoms.image.images,
+    iconDatas: atoms.icon.icons,
+    radioDatas: atoms.radio.radios,
+    inputDatas: atoms.input.inputs,
     buttonDatas: atoms.button.buttons
 }) }}

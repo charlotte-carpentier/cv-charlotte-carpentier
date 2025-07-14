@@ -1,0 +1,153 @@
+{# ===========================================================
+   @ORGANISMS - TAB-SECTIONS
+   - Main sections container with navigation and scroll cursor
+=========================================================== #}
+
+{% macro renderTabSections(option) %}
+  {# Import required organisms and molecules #}
+  {% from "01-organisms/section-portfolio.njk" import renderSectionPortfolio %}
+  {% from "01-organisms/section-timeline.njk" import renderSectionTimeline %}
+  {% from "01-organisms/section-contact.njk" import renderSectionContact %}
+  {% from "02-molecules/tab-menu.njk" import renderTabMenu %}
+
+  {# Check if datas is provided #}
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No tab-sections configuration provided</span>
+  {% else %}
+    {# Retrieve tab-sections configuration #}
+    {% set tabSectionsConfig = option.datas %}
+    {% set tabSectionsName = option.name %}
+    
+    {# Find the specific tab-sections by name #}
+    {% set tabSectionsData = null %}
+    {% for tabSections in tabSectionsConfig %}
+      {% if tabSections.name == tabSectionsName %}
+        {% set tabSectionsData = tabSections %}
+      {% endif %}
+    {% endfor %}
+
+    {# Fallback if tab-sections not found #}
+    {% if not tabSectionsData %}
+      <span class="text-red-500">Tab-sections not found: {{ tabSectionsName }}</span>
+    {% else %}
+      {# Build CSS classes from tab-sections name #}
+      {% set cssClasses = 'tab-sections' %}
+      
+      {# Add any additional classes #}
+      {% if option.class %}
+        {% set cssClasses = cssClasses ~ ' ' ~ option.class %}
+      {% endif %}
+      
+      {# Tab-sections container #}
+      <div class="{{ cssClasses }} w-full" id="main-tab-sections">
+        
+        {# Navigation menu - hidden on mobile #}
+        <div class="tab-sections-navigation hidden sm:block">
+          {{ renderTabMenu({ 
+              name: tabSectionsData.navigation.menu,
+              datas: option.tabMenuDatas,
+              linkDatas: option.linkDatas
+          }) }}
+        </div>
+        
+        {# Main content container with borders and gradient lines #}
+        <div class="tab-sections-container relative flex justify-center">
+          
+          {# Content wrapper with borders and scroll area - Fixed dimensions #}
+          <div class="tab-sections-content border-t-4 border-l-4 border-r-4 border-black sm:border-t-3 sm:border-l-3 sm:border-r-3 lg:border-t-4 lg:border-l-4 lg:border-r-4 relative overflow-y-auto scrollbar-hide w-[313px] h-auto sm:w-[633px] sm:h-auto lg:w-[488px] lg:h-[653px]">
+            
+            {# Gradient vertical lines - desktop only #}
+            <div class="tab-sections-gradient-lines hidden lg:block">
+              <div class="tab-sections-gradient-left"></div>
+              <div class="tab-sections-gradient-right"></div>
+            </div>
+            
+            {# Sections content with padding removed - sections handle their own spacing #}
+            <div class="tab-sections-sections">
+              
+              {# Portfolio section #}
+              {% for sectionConfig in tabSectionsData.sections %}
+                {% if sectionConfig.type == "portfolio" %}
+                  {{ renderSectionPortfolio({ 
+                      name: sectionConfig.name,
+                      datas: option.portfolioDatas,
+                      typographyDatas: option.typographyDatas,
+                      contentBlockDatas: option.contentBlockDatas,
+                      imageDatas: option.imageDatas,
+                      buttonDatas: option.buttonDatas,
+                      class: "tab-section-item"
+                  }) }}
+                {% elif sectionConfig.type == "timeline" %}
+                  {{ renderSectionTimeline({ 
+                      name: sectionConfig.name,
+                      datas: option.timelineDatas,
+                      typographyDatas: option.typographyDatas,
+                      contentBlockDatas: option.contentBlockDatas,
+                      progressBarDatas: option.progressBarDatas,
+                      imageDatas: option.imageDatas,
+                      buttonDatas: option.buttonDatas,
+                      class: "tab-section-item"
+                  }) }}
+                {% elif sectionConfig.type == "contact" %}
+                  {{ renderSectionContact({ 
+                      name: sectionConfig.name,
+                      datas: option.contactDatas,
+                      typographyDatas: option.typographyDatas,
+                      contactBlockDatas: option.contactBlockDatas,
+                      listFormDatas: option.listFormDatas,
+                      iconDatas: option.iconDatas,
+                      radioDatas: option.radioDatas,
+                      inputDatas: option.inputDatas,
+                      buttonDatas: option.buttonDatas,
+                      class: "tab-section-item"
+                  }) }}
+                {% endif %}
+              {% endfor %}
+              
+            </div>
+            
+          </div>
+          
+          {# Scroll cursor - desktop only, positioned relative to tab-sections-container #}
+          <div class="tab-sections-scroll-cursor hidden lg:block absolute w-5 h-full" style="top: 20px;">
+            <div class="scroll-cursor-track w-1 h-full bg-gray-200 relative">
+              <div class="scroll-cursor-thumb absolute top-0" id="scroll-cursor-thumb"></div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
+1. Import the macro at the top of your page
+{% from "01-organisms/tab-sections.njk" import renderTabSections %}
+
+2. Call the tab-sections
+{{ renderTabSections({ 
+    name: "charlotte_main",
+    datas: organisms["tab-sections"]["tab-sections"],
+    tabMenuDatas: molecules["tab-menu"].tab_menus,
+    linkDatas: atoms.link.links,
+    portfolioDatas: organisms["section-portfolio"].sections,
+    timelineDatas: organisms["section-timeline"].sections,
+    contactDatas: organisms["section-contact"].sections,
+    typographyDatas: atoms.typography.texts,
+    contentBlockDatas: molecules["content-block"]["content-blocks"],
+    contactBlockDatas: molecules["contact-block"].contact_blocks,
+    listFormDatas: molecules["list-form"]["list-forms"],
+    progressBarDatas: molecules["progress-bar"]["progress-bars"],
+    imageDatas: atoms.image.images,
+    iconDatas: atoms.icon.icons,
+    radioDatas: atoms.radio.radios,
+    inputDatas: atoms.input.inputs,
+    buttonDatas: atoms.button.buttons
+}) }}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+=========================================================== #}

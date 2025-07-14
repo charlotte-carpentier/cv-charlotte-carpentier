@@ -1507,8 +1507,120 @@ body {
   }
 }
 
-.section-portfolio {}
-.tab-section {}
+/* ==========================================================================
+   @ORGANISM - TAB-SECTIONS
+   - Fixed dimensions, gradient vertical lines and scroll cursor styling
+   - Tailwind classes handle all layout, spacing, and responsive behavior
+   ========================================================================== */
+
+/* Override section padding inside tab-sections for fixed dimensions */
+.tab-sections .tab-section-item .section-contact-content,
+.tab-sections .tab-section-item .section-timeline-content,
+.tab-sections .tab-section-item .section-portfolio-content {
+  padding: 1rem; /* Reduced padding for fixed container */
+  max-width: none; /* Remove max-width constraint */
+}
+
+/* Mobile specific padding adjustments */
+@media (max-width: 639px) {
+  .tab-sections .tab-section-item .section-contact-content,
+  .tab-sections .tab-section-item .section-timeline-content,
+  .tab-sections .tab-section-item .section-portfolio-content {
+    padding: 0.75rem;
+  }
+}
+
+/* Tablet specific padding adjustments */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .tab-sections .tab-section-item .section-contact-content,
+  .tab-sections .tab-section-item .section-timeline-content,
+  .tab-sections .tab-section-item .section-portfolio-content {
+    padding: 1.25rem;
+  }
+}
+
+/* Desktop specific padding adjustments */
+@media (min-width: 1024px) {
+  .tab-sections .tab-section-item .section-contact-content,
+  .tab-sections .tab-section-item .section-timeline-content,
+  .tab-sections .tab-section-item .section-portfolio-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Hide scrollbar for tab-sections content while maintaining scroll functionality */
+.tab-sections .scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.tab-sections .scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+/* Scroll cursor positioning - fixed spacing from content */
+.tab-sections-scroll-cursor {
+  top: 20px;
+  /* Position calculée dynamiquement en JS */
+}
+
+/* Gradient vertical lines - similar to skills-card */
+.tab-sections-gradient-left,
+.tab-sections-gradient-right {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, theme(--cc-black), theme(--cc-white));
+}
+
+.tab-sections-gradient-left {
+  left: 0;
+}
+
+.tab-sections-gradient-right {
+  right: 0;
+}
+
+/* Scroll cursor track styling */
+.scroll-cursor-track {
+  background: linear-gradient(to bottom, transparent, theme(--cc-grey-light) 10%, theme(--cc-grey-light) 90%, transparent);
+  border: none;
+  width: 4px;
+  height: 525px; /* Hauteur fixe du trait gris */
+  position: relative;
+}
+
+/* Scroll cursor thumb styling */
+.scroll-cursor-thumb {
+  background-color: theme(--cc-green-light);
+  border: 4px solid theme(--cc-black);
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  user-select: none;
+  width: 21px; /* Largeur fixe */
+  height: 56px; /* Hauteur fixe */
+  left: -8.5px; /* Centré sur la track 4px: (21-4)/2 = 8.5px */
+  transition: opacity 0.2s ease;
+}
+
+/* Responsive gradient lines for tablet */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .tab-sections-gradient-left,
+  .tab-sections-gradient-right {
+    width: 3px;
+  }
+}
+
+/* Mobile - hide gradient lines completely */
+@media (max-width: 639px) {
+  .tab-sections-gradient-left,
+  .tab-sections-gradient-right {
+    display: none;
+  }
+}
 
 /* ==========================================================================
    @ORGANISM - AVATAR-SKILLS-WRAPPER
@@ -1626,6 +1738,15 @@ body.charlotte-bg {
   z-index: 10;
 }
 
+/* Tab-sections layer - Main content containers */
+.tab-sections-container {
+  z-index: 15;
+}
+
+.tab-sections-content {
+  z-index: 16;
+}
+
 /* Elevated layer - Important UI elements */
 .avatar-tooltip-container {
   z-index: 50;
@@ -1656,6 +1777,19 @@ body.charlotte-bg {
 
 .header-mobile-overlay.active {
   z-index: 100;
+}
+
+/* Scroll cursor layer - Must be above all content */
+.tab-sections-scroll-cursor {
+  z-index: 200;
+}
+
+.scroll-cursor-track {
+  z-index: 201;
+}
+
+.scroll-cursor-thumb {
+  z-index: 202;
 }
 
 /* When burger menu is active, lower avatar-skills-wrapper */
