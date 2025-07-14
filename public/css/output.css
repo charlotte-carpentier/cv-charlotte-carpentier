@@ -640,14 +640,6 @@
     border-top-style: var(--tw-border-style);
     border-top-width: 4px;
   }
-  .border-r-4 {
-    border-right-style: var(--tw-border-style);
-    border-right-width: 4px;
-  }
-  .border-l-4 {
-    border-left-style: var(--tw-border-style);
-    border-left-width: 4px;
-  }
   .border-none {
     --tw-border-style: none;
     border-style: none;
@@ -1077,18 +1069,6 @@
       border-top-width: 3px;
     }
   }
-  .sm\:border-r-3 {
-    @media (width >= 40rem) {
-      border-right-style: var(--tw-border-style);
-      border-right-width: 3px;
-    }
-  }
-  .sm\:border-l-3 {
-    @media (width >= 40rem) {
-      border-left-style: var(--tw-border-style);
-      border-left-width: 3px;
-    }
-  }
   .sm\:p-2 {
     @media (width >= 40rem) {
       padding: calc(var(--spacing) * 2);
@@ -1356,18 +1336,6 @@
     @media (width >= 64rem) {
       border-top-style: var(--tw-border-style);
       border-top-width: 4px;
-    }
-  }
-  .lg\:border-r-4 {
-    @media (width >= 64rem) {
-      border-right-style: var(--tw-border-style);
-      border-right-width: 4px;
-    }
-  }
-  .lg\:border-l-4 {
-    @media (width >= 64rem) {
-      border-left-style: var(--tw-border-style);
-      border-left-width: 4px;
     }
   }
   .lg\:p-0 {
@@ -2371,22 +2339,43 @@ body {
     border-width: 6px;
   }
 }
-.tab-sections .tab-section-item .section-contact-content, .tab-sections .tab-section-item .section-timeline-content, .tab-sections .tab-section-item .section-portfolio-content {
+.tab-section-item {
+  display: none;
+}
+.tab-section-item:target {
+  display: block;
+}
+.tab-section-item[data-default="true"] {
+  display: block;
+}
+body:not([class*="portfolio"]) .tab-section-item[data-default="true"]:not(:target) {
+  display: none !important;
+}
+.tab-section-item[data-default="true"]:not(:target) {
+  display: none;
+}
+body:not(.has-hash) .tab-section-item[data-default="true"], .tab-section-item[data-default="true"]:target {
+  display: block;
+}
+.tab-section-item {
+  scroll-margin-top: 0;
+}
+.tab-sections .tab-section-content .section-contact-content, .tab-sections .tab-section-content .section-timeline-content, .tab-sections .tab-section-content .section-portfolio-content {
   padding: 1rem;
   max-width: none;
 }
 @media (max-width: 639px) {
-  .tab-sections .tab-section-item .section-contact-content, .tab-sections .tab-section-item .section-timeline-content, .tab-sections .tab-section-item .section-portfolio-content {
+  .tab-sections .tab-section-content .section-contact-content, .tab-sections .tab-section-content .section-timeline-content, .tab-sections .tab-section-content .section-portfolio-content {
     padding: 0.75rem;
   }
 }
 @media (min-width: 640px) and (max-width: 1023px) {
-  .tab-sections .tab-section-item .section-contact-content, .tab-sections .tab-section-item .section-timeline-content, .tab-sections .tab-section-item .section-portfolio-content {
+  .tab-sections .tab-section-content .section-contact-content, .tab-sections .tab-section-content .section-timeline-content, .tab-sections .tab-section-content .section-portfolio-content {
     padding: 1.25rem;
   }
 }
 @media (min-width: 1024px) {
-  .tab-sections .tab-section-item .section-contact-content, .tab-sections .tab-section-item .section-timeline-content, .tab-sections .tab-section-item .section-portfolio-content {
+  .tab-sections .tab-section-content .section-contact-content, .tab-sections .tab-section-content .section-timeline-content, .tab-sections .tab-section-content .section-portfolio-content {
     padding: 1.5rem;
   }
 }
@@ -2401,7 +2390,6 @@ body {
   top: 20px;
 }
 .tab-sections-gradient-left, .tab-sections-gradient-right {
-  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
@@ -2514,6 +2502,12 @@ body.charlotte-bg {
 .content-block--preview .content-block-button {
   z-index: 10;
 }
+.tab-sections-navigation {
+  z-index: 12;
+}
+.tab-menu {
+  z-index: 13;
+}
 .tab-sections-container {
   z-index: 15;
 }
@@ -2535,11 +2529,17 @@ body.charlotte-bg {
 .avatar-card-mobile .avatar-card-button, .avatar-card-mobile .avatar-card-buttons .button {
   z-index: 95;
 }
+.header {
+  z-index: 98;
+}
+.header-burger {
+  z-index: 99;
+}
 .skills-card .caption-container {
   z-index: 100;
 }
-.header-mobile-overlay.active {
-  z-index: 100;
+.header-mobile-overlay {
+  z-index: 110;
 }
 .tab-sections-scroll-cursor {
   z-index: 200;
@@ -2549,9 +2549,6 @@ body.charlotte-bg {
 }
 .scroll-cursor-thumb {
   z-index: 202;
-}
-.header-mobile-overlay.active ~ * .avatar-skills-wrapper, body:has(.header-mobile-overlay.active) .avatar-skills-wrapper {
-  z-index: 50;
 }
 .caption-container:hover .caption-title-desktop, .caption-container:focus-within .caption-title-desktop {
   z-index: 500;

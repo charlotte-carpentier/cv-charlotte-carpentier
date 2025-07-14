@@ -8,7 +8,7 @@
     },
     {
       "name": "tab_missions",
-      "href": "#missions", 
+      "href": "#portfolio", 
       "text": "Missions",
       "variant": "tab"
     },
@@ -24,7 +24,7 @@
       "text": "Parcours",
       "variant": "tab"
     },
-        {
+    {
       "name": "tab_knowledge",
       "href": "#knowledge",
       "text": "Savoirs",
@@ -73,7 +73,7 @@
       "variant": "external",
       "download": true
     },
-        {
+    {
       "name": "tab_legal",
       "href": "#legal",
       "text": "Mentions légales",

@@ -1509,41 +1509,76 @@ body {
 
 /* ==========================================================================
    @ORGANISM - TAB-SECTIONS
-   - Fixed dimensions, gradient vertical lines and scroll cursor styling
+   - Fixed dimensions, gradient vertical lines, scroll cursor and CSS :target navigation
    - Tailwind classes handle all layout, spacing, and responsive behavior
    ========================================================================== */
 
+/* CSS :target Navigation System */
+.tab-section-item {
+  display: none; /* Toutes les sections masquées par défaut */
+}
+
+.tab-section-item:target {
+  display: block; /* Section ciblée visible */
+}
+
+/* Section par défaut (portfolio) visible SEULEMENT si pas d'ancre ou si #portfolio */
+.tab-section-item[data-default="true"] {
+  display: block;
+}
+
+/* Masquer COMPLÈTEMENT la section par défaut dès qu'on a une ancre différente */
+body:not([class*="portfolio"]) .tab-section-item[data-default="true"]:not(:target) {
+  display: none !important;
+}
+
+/* Solution alternative plus simple - masquer portfolio si pas ciblée et qu'il y a une ancre */
+.tab-section-item[data-default="true"]:not(:target) {
+  display: none;
+}
+
+/* Portfolio visible SEULEMENT si pas d'ancre OU si #portfolio dans l'URL */
+body:not(.has-hash) .tab-section-item[data-default="true"],
+.tab-section-item[data-default="true"]:target {
+  display: block;
+}
+
+/* Empêcher le scroll automatique vers l'ancre */
+.tab-section-item {
+  scroll-margin-top: 0;
+}
+
 /* Override section padding inside tab-sections for fixed dimensions */
-.tab-sections .tab-section-item .section-contact-content,
-.tab-sections .tab-section-item .section-timeline-content,
-.tab-sections .tab-section-item .section-portfolio-content {
+.tab-sections .tab-section-content .section-contact-content,
+.tab-sections .tab-section-content .section-timeline-content,
+.tab-sections .tab-section-content .section-portfolio-content {
   padding: 1rem; /* Reduced padding for fixed container */
   max-width: none; /* Remove max-width constraint */
 }
 
 /* Mobile specific padding adjustments */
 @media (max-width: 639px) {
-  .tab-sections .tab-section-item .section-contact-content,
-  .tab-sections .tab-section-item .section-timeline-content,
-  .tab-sections .tab-section-item .section-portfolio-content {
+  .tab-sections .tab-section-content .section-contact-content,
+  .tab-sections .tab-section-content .section-timeline-content,
+  .tab-sections .tab-section-content .section-portfolio-content {
     padding: 0.75rem;
   }
 }
 
 /* Tablet specific padding adjustments */
 @media (min-width: 640px) and (max-width: 1023px) {
-  .tab-sections .tab-section-item .section-contact-content,
-  .tab-sections .tab-section-item .section-timeline-content,
-  .tab-sections .tab-section-item .section-portfolio-content {
+  .tab-sections .tab-section-content .section-contact-content,
+  .tab-sections .tab-section-content .section-timeline-content,
+  .tab-sections .tab-section-content .section-portfolio-content {
     padding: 1.25rem;
   }
 }
 
 /* Desktop specific padding adjustments */
 @media (min-width: 1024px) {
-  .tab-sections .tab-section-item .section-contact-content,
-  .tab-sections .tab-section-item .section-timeline-content,
-  .tab-sections .tab-section-item .section-portfolio-content {
+  .tab-sections .tab-section-content .section-contact-content,
+  .tab-sections .tab-section-content .section-timeline-content,
+  .tab-sections .tab-section-content .section-portfolio-content {
     padding: 1.5rem;
   }
 }
@@ -1567,7 +1602,6 @@ body {
 /* Gradient vertical lines - similar to skills-card */
 .tab-sections-gradient-left,
 .tab-sections-gradient-right {
-  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
@@ -1738,6 +1772,15 @@ body.charlotte-bg {
   z-index: 10;
 }
 
+/* Navigation layer - Tab menu positioning */
+.tab-sections-navigation {
+  z-index: 12;
+}
+
+.tab-menu {
+  z-index: 13;
+}
+
 /* Tab-sections layer - Main content containers */
 .tab-sections-container {
   z-index: 15;
@@ -1760,7 +1803,7 @@ body.charlotte-bg {
   z-index: 60;
 }
 
-/* Avatar-skills-wrapper positioning relative to burger menu */
+/* Avatar-skills-wrapper positioning */
 .avatar-skills-wrapper {
   z-index: 90;
 }
@@ -1770,13 +1813,23 @@ body.charlotte-bg {
   z-index: 95;
 }
 
+/* Header layer - Simple positioning since mobile overlay is now hidden */
+.header {
+  z-index: 98;
+}
+
+.header-burger {
+  z-index: 99; /* Peut être devant maintenant, pas de conflit */
+}
+
 /* High priority layer - Context-sensitive elements */
 .skills-card .caption-container {
   z-index: 100;
 }
 
-.header-mobile-overlay.active {
-  z-index: 100;
+/* Mobile overlay - Mobile uniquement, simplifié */
+.header-mobile-overlay {
+  z-index: 110;
 }
 
 /* Scroll cursor layer - Must be above all content */
@@ -1790,12 +1843,6 @@ body.charlotte-bg {
 
 .scroll-cursor-thumb {
   z-index: 202;
-}
-
-/* When burger menu is active, lower avatar-skills-wrapper */
-.header-mobile-overlay.active ~ * .avatar-skills-wrapper,
-body:has(.header-mobile-overlay.active) .avatar-skills-wrapper {
-  z-index: 50;
 }
 
 /* Active state layer - Hover and focus states */
