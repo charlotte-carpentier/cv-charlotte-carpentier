@@ -651,9 +651,6 @@
   .border-black {
     border-color: var(--color-black);
   }
-  .border-red-500 {
-    border-color: var(--color-red-500);
-  }
   .bg-gray-200 {
     background-color: var(--color-gray-200);
   }
@@ -819,9 +816,6 @@
   }
   .capitalize {
     text-transform: capitalize;
-  }
-  .underline {
-    text-decoration-line: underline;
   }
   .opacity-0 {
     opacity: 0%;
@@ -1536,15 +1530,14 @@ body {
   color: #000000;
   text-decoration: none;
   padding-bottom: 0.25rem;
-  border-bottom: 2px solid transparent;
 }
 .link--tab:hover {
   color: #4a7c59;
 }
 .link--tab.current, .link--tab[aria-current="page"] {
-  color: #4a7c59;
+  color: #4a7c59 !important;
   font-weight: bold;
-  border-bottom-color: #4a7c59;
+  border-bottom-color: #4a7c59 !important;
   pointer-events: none;
   cursor: default;
 }

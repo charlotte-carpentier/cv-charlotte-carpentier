@@ -1,5 +1,38 @@
-// Tab Navigation - Version ultra simple
+// Tab Navigation - Version avec gestion centralisée du current
 document.addEventListener('DOMContentLoaded', function() {
+  
+  // === GESTION CENTRALISÉE DU CURRENT ===
+  function initCurrentLinks() {
+    function updateAllCurrentLinks() {
+      const currentHash = window.location.hash || '#portfolio';
+      
+      console.log('Navigation - Current hash:', currentHash); // DEBUG
+      
+      // TOUS les liens de navigation (header + tab-menu + mobile)
+      const allNavigationLinks = document.querySelectorAll(`
+        .header-navigation .link--nav,
+        .header-mobile-overlay .link--tab,
+        .tab-menu .link--tab
+      `);
+      
+      allNavigationLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        
+        if (href === currentHash) {
+          link.classList.add('current');
+          console.log('Navigation - Added current to:', href, link); // DEBUG
+        } else {
+          link.classList.remove('current');
+        }
+      });
+    }
+    
+    // Mise à jour au chargement et au changement de hash
+    updateAllCurrentLinks();
+    window.addEventListener('hashchange', updateAllCurrentLinks);
+  }
+  
+  // === GESTION DES SECTIONS (existant) ===
   
   // Redirection par défaut
   if (!window.location.hash) {
@@ -141,4 +174,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     updateScrollbar();
   }
+  
+  // === INITIALISATION CENTRALISÉE ===
+  initCurrentLinks();
+  
+  console.log('Tab-sections with centralized current management initialized! 🎯');
 });
