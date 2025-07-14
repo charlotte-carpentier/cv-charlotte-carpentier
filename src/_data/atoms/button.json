@@ -6,11 +6,6 @@
       "variant": "primary"
     },
     {
-      "name": "button_visit_site",
-      "text": "Visitez ce site",
-      "variant": "primary"
-    },
-    {
       "name": "button_languages",
       "text": "Langages",
       "variant": "primary"

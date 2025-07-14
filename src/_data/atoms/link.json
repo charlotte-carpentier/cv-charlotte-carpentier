@@ -37,6 +37,30 @@
       "variant": "tab"
     },
     {
+      "name": "portfolio_openmind_site",
+      "href": "https://openmind.example.com",
+      "text": "Voir le site",
+      "variant": "portfolio-external",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "name": "portfolio_boat_rental_site",
+      "href": "https://manautic-location-bateau.com/",
+      "text": "Voir le site",
+      "variant": "portfolio-external",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "name": "portfolio_sophrologue_site",
+      "href": "https://thomascarpentier-sophrologue.fr/",
+      "text": "Voir le site",
+      "variant": "portfolio-external",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
       "name": "external_github",
       "href": "https://github.com/charlotte-carpentier",
       "text": "Mon GitHub",

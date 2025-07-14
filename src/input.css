@@ -321,6 +321,8 @@ body {
   color: theme(--cc-green-dark);
   font-weight: bold;
   border-bottom-color: theme(--cc-green-dark);
+  pointer-events: none;
+  cursor: default;
 }
 
 /* External link variant */
@@ -332,6 +334,45 @@ body {
 
 /* External link hover */
 .link--external:hover {
+  color: theme(--cc-green-dark);
+}
+
+/* Portfolio external link variant */
+.link--portfolio-external {
+  font-family: theme(--font-text);
+  color: theme(--cc-black);
+  text-decoration: none;
+  background-color: theme(--cc-white);
+  border: 3px solid theme(--cc-black);
+  padding: 0.5rem 1rem 0.375rem 1rem;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+/* Desktop border override */
+@media (min-width: 1024px) {
+  .link--portfolio-external {
+    border-width: 4px;
+  }
+}
+
+/* Portfolio external link hover */
+.link--portfolio-external:hover {
+  color: theme(--cc-green-dark);
+}
+
+/* Portfolio external link focus */
+.link--portfolio-external:focus {
+  outline: none;
+}
+
+.link--portfolio-external:focus-visible {
+  outline: 2px solid theme(--cc-green-dark);
+  outline-offset: 2px;
+}
+
+/* Portfolio external link active */
+.link--portfolio-external:active {
   color: theme(--cc-green-dark);
 }
 
@@ -1552,7 +1593,6 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 .tab-sections .tab-section-content .section-contact-content,
 .tab-sections .tab-section-content .section-timeline-content,
 .tab-sections .tab-section-content .section-portfolio-content {
-  padding: 1rem; /* Reduced padding for fixed container */
   max-width: none; /* Remove max-width constraint */
 }
 
@@ -1648,11 +1688,11 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   }
 }
 
-/* Mobile - hide gradient lines completely */
+/* Mobile - gradient lines 3px */
 @media (max-width: 639px) {
   .tab-sections-gradient-left,
   .tab-sections-gradient-right {
-    display: none;
+    width: 3px;
   }
 }
 
@@ -1746,6 +1786,13 @@ body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
   }
+}
+
+/* Sections avec fond dégradé blanc → transparent */
+.section-portfolio,
+.section-timeline,
+.section-contact {
+  background: linear-gradient(to bottom, theme(--cc-white), theme(--cc-white) 60%, transparent);
 }
 
 /* ==========================================================================

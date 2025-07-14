@@ -711,6 +711,9 @@
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
+  .pb-0 {
+    padding-bottom: calc(var(--spacing) * 0);
+  }
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
   }
@@ -1195,9 +1198,9 @@
       margin-bottom: calc(var(--spacing) * 2);
     }
   }
-  .lg\:mb-12 {
+  .lg\:mb-6 {
     @media (width >= 64rem) {
-      margin-bottom: calc(var(--spacing) * 12);
+      margin-bottom: calc(var(--spacing) * 6);
     }
   }
   .lg\:block {
@@ -1542,6 +1545,8 @@ body {
   color: #4a7c59;
   font-weight: bold;
   border-bottom-color: #4a7c59;
+  pointer-events: none;
+  cursor: default;
 }
 .link--external {
   font-family: 'Manjari', sans-serif;
@@ -1549,6 +1554,34 @@ body {
   text-decoration: underline;
 }
 .link--external:hover {
+  color: #4a7c59;
+}
+.link--portfolio-external {
+  font-family: 'Manjari', sans-serif;
+  color: #000000;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  padding: 0.5rem 1rem 0.375rem 1rem;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+@media (min-width: 1024px) {
+  .link--portfolio-external {
+    border-width: 4px;
+  }
+}
+.link--portfolio-external:hover {
+  color: #4a7c59;
+}
+.link--portfolio-external:focus {
+  outline: none;
+}
+.link--portfolio-external:focus-visible {
+  outline: 2px solid #4a7c59;
+  outline-offset: 2px;
+}
+.link--portfolio-external:active {
   color: #4a7c59;
 }
 .radio-group-label {
@@ -2361,7 +2394,6 @@ body:not(.has-hash) .tab-section-item[data-default="true"], .tab-section-item[da
   scroll-margin-top: 0;
 }
 .tab-sections .tab-section-content .section-contact-content, .tab-sections .tab-section-content .section-timeline-content, .tab-sections .tab-section-content .section-portfolio-content {
-  padding: 1rem;
   max-width: none;
 }
 @media (max-width: 639px) {
@@ -2428,7 +2460,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"], .tab-section-item[da
 }
 @media (max-width: 639px) {
   .tab-sections-gradient-left, .tab-sections-gradient-right {
-    display: none;
+    width: 3px;
   }
 }
 @media (min-width: 1024px) {
@@ -2489,6 +2521,9 @@ body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
   }
+}
+.section-portfolio, .section-timeline, .section-contact {
+  background: linear-gradient(to bottom, #ffffff, #ffffff 60%, transparent);
 }
 .main-content {
   z-index: 1;

@@ -35,6 +35,8 @@
         {% set cssClasses = cssClasses ~ ' text-code-mobile sm:text-code' %}
       {% elif variant == 'external' %}
         {% set cssClasses = cssClasses ~ ' text-p-mobile sm:text-p' %}
+      {% elif variant == 'portfolio-external' %}
+        {% set cssClasses = cssClasses ~ ' text-p-mobile sm:text-p font-bold' %}
       {% endif %}
       
       {# Check if current page/section - add current state #}
@@ -60,8 +62,12 @@
         {% if linkData.target %}target="{{ linkData.target }}"{% endif %}
         {% if linkData.download %}download{% endif %}
         {% if linkData.rel %}rel="{{ linkData.rel }}"{% endif %}
+        {% if linkData.variant == 'portfolio-external' %}title="Ouvre dans un nouvel onglet"{% endif %}
       >
         {{ linkData.text | safe }}
+        {% if linkData.variant == 'portfolio-external' %}
+          <span class="ml-1" aria-hidden="true">↗</span>
+        {% endif %}
       </a>
     {% endif %}
   {% endif %}

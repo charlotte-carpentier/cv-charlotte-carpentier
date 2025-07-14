@@ -44,7 +44,7 @@
         <div class="section-timeline-content px-6 py-12 lg:px-24 lg:py-16 max-w-prose mx-auto">
           
           {# Section header with system gaps #}
-          <div class="section-timeline-header mb-4 lg:mb-12 text-center">
+          <div class="section-timeline-header mb-2 lg:mb-6 text-center">
             {{ renderTypography({ 
                 name: sectionData.header.title,
                 datas: option.typographyDatas
@@ -63,7 +63,8 @@
                       datas: option.contentBlockDatas,
                       typographyDatas: option.typographyDatas,
                       imageDatas: option.imageDatas,
-                      buttonDatas: option.buttonDatas
+                      buttonDatas: option.buttonDatas,
+                      linkDatas: option.linkDatas
                   }) }}
                 </div>
               {% endfor %}
@@ -108,7 +109,8 @@
     contentBlockDatas: molecules["content-block"]["content-blocks"],
     progressBarDatas: molecules["progress-bar"]["progress-bars"],
     imageDatas: atoms.image.images,
-    buttonDatas: atoms.button.buttons
+    buttonDatas: atoms.button.buttons,
+    linkDatas: atoms.link.links
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
