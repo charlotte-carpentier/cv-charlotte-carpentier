@@ -66,8 +66,7 @@
             }) }}
           </div>
           
-          {# Mobile burger button - Conditionnel #}
-          {% if not option.isDesktop %}
+          {# Mobile burger button - Mobile uniquement #}
           <button 
             class="header-burger bg-transparent border-none cursor-pointer w-12 h-12 relative flex sm:hidden items-center justify-center" 
             id="burger-toggle"
@@ -87,13 +86,11 @@
               }) }}
             </span>
           </button>
-          {% endif %}
           
         </div>
         
-        {# Mobile overlay menu - Conditionnel #}
-        {% if not option.isDesktop and headerData.mobile.overlay %}
-        <div class="header-mobile-overlay fixed left-0 w-full opacity-0 invisible transform -translate-y-5 transition-opacity duration-300 ease-linear box-border" id="mobile-overlay">
+        {# Mobile overlay menu - Mobile uniquement #}
+        <div class="header-mobile-overlay fixed left-0 w-full opacity-0 invisible transform -translate-y-5 transition-opacity duration-300 ease-linear box-border block sm:hidden" id="mobile-overlay">
           <div class="mobile-overlay-content px-8 py-4 sm:px-4">
             {# Render the tab-menu mobile version inside overlay #}
             {{ renderTabMenu({ 
@@ -103,7 +100,6 @@
             }) }}
           </div>
         </div>
-        {% endif %}
         
       </header>
     {% endif %}

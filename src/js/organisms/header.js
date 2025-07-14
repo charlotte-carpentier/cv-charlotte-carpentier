@@ -51,10 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Close menu when clicking on links
+        // Close menu when clicking on links (laisser la navigation se faire naturellement)
         const mobileLinks = mobileOverlay.querySelectorAll('.link--tab');
         mobileLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+            link.addEventListener('click', function() {
+                // Juste fermer le menu, laisser la navigation :target se faire
+                closeMobileMenu();
+            });
         });
         
         // Close menu on escape key
@@ -72,72 +75,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Active link highlighting
+    // Active link highlighting - version simplifiée
     function initActiveLinks() {
-        const currentPath = window.location.pathname;
-        const currentHash = window.location.hash;
-        
-        // Desktop link
-        const desktopLinks = document.querySelectorAll('.header-navigation .link--nav');
-        desktopLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && (href === currentPath || href === currentHash)) {
-                link.classList.add('current');
-            }
-        });
-        
-        // Mobile links
-        const mobileLinks = document.querySelectorAll('.header-mobile-overlay .link--tab');
-        mobileLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && (href === currentPath || href === currentHash)) {
-                link.classList.add('current');
-            }
-        });
-    }
-    
-    // Smooth scroll for anchor links
-    function initSmoothScroll() {
-        const anchorLinks = document.querySelectorAll('.header-navigation .link--nav[href^="#"], .header-mobile-overlay .link--tab[href^="#"]');
-        
-        anchorLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    e.preventDefault();
-                    
-                    // Close mobile menu if open
-                    const mobileOverlay = document.getElementById('mobile-overlay');
-                    if (mobileOverlay && mobileOverlay.classList.contains('active')) {
-                        const burgerToggle = document.getElementById('burger-toggle');
-                        burgerToggle.setAttribute('aria-expanded', 'false');
-                        mobileOverlay.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                    
-                    // Smooth scroll to target
-                    const headerHeight = document.getElementById('main-header').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active link
-                    document.querySelectorAll('.header-navigation .link--nav, .header-mobile-overlay .link--tab').forEach(l => l.classList.remove('current'));
-                    this.classList.add('current');
+        // Mise à jour des liens actifs basée sur le hash
+        function updateActiveLinks() {
+            const currentHash = window.location.hash || '#portfolio'; // portfolio par défaut
+            
+            // Desktop links
+            const desktopLinks = document.querySelectorAll('.header-navigation .link--nav');
+            desktopLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentHash) {
+                    link.classList.add('current');
+                } else {
+                    link.classList.remove('current');
                 }
             });
-        });
+            
+            // Mobile links
+            const mobileLinks = document.querySelectorAll('.header-mobile-overlay .link--tab');
+            mobileLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentHash) {
+                    link.classList.add('current');
+                } else {
+                    link.classList.remove('current');
+                }
+            });
+        }
+        
+        // Mise à jour au chargement et au changement de hash
+        updateActiveLinks();
+        window.addEventListener('hashchange', updateActiveLinks);
     }
     
-    // Initialize all header functionality
+    // SUPPRIMÉ : initSmoothScroll() qui interfère avec la navigation :target
+    // La navigation est maintenant gérée par le système :target dans tab-sections
+    
+    // Initialize header functionality
     initMobileMenu();
     initActiveLinks();
-    initSmoothScroll();
     
     console.log('Header Charlotte organism initialized successfully! ⚔️✨');
     
