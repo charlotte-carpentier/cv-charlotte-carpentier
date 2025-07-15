@@ -1550,6 +1550,7 @@ body {
 /* ==========================================================================
    @ORGANISM - TAB-SECTIONS
    - Fixed dimensions, gradient vertical lines, scroll cursor and CSS :target navigation
+   - Anti-flicker scroll cursor system
    - Tailwind classes handle all layout, spacing, and responsive behavior
    ========================================================================== */
 
@@ -1632,10 +1633,23 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   display: none; /* Chrome, Safari, and Opera */
 }
 
-/* Scroll cursor positioning - fixed spacing from content */
+/* Scroll cursor positioning - ANTI-CLIGNOTEMENT */
 .tab-sections-scroll-cursor {
   top: 20px;
-  /* Position calculée dynamiquement en JS */
+  opacity: 0; /* Masqué par défaut */
+  visibility: hidden; /* Complètement invisible */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition douce */
+}
+
+/* Classe JS pour afficher quand prêt */
+.tab-sections-scroll-cursor.ready {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Alternative: Classe pour masquer complètement */
+.tab-sections-scroll-cursor.hidden {
+  display: none !important;
 }
 
 /* Gradient vertical lines - similar to skills-card */
@@ -1656,16 +1670,22 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   right: 0;
 }
 
-/* Scroll cursor track styling */
+/* Scroll cursor track styling - ANTI-CLIGNOTEMENT */
 .scroll-cursor-track {
   background: linear-gradient(to bottom, transparent, theme(--cc-grey-light) 10%, theme(--cc-grey-light) 90%, transparent);
   border: none;
   width: 4px;
   height: 525px; /* Hauteur fixe du trait gris */
   position: relative;
+  opacity: 0; /* Masquée par défaut */
+  transition: opacity 0.3s ease;
 }
 
-/* Scroll cursor thumb styling */
+.tab-sections-scroll-cursor.ready .scroll-cursor-track {
+  opacity: 1;
+}
+
+/* Scroll cursor thumb styling - ANTI-CLIGNOTEMENT */
 .scroll-cursor-thumb {
   background-color: theme(--cc-green-light);
   border: 4px solid theme(--cc-black);
@@ -1677,6 +1697,12 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   height: 56px; /* Hauteur fixe */
   left: -8.5px; /* Centré sur la track 4px: (21-4)/2 = 8.5px */
   transition: opacity 0.2s ease;
+  opacity: 0; /* Masqué par défaut */
+}
+
+/* Thumb visible quand le container parent est ready */
+.tab-sections-scroll-cursor.ready .scroll-cursor-thumb {
+  opacity: 1;
 }
 
 /* Responsive gradient lines for tablet */
