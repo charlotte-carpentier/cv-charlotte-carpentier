@@ -1,7 +1,7 @@
 /**
  * =========================
  *     AVATAR-CARD ORGANISM
- *     Clean tooltip zone with smart positioning      
+ *     Clean tooltip zone with smart positioning + Mobile Skills Interaction      
  * =========================
  */
 
@@ -100,4 +100,77 @@ function initAvatarTooltip() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', initAvatarTooltip);
+/**
+ * Mobile Skills Cards Interaction - EVENT DELEGATION PATTERN
+ * Avatar buttons emit custom events for skills cards
+ */
+function initMobileSkillsInteraction() {
+  // Only run on mobile
+  function isMobile() {
+    return window.innerWidth < 640;
+  }
+  
+  if (!isMobile()) return;
+  
+  // Get all mobile buttons - Avatar-card buttons only
+  const buttons = document.querySelectorAll('.avatar-card-mobile [data-button] .button');
+  
+  // Setup button click listeners - EMIT EVENTS ONLY
+  buttons.forEach(button => {
+    const buttonContainer = button.closest('[data-button]');
+    const buttonId = buttonContainer ? buttonContainer.getAttribute('data-button') : null;
+    
+    if (buttonId) {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Emit custom event for skills cards to listen
+        const skillsEvent = new CustomEvent('avatar:skillsToggle', {
+          detail: {
+            buttonId: buttonId,
+            timestamp: Date.now()
+          },
+          bubbles: true
+        });
+        
+        // Dispatch from document for global listening
+        document.dispatchEvent(skillsEvent);
+        
+        console.log(`Avatar Card: Emitted skillsToggle event for ${buttonId} 📡`);
+      });
+    }
+  });
+  
+  console.log('Avatar Card: Mobile button events initialized! 📱✨');
+}
+
+// Handle responsive changes - SIMPLIFIED
+function handleResize() {
+  if (window.innerWidth >= 640) {
+    // Desktop/tablet - emit event to show all skills cards
+    const showAllEvent = new CustomEvent('avatar:showAllSkills', {
+      detail: { reason: 'responsive-desktop' },
+      bubbles: true
+    });
+    document.dispatchEvent(showAllEvent);
+  } else {
+    // Mobile - reinitialize button interaction
+    initMobileSkillsInteraction();
+    
+    // Emit event to hide all skills cards initially
+    const hideAllEvent = new CustomEvent('avatar:hideAllSkills', {
+      detail: { reason: 'responsive-mobile' },
+      bubbles: true
+    });
+    document.dispatchEvent(hideAllEvent);
+  }
+}
+
+// Initialize both systems
+document.addEventListener('DOMContentLoaded', function() {
+  initAvatarTooltip();
+  initMobileSkillsInteraction();
+  
+  // Handle window resize for responsive behavior - AJOUT
+  window.addEventListener('resize', handleResize);
+});

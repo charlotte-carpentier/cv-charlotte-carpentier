@@ -13,11 +13,11 @@
     <span class="text-red-500">Error: Missing avatar or skills configuration</span>
   {% else %}
     
-    {# Desktop version #}
+    {# Desktop version - NETTOYÉ #}
     <div class="avatar-skills-wrapper hidden lg:block lg:relative lg:grid lg:grid-cols-2 lg:gap-2 lg:max-w-4xl lg:mx-auto lg:p-2" data-component="avatar-skills-wrapper-desktop">
       
-      {# Avatar Card - Absolute center position #}
-      <div class="avatar-skills-avatar lg:absolute lg:top-[53.9%] lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 lg:z-10 lg:pointer-events-none">
+      {# Avatar Card - Positionnement géré par avatar-card lui-même - SIMPLIFIÉ #}
+      <div class="avatar-skills-avatar">
         {{ renderAvatarCard({ 
           name: option.avatar_name or "charlotte_main",
           datas: option.avatar_datas,
@@ -80,7 +80,7 @@
       
     </div>
     
-    {# Tablet version #}
+    {# Tablet version - SIMPLIFIÉ #}
     <div class="avatar-skills-wrapper hidden sm:block lg:hidden flex flex-col gap-4 max-w-3xl mx-auto p-4" data-component="avatar-skills-wrapper-tablet">
       
       <div class="avatar-skills-avatar flex justify-center mb-4">
@@ -146,7 +146,7 @@
       
     </div>
     
-    {# Mobile version - Interactive skills cards #}
+    {# Mobile version - Interactive skills cards - NETTOYÉ #}
     <div class="avatar-skills-wrapper block sm:hidden flex flex-col gap-4 max-w-sm mx-auto p-4" data-component="avatar-skills-wrapper-mobile">
       
       <div class="avatar-skills-avatar flex justify-center">
@@ -160,8 +160,8 @@
         }) }}
       </div>
       
-      {# Skills cards mobile - TOUTES VISIBLES pour démarrer #}
-      <div id="skills-card-languages-mobile" class="skills-card-container block w-full mb-4">
+      {# Skills cards mobile - Containers autonomes avec classes de gestion - SIMPLIFIÉ #}
+      <div id="skills-card-languages-mobile" class="skills-card-container w-full mb-4">
         {{ renderSkillsCard({ 
           name: "languages_card",
           datas: option.skills_datas,
@@ -172,7 +172,7 @@
         }) }}
       </div>
       
-      <div id="skills-card-hard-skills-mobile" class="skills-card-container block w-full mb-4">
+      <div id="skills-card-hard-skills-mobile" class="skills-card-container w-full mb-4">
         {{ renderSkillsCard({ 
           name: "hard_skills_card",
           datas: option.skills_datas,
@@ -183,7 +183,7 @@
         }) }}
       </div>
       
-      <div id="skills-card-soft-skills-mobile" class="skills-card-container block w-full mb-4">
+      <div id="skills-card-soft-skills-mobile" class="skills-card-container w-full mb-4">
         {{ renderSkillsCard({ 
           name: "soft_skills_card",
           datas: option.skills_datas,
@@ -194,7 +194,7 @@
         }) }}
       </div>
       
-      <div id="skills-card-interests-mobile" class="skills-card-container block w-full mb-4">
+      <div id="skills-card-interests-mobile" class="skills-card-container w-full mb-4">
         {{ renderSkillsCard({ 
           name: "interests_card",
           datas: option.skills_datas,

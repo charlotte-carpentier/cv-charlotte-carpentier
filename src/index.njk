@@ -5,22 +5,53 @@ layout: '00-core/base.njk'
 
 {% from "01-organisms/tab-sections.njk" import renderTabSections %}
 
-{{ renderTabSections({ 
+{% from "01-organisms/avatar-card.njk" import renderAvatarCard %}
+
+{{ renderAvatarCard({ 
     name: "charlotte_main",
-    datas: organisms["tab-sections"]["tab-sections"],
-    tabMenuDatas: molecules["tab-menu"].tab_menus,
-    linkDatas: atoms.link.links,
-    portfolioDatas: organisms["section-portfolio"].sections,
-    timelineDatas: organisms["section-timeline"].sections,
-    contactDatas: organisms["section-contact"].sections,
-    typographyDatas: atoms.typography.texts,
-    contentBlockDatas: molecules["content-block"]["content-blocks"],
-    contactBlockDatas: molecules["contact-block"].contact_blocks,
-    listFormDatas: molecules["list-form"]["list-forms"],
-    progressBarDatas: molecules["progress-bar"]["progress-bars"],
-    imageDatas: atoms.image.images,
-    iconDatas: atoms.icon.icons,
-    radioDatas: atoms.radio.radios,
-    inputDatas: atoms.input.inputs,
-    buttonDatas: atoms.button.buttons
+    datas: organisms["avatar-card"]["avatar-cards"],
+    image_datas: atoms.image.images,
+    typography_datas: atoms.typography.texts,
+    button_datas: atoms.button.buttons,
+    tooltip_datas: atoms.tooltip.tooltips
 }) }}
+
+{% from "01-organisms/skills-card.njk" import renderSkillsCard %}
+
+<div class="skills-wrapper">
+  {{ renderSkillsCard({ 
+      name: "languages_card",
+      datas: organisms["skills-card"]["skills-cards"],
+      typography_datas: atoms.typography.texts,
+      caption_datas: molecules.caption.captions,
+      icon_datas: atoms.icon.icons,
+      tooltip_datas: atoms.tooltip.tooltips
+  }) }}
+
+  {{ renderSkillsCard({ 
+      name: "hard_skills_card",
+      datas: organisms["skills-card"]["skills-cards"],
+      typography_datas: atoms.typography.texts,
+      caption_datas: molecules.caption.captions,
+      icon_datas: atoms.icon.icons,
+      tooltip_datas: atoms.tooltip.tooltips
+  }) }}
+
+  {{ renderSkillsCard({ 
+      name: "soft_skills_card",
+      datas: organisms["skills-card"]["skills-cards"],
+      typography_datas: atoms.typography.texts,
+      caption_datas: molecules.caption.captions,
+      icon_datas: atoms.icon.icons,
+      tooltip_datas: atoms.tooltip.tooltips
+  }) }}
+  
+  {{ renderSkillsCard({ 
+      name: "interests_card",
+      datas: organisms["skills-card"]["skills-cards"],
+      typography_datas: atoms.typography.texts,
+      caption_datas: molecules.caption.captions,
+      icon_datas: atoms.icon.icons,
+      tooltip_datas: atoms.tooltip.tooltips
+  }) }}
+</div>

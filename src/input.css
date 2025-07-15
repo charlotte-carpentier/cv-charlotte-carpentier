@@ -898,6 +898,30 @@ body {
    - Tooltip system for desktop with accessibility focus styles
    ========================================================================== */
 
+/* Avatar positioning in wrapper context - AJOUT */
+.avatar-skills-avatar-desktop {
+  position: absolute;
+  top: 53.9%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .avatar-skills-avatar-desktop {
+    display: block;
+  }
+  
+  /* Pointer events management for avatar internal elements - MIGRÉ */
+  .avatar-skills-avatar img,
+  .avatar-skills-avatar button,
+  .avatar-skills-avatar [data-tooltip],
+  .avatar-skills-avatar .caption-container {
+    pointer-events: auto;
+  }
+}
+
 /* Mobile specific button positioning */
 .avatar-card-mobile .avatar-card-button {
   position: absolute;
@@ -932,7 +956,7 @@ body {
   padding: 0.2rem 0.4rem 0 0.4rem;
 }
 
-/* Mobile buttons border consistency */
+/* Mobile buttons border consistency - MODIFIÉ */
 @media (max-width: 639px) {
   .avatar-card-mobile .avatar-card-buttons .button {
     border-width: 3px;
@@ -947,6 +971,16 @@ body {
 .avatar-tooltip-container {
   position: relative;
   display: inline-block;
+}
+
+/* Tooltip active zone */
+.avatar-tooltip-container::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 85px;
+  width: 180px;
+  height: 650px;
 }
 
 /* Tooltip active zone */
@@ -1078,9 +1112,11 @@ body {
 .header-mobile-overlay {
   top: 87px;
   z-index: 1; /* Behind header on desktop */
+  display: none;
 }
 
 .header-mobile-overlay.active {
+  display: block;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -1283,9 +1319,10 @@ body {
 /* ==========================================================================
    @ORGANISM - SKILLS-CARD
    - Styles complexes et variables custom uniquement
+   - Mobile visibility management - AJOUT
    ========================================================================== */
 
-/* Wrapper pour forcer le layout 2x2 */
+/* Wrapper pour forcer le layout 2x2 - RESTAURÉ EXACT */
 .skills-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1297,7 +1334,7 @@ body {
   justify-items: center;
 }
 
-/* Desktop variant - Pseudo-elements avec gradients */
+/* Desktop variant - Pseudo-elements avec gradients - ORIGINAL EXACT */
 .skills-card-content::before,
 .skills-card-content::after {
   content: '';
@@ -1353,6 +1390,22 @@ body {
   right: calc(50% - 100px);
 }
 
+/* Mobile skills cards visibility toggle - CORRIGÉ COMME AVANT */
+@media (max-width: 639px) {
+  .skills-card-container.hidden {
+    display: none !important;
+  }
+  
+  .skills-card-container {
+    display: none; /* Caché par défaut comme avant */
+  }
+  
+  .skills-card-container.visible,
+  .skills-card-container.block {
+    display: block !important;
+  }
+}
+
 /* Responsive breakpoints avec variables custom */
 
 /* Desktop breakpoint - 1024px+ */
@@ -1369,7 +1422,7 @@ body {
   }
 }
 
-/* Tablet breakpoint - 640px to 1023px */
+/* Tablet breakpoint - 640px to 1023px - ORIGINAL EXACT */
 @media (min-width: 640px) and (max-width: 1023px) {
   /* Add gradient borders for tablet */
   .skills-card::before,
@@ -1412,7 +1465,7 @@ body {
     display: none;
   }
   
-  /* Force caption mobile display */
+  /* Force caption mobile display - ORIGINAL EXACT */
   .skills-card .caption-desktop {
     display: none;
   }
@@ -1468,8 +1521,12 @@ body {
     display: none;
   }
   
-  /* Show when active class is added via JS */
-  .skills-card.active {
+  /* Show when active class is added via JS - MODIFIÉ */
+  .skills-card-container.hidden {
+    display: none;
+  }
+  
+  .skills-card-container.visible {
     display: block;
   }
   
@@ -1723,32 +1780,12 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 
 /* ==========================================================================
    @ORGANISM - AVATAR-SKILLS-WRAPPER
-   - Pointer-events management for overlay interactions
+   - Pure layout orchestration
    ========================================================================== */
-
-@media (min-width: 1024px) {
-  .avatar-skills-avatar img,
-  .avatar-skills-avatar button,
-  .avatar-skills-avatar [data-tooltip],
-  .avatar-skills-avatar .caption-container {
-    pointer-events: auto;
-  }
-}
 
 .avatar-skills-wrapper {
   padding-top: 0;
   padding-bottom: 0;
-}
-
-/* Mobile skills cards visibility toggle */
-@media (max-width: 639px) {
-  .avatar-skills-wrapper .skills-card-container.active {
-    display: block;
-  }
-  
-  .avatar-card-mobile .avatar-card-buttons .button {
-    border-width: 3px;
-  }
 }
 
 /* ==========================================================================
