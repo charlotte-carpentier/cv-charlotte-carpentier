@@ -8,6 +8,7 @@
 {% from "03-atoms/typography.njk" import renderTypography %}
 {% from "03-atoms/image.njk" import renderImage %}
 {% from "03-atoms/button.njk" import renderButton %}
+{% from "03-atoms/link.njk" import renderLink %}
 
 {% macro renderContentBlock(option) %}
   {# Check if datas is provided #}
@@ -82,10 +83,18 @@
                   datas: option.imageDatas
               }) }}
               <div class="content-block-button absolute bottom-[-15px] right-0 flex justify-center">
-                {{ renderButton({ 
-                    name: contentBlockData.buttonName,
-                    datas: option.buttonDatas
-                }) }}
+                {# Utiliser link au lieu de button pour les liens externes #}
+                {% if contentBlockData.linkName %}
+                  {{ renderLink({ 
+                      name: contentBlockData.linkName,
+                      datas: option.linkDatas
+                  }) }}
+                {% elif contentBlockData.buttonName %}
+                  {{ renderButton({ 
+                      name: contentBlockData.buttonName,
+                      datas: option.buttonDatas
+                  }) }}
+                {% endif %}
               </div>
             </div>
           </div>
@@ -108,7 +117,8 @@
     datas: molecules["content-block"]["content-blocks"],
     typographyDatas: atoms.typography.texts,
     imageDatas: atoms.image.images,
-    buttonDatas: atoms.button.buttons
+    buttonDatas: atoms.button.buttons,
+    linkDatas: atoms.link.links
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨

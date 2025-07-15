@@ -75,46 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Active link highlighting - version simplifiée
-    function initActiveLinks() {
-        // Mise à jour des liens actifs basée sur le hash
-        function updateActiveLinks() {
-            const currentHash = window.location.hash || '#portfolio'; // portfolio par défaut
-            
-            // Desktop links
-            const desktopLinks = document.querySelectorAll('.header-navigation .link--nav');
-            desktopLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === currentHash) {
-                    link.classList.add('current');
-                } else {
-                    link.classList.remove('current');
-                }
-            });
-            
-            // Mobile links
-            const mobileLinks = document.querySelectorAll('.header-mobile-overlay .link--tab');
-            mobileLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === currentHash) {
-                    link.classList.add('current');
-                } else {
-                    link.classList.remove('current');
-                }
-            });
-        }
-        
-        // Mise à jour au chargement et au changement de hash
-        updateActiveLinks();
-        window.addEventListener('hashchange', updateActiveLinks);
-    }
-    
-    // SUPPRIMÉ : initSmoothScroll() qui interfère avec la navigation :target
-    // La navigation est maintenant gérée par le système :target dans tab-sections
+    // SUPPRIMÉ : initActiveLinks() - maintenant géré dans tab-sections.js
+    // SUPPRIMÉ : initSmoothScroll() - remplacé par la navigation :target
     
     // Initialize header functionality
     initMobileMenu();
-    initActiveLinks();
     
     console.log('Header Charlotte organism initialized successfully! ⚔️✨');
     

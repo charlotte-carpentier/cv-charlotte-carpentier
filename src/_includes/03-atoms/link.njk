@@ -35,33 +35,25 @@
         {% set cssClasses = cssClasses ~ ' text-code-mobile sm:text-code' %}
       {% elif variant == 'external' %}
         {% set cssClasses = cssClasses ~ ' text-p-mobile sm:text-p' %}
+      {% elif variant == 'portfolio-external' %}
+        {% set cssClasses = cssClasses ~ ' text-p-mobile sm:text-p font-bold' %}
       {% endif %}
       
-      {# Check if current page/section - add current state #}
-      {% set isCurrentPage = false %}
-      {% if linkData.href == page.url %}
-        {% set isCurrentPage = true %}
-      {% elif linkData.href.startsWith('#') and page.fileSlug %}
-        {% set sectionId = linkData.href | replace('#', '') %}
-        {% if sectionId == page.fileSlug %}
-          {% set isCurrentPage = true %}
-        {% endif %}
-      {% endif %}
-      
-      {% if isCurrentPage %}
-        {% set cssClasses = cssClasses ~ ' current' %}
-      {% endif %}
+      {# SUPPRIMÉ : Logique isCurrentPage - maintenant géré en JavaScript #}
       
       {# Render the link #}
       <a 
         href="{{ linkData.href }}" 
         class="{{ cssClasses }} transition-colors duration-200 outline-none cursor-pointer focus:outline-2 focus:outline-blue-700 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
-        {% if isCurrentPage %}aria-current="page"{% endif %}
         {% if linkData.target %}target="{{ linkData.target }}"{% endif %}
         {% if linkData.download %}download{% endif %}
         {% if linkData.rel %}rel="{{ linkData.rel }}"{% endif %}
+        {% if linkData.variant == 'portfolio-external' %}title="Ouvre dans un nouvel onglet"{% endif %}
       >
         {{ linkData.text | safe }}
+        {% if linkData.variant == 'portfolio-external' %}
+          <span class="ml-1" aria-hidden="true">↗</span>
+        {% endif %}
       </a>
     {% endif %}
   {% endif %}

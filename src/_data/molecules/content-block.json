@@ -78,14 +78,14 @@
       "variant": "preview",
       "titleTypographyName": "missions_site_1",
       "imageName": "mission_manautic",
-      "buttonName": "button_default"
+      "linkName": "portfolio_boat_rental_site"
     },
     {
       "name": "mission_tcsophro",
       "variant": "preview", 
       "titleTypographyName": "missions_site_2",
       "imageName": "mission_tcsophro",
-      "buttonName": "button_default"
+      "linkName": "portfolio_sophrologue_site"
     }
   ]
 }
