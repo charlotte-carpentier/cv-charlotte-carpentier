@@ -1,4 +1,4 @@
-// Tab Navigation - Version avec gestion centralisée du current
+// Tab Navigation - Version avec anti-clignotement scroll cursor
 document.addEventListener('DOMContentLoaded', function() {
   
   // === GESTION CENTRALISÉE DU CURRENT ===
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Au chargement
   hidePortfolioIfNeeded();
   
-  // === SCROLL CURSOR (garde ce qui marche) ===
+  // === SCROLL CURSOR (avec anti-clignotement) ===
   const contentContainer = document.querySelector('.tab-sections-content');
   const scrollThumb = document.getElementById('scroll-cursor-thumb');
   const scrollCursor = document.querySelector('.tab-sections-scroll-cursor');
@@ -70,15 +70,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const TRACK_HEIGHT = 525;
     const CURSOR_SPACING = 20;
     let isDragging = false;
+    let isInitialized = false; // Flag pour éviter le clignotement
 
     function isDesktop() {
       return window.innerWidth >= DESKTOP_BREAKPOINT;
     }
 
+    function initializeScrollbar() {
+      // Masquer immédiatement pendant l'initialisation
+      scrollCursor.classList.add('hidden');
+      scrollCursor.classList.remove('ready');
+      
+      // Attendre un peu que le DOM soit stable
+      setTimeout(() => {
+        updateScrollbar();
+        isInitialized = true;
+      }, 100); // Petit délai pour éviter le flash
+    }
+
     function updateScrollbar() {
       if (!isDesktop()) {
         scrollCursor.classList.add('lg:hidden');
-        scrollCursor.classList.remove('lg:block');
+        scrollCursor.classList.remove('lg:block', 'ready');
+        scrollCursor.classList.add('hidden');
         return;
       }
 
@@ -87,21 +101,29 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (scrollHeight <= clientHeight + 10) {
         scrollCursor.classList.add('lg:hidden');
-        scrollCursor.classList.remove('lg:block');
+        scrollCursor.classList.remove('lg:block', 'ready');
+        scrollCursor.classList.add('hidden');
         return;
       }
       
-      scrollCursor.classList.remove('lg:hidden');
-      scrollCursor.classList.add('lg:block');
-      
+      // Calculer la position AVANT d'afficher
       const containerWidth = contentContainer.offsetWidth;
       scrollCursor.style.left = `calc(50% + ${containerWidth/2}px + ${CURSOR_SPACING}px)`;
       
       updateThumbPosition();
+      
+      // Maintenant on peut afficher en toute sécurité
+      scrollCursor.classList.remove('lg:hidden', 'hidden');
+      scrollCursor.classList.add('lg:block');
+      
+      // Ajouter la classe ready pour la transition douce
+      setTimeout(() => {
+        scrollCursor.classList.add('ready');
+      }, 50); // Petit délai pour la transition
     }
 
     function updateThumbPosition() {
-      if (isDragging || !isDesktop()) return;
+      if (isDragging || !isDesktop() || !isInitialized) return;
       
       const scrollTop = contentContainer.scrollTop;
       const scrollHeight = contentContainer.scrollHeight;
@@ -169,14 +191,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     contentContainer.addEventListener('scroll', updateThumbPosition);
-    window.addEventListener('resize', updateScrollbar);
-    window.addEventListener('hashchange', updateScrollbar);
     
-    updateScrollbar();
+    // Gestion du resize avec réinitialisation
+    window.addEventListener('resize', function() {
+      isInitialized = false;
+      initializeScrollbar();
+    });
+    
+    // Gestion du changement de hash avec réinitialisation
+    window.addEventListener('hashchange', function() {
+      isInitialized = false;
+      setTimeout(() => {
+        initializeScrollbar();
+      }, 150); // Délai plus long pour le changement de contenu
+    });
+    
+    // Initialisation au chargement
+    initializeScrollbar();
   }
   
   // === INITIALISATION CENTRALISÉE ===
   initCurrentLinks();
   
-  console.log('Tab-sections with centralized current management initialized! 🎯');
+  console.log('Tab-sections with anti-flicker scroll cursor initialized! 🎯✨');
 });
