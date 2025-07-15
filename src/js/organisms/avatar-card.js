@@ -113,7 +113,7 @@ function initMobileSkillsInteraction() {
   if (!isMobile()) return;
   
   // Get all mobile buttons - Avatar-card buttons only
-  const buttons = document.querySelectorAll('.avatar-card-mobile [data-button] .button');
+  const buttons = document.querySelectorAll('.avatar-card-mobile .avatar-card-button[data-button] .button');
   
   // Setup button click listeners - EMIT EVENTS ONLY
   buttons.forEach(button => {
@@ -135,8 +135,6 @@ function initMobileSkillsInteraction() {
         
         // Dispatch from document for global listening
         document.dispatchEvent(skillsEvent);
-        
-        console.log(`Avatar Card: Emitted skillsToggle event for ${buttonId} 📡`);
       });
     }
   });
@@ -144,7 +142,7 @@ function initMobileSkillsInteraction() {
   console.log('Avatar Card: Mobile button events initialized! 📱✨');
 }
 
-// Handle responsive changes - SIMPLIFIED
+// Handle responsive changes
 function handleResize() {
   if (window.innerWidth >= 640) {
     // Desktop/tablet - emit event to show all skills cards
@@ -171,6 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initAvatarTooltip();
   initMobileSkillsInteraction();
   
-  // Handle window resize for responsive behavior - AJOUT
+  // Handle window resize for responsive behavior
   window.addEventListener('resize', handleResize);
 });

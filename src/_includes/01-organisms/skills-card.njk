@@ -35,8 +35,8 @@
       {% set existingItems = skillsCardData.captions.length %}
       {% set missingSlots = totalSlots - existingItems %}
       
-      {# Skills Card Container - COMME AVANT MIGRATION #}
-      <div class="skills-card skills-card--{{ skillsCardData.theme }} relative block sm:w-full sm:max-w-80 sm:m-0 sm:p-3 sm:box-border lg:w-full lg:m-0 lg:p-0" data-skills="{{ skillsCardData.name }}">
+      {# Skills Card Container - MOBILE DISPLAY CORRIGÉ #}
+      <div class="skills-card skills-card--{{ skillsCardData.theme }} skills-card-container relative sm:block sm:w-full sm:max-w-80 sm:m-0 sm:p-3 sm:box-border lg:block lg:w-full lg:m-0 lg:p-0" data-skills="{{ skillsCardData.name }}">
         
         {# Close icon - Mobile only - GÉRÉ AUTONOMIQUEMENT #}
         <div class="skills-card-close absolute top-2 right-2 w-8 h-8 cursor-pointer hidden">

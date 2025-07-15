@@ -5,18 +5,18 @@
  * =========================
  */
 
-// Button to Card mapping
+// Button to Card mapping - UTILISE data-skills POST-MIGRATION
 const SKILLS_MAPPING = {
-  'button_languages': 'skills-card-languages-mobile',
-  'button_hard_skills': 'skills-card-hard-skills-mobile',
-  'button_soft_skills': 'skills-card-soft-skills-mobile',
-  'button_interests': 'skills-card-interests-mobile'
+  'button_languages': 'languages_card',
+  'button_hard_skills': 'hard_skills_card',
+  'button_soft_skills': 'soft_skills_card',
+  'button_interests': 'interests_card'
 };
 
-// Get all skills card containers
+// Get all skills card containers - UTILISE data-skills
 function getSkillsContainers() {
   return Object.values(SKILLS_MAPPING)
-    .map(id => document.getElementById(id))
+    .map(skillsName => document.querySelector(`[data-skills="${skillsName}"]`))
     .filter(Boolean);
 }
 
@@ -28,19 +28,26 @@ function hideAllSkillsCards() {
   });
 }
 
-// Show specific skills card
-function showSkillsCard(containerId) {
-  const container = document.getElementById(containerId);
+// Show specific skills card - UTILISE data-skills
+function showSkillsCard(skillsName) {
+  const container = document.querySelector(`[data-skills="${skillsName}"]`);
   if (container) {
     container.classList.remove('hidden');
     container.classList.add('block', 'visible');
   }
 }
 
-// Check if skills card is visible
-function isSkillsCardVisible(containerId) {
-  const container = document.getElementById(containerId);
-  return container && !container.classList.contains('hidden');
+// Check if skills card is visible - UTILISE data-skills
+function isSkillsCardVisible(skillsName) {
+  const container = document.querySelector(`[data-skills="${skillsName}"]`);
+  console.log(`🔍 isSkillsCardVisible(${skillsName}):`, {
+    container,
+    exists: !!container,
+    classes: container ? container.className : 'NO CONTAINER',
+    hasHidden: container ? container.classList.contains('hidden') : 'NO CONTAINER',
+    result: container ? !container.classList.contains('hidden') : null
+  });
+  return container ? !container.classList.contains('hidden') : null;
 }
 
 // Show all skills cards (for desktop/tablet)
@@ -67,24 +74,32 @@ function handleSkillsResize() {
   initializeResponsiveState();
 }
 
-// EVENT LISTENERS - Listen to avatar events
+// EVENT LISTENERS - Listen to avatar events - UTILISE data-skills
 document.addEventListener('avatar:skillsToggle', function(e) {
   const { buttonId } = e.detail;
-  const containerId = SKILLS_MAPPING[buttonId];
+  const skillsName = SKILLS_MAPPING[buttonId];
   
-  if (containerId) {
-    const isCurrentlyVisible = isSkillsCardVisible(containerId);
+  console.log(`🎯 Skills Card: Received event for ${buttonId} → ${skillsName}`);
+  
+  if (skillsName) {
+    const container = document.querySelector(`[data-skills="${skillsName}"]`);
+    console.log(`📦 Container found:`, container);
+    
+    const isCurrentlyVisible = isSkillsCardVisible(skillsName);
+    console.log(`👁️ Currently visible:`, isCurrentlyVisible);
     
     // Hide all cards first
     hideAllSkillsCards();
     
     // If current card wasn't visible, show it
     if (!isCurrentlyVisible) {
-      showSkillsCard(containerId);
+      showSkillsCard(skillsName);
+      console.log(`✅ Showing ${skillsName}`);
+    } else {
+      console.log(`❌ Was visible, now hidden`);
     }
-    // If it was visible, it stays hidden (toggle off)
-    
-    console.log(`Skills Card: Toggled ${containerId} (was visible: ${isCurrentlyVisible}) 🎯`);
+  } else {
+    console.log(`❌ No skills name found for ${buttonId}`);
   }
 });
 
