@@ -3,55 +3,29 @@ permalink: "/"
 layout: '00-core/base.njk' 
 ---
 
-{% from "01-organisms/tab-sections.njk" import renderTabSections %}
+{% from "01-organisms/home-layout.njk" import renderHomeLayout %}
 
-{% from "01-organisms/avatar-card.njk" import renderAvatarCard %}
-
-{{ renderAvatarCard({ 
-    name: "charlotte_main",
-    datas: organisms["avatar-card"]["avatar-cards"],
+{{ renderHomeLayout({ 
+    avatar_name: "charlotte_main",
+    tab_sections_name: "charlotte_main",
+    avatar_datas: organisms["avatar-card"]["avatar-cards"],
+    skills_datas: organisms["skills-card"]["skills-cards"],
+    tab_sections_datas: organisms["tab-sections"]["tab-sections"],
+    tab_menu_datas: molecules["tab-menu"].tab_menus,
     image_datas: atoms.image.images,
     typography_datas: atoms.typography.texts,
     button_datas: atoms.button.buttons,
-    tooltip_datas: atoms.tooltip.tooltips
+    tooltip_datas: atoms.tooltip.tooltips,
+    caption_datas: molecules.caption.captions,
+    icon_datas: atoms.icon.icons,
+    link_datas: atoms.link.links,
+    portfolio_datas: organisms["section-portfolio"].sections,
+    timeline_datas: organisms["section-timeline"].sections,
+    contact_datas: organisms["section-contact"].sections,
+    content_block_datas: molecules["content-block"]["content-blocks"],
+    contact_block_datas: molecules["contact-block"].contact_blocks,
+    list_form_datas: molecules["list-form"]["list-forms"],
+    progress_bar_datas: molecules["progress-bar"]["progress-bars"],
+    radio_datas: atoms.radio.radios,
+    input_datas: atoms.input.inputs
 }) }}
-
-{% from "01-organisms/skills-card.njk" import renderSkillsCard %}
-
-<div class="skills-wrapper">
-    {{ renderSkillsCard({ 
-      name: "languages_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-
-    {{ renderSkillsCard({ 
-      name: "hard_skills_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-
-    {{ renderSkillsCard({ 
-      name: "soft_skills_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-
-    {{ renderSkillsCard({ 
-      name: "interests_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-</div>
