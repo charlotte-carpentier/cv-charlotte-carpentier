@@ -1807,15 +1807,26 @@ body {
 }
 .avatar-skills-avatar-desktop {
   position: absolute;
-  top: 53.9%;
+  top: 53.4%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 10;
   pointer-events: none;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .avatar-skills-avatar-desktop {
     display: block;
+    top: 52.6%;
+  }
+  .avatar-skills-avatar img, .avatar-skills-avatar button, .avatar-skills-avatar [data-tooltip], .avatar-skills-avatar .caption-container {
+    pointer-events: auto;
+  }
+}
+@media (min-width: 1280px) {
+  .avatar-skills-avatar-desktop {
+    display: block;
+    left: 0;
+    transform: translateY(-50%);
   }
   .avatar-skills-avatar img, .avatar-skills-avatar button, .avatar-skills-avatar [data-tooltip], .avatar-skills-avatar .caption-container {
     pointer-events: auto;
@@ -1858,14 +1869,6 @@ body {
 .avatar-tooltip-container {
   position: relative;
   display: inline-block;
-}
-.avatar-tooltip-container::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 85px;
-  width: 180px;
-  height: 650px;
 }
 .avatar-tooltip-container::before {
   content: '';
@@ -2137,18 +2140,53 @@ body {
 .avatar-skills-wrapper .skills-card-title::after {
   right: calc(50% - 100px);
 }
-@media (max-width: 639px) {
-  .skills-card-container.hidden {
-    display: none !important;
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .skills-wrapper {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 10rem;
+    justify-content: center;
+    justify-items: center;
   }
-  .skills-card-container {
+  .skills-card-title::before {
+    left: 20px;
+  }
+  .skills-card-title::after {
+    right: 20px;
+  }
+  .skills-card[data-skills="interests_card"] {
+    margin-top: -4rem;
+  }
+  .skills-card > .skills-card-title, .skills-card > .caption-container {
     display: none;
   }
-  .skills-card-container.visible, .skills-card-container.block {
-    display: block !important;
+  .skills-card-close {
+    display: none;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
+  .skills-wrapper {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    justify-content: center;
+    justify-items: center;
+  }
+  .skills-card[data-skills="interests_card"] {
+    margin-top: -4rem;
+  }
   .skills-card > .skills-card-title, .skills-card > .caption-container {
     display: none;
   }
@@ -2157,6 +2195,21 @@ body {
   }
 }
 @media (min-width: 640px) and (max-width: 1023px) {
+  .skills-wrapper {
+    align-items: start;
+  }
+  .skills-card[data-skills="hard_skills_card"] {
+    order: 1;
+  }
+  .skills-card[data-skills="soft_skills_card"] {
+    order: 2;
+  }
+  .skills-card[data-skills="languages_card"] {
+    order: 3;
+  }
+  .skills-card[data-skills="interests_card"] {
+    order: 4;
+  }
   .skills-card::before, .skills-card::after {
     content: '';
     position: absolute;
@@ -2174,6 +2227,8 @@ body {
   .skills-card {
     background-color: #ffffff;
     border-top: 4px solid #000000;
+    height: auto;
+    align-self: start;
   }
   .skills-card-desktop {
     display: none;
@@ -2225,12 +2280,6 @@ body {
   }
   .skills-card::before, .skills-card::after {
     display: none;
-  }
-  .skills-card-container.hidden {
-    display: none;
-  }
-  .skills-card-container.visible {
-    display: block;
   }
   .skills-card-close {
     display: block;

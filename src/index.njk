@@ -1,6 +1,6 @@
----
-permalink: "/"
-layout: '00-core/base.njk'
+--- 
+permalink: "/" 
+layout: '00-core/base.njk' 
 ---
 
 {% from "01-organisms/tab-sections.njk" import renderTabSections %}
@@ -19,7 +19,7 @@ layout: '00-core/base.njk'
 {% from "01-organisms/skills-card.njk" import renderSkillsCard %}
 
 <div class="skills-wrapper">
-  {{ renderSkillsCard({ 
+    {{ renderSkillsCard({ 
       name: "languages_card",
       datas: organisms["skills-card"]["skills-cards"],
       typography_datas: atoms.typography.texts,
@@ -28,7 +28,7 @@ layout: '00-core/base.njk'
       tooltip_datas: atoms.tooltip.tooltips
   }) }}
 
-  {{ renderSkillsCard({ 
+    {{ renderSkillsCard({ 
       name: "hard_skills_card",
       datas: organisms["skills-card"]["skills-cards"],
       typography_datas: atoms.typography.texts,
@@ -37,7 +37,7 @@ layout: '00-core/base.njk'
       tooltip_datas: atoms.tooltip.tooltips
   }) }}
 
-  {{ renderSkillsCard({ 
+    {{ renderSkillsCard({ 
       name: "soft_skills_card",
       datas: organisms["skills-card"]["skills-cards"],
       typography_datas: atoms.typography.texts,
@@ -45,8 +45,8 @@ layout: '00-core/base.njk'
       icon_datas: atoms.icon.icons,
       tooltip_datas: atoms.tooltip.tooltips
   }) }}
-  
-  {{ renderSkillsCard({ 
+
+    {{ renderSkillsCard({ 
       name: "interests_card",
       datas: organisms["skills-card"]["skills-cards"],
       typography_datas: atoms.typography.texts,
