@@ -1319,10 +1319,9 @@ body {
 /* ==========================================================================
    @ORGANISM - SKILLS-CARD
    - Styles complexes et variables custom uniquement
-   - Mobile visibility management - AJOUT
    ========================================================================== */
 
-/* Wrapper pour forcer le layout 2x2 - RESTAURÉ EXACT */
+/* Wrapper pour forcer le layout 2x2 */
 .skills-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1334,7 +1333,7 @@ body {
   justify-items: center;
 }
 
-/* Desktop variant - Pseudo-elements avec gradients - ORIGINAL EXACT */
+/* Desktop variant - Pseudo-elements avec gradients */
 .skills-card-content::before,
 .skills-card-content::after {
   content: '';
@@ -1390,22 +1389,6 @@ body {
   right: calc(50% - 100px);
 }
 
-/* Mobile skills cards visibility toggle - CORRIGÉ COMME AVANT */
-@media (max-width: 639px) {
-  .skills-card-container.hidden {
-    display: none !important;
-  }
-  
-  .skills-card-container {
-    display: none; /* Caché par défaut comme avant */
-  }
-  
-  .skills-card-container.visible,
-  .skills-card-container.block {
-    display: block !important;
-  }
-}
-
 /* Responsive breakpoints avec variables custom */
 
 /* Desktop breakpoint - 1024px+ */
@@ -1422,8 +1405,30 @@ body {
   }
 }
 
-/* Tablet breakpoint - 640px to 1023px - ORIGINAL EXACT */
+/* Tablet breakpoint - 640px to 1023px */
 @media (min-width: 640px) and (max-width: 1023px) {
+  /* Wrapper adjustments for tablet */
+  .skills-wrapper {
+    align-items: start; /* Align cards to start instead of center */
+  }
+  
+  /* Order cards: hard_skills (1), soft_skills (2), languages (3), interests (4) */
+  .skills-card[data-skills="hard_skills_card"] {
+    order: 1;
+  }
+  
+  .skills-card[data-skills="soft_skills_card"] {
+    order: 2;
+  }
+  
+  .skills-card[data-skills="languages_card"] {
+    order: 3;
+  }
+  
+  .skills-card[data-skills="interests_card"] {
+    order: 4;
+  }
+  
   /* Add gradient borders for tablet */
   .skills-card::before,
   .skills-card::after {
@@ -1443,10 +1448,12 @@ body {
     right: 0;
   }
   
-  /* Background and border with theme variables */
+  /* Background and border with theme variables - height auto for content-based sizing */
   .skills-card {
     background-color: theme(--cc-white);
     border-top: 4px solid theme(--cc-black);
+    height: auto; /* Allow content-based height */
+    align-self: start; /* Prevent stretching in grid */
   }
   
   /* Hide desktop version */
@@ -1465,7 +1472,7 @@ body {
     display: none;
   }
   
-  /* Force caption mobile display - ORIGINAL EXACT */
+  /* Force caption mobile display */
   .skills-card .caption-desktop {
     display: none;
   }
@@ -1508,6 +1515,7 @@ body {
   .skills-wrapper {
     grid-template-columns: 1fr;
   }
+  
   /* Background and border with theme variables */
   .skills-card {
     background-color: theme(--cc-white);
@@ -1519,15 +1527,6 @@ body {
   .skills-card::before,
   .skills-card::after {
     display: none;
-  }
-  
-  /* Show when active class is added via JS - MODIFIÉ */
-  .skills-card-container.hidden {
-    display: none;
-  }
-  
-  .skills-card-container.visible {
-    display: block;
   }
   
   /* Show close icon on mobile */

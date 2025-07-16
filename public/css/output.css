@@ -2137,17 +2137,6 @@ body {
 .avatar-skills-wrapper .skills-card-title::after {
   right: calc(50% - 100px);
 }
-@media (max-width: 639px) {
-  .skills-card-container.hidden {
-    display: none !important;
-  }
-  .skills-card-container {
-    display: none;
-  }
-  .skills-card-container.visible, .skills-card-container.block {
-    display: block !important;
-  }
-}
 @media (min-width: 1024px) {
   .skills-card > .skills-card-title, .skills-card > .caption-container {
     display: none;
@@ -2157,6 +2146,21 @@ body {
   }
 }
 @media (min-width: 640px) and (max-width: 1023px) {
+  .skills-wrapper {
+    align-items: start;
+  }
+  .skills-card[data-skills="hard_skills_card"] {
+    order: 1;
+  }
+  .skills-card[data-skills="soft_skills_card"] {
+    order: 2;
+  }
+  .skills-card[data-skills="languages_card"] {
+    order: 3;
+  }
+  .skills-card[data-skills="interests_card"] {
+    order: 4;
+  }
   .skills-card::before, .skills-card::after {
     content: '';
     position: absolute;
@@ -2174,6 +2178,8 @@ body {
   .skills-card {
     background-color: #ffffff;
     border-top: 4px solid #000000;
+    height: auto;
+    align-self: start;
   }
   .skills-card-desktop {
     display: none;
@@ -2225,12 +2231,6 @@ body {
   }
   .skills-card::before, .skills-card::after {
     display: none;
-  }
-  .skills-card-container.hidden {
-    display: none;
-  }
-  .skills-card-container.visible {
-    display: block;
   }
   .skills-card-close {
     display: block;
