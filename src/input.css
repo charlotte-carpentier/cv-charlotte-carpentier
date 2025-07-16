@@ -901,7 +901,7 @@ body {
 /* Avatar positioning in wrapper context - Base styles */
 .avatar-skills-avatar-desktop {
   position: absolute;
-  top: 53.9%;
+  top: 53.4%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 10;
@@ -912,7 +912,7 @@ body {
 @media (min-width: 1024px) and (max-width: 1279px) {
   .avatar-skills-avatar-desktop {
     display: block;
-    top: 52.6%;
+    top: 52.6%; /* Remonter l'avatar pour lg */
   }
   
   /* Pointer events management for avatar internal elements */
@@ -928,6 +928,8 @@ body {
 @media (min-width: 1280px) {
   .avatar-skills-avatar-desktop {
     display: block;
+    left: 0; /* Remove horizontal centering for xl */
+    transform: translateY(-50%); /* Keep only vertical centering */
   }
   
   /* Pointer events management for avatar internal elements */

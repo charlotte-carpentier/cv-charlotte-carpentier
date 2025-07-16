@@ -1807,7 +1807,7 @@ body {
 }
 .avatar-skills-avatar-desktop {
   position: absolute;
-  top: 53.9%;
+  top: 53.4%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 10;
@@ -1825,6 +1825,8 @@ body {
 @media (min-width: 1280px) {
   .avatar-skills-avatar-desktop {
     display: block;
+    left: 0;
+    transform: translateY(-50%);
   }
   .avatar-skills-avatar img, .avatar-skills-avatar button, .avatar-skills-avatar [data-tooltip], .avatar-skills-avatar .caption-container {
     pointer-events: auto;
