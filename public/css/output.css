@@ -1813,7 +1813,16 @@ body {
   z-index: 10;
   pointer-events: none;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .avatar-skills-avatar-desktop {
+    display: block;
+    top: 52.6%;
+  }
+  .avatar-skills-avatar img, .avatar-skills-avatar button, .avatar-skills-avatar [data-tooltip], .avatar-skills-avatar .caption-container {
+    pointer-events: auto;
+  }
+}
+@media (min-width: 1280px) {
   .avatar-skills-avatar-desktop {
     display: block;
   }
@@ -1858,14 +1867,6 @@ body {
 .avatar-tooltip-container {
   position: relative;
   display: inline-block;
-}
-.avatar-tooltip-container::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 85px;
-  width: 180px;
-  height: 650px;
 }
 .avatar-tooltip-container::before {
   content: '';
@@ -2137,7 +2138,53 @@ body {
 .avatar-skills-wrapper .skills-card-title::after {
   right: calc(50% - 100px);
 }
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .skills-wrapper {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 10rem;
+    justify-content: center;
+    justify-items: center;
+  }
+  .skills-card-title::before {
+    left: 20px;
+  }
+  .skills-card-title::after {
+    right: 20px;
+  }
+  .skills-card[data-skills="interests_card"] {
+    margin-top: -4rem;
+  }
+  .skills-card > .skills-card-title, .skills-card > .caption-container {
+    display: none;
+  }
+  .skills-card-close {
+    display: none;
+  }
+}
+@media (min-width: 1280px) {
+  .skills-wrapper {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    justify-content: center;
+    justify-items: center;
+  }
+  .skills-card[data-skills="interests_card"] {
+    margin-top: -4rem;
+  }
   .skills-card > .skills-card-title, .skills-card > .caption-container {
     display: none;
   }

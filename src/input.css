@@ -898,7 +898,7 @@ body {
    - Tooltip system for desktop with accessibility focus styles
    ========================================================================== */
 
-/* Avatar positioning in wrapper context - AJOUT */
+/* Avatar positioning in wrapper context - Base styles */
 .avatar-skills-avatar-desktop {
   position: absolute;
   top: 53.9%;
@@ -908,12 +908,29 @@ body {
   pointer-events: none;
 }
 
-@media (min-width: 1024px) {
+/* Large desktop breakpoint - 1024px to 1279px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .avatar-skills-avatar-desktop {
+    display: block;
+    top: 52.6%;
+  }
+  
+  /* Pointer events management for avatar internal elements */
+  .avatar-skills-avatar img,
+  .avatar-skills-avatar button,
+  .avatar-skills-avatar [data-tooltip],
+  .avatar-skills-avatar .caption-container {
+    pointer-events: auto;
+  }
+}
+
+/* Extra large desktop breakpoint - 1280px+ */
+@media (min-width: 1280px) {
   .avatar-skills-avatar-desktop {
     display: block;
   }
   
-  /* Pointer events management for avatar internal elements - MIGRÉ */
+  /* Pointer events management for avatar internal elements */
   .avatar-skills-avatar img,
   .avatar-skills-avatar button,
   .avatar-skills-avatar [data-tooltip],
@@ -956,7 +973,7 @@ body {
   padding: 0.2rem 0.4rem 0 0.4rem;
 }
 
-/* Mobile buttons border consistency - MODIFIÉ */
+/* Mobile buttons border consistency */
 @media (max-width: 639px) {
   .avatar-card-mobile .avatar-card-buttons .button {
     border-width: 3px;
@@ -971,16 +988,6 @@ body {
 .avatar-tooltip-container {
   position: relative;
   display: inline-block;
-}
-
-/* Tooltip active zone */
-.avatar-tooltip-container::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 85px;
-  width: 180px;
-  height: 650px;
 }
 
 /* Tooltip active zone */
@@ -1391,15 +1398,78 @@ body {
 
 /* Responsive breakpoints avec variables custom */
 
-/* Desktop breakpoint - 1024px+ */
-@media (min-width: 1024px) {
-  /* Hide the direct content of .skills-card on desktop */
+/* Large desktop breakpoint - 1024px to 1279px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Skills wrapper lg adjustments - vertical AND horizontal centering */
+  .skills-wrapper {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 10rem; /* Your custom gap values */
+    justify-content: center;
+    justify-items: center;
+  }
+  
+  /* Adjust title decorative lines position for lg */
+  .skills-card-title::before {
+    left: 20px; /* Move further left */
+  }
+  
+  .skills-card-title::after {
+    right: 20px; /* Move further right */
+  }
+  
+  /* Move interests card closer to soft skills */
+  .skills-card[data-skills="interests_card"] {
+    margin-top: -4rem; /* Negative margin to pull up */
+  }
+  
+  /* Hide the direct content of .skills-card on lg */
   .skills-card > .skills-card-title,
   .skills-card > .caption-container {
     display: none;
   }
   
-  /* Hide close icon on desktop */
+  /* Hide close icon on lg */
+  .skills-card-close {
+    display: none;
+  }
+}
+
+/* Extra large desktop breakpoint - 1280px+ */
+@media (min-width: 1280px) {
+  /* Skills wrapper xl adjustments - vertical centering */
+  .skills-wrapper {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    justify-content: center;
+    justify-items: center;
+  }
+  
+  /* Move interests card closer to soft skills */
+  .skills-card[data-skills="interests_card"] {
+    margin-top: -4rem; /* Negative margin to pull up */
+  }
+  
+  /* Hide the direct content of .skills-card on xl */
+  .skills-card > .skills-card-title,
+  .skills-card > .caption-container {
+    display: none;
+  }
+  
+  /* Hide close icon on xl */
   .skills-card-close {
     display: none;
   }
