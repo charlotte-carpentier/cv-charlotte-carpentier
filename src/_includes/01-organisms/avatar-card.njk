@@ -31,28 +31,30 @@
       <span class="text-red-500">Avatar-card not found: {{ avatar_card_name }}</span>
     {% else %}
       {# Avatar Card Container #}
-      <div class="avatar-card w-full flex items-center justify-center box-border" data-avatar="{{ avatar_card_data.name }}">
+      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="{{ avatar_card_data.name }}">
         
         {# Desktop version: Avatar avec tooltip au hover + positionnement absolu dans wrapper - MODIFIÉ #}
-        <div class="avatar-card-desktop avatar-skills-avatar-desktop hidden lg:flex items-center justify-center box-border">
-          <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0">
-            {{ renderImage({ 
-              name: avatar_card_data.avatar_desktop,
-              datas: option.image_datas
-            }) }}
-            
-            {# Tooltip popup #}
-            <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop">
-              {{ renderTooltip({ 
-                name: "avatar_desktop",
-                datas: option.tooltip_datas
+        <div class="avatar-card-desktop avatar-skills-avatar-desktop hidden lg:block">
+          <div class="w-fit lg:mx-auto xl:mx-0">
+            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0">
+              {{ renderImage({ 
+                name: avatar_card_data.avatar_desktop,
+                datas: option.image_datas
               }) }}
+              
+              {# Tooltip popup #}
+              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop">
+                {{ renderTooltip({ 
+                  name: "avatar_desktop",
+                  datas: option.tooltip_datas
+                }) }}
+              </div>
             </div>
           </div>
         </div>
 
         {# Tablet version UNIFIÉ: Titre + Avatar (ex-portrait) #}
-        <div class="avatar-card-tablet hidden sm:flex lg:hidden flex-col items-center gap-4 pt-8 box-border">
+        <div class="avatar-card-tablet hidden sm:flex lg:hidden flex-col items-center gap-4 pt-8 box-border w-fit mx-auto">
           {# Title #}
           <div class="avatar-card-title text-center w-[245px] -mb-4">
             {{ renderTypography({ 
@@ -71,7 +73,7 @@
         </div>
 
         {# Mobile version: Titre + Avatar + 4 boutons - ENRICHI avec data-attributes #}
-        <div class="avatar-card-mobile flex sm:hidden flex-col items-center gap-4 pt-4 relative box-border">
+        <div class="avatar-card-mobile flex sm:hidden flex-col items-center gap-4 pt-4 relative box-border w-fit mx-auto">
           {# Title - Même classe que tablet pour cohérence #}
           <div class="avatar-card-title text-center w-[245px] -mb-4">
             {{ renderTypography({ 

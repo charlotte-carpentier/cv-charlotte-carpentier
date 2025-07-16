@@ -901,7 +901,7 @@ body {
 /* Avatar positioning in wrapper context - Base styles */
 .avatar-skills-avatar-desktop {
   position: absolute;
-  top: 53.4%;
+  top: 53.9%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 10;
@@ -912,7 +912,10 @@ body {
 @media (min-width: 1024px) and (max-width: 1279px) {
   .avatar-skills-avatar-desktop {
     display: block;
-    top: 52.6%; /* Remonter l'avatar pour lg */
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
   }
   
   /* Pointer events management for avatar internal elements */
@@ -928,8 +931,10 @@ body {
 @media (min-width: 1280px) {
   .avatar-skills-avatar-desktop {
     display: block;
+    position: relative;
+    top: 0;
     left: 0; /* Remove horizontal centering for xl */
-    transform: translateY(-50%); /* Keep only vertical centering */
+    transform: none;
   }
   
   /* Pointer events management for avatar internal elements */
@@ -1402,13 +1407,13 @@ body {
 
 /* Large desktop breakpoint - 1024px to 1279px */
 @media (min-width: 1024px) and (max-width: 1279px) {
-  /* Skills wrapper lg adjustments - vertical AND horizontal centering */
+  /* Skills wrapper lg adjustments - relative positioning within main */
   .skills-wrapper {
     margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
     width: 700px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1445,13 +1450,13 @@ body {
 
 /* Extra large desktop breakpoint - 1280px+ */
 @media (min-width: 1280px) {
-  /* Skills wrapper xl adjustments - vertical centering */
+  /* Skills wrapper xl adjustments - relative positioning within main */
   .skills-wrapper {
     margin: 0;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 0;
     left: 0;
-    transform: translateY(-50%);
+    transform: none;
     width: 700px;
     display: grid;
     grid-template-columns: 1fr 1fr;
