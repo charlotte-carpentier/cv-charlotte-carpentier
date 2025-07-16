@@ -1395,11 +1395,11 @@ body {
   width: 100%;
 }
 
-.avatar-skills-wrapper .skills-card-title::before {
+.home-layout .skills-card-title::before {
   left: calc(50% - 100px);
 }
 
-.avatar-skills-wrapper .skills-card-title::after {
+.home-layout .skills-card-title::after {
   right: calc(50% - 100px);
 }
 
@@ -1855,27 +1855,25 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 }
 
 /* ==========================================================================
-   @ORGANISM - AVATAR-SKILLS-WRAPPER
+   @ORGANISM - home-layout
    - Pure layout orchestration
    ========================================================================== */
 
-.avatar-skills-wrapper {
+.home-layout {
   padding-top: 0;
   padding-bottom: 0;
 }
 
 /* ==========================================================================
    @ORGANISM - BACKGROUNDS
-   - Responsive background images for desktop, tablet, and mobile
-   - Uses fixed attachment on desktop and tablet, scroll on mobile
-   - Applies background to both a container and optionally to body
+   - FIXED: Use fixed position to prevent background movement on content changes
    ========================================================================== */
 
 .background-icons {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-position: center top; /* FIXED: Position fixe en haut */
+  background-size: auto;
   background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
@@ -1886,6 +1884,8 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 @media (min-width: 640px) and (max-width: 1023px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
+    background-position: center top; /* FIXED: Position fixe */
+    background-size: auto;
   }
 }
 
@@ -1894,35 +1894,34 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
+    background-position: center top; /* FIXED: Position fixe */
+    background-size: auto;
   }
 }
 
-/* Alternative container for content layering */
-.main-content {
-  position: relative;
-}
-
-/* Optional background applied to body */
+/* Body variants avec même fix */
 body.charlotte-bg {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-position: center top; /* FIXED: Position fixe */
+  background-size: auto;
   background-attachment: fixed;
 }
 
-/* Tablet variant on body */
 @media (min-width: 640px) and (max-width: 1023px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
+    background-position: center top; /* FIXED: Position fixe */
+    background-size: auto;
   }
 }
 
-/* Mobile variant on body */
 @media (max-width: 639px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
+    background-position: center top; /* FIXED: Position fixe */
+    background-size: auto;
   }
 }
 
@@ -1988,8 +1987,8 @@ body.charlotte-bg {
   z-index: 60;
 }
 
-/* Avatar-skills-wrapper positioning */
-.avatar-skills-wrapper {
+/* home-layout positioning */
+.home-layout {
   z-index: 90;
 }
 

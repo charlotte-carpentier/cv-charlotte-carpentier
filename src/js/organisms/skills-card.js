@@ -113,7 +113,7 @@ document.addEventListener('avatar:showAllSkills', function(e) {
   console.log('Skills Card: Shown all cards 👁️');
 });
 
-// Close button functionality - MIGRÉ depuis avatar-skills-wrapper
+// Close button functionality - MIGRÉ depuis home-layout
 function initCloseButtons() {
   getSkillsContainers().forEach(container => {
     const closeButton = container.querySelector('.skills-card-close');
