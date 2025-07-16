@@ -213,6 +213,9 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
+  .top-1 {
+    top: calc(var(--spacing) * 1);
+  }
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
@@ -230,6 +233,9 @@
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
+  }
+  .left-1 {
+    left: calc(var(--spacing) * 1);
   }
   .left-1\/2 {
     left: calc(1/2 * 100%);
@@ -308,6 +314,12 @@
   }
   .inline-flex {
     display: inline-flex;
+  }
+  .table {
+    display: table;
+  }
+  .h-0 {
+    height: calc(var(--spacing) * 0);
   }
   .h-0\.5 {
     height: calc(var(--spacing) * 0.5);
@@ -435,14 +447,25 @@
   .flex-none {
     flex: none;
   }
+  .flex-shrink {
+    flex-shrink: 1;
+  }
   .flex-shrink-0 {
     flex-shrink: 0;
   }
-  .flex-grow {
-    flex-grow: 1;
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .-translate-x-1 {
+    --tw-translate-x: calc(var(--spacing) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-1 {
+    --tw-translate-y: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1\/2 {
@@ -579,6 +602,10 @@
   }
   .rounded-none {
     border-radius: 0;
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .border-2 {
     border-style: var(--tw-border-style);
@@ -768,12 +795,19 @@
   .capitalize {
     text-transform: capitalize;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .opacity-0 {
     opacity: 0%;
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .outline-2 {
     outline-style: var(--tw-outline-style);
@@ -787,6 +821,9 @@
   }
   .blur {
     --tw-blur: blur(8px);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .transition {
@@ -1191,6 +1228,11 @@
       align-items: center;
     }
   }
+  .lg\:justify-center {
+    @media (width >= 64rem) {
+      justify-content: center;
+    }
+  }
   .lg\:gap-1 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 1);
@@ -1247,9 +1289,19 @@
       padding-block: calc(var(--spacing) * 16);
     }
   }
+  .xl\:mx-0 {
+    @media (width >= 80rem) {
+      margin-inline: calc(var(--spacing) * 0);
+    }
+  }
   .xl\:flex-1 {
     @media (width >= 80rem) {
       flex: 1;
+    }
+  }
+  .xl\:justify-start {
+    @media (width >= 80rem) {
+      justify-content: flex-start;
     }
   }
 }
@@ -1807,7 +1859,7 @@ body {
 }
 .avatar-skills-avatar-desktop {
   position: absolute;
-  top: 53.4%;
+  top: 53.9%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 10;
@@ -1816,7 +1868,10 @@ body {
 @media (min-width: 1024px) and (max-width: 1279px) {
   .avatar-skills-avatar-desktop {
     display: block;
-    top: 52.6%;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
   }
   .avatar-skills-avatar img, .avatar-skills-avatar button, .avatar-skills-avatar [data-tooltip], .avatar-skills-avatar .caption-container {
     pointer-events: auto;
@@ -1825,8 +1880,10 @@ body {
 @media (min-width: 1280px) {
   .avatar-skills-avatar-desktop {
     display: block;
+    position: relative;
+    top: 0;
     left: 0;
-    transform: translateY(-50%);
+    transform: none;
   }
   .avatar-skills-avatar img, .avatar-skills-avatar button, .avatar-skills-avatar [data-tooltip], .avatar-skills-avatar .caption-container {
     pointer-events: auto;
@@ -2143,10 +2200,10 @@ body {
 @media (min-width: 1024px) and (max-width: 1279px) {
   .skills-wrapper {
     margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
     width: 700px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2173,10 +2230,10 @@ body {
 @media (min-width: 1280px) {
   .skills-wrapper {
     margin: 0;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 0;
     left: 0;
-    transform: translateY(-50%);
+    transform: none;
     width: 700px;
     display: grid;
     grid-template-columns: 1fr 1fr;
