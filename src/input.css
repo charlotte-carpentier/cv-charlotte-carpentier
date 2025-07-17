@@ -1701,11 +1701,6 @@ body {
   display: block;
 }
 
-/* Masquer COMPLÈTEMENT la section par défaut dès qu'on a une ancre différente */
-body:not([class*="portfolio"]) .tab-section-item[data-default="true"]:not(:target) {
-  display: none !important;
-}
-
 /* Solution alternative plus simple - masquer portfolio si pas ciblée et qu'il y a une ancre */
 .tab-section-item[data-default="true"]:not(:target) {
   display: none;

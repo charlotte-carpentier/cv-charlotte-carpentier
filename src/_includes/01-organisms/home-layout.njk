@@ -2,6 +2,7 @@
    @ORGANISMS - HOME-LAYOUT
    - Main page layout orchestrating avatar, skills and tab-sections
    - Manages positioning and responsive behavior across 4 breakpoints
+   - Each layout is self-contained to prevent cross-contamination
 =========================================================== #}
 
 {# Import organisms #}
@@ -15,10 +16,13 @@
     <span class="text-red-500">Error: Missing required configuration data</span>
   {% else %}
     
-    {# Home Layout Container #}
-    <div class="home-layout w-full min-h-0 h-auto" data-component="home-layout">
+    {# Home Layout Container - Parent for all breakpoints #}
+    <div class="home-layout w-full" data-component="home-layout">
       
-      {# SM Layout - Mobile First (640px and below) #}
+      {# ===================================================================
+         SM LAYOUT - Mobile First (640px and below) ✅ VALIDÉ
+         Structure: Avatar → Skills → Tab-sections (skills hidden by default)
+         =================================================================== #}
       <div class="home-layout__sm block sm:hidden min-h-0 h-auto" data-breakpoint="sm">
         
         {# Avatar Section #}
@@ -97,42 +101,115 @@
         
       </div>
       
+      {# ===================================================================
+         MD LAYOUT - Tablet (640px to 1023px) ✅ VALIDÉ - CSS INLINE SUPPRIMÉ
+         Structure: Avatar → Tab-sections → Skills (toujours visible)
+         =================================================================== #}
+      <div class="home-layout__md hidden sm:block lg:hidden min-h-0 h-auto" data-breakpoint="md">
+        
+        {# Avatar Section #}
+        <div class="home-layout__avatar mb-4 h-auto pt-8">
+          {{ renderAvatarCard({ 
+            name: option.avatar_name or "charlotte_main",
+            datas: option.avatar_datas,
+            image_datas: option.image_datas,
+            typography_datas: option.typography_datas,
+            button_datas: option.button_datas,
+            tooltip_datas: option.tooltip_datas
+          }) }}
+        </div>
+        
+        {# Tab Sections - CSS inline supprimé, JavaScript prend le contrôle #}
+        <div class="home-layout__tabs h-auto mb-4 w-full">
+          {{ renderTabSections({ 
+            name: option.tab_sections_name or "charlotte_main",
+            datas: option.tab_sections_datas,
+            tabMenuDatas: option.tab_menu_datas,
+            linkDatas: option.link_datas,
+            portfolioDatas: option.portfolio_datas,
+            timelineDatas: option.timeline_datas,
+            contactDatas: option.contact_datas,
+            typographyDatas: option.typography_datas,
+            contentBlockDatas: option.content_block_datas,
+            contactBlockDatas: option.contact_block_datas,
+            listFormDatas: option.list_form_datas,
+            progressBarDatas: option.progress_bar_datas,
+            imageDatas: option.image_datas,
+            iconDatas: option.icon_datas,
+            radioDatas: option.radio_datas,
+            inputDatas: option.input_datas,
+            buttonDatas: option.button_datas
+          }) }}
+        </div>
+        
+        {# Skills Cards - Toujours visible avec wrapper complet #}
+        <div class="home-layout__skills h-auto min-h-0 pb-8">
+          <div class="skills-wrapper">
+            {{ renderSkillsCard({ 
+              name: "hard_skills_card",
+              datas: option.skills_datas,
+              typography_datas: option.typography_datas,
+              caption_datas: option.caption_datas,
+              icon_datas: option.icon_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
+            
+            {{ renderSkillsCard({ 
+              name: "soft_skills_card",
+              datas: option.skills_datas,
+              typography_datas: option.typography_datas,
+              caption_datas: option.caption_datas,
+              icon_datas: option.icon_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
+            
+            {{ renderSkillsCard({ 
+              name: "languages_card",
+              datas: option.skills_datas,
+              typography_datas: option.typography_datas,
+              caption_datas: option.caption_datas,
+              icon_datas: option.icon_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
+            
+            {{ renderSkillsCard({ 
+              name: "interests_card",
+              datas: option.skills_datas,
+              typography_datas: option.typography_datas,
+              caption_datas: option.caption_datas,
+              icon_datas: option.icon_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
+          </div>
+        </div>
+        
+      </div>
+      
+      {# ===================================================================
+         LG LAYOUT - Desktop (1024px to 1279px) 🚧 TODO
+         Structure: TBD - Side by side layout ?
+         =================================================================== #}
+      <div class="home-layout__lg hidden lg:block xl:hidden min-h-0 h-auto" data-breakpoint="lg">
+        {# TODO: LG Layout implementation #}
+        <div class="home-layout__placeholder text-center p-8">
+          <p class="text-lg">LG Layout - Coming Soon</p>
+          <p class="text-sm text-gray-500">1024px to 1279px</p>
+        </div>
+      </div>
+      
+      {# ===================================================================
+         XL LAYOUT - Large Desktop (1280px and above) 🚧 TODO
+         Structure: TBD - Full layout with all components ?
+         =================================================================== #}
+      <div class="home-layout__xl hidden xl:block min-h-0 h-auto" data-breakpoint="xl">
+        {# TODO: XL Layout implementation #}
+        <div class="home-layout__placeholder text-center p-8">
+          <p class="text-lg">XL Layout - Coming Soon</p>
+          <p class="text-sm text-gray-500">1280px and above</p>
+        </div>
+      </div>
+      
     </div>
     
   {% endif %}
 {% endmacro %}
-
-{# ===========================================================
-   Summon HAT Components Wisely
------------------------------------------------------------
-1. Import the macro at the top of your page
-{% from "01-organisms/home-layout.njk" import renderHomeLayout %}
-
-2. Call the home layout with all required data
-{{ renderHomeLayout({ 
-    avatar_name: "charlotte_main",
-    tab_sections_name: "charlotte_main",
-    avatar_datas: organisms["avatar-card"]["avatar-cards"],
-    skills_datas: organisms["skills-card"]["skills-cards"],
-    tab_sections_datas: organisms["tab-sections"]["tab-sections"],
-    tab_menu_datas: molecules["tab-menu"].tab_menus,
-    image_datas: atoms.image.images,
-    typography_datas: atoms.typography.texts,
-    button_datas: atoms.button.buttons,
-    tooltip_datas: atoms.tooltip.tooltips,
-    caption_datas: molecules.caption.captions,
-    icon_datas: atoms.icon.icons,
-    link_datas: atoms.link.links,
-    portfolio_datas: organisms["section-portfolio"].sections,
-    timeline_datas: organisms["section-timeline"].sections,
-    contact_datas: organisms["section-contact"].sections,
-    content_block_datas: molecules["content-block"]["content-blocks"],
-    contact_block_datas: molecules["contact-block"].contact_blocks,
-    list_form_datas: molecules["list-form"]["list-forms"],
-    progress_bar_datas: molecules["progress-bar"]["progress-bars"],
-    radio_datas: atoms.radio.radios,
-    input_datas: atoms.input.inputs
-}) }}
-
-May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-=========================================================== #}
