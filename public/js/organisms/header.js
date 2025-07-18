@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
         function initBurgerStyles() {
             // Initial state - open icon visible, close icon hidden
             burgerIconOpen.style.opacity = '1';
-            burgerIconOpen.style.transition = 'none'; // Pas de transition
+            burgerIconOpen.style.transition = 'none';
             
             burgerIconClose.style.opacity = '0';
-            burgerIconClose.style.transition = 'none'; // Pas de transition
+            burgerIconClose.style.transition = 'none';
         }
         
         // Initialize mobile overlay styles
@@ -56,11 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Toggle burger icons
             if (!isExpanded) {
-                // Menu opening - show close icon, hide open icon
+                // Menu opening
                 burgerIconOpen.style.opacity = '0';
                 burgerIconClose.style.opacity = '1';
             } else {
-                // Menu closing - show open icon, hide close icon
+                // Menu closing
                 burgerIconOpen.style.opacity = '1';
                 burgerIconClose.style.opacity = '0';
             }
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileOverlay.style.visibility = 'visible';
                 mobileOverlay.style.transform = 'translateY(0)';
                 mobileOverlay.style.zIndex = '50';
-                document.body.style.overflow = 'hidden'; // Prevent scroll
+                document.body.style.overflow = 'hidden';
             } else {
                 // Hide overlay
                 mobileOverlay.style.display = 'none';
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileOverlay.style.visibility = 'hidden';
                 mobileOverlay.style.transform = 'translateY(-5px)';
                 mobileOverlay.style.zIndex = '1';
-                document.body.style.overflow = ''; // Restore scroll
+                document.body.style.overflow = '';
             }
         }
         
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function closeMobileMenu() {
             burgerToggle.setAttribute('aria-expanded', 'false');
             
-            // Reset burger icons - changement instantané
+            // Reset burger icons
             burgerIconOpen.style.opacity = '1';
             burgerIconClose.style.opacity = '0';
             
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         }
         
-        // Handle window resize for responsive positioning
+        // Handle window resize
         function handleResize() {
             // Update overlay positioning
             if (window.innerWidth <= 639) {
@@ -146,12 +146,75 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Close menu on window resize to desktop + handle responsive positioning
+        // Handle resize
         window.addEventListener('resize', handleResize);
+    }
+    
+    // Contact link active state management
+    function initContactActiveState() {
+        const contactLink = document.querySelector('.header-navigation .link--nav');
+        
+        if (!contactLink) {
+            console.warn('Header: Contact link not found');
+            return;
+        }
+        
+        // Update contact link active state
+        function updateContactActiveState() {
+            const currentHash = window.location.hash;
+            const contactSection = document.querySelector('#contact');
+            
+            // Check if contact section is currently visible/active
+            if (currentHash === '#contact' || 
+                (contactSection && contactSection.style.display === 'block')) {
+                contactLink.classList.add('current');
+                contactLink.setAttribute('aria-current', 'page');
+            } else {
+                contactLink.classList.remove('current');
+                contactLink.removeAttribute('aria-current');
+            }
+        }
+        
+        // Initial check
+        updateContactActiveState();
+        
+        // Listen for hash changes
+        window.addEventListener('hashchange', updateContactActiveState);
+        
+        // Listen for tab menu clicks to update state
+        const tabMenuLinks = document.querySelectorAll('.tab-menu .link--tab');
+        tabMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Small delay to ensure the tab change has occurred
+                setTimeout(updateContactActiveState, 100);
+            });
+        });
+        
+        // Observer for tab-section visibility changes (fallback)
+        if (window.MutationObserver) {
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && 
+                        mutation.attributeName === 'style' &&
+                        mutation.target.id === 'contact') {
+                        updateContactActiveState();
+                    }
+                });
+            });
+            
+            const contactSection = document.querySelector('#contact');
+            if (contactSection) {
+                observer.observe(contactSection, { 
+                    attributes: true, 
+                    attributeFilter: ['style'] 
+                });
+            }
+        }
     }
     
     // Initialize header functionality
     initMobileMenu();
+    initContactActiveState();
     
     console.log('Header Charlotte organism initialized successfully! ⚔️✨');
     

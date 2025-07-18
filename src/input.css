@@ -317,9 +317,9 @@ body {
 /* Tab link current/page active state */
 .link--tab.current,
 .link--tab[aria-current="page"] {
-  color: #4a7c59 !important;
+  color: #4a7c59;
   font-weight: bold;
-  border-bottom-color: #4a7c59 !important;
+  border-bottom-color: #4a7c59;
   pointer-events: none;
   cursor: default;
 }
@@ -1429,7 +1429,8 @@ body {
 @media (min-width: 640px) and (max-width: 1023px) {
   /* Wrapper adjustments for tablet */
   .skills-wrapper {
-    align-items: start; /* Align cards to start instead of center */
+    align-items: start;
+    max-width: 633px; 
   }
   
   /* Order cards: hard_skills (1), soft_skills (2), languages (3), interests (4) */
@@ -1456,7 +1457,7 @@ body {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 4px;
+    width: 3px;
     background: linear-gradient(to bottom, #000000, #ffffff);
   }
   
@@ -1471,7 +1472,7 @@ body {
   /* Background and border with theme variables - height auto for content-based sizing */
   .skills-card {
     background-color: theme(--cc-white);
-    border-top: 4px solid theme(--cc-black);
+    border-top: 3px solid theme(--cc-black);
     height: auto; /* Allow content-based height */
     align-self: start; /* Prevent stretching in grid */
   }
