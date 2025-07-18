@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return {
       allSections: `${prefix}.tab-section-item`,
-      navLinks: `${prefix}.header-navigation .link--nav, ${prefix}.header-mobile-overlay .link--tab, ${prefix}.tab-menu .link--tab`,
+      navLinks: `${prefix}.header-navigation .link--nav, ${prefix}.header-mobile-overlay .link--tab, ${prefix}.tab-menu .link--tab, #mobile-overlay .link--tab`,
       contentContainer: `${prefix}.tab-sections-content`,
       scrollCursor: `${prefix}.tab-sections-scroll-cursor`,
       scrollThumb: `${prefix}#scroll-cursor-thumb`
