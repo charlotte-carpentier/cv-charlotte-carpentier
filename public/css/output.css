@@ -1075,6 +1075,11 @@
       opacity: 0%;
     }
   }
+  .md\:mt-16 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 16);
+    }
+  }
   .lg\:m-0 {
     @media (width >= 64rem) {
       margin: calc(var(--spacing) * 0);
@@ -1894,6 +1899,7 @@ body {
   left: 85px;
   width: 180px;
   height: 650px;
+  pointer-events: auto;
 }
 .footer {
   width: 100%;
@@ -2495,7 +2501,7 @@ body.charlotte-bg {
   z-index: 50;
 }
 .avatar-tooltip-container::before {
-  z-index: 1;
+  z-index: 150;
 }
 .skills-card-close {
   z-index: 60;
