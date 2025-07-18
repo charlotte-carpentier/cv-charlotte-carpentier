@@ -14,7 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Retourne les sélecteurs adaptés au layout actif
   function getSelectors() {
     const activeLayout = getCurrentActiveLayout();
-    const prefix = activeLayout === 'standalone' ? '' : `.home-layout__${activeLayout} `;
+    let prefix = '';
+    
+    // Contexte spécifique selon le layout
+    if (activeLayout === 'sm') {
+      prefix = '.home-layout__sm ';
+    } else if (activeLayout === 'md') {
+      prefix = '.home-layout__md ';
+    } else if (activeLayout === 'lg') {
+      prefix = '.home-layout__lg .lg-tab-sections-wrapper ';
+    } else if (activeLayout === 'xl') {
+      prefix = '.home-layout__xl ';
+    }
+    // standalone garde prefix vide
 
     return {
       allSections: `${prefix}.tab-section-item`,
@@ -55,6 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Debug helper pour vérifier le contexte actuel
+  function debugCurrentLayout() {
+    const activeLayout = getCurrentActiveLayout();
+    const selectors = getSelectors();
+    console.log(`🔍 Active layout: ${activeLayout}`);
+    console.log(`🔍 Selectors:`, selectors);
+    console.log(`🔍 Found sections:`, document.querySelectorAll(selectors.allSections).length);
+  }
+
   // Init hash par défaut
   if (!window.location.hash) {
     window.location.hash = defaultHash;
@@ -63,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialisation à la charge
   updateCurrentLinks();
   updateSections();
+  debugCurrentLayout();
 
   // Mise à jour au changement de hash
   window.addEventListener('hashchange', () => {
@@ -70,10 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSections();
   });
 
-  // Réinitialisation au resize
+  // Réinitialisation au resize (layout peut changer)
   window.addEventListener('resize', () => {
     updateCurrentLinks();
     updateSections();
+    debugCurrentLayout();
   });
 
   console.log('Tab navigation ready! 🚀');

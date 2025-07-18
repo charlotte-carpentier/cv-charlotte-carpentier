@@ -15,16 +15,16 @@
   {% if not option.avatar_datas or not option.skills_datas or not option.tab_sections_datas %}
     <span class="text-red-500">Error: Missing required configuration data</span>
   {% else %}
-    
+
     {# Home Layout Container - Parent for all breakpoints #}
     <div class="home-layout w-full" data-component="home-layout">
-      
+
       {# ===================================================================
          SM LAYOUT - Mobile First (640px and below) ✅ VALIDÉ
          Structure: Avatar → Skills → Tab-sections (skills hidden by default)
          =================================================================== #}
       <div class="home-layout__sm block sm:hidden min-h-0 h-auto" data-breakpoint="sm">
-        
+
         {# Avatar Section #}
         <div class="home-layout__avatar mb-4 h-auto pt-8">
           {{ renderAvatarCard({ 
@@ -36,7 +36,7 @@
             tooltip_datas: option.tooltip_datas
           }) }}
         </div>
-        
+
         {# Skills Cards - Now directly after avatar for better UX flow #}
         <div class="home-layout__skills h-auto min-h-0 mb-4">
           {{ renderSkillsCard({ 
@@ -47,7 +47,7 @@
             icon_datas: option.icon_datas,
             tooltip_datas: option.tooltip_datas
           }) }}
-          
+
           {{ renderSkillsCard({ 
             name: "hard_skills_card",
             datas: option.skills_datas,
@@ -56,7 +56,7 @@
             icon_datas: option.icon_datas,
             tooltip_datas: option.tooltip_datas
           }) }}
-          
+
           {{ renderSkillsCard({ 
             name: "soft_skills_card",
             datas: option.skills_datas,
@@ -65,7 +65,7 @@
             icon_datas: option.icon_datas,
             tooltip_datas: option.tooltip_datas
           }) }}
-          
+
           {{ renderSkillsCard({ 
             name: "interests_card",
             datas: option.skills_datas,
@@ -75,7 +75,7 @@
             tooltip_datas: option.tooltip_datas
           }) }}
         </div>
-        
+
         {# Tab Sections - Pushed down naturally when skills appear #}
         <div class="home-layout__tabs h-auto pb-8">
           {{ renderTabSections({ 
@@ -98,15 +98,15 @@
             buttonDatas: option.button_datas
           }) }}
         </div>
-        
+
       </div>
-      
+
       {# ===================================================================
          MD LAYOUT - Tablet (640px to 1023px) ✅ VALIDÉ - CSS INLINE SUPPRIMÉ
          Structure: Avatar → Tab-sections → Skills (toujours visible)
          =================================================================== #}
       <div class="home-layout__md hidden sm:block lg:hidden min-h-0 h-auto" data-breakpoint="md">
-        
+
         {# Avatar Section #}
         <div class="home-layout__avatar mb-4 h-auto pt-8">
           {{ renderAvatarCard({ 
@@ -118,7 +118,7 @@
             tooltip_datas: option.tooltip_datas
           }) }}
         </div>
-        
+
         {# Tab Sections - CSS inline supprimé, JavaScript prend le contrôle #}
         <div class="home-layout__tabs h-auto mb-4 w-full">
           {{ renderTabSections({ 
@@ -141,7 +141,7 @@
             buttonDatas: option.button_datas
           }) }}
         </div>
-        
+
         {# Skills Cards - Toujours visible avec wrapper complet #}
         <div class="home-layout__skills h-auto min-h-0 pb-8">
           <div class="skills-wrapper">
@@ -153,7 +153,7 @@
               icon_datas: option.icon_datas,
               tooltip_datas: option.tooltip_datas
             }) }}
-            
+
             {{ renderSkillsCard({ 
               name: "soft_skills_card",
               datas: option.skills_datas,
@@ -162,7 +162,7 @@
               icon_datas: option.icon_datas,
               tooltip_datas: option.tooltip_datas
             }) }}
-            
+
             {{ renderSkillsCard({ 
               name: "languages_card",
               datas: option.skills_datas,
@@ -171,7 +171,7 @@
               icon_datas: option.icon_datas,
               tooltip_datas: option.tooltip_datas
             }) }}
-            
+
             {{ renderSkillsCard({ 
               name: "interests_card",
               datas: option.skills_datas,
@@ -182,21 +182,100 @@
             }) }}
           </div>
         </div>
-        
+
       </div>
-      
+
       {# ===================================================================
-         LG LAYOUT - Desktop (1024px to 1279px) 🚧 TODO
-         Structure: TBD - Side by side layout ?
-         =================================================================== #}
+   LG LAYOUT - Desktop Large (1024px to 1279px)
+   Structure: Skills avec Avatar superposé + Tab-sections en dessous
+   =================================================================== #}
       <div class="home-layout__lg hidden lg:block xl:hidden min-h-0 h-auto" data-breakpoint="lg">
-        {# TODO: LG Layout implementation #}
-        <div class="home-layout__placeholder text-center p-8">
-          <p class="text-lg">LG Layout - Coming Soon</p>
-          <p class="text-sm text-gray-500">1024px to 1279px</p>
+
+        {# Bloc principal - Skills + Avatar superposé #}
+        <div class="home-layout__top relative flex justify-center items-center h-auto pt-8 pb-4">
+
+          {# Skills Cards Container - Zone centrale qui recevra l'avatar par dessus #}
+          <div class="home-layout__skills relative">
+            <div class="skills-wrapper">
+              {{ renderSkillsCard({ 
+          name: "hard_skills_card",
+          datas: option.skills_datas,
+          typography_datas: option.typography_datas,
+          caption_datas: option.caption_datas,
+          icon_datas: option.icon_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+
+              {{ renderSkillsCard({ 
+          name: "soft_skills_card",
+          datas: option.skills_datas,
+          typography_datas: option.typography_datas,
+          caption_datas: option.caption_datas,
+          icon_datas: option.icon_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+
+              {{ renderSkillsCard({ 
+          name: "languages_card",
+          datas: option.skills_datas,
+          typography_datas: option.typography_datas,
+          caption_datas: option.caption_datas,
+          icon_datas: option.icon_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+
+              {{ renderSkillsCard({ 
+          name: "interests_card",
+          datas: option.skills_datas,
+          typography_datas: option.typography_datas,
+          caption_datas: option.caption_datas,
+          icon_datas: option.icon_datas,
+          tooltip_datas: option.tooltip_datas
+        }) }}
+            </div>
+          </div>
+
+          {# Avatar Card - Superposé au centre du bloc skills - AJUSTÉ #}
+          <div class="home-layout__avatar absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[42%] z-10 pointer-events-none">
+            {{ renderAvatarCard({ 
+        name: option.avatar_name or "charlotte_name",
+        datas: option.avatar_datas,
+        image_datas: option.image_datas,
+        typography_datas: option.typography_datas,
+        button_datas: option.button_datas,
+        tooltip_datas: option.tooltip_datas
+      }) }}
+          </div>
+
         </div>
+
+        {# Bloc secondaire - Tab Sections #}
+        <div class="home-layout__tabs h-auto pb-8">
+          <div class="lg-tab-sections-wrapper">
+            {{ renderTabSections({ 
+        name: option.tab_sections_name or "charlotte_main",
+        datas: option.tab_sections_datas,
+        tabMenuDatas: option.tab_menu_datas,
+        linkDatas: option.link_datas,
+        portfolioDatas: option.portfolio_datas,
+        timelineDatas: option.timeline_datas,
+        contactDatas: option.contact_datas,
+        typographyDatas: option.typography_datas,
+        contentBlockDatas: option.content_block_datas,
+        contactBlockDatas: option.contact_block_datas,
+        listFormDatas: option.list_form_datas,
+        progressBarDatas: option.progress_bar_datas,
+        imageDatas: option.image_datas,
+        iconDatas: option.icon_datas,
+        radioDatas: option.radio_datas,
+        inputDatas: option.input_datas,
+        buttonDatas: option.button_datas
+      }) }}
+          </div>
+        </div>
+
       </div>
-      
+
       {# ===================================================================
          XL LAYOUT - Large Desktop (1280px and above) 🚧 TODO
          Structure: TBD - Full layout with all components ?
@@ -208,8 +287,8 @@
           <p class="text-sm text-gray-500">1280px and above</p>
         </div>
       </div>
-      
+
     </div>
-    
+
   {% endif %}
 {% endmacro %}

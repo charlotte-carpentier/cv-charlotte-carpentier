@@ -1251,33 +1251,6 @@ body {
   display: none; /* Chrome, Safari, and Opera */
 }
 
-/* Carousel dots styling */
-.portfolio-dot {
-  background-color: theme(--cc-white);
-  border: 3px solid theme(--cc-black);
-  cursor: pointer;
-}
-
-.portfolio-dot.active {
-  background-color: theme(--cc-green-light);
-  border: 3px solid theme(--cc-black);
-}
-
-.portfolio-dot:hover {
-  background-color: theme(--cc-green-light);
-}
-
-/* Responsive dots border */
-@media (max-width: 639px) {
-  .portfolio-dot {
-    border-width: 3px;
-  }
-  
-  .portfolio-dot.active {
-    border-width: 3px;
-  }
-}
-
 /* ==========================================================================
    @ORGANISM - SECTION-TIMELINE
    - Typography reset, gradient separator and content-block alignment

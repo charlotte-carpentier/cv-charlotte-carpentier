@@ -26,14 +26,55 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get carousel items
   const items = carousel.querySelectorAll('.section-portfolio-item');
   
-  // Update active dot based on scroll position
+  // Mouse drag pour desktop/tablet
+  let isDragging = false;
+  let startX;
+  let scrollLeft;
+  
+  // Set initial cursor
+  carousel.style.cursor = 'grab';
+  
+  carousel.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX;
+    scrollLeft = carousel.scrollLeft;
+    carousel.style.cursor = 'grabbing';
+  });
+  
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX;
+    const walk = startX - x;
+    carousel.scrollLeft = scrollLeft + walk;
+  });
+  
+  carousel.addEventListener('mouseup', () => {
+    isDragging = false;
+    carousel.style.cursor = 'grab';
+  });
+  
+  carousel.addEventListener('mouseleave', () => {
+    isDragging = false;
+    carousel.style.cursor = 'grab';
+  });
+  
+  // Dots management - tout dans le JS
+  function setDotStyles() {
+    dots.forEach((dot, index) => {
+      // Style par défaut
+      dot.style.backgroundColor = '#ffffff';
+      dot.style.border = '3px solid #000000';
+    });
+  }
+  
   function updateActiveDot() {
     const scrollLeft = carousel.scrollLeft;
     const itemWidth = items[0]?.offsetWidth || 0;
     const gap = 16; // gap-4 = 16px
     const containerWidth = carousel.offsetWidth;
     
-    // Calcul pour déterminer quelle image on voit le plus (en pixels)
+    // Calcul pour déterminer quelle image on voit le plus
     let currentIndex = 0;
     let maxVisiblePixels = 0;
     
@@ -41,27 +82,27 @@ document.addEventListener('DOMContentLoaded', function() {
       const itemLeft = index * (itemWidth + gap);
       const itemRight = itemLeft + itemWidth;
       
-      // Calcul des pixels visibles de cet élément
       const visibleLeft = Math.max(itemLeft, scrollLeft);
       const visibleRight = Math.min(itemRight, scrollLeft + containerWidth);
       const visiblePixels = Math.max(0, visibleRight - visibleLeft);
       
-      // Si on voit plus de pixels de cet élément que le précédent
       if (visiblePixels > maxVisiblePixels) {
         maxVisiblePixels = visiblePixels;
         currentIndex = index;
       }
     });
     
-    // Sécurité : s'assurer que l'index est dans les limites
+    // Sécurité
     currentIndex = Math.max(0, Math.min(currentIndex, dots.length - 1));
     
-    // Remove active class from all dots
-    dots.forEach(dot => dot.classList.remove('active'));
+    // Reset tous les dots
+    dots.forEach(dot => {
+      dot.style.backgroundColor = '#ffffff';
+    });
     
-    // Add active class to current dot
+    // Active le dot courant
     if (dots[currentIndex]) {
-      dots[currentIndex].classList.add('active');
+      dots[currentIndex].style.backgroundColor = '#c4ffcb';
     }
   }
   
@@ -69,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
   dots.forEach((dot, index) => {
     dot.addEventListener('click', function() {
       const itemWidth = items[0]?.offsetWidth || 0;
-      const gap = 16; // gap-4 = 16px
+      const gap = 16;
       const scrollPosition = index * (itemWidth + gap);
       
       carousel.scrollTo({
@@ -78,20 +119,23 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       
       // Force l'activation du dot cliqué
-      dots.forEach(d => d.classList.remove('active'));
-      dot.classList.add('active');
+      dots.forEach(d => {
+        d.style.backgroundColor = '#ffffff';
+      });
+      dot.style.backgroundColor = '#c4ffcb';
     });
   });
   
-  // Listen to scroll events avec throttling
+  // Listen to scroll events
   let scrollTimeout;
   carousel.addEventListener('scroll', function() {
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(updateActiveDot, 50);
   });
   
-  // Initialize first dot as active
+  // Initialize dots
+  setDotStyles();
   if (dots[0]) {
-    dots[0].classList.add('active');
+    dots[0].style.backgroundColor = '#c4ffcb';
   }
 });
