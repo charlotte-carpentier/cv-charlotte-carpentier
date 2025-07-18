@@ -1111,32 +1111,6 @@ body {
   white-space: nowrap;
 }
 
-.burger-icon-close {
-  opacity: 0;
-}
-
-.header-burger[aria-expanded="true"] .burger-icon-open {
-  opacity: 0;
-}
-
-.header-burger[aria-expanded="true"] .burger-icon-close {
-  opacity: 1;
-}
-
-.header-mobile-overlay {
-  top: 87px;
-  z-index: 1; /* Behind header on desktop */
-  display: none;
-}
-
-.header-mobile-overlay.active {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  z-index: 50; /* In front when active (mobile) */
-}
-
 .header-mobile-overlay .tab-menu-desktop {
   display: none;
 }
@@ -1161,10 +1135,6 @@ body {
 @media (max-width: 639px) {
   .header-brand h2 {
     font-size: theme(--text-h2-mobile);
-  }
-
-  .header-mobile-overlay {
-    top: 75px; /* ou ta valeur modifiée */
   }
   
   .mobile-overlay-content {
@@ -1249,33 +1219,6 @@ body {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, and Opera */
-}
-
-/* Carousel dots styling */
-.portfolio-dot {
-  background-color: theme(--cc-white);
-  border: 3px solid theme(--cc-black);
-  cursor: pointer;
-}
-
-.portfolio-dot.active {
-  background-color: theme(--cc-green-light);
-  border: 3px solid theme(--cc-black);
-}
-
-.portfolio-dot:hover {
-  background-color: theme(--cc-green-light);
-}
-
-/* Responsive dots border */
-@media (max-width: 639px) {
-  .portfolio-dot {
-    border-width: 3px;
-  }
-  
-  .portfolio-dot.active {
-    border-width: 3px;
-  }
 }
 
 /* ==========================================================================
@@ -1861,14 +1804,14 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 
 /* ==========================================================================
    @ORGANISM - BACKGROUNDS
-   - FIXED: Use fixed position to prevent background movement on content changes
+   - FIXED: Full width, no deformation, no vertical stretch
    ========================================================================== */
 
 .background-icons {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
-  background-position: center top; /* FIXED: Position fixe en haut */
-  background-size: auto;
+  background-position: center top;
+  background-size: cover; /* Prend toute la largeur sans déformation */
   background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
@@ -1879,8 +1822,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 @media (min-width: 640px) and (max-width: 1023px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
-    background-position: center top; /* FIXED: Position fixe */
-    background-size: auto;
+    background-size: cover; /* Prend toute la largeur sans déformation */
   }
 }
 
@@ -1889,8 +1831,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
-    background-position: center top; /* FIXED: Position fixe */
-    background-size: auto;
+    background-size: cover; /* Prend toute la largeur sans déformation */
   }
 }
 
@@ -1898,16 +1839,15 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 body.charlotte-bg {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
-  background-position: center top; /* FIXED: Position fixe */
-  background-size: auto;
+  background-position: center top;
+  background-size: cover; /* Prend toute la largeur sans déformation */
   background-attachment: fixed;
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
-    background-position: center top; /* FIXED: Position fixe */
-    background-size: auto;
+    background-size: cover; /* Prend toute la largeur sans déformation */
   }
 }
 
@@ -1915,8 +1855,7 @@ body.charlotte-bg {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
-    background-position: center top; /* FIXED: Position fixe */
-    background-size: auto;
+    background-size: cover; /* Prend toute la largeur sans déformation */
   }
 }
 

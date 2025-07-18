@@ -236,6 +236,9 @@
   .left-1\/2 {
     left: calc(1/2 * 100%);
   }
+  .z-10 {
+    z-index: 10;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -452,6 +455,10 @@
     --tw-translate-y: calc(var(--spacing) * -5);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .-translate-y-\[42\%\] {
+    --tw-translate-y: calc(42% * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .rotate-45 {
     rotate: 45deg;
   }
@@ -579,6 +586,10 @@
   .rounded-none {
     border-radius: 0;
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
@@ -636,9 +647,6 @@
   }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
-  }
-  .px-8 {
-    padding-inline: calc(var(--spacing) * 8);
   }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
@@ -1939,27 +1947,6 @@ body {
   font-weight: 900;
   white-space: nowrap;
 }
-.burger-icon-close {
-  opacity: 0;
-}
-.header-burger[aria-expanded="true"] .burger-icon-open {
-  opacity: 0;
-}
-.header-burger[aria-expanded="true"] .burger-icon-close {
-  opacity: 1;
-}
-.header-mobile-overlay {
-  top: 87px;
-  z-index: 1;
-  display: none;
-}
-.header-mobile-overlay.active {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  z-index: 50;
-}
 .header-mobile-overlay .tab-menu-desktop {
   display: none;
 }
@@ -1977,9 +1964,6 @@ body {
 @media (max-width: 639px) {
   .header-brand h2 {
     font-size: 1.25rem;
-  }
-  .header-mobile-overlay {
-    top: 75px;
   }
   .mobile-overlay-content {
     padding: 0.75rem 0rem;
@@ -2028,26 +2012,6 @@ body {
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
-}
-.portfolio-dot {
-  background-color: #ffffff;
-  border: 3px solid #000000;
-  cursor: pointer;
-}
-.portfolio-dot.active {
-  background-color: #c4ffcb;
-  border: 3px solid #000000;
-}
-.portfolio-dot:hover {
-  background-color: #c4ffcb;
-}
-@media (max-width: 639px) {
-  .portfolio-dot {
-    border-width: 3px;
-  }
-  .portfolio-dot.active {
-    border-width: 3px;
-  }
 }
 .section-timeline .section-timeline-header h1, .section-timeline .section-timeline-header h2, .section-timeline .section-timeline-header h3, .section-timeline .section-timeline-header p {
   margin: 0;
@@ -2442,7 +2406,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"], .tab-section-item[da
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: auto;
+  background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
@@ -2451,38 +2415,34 @@ body:not(.has-hash) .tab-section-item[data-default="true"], .tab-section-item[da
 @media (min-width: 640px) and (max-width: 1023px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
-    background-position: center top;
-    background-size: auto;
+    background-size: cover;
   }
 }
 @media (max-width: 639px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
-    background-position: center top;
-    background-size: auto;
+    background-size: cover;
   }
 }
 body.charlotte-bg {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: auto;
+  background-size: cover;
   background-attachment: fixed;
 }
 @media (min-width: 640px) and (max-width: 1023px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
-    background-position: center top;
-    background-size: auto;
+    background-size: cover;
   }
 }
 @media (max-width: 639px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
-    background-position: center top;
-    background-size: auto;
+    background-size: cover;
   }
 }
 .section-portfolio, .section-timeline, .section-contact {
