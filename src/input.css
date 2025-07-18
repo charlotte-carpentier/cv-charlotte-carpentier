@@ -1111,32 +1111,6 @@ body {
   white-space: nowrap;
 }
 
-.burger-icon-close {
-  opacity: 0;
-}
-
-.header-burger[aria-expanded="true"] .burger-icon-open {
-  opacity: 0;
-}
-
-.header-burger[aria-expanded="true"] .burger-icon-close {
-  opacity: 1;
-}
-
-.header-mobile-overlay {
-  top: 87px;
-  z-index: 1; /* Behind header on desktop */
-  display: none;
-}
-
-.header-mobile-overlay.active {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  z-index: 50; /* In front when active (mobile) */
-}
-
 .header-mobile-overlay .tab-menu-desktop {
   display: none;
 }
@@ -1161,10 +1135,6 @@ body {
 @media (max-width: 639px) {
   .header-brand h2 {
     font-size: theme(--text-h2-mobile);
-  }
-
-  .header-mobile-overlay {
-    top: 75px; /* ou ta valeur modifiée */
   }
   
   .mobile-overlay-content {
