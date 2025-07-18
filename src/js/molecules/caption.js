@@ -1,21 +1,24 @@
 /**
  * =========================
  *     CAPTION MOLECULE
- *     Simple Tooltip Logic      
+ *     Desktop Tooltip Logic (lg/xl only)      
  * =========================
  */
 
 /**
- * Initialize all tooltips with smart positioning
+ * Initialize tooltips for desktop devices only (lg: 1024px+)
  */
 function initTooltips() {
+  // Only initialize on desktop devices
+  if (window.innerWidth < 1024) return;
+  
   const captionContainers = document.querySelectorAll('.caption-container');
   
   captionContainers.forEach(container => {
     const tooltip = container.querySelector('.tooltip-popup');
     if (!tooltip) return;
     
-    // Add event listeners for show/hide functionality
+    // Add event listeners for desktop interactions
     container.addEventListener('mouseenter', () => showTooltip(tooltip, container));
     container.addEventListener('mouseleave', () => hideTooltip(tooltip));
     container.addEventListener('focus', () => showTooltip(tooltip, container));
@@ -32,50 +35,43 @@ function initTooltips() {
 }
 
 /**
- * Show tooltip with smart positioning to avoid viewport overflow
- * Adjusts position vertically (top/bottom) and horizontally (left/center/right)
+ * Show tooltip with smart positioning for desktop only
  */
 function showTooltip(tooltip, container) {
-  // Only show tooltips on desktop (lg breakpoint)
+  // Only show tooltips on desktop (lg: 1024px+)
   if (window.innerWidth < 1024) return;
   
   // Hide all other tooltips first to avoid overlap
   hideAllTooltips();
   
-  // Move tooltip to body to escape stacking context
+  // Move tooltip to body to escape any stacking context
   document.body.appendChild(tooltip);
   
-  // Get container position for absolute positioning
+  // Get container and viewport dimensions
   const containerRect = container.getBoundingClientRect();
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+  const margin = 20; // Safety margin from viewport edges
   
-  // Set initial position relative to container (collé sous l'icône, cache le label)
+  // Position tooltip relative to viewport (fixed positioning)
   tooltip.style.position = 'fixed';
-  tooltip.style.top = (containerRect.top + 64 + window.scrollY) + 'px'; // Icône fait 64px, donc collé juste en dessous
+  tooltip.style.top = (containerRect.top + 68) + 'px';
   tooltip.style.left = (containerRect.left + containerRect.width / 2) + 'px';
   tooltip.style.transform = 'translateX(-50%)';
-  tooltip.style.zIndex = '9999';
+  tooltip.style.zIndex = '1000';
   
-  // Show tooltip first to measure its dimensions
+  // Show tooltip to measure its dimensions
   tooltip.style.opacity = '1';
   tooltip.style.visibility = 'visible';
   
   // Check position after rendering and adjust if needed
   setTimeout(() => {
     const tooltipRect = tooltip.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    const margin = 20; // Safety margin from viewport edges
     
     // Check vertical overflow - move above icon if no space below
     if (tooltipRect.bottom > viewportHeight - margin) {
-      // Disable transition temporarily for instant repositioning
-      tooltip.style.transition = 'none';
-      tooltip.style.top = (containerRect.top + window.scrollY - tooltipRect.height) + 'px'; // Au-dessus de l'icône
-      
-      // Re-enable transition after repositioning
-      setTimeout(() => {
-        tooltip.style.transition = '';
-      }, 0);
+      const newTop = containerRect.top - tooltipRect.height - 4; // Above icon with 4px margin
+      tooltip.style.top = newTop + 'px';
     }
     
     // Check horizontal overflow and adjust alignment
@@ -103,18 +99,20 @@ function hideAllTooltips() {
 }
 
 /**
- * Hide tooltip and reset to default positioning
+ * Hide tooltip and reset positioning
  */
 function hideTooltip(tooltip) {
   tooltip.style.opacity = '0';
   tooltip.style.visibility = 'hidden';
   
-  // Reset position styles but keep the tooltip in body
+  // Reset position styles after transition
   setTimeout(() => {
     if (tooltip.style.opacity === '0') {
+      // Reset all positioning styles
       tooltip.style.position = '';
       tooltip.style.top = '';
       tooltip.style.left = '';
+      tooltip.style.right = '';
       tooltip.style.transform = '';
       tooltip.style.zIndex = '';
     }
@@ -122,11 +120,24 @@ function hideTooltip(tooltip) {
 }
 
 /**
- * Handle window resize - hide any open tooltips
+ * Handle window resize - reinitialize or cleanup based on viewport
  */
 function handleTooltipResize() {
-  const openTooltips = document.querySelectorAll('.tooltip-popup[style*="opacity: 1"]');
-  openTooltips.forEach(hideTooltip);
+  // Hide any open tooltips
+  hideAllTooltips();
+  
+  // Reinitialize if now on desktop, cleanup if on mobile/tablet
+  if (window.innerWidth >= 1024) {
+    initTooltips();
+  }
+}
+
+/**
+ * Handle scroll events - hide any open tooltips
+ */
+function handleTooltipScroll() {
+  // Hide any open tooltips when scrolling
+  hideAllTooltips();
 }
 
 // =========================
@@ -136,8 +147,11 @@ function handleTooltipResize() {
 // Initialize tooltips when DOM is ready
 document.addEventListener('DOMContentLoaded', initTooltips);
 
-// Hide tooltips on window resize to avoid positioning issues
+// Handle resize events
 window.addEventListener('resize', handleTooltipResize);
+
+// Handle scroll events - hide tooltips when scrolling
+window.addEventListener('scroll', handleTooltipScroll);
 
 // Export for potential external use or testing
 if (typeof module !== 'undefined' && module.exports) {
