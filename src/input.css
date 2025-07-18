@@ -1030,6 +1030,7 @@ body {
   left: 85px;
   width: 180px;
   height: 650px;
+  pointer-events: auto;
 }
 
 /* ==========================================================================
@@ -1940,7 +1941,7 @@ body.charlotte-bg {
 }
 
 .avatar-tooltip-container::before {
-  z-index: 1;
+  z-index: 150;
 }
 
 .skills-card-close {

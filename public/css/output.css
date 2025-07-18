@@ -1894,6 +1894,7 @@ body {
   left: 85px;
   width: 180px;
   height: 650px;
+  pointer-events: auto;
 }
 .footer {
   width: 100%;
@@ -2495,7 +2496,7 @@ body.charlotte-bg {
   z-index: 50;
 }
 .avatar-tooltip-container::before {
-  z-index: 1;
+  z-index: 150;
 }
 .skills-card-close {
   z-index: 60;
