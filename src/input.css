@@ -1804,14 +1804,14 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 
 /* ==========================================================================
    @ORGANISM - BACKGROUNDS
-   - FIXED: Use fixed position to prevent background movement on content changes
+   - FIXED: Full width, no deformation, no vertical stretch
    ========================================================================== */
 
 .background-icons {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
-  background-position: center top; /* FIXED: Position fixe en haut */
-  background-size: auto;
+  background-position: center top;
+  background-size: cover; /* Prend toute la largeur sans déformation */
   background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
@@ -1822,8 +1822,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 @media (min-width: 640px) and (max-width: 1023px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
-    background-position: center top; /* FIXED: Position fixe */
-    background-size: auto;
+    background-size: cover; /* Prend toute la largeur sans déformation */
   }
 }
 
@@ -1832,8 +1831,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
-    background-position: center top; /* FIXED: Position fixe */
-    background-size: auto;
+    background-size: cover; /* Prend toute la largeur sans déformation */
   }
 }
 
@@ -1841,16 +1839,15 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 body.charlotte-bg {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
-  background-position: center top; /* FIXED: Position fixe */
-  background-size: auto;
+  background-position: center top;
+  background-size: cover; /* Prend toute la largeur sans déformation */
   background-attachment: fixed;
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
-    background-position: center top; /* FIXED: Position fixe */
-    background-size: auto;
+    background-size: cover; /* Prend toute la largeur sans déformation */
   }
 }
 
@@ -1858,8 +1855,7 @@ body.charlotte-bg {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
-    background-position: center top; /* FIXED: Position fixe */
-    background-size: auto;
+    background-size: cover; /* Prend toute la largeur sans déformation */
   }
 }
 

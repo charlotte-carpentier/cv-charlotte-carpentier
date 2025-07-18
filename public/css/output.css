@@ -2406,7 +2406,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"], .tab-section-item[da
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: auto;
+  background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
@@ -2415,38 +2415,34 @@ body:not(.has-hash) .tab-section-item[data-default="true"], .tab-section-item[da
 @media (min-width: 640px) and (max-width: 1023px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
-    background-position: center top;
-    background-size: auto;
+    background-size: cover;
   }
 }
 @media (max-width: 639px) {
   .background-icons {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
-    background-position: center top;
-    background-size: auto;
+    background-size: cover;
   }
 }
 body.charlotte-bg {
   background-image: url('/assets/images/backgrounds/bg-icons-desktop.svg');
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: auto;
+  background-size: cover;
   background-attachment: fixed;
 }
 @media (min-width: 640px) and (max-width: 1023px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-tablet-portrait.svg');
-    background-position: center top;
-    background-size: auto;
+    background-size: cover;
   }
 }
 @media (max-width: 639px) {
   body.charlotte-bg {
     background-image: url('/assets/images/backgrounds/bg-icons-mobile.svg');
     background-attachment: scroll;
-    background-position: center top;
-    background-size: auto;
+    background-size: cover;
   }
 }
 .section-portfolio, .section-timeline, .section-contact {
