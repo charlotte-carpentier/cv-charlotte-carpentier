@@ -1653,36 +1653,31 @@ body {
 /* ==========================================================================
    @ORGANISM - TAB-SECTIONS
    - Fixed dimensions, gradient vertical lines, scroll cursor and CSS :target navigation
-   - Anti-flicker scroll cursor system
    - Tailwind classes handle all layout, spacing, and responsive behavior
    ========================================================================== */
 
 /* CSS :target Navigation System */
 .tab-section-item {
-  display: none; /* Toutes les sections masquées par défaut */
+  display: none;
 }
 
 .tab-section-item:target {
-  display: block; /* Section ciblée visible */
+  display: block;
 }
 
-/* Section par défaut (portfolio) visible SEULEMENT si pas d'ancre ou si #portfolio */
 .tab-section-item[data-default="true"] {
   display: block;
 }
 
-/* Solution alternative plus simple - masquer portfolio si pas ciblée et qu'il y a une ancre */
 .tab-section-item[data-default="true"]:not(:target) {
   display: none;
 }
 
-/* Portfolio visible SEULEMENT si pas d'ancre OU si #portfolio dans l'URL */
 body:not(.has-hash) .tab-section-item[data-default="true"],
 .tab-section-item[data-default="true"]:target {
   display: block;
 }
 
-/* Empêcher le scroll automatique vers l'ancre */
 .tab-section-item {
   scroll-margin-top: 0;
 }
@@ -1691,7 +1686,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 .tab-sections .tab-section-content .section-contact-content,
 .tab-sections .tab-section-content .section-timeline-content,
 .tab-sections .tab-section-content .section-portfolio-content {
-  max-width: none; /* Remove max-width constraint */
+  max-width: none;
 }
 
 /* Mobile specific padding adjustments */
@@ -1723,34 +1718,23 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 
 /* Hide scrollbar for tab-sections content while maintaining scroll functionality */
 .tab-sections .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .tab-sections .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
+  display: none;
 }
 
-/* Scroll cursor positioning - ANTI-CLIGNOTEMENT */
+/* Scroll cursor - visible en LG et XL */
 .tab-sections-scroll-cursor {
-  top: 20px;
-  opacity: 0; /* Masqué par défaut */
-  visibility: hidden; /* Complètement invisible */
-  transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition douce */
-}
-
-/* Classe JS pour afficher quand prêt */
-.tab-sections-scroll-cursor.ready {
+  width: 20px;
+  height: 653px;
   opacity: 1;
   visibility: visible;
 }
 
-/* Alternative: Classe pour masquer complètement */
-.tab-sections-scroll-cursor.hidden {
-  display: none !important;
-}
-
-/* Gradient vertical lines - similar to skills-card */
+/* Gradient vertical lines */
 .tab-sections-gradient-left,
 .tab-sections-gradient-right {
   position: absolute;
@@ -1768,42 +1752,30 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   right: 0;
 }
 
-/* Scroll cursor track styling - ANTI-CLIGNOTEMENT */
+/* Scroll cursor track */
 .scroll-cursor-track {
   background: linear-gradient(to bottom, transparent, theme(--cc-grey-light) 10%, theme(--cc-grey-light) 90%, transparent);
   border: none;
   width: 4px;
-  height: 525px; /* Hauteur fixe du trait gris */
+  height: 525px;
   position: relative;
-  opacity: 0; /* Masquée par défaut */
-  transition: opacity 0.3s ease;
+  margin: 0 auto;
 }
 
-.tab-sections-scroll-cursor.ready .scroll-cursor-track {
-  opacity: 1;
-}
-
-/* Scroll cursor thumb styling - ANTI-CLIGNOTEMENT */
+/* Scroll cursor thumb - curseur géré en JS */
 .scroll-cursor-thumb {
   background-color: theme(--cc-green-light);
   border: 4px solid theme(--cc-black);
   position: absolute;
   top: 0;
-  cursor: pointer;
   user-select: none;
-  width: 21px; /* Largeur fixe */
-  height: 56px; /* Hauteur fixe */
-  left: -8.5px; /* Centré sur la track 4px: (21-4)/2 = 8.5px */
-  transition: opacity 0.2s ease;
-  opacity: 0; /* Masqué par défaut */
+  width: 21px;
+  height: 56px;
+  left: -8.5px;
+  transition: top 0.1s ease;
 }
 
-/* Thumb visible quand le container parent est ready */
-.tab-sections-scroll-cursor.ready .scroll-cursor-thumb {
-  opacity: 1;
-}
-
-/* Responsive gradient lines for tablet */
+/* Responsive gradient lines */
 @media (min-width: 640px) and (max-width: 1023px) {
   .tab-sections-gradient-left,
   .tab-sections-gradient-right {
@@ -1811,7 +1783,6 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   }
 }
 
-/* Mobile - gradient lines 3px */
 @media (max-width: 639px) {
   .tab-sections-gradient-left,
   .tab-sections-gradient-right {

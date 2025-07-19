@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (activeLayout === 'md') {
       prefix = '.home-layout__md ';
     } else if (activeLayout === 'lg') {
-      prefix = '.home-layout__lg .lg-tab-sections-wrapper ';
+      prefix = '.home-layout__lg ';
     } else if (activeLayout === 'xl') {
       prefix = '.home-layout__xl ';
     }
@@ -65,6 +65,175 @@ document.addEventListener('DOMContentLoaded', () => {
         section.style.display = 'none';
       }
     });
+
+    // Mettre à jour le scroll cursor après changement de section
+    updateScrollCursor();
+  }
+
+  // Gestion du scroll cursor avec accessibilité complète
+  function updateScrollCursor() {
+    const { contentContainer, scrollCursor, scrollThumb } = getSelectors();
+    
+    const contentEl = document.querySelector(contentContainer);
+    const cursorEl = document.querySelector(scrollCursor);
+    const thumbEl = document.querySelector(scrollThumb);
+
+    if (!contentEl || !cursorEl || !thumbEl) return;
+
+    // Vérifier si le contenu est scrollable
+    const isScrollable = contentEl.scrollHeight > contentEl.clientHeight;
+    
+    if (!isScrollable) {
+      cursorEl.style.opacity = '0';
+      cursorEl.setAttribute('aria-hidden', 'true');
+      return;
+    }
+
+    cursorEl.style.opacity = '1';
+    cursorEl.setAttribute('aria-hidden', 'false');
+
+    // Configuration accessibilité du thumb
+    thumbEl.setAttribute('tabindex', '0');
+    thumbEl.setAttribute('role', 'scrollbar');
+    thumbEl.setAttribute('aria-label', 'Barre de défilement vertical');
+    thumbEl.setAttribute('aria-orientation', 'vertical');
+    
+    // Calculer la position du thumb
+    function updateThumbPosition() {
+      const scrollRatio = contentEl.scrollTop / (contentEl.scrollHeight - contentEl.clientHeight);
+      const trackHeight = 525;
+      const thumbHeight = 56;
+      const maxThumbTop = trackHeight - thumbHeight;
+      
+      const thumbTop = scrollRatio * maxThumbTop;
+      thumbEl.style.top = `${thumbTop}px`;
+      
+      // Mettre à jour aria-valuenow
+      const percentage = Math.round(scrollRatio * 100);
+      thumbEl.setAttribute('aria-valuenow', percentage);
+      thumbEl.setAttribute('aria-valuemin', '0');
+      thumbEl.setAttribute('aria-valuemax', '100');
+      thumbEl.setAttribute('aria-valuetext', `${percentage}% défilé`);
+    }
+
+    // Variables pour le drag
+    let isDragging = false;
+    let startY = 0;
+    let startThumbTop = 0;
+    
+    // Respecter prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const speedMultiplier = prefersReducedMotion ? 1 : 1; // Ratio 1:1 accessible
+    
+    // Curseur par défaut
+    thumbEl.style.cursor = 'grab';
+    
+    // Support clavier
+    thumbEl.addEventListener('keydown', (e) => {
+      const trackHeight = 525;
+      const thumbHeight = 56;
+      const maxThumbTop = trackHeight - thumbHeight;
+      const contentHeight = contentEl.scrollHeight - contentEl.clientHeight;
+      const currentThumbTop = parseInt(thumbEl.style.top) || 0;
+      
+      let newThumbTop = currentThumbTop;
+      
+      switch(e.key) {
+        case 'ArrowUp':
+          newThumbTop = Math.max(0, currentThumbTop - 20); // Petit incrément
+          break;
+        case 'ArrowDown':
+          newThumbTop = Math.min(maxThumbTop, currentThumbTop + 20); // Petit incrément
+          break;
+        case 'PageUp':
+          newThumbTop = Math.max(0, currentThumbTop - 100); // Grand incrément
+          break;
+        case 'PageDown':
+          newThumbTop = Math.min(maxThumbTop, currentThumbTop + 100); // Grand incrément
+          break;
+        case 'Home':
+          newThumbTop = 0; // Début
+          break;
+        case 'End':
+          newThumbTop = maxThumbTop; // Fin
+          break;
+        default:
+          return; // Ignorer les autres touches
+      }
+      
+      e.preventDefault();
+      
+      // Appliquer le nouveau scroll
+      thumbEl.style.top = `${newThumbTop}px`;
+      const scrollRatio = newThumbTop / maxThumbTop;
+      contentEl.scrollTop = scrollRatio * contentHeight;
+      updateThumbPosition(); // Mettre à jour aria-valuenow
+    });
+    
+    thumbEl.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      thumbEl.style.cursor = 'grabbing';
+      
+      // Mémoriser la position de départ
+      startY = e.clientY;
+      startThumbTop = parseInt(thumbEl.style.top) || 0;
+      
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    // Focus management
+    thumbEl.addEventListener('focus', () => {
+      thumbEl.style.outline = '2px solid #4a7c59';
+      thumbEl.style.outlineOffset = '2px';
+    });
+
+    thumbEl.addEventListener('blur', () => {
+      thumbEl.style.outline = 'none';
+    });
+
+    // Écouter le scroll du contenu (sans conflit avec le drag)
+    contentEl.addEventListener('scroll', () => {
+      if (!isDragging) { // Seulement si pas en train de dragger
+        updateThumbPosition();
+      }
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      // Calculer le déplacement depuis le début du drag
+      const deltaY = e.clientY - startY;
+      const adjustedDelta = deltaY * speedMultiplier; // Ratio 1:1 accessible
+      const newThumbTop = startThumbTop + adjustedDelta;
+      
+      // Contraintes
+      const trackHeight = 525;
+      const thumbHeight = 56;
+      const maxThumbTop = trackHeight - thumbHeight;
+      const clampedThumbTop = Math.max(0, Math.min(newThumbTop, maxThumbTop));
+      
+      // Mettre à jour la position du thumb
+      thumbEl.style.top = `${clampedThumbTop}px`;
+      
+      // Calculer et appliquer le scroll correspondant
+      const scrollRatio = clampedThumbTop / maxThumbTop;
+      const contentHeight = contentEl.scrollHeight - contentEl.clientHeight;
+      const newScrollTop = scrollRatio * contentHeight;
+      
+      contentEl.scrollTop = newScrollTop;
+      updateThumbPosition(); // Mettre à jour aria-valuenow
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        thumbEl.style.cursor = 'grab';
+      }
+    });
+
+    // Position initiale
+    updateThumbPosition();
   }
 
   // Debug helper pour vérifier le contexte actuel
@@ -96,8 +265,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', () => {
     updateCurrentLinks();
     updateSections();
+    updateScrollCursor();
     debugCurrentLayout();
   });
 
-  console.log('Tab navigation ready! 🚀');
+  console.log('Tab navigation + scroll cursor ready! 🚀');
 });
