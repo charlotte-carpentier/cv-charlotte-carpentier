@@ -73,10 +73,10 @@ function initializeResponsiveState() {
   const currentBreakpoint = getCurrentBreakpoint();
   
   if (currentBreakpoint === 'mobile') {
-    // Mobile - hide all initially (COMME AVANT)
+    // Mobile - hide all initially
     hideAllSkillsCards();
   } else {
-    // Desktop/Tablet - show all (COMME AVANT)
+    // Desktop/Tablet - show all
     showAllSkillsCards();
   }
   
@@ -87,6 +87,18 @@ function initializeResponsiveState() {
 // Handle responsive changes - FIXÉ pour éviter la fermeture au scroll mobile
 function handleSkillsResize() {
   const currentBreakpoint = getCurrentBreakpoint();
+  
+  // Sur mobile, si on a une carte ouverte, on ignore complètement les resize events
+  if (currentBreakpoint === 'mobile') {
+    const hasVisibleCard = getSkillsContainers().some(container => 
+      !container.classList.contains('hidden')
+    );
+    
+    if (hasVisibleCard) {
+      console.log(`📱 Mobile with visible card - ignoring resize event`);
+      return;
+    }
+  }
   
   // Only reinitialize if we actually changed breakpoint
   if (previousBreakpoint !== currentBreakpoint) {
@@ -146,7 +158,8 @@ function initCloseButtons() {
         container.classList.add('hidden');
         container.classList.remove('block', 'visible');
         
-        console.log(`Skills Card: Closed ${container.id} via close button ❌`);
+        const skillsName = container.getAttribute('data-skills');
+        console.log(`Skills Card: Closed ${skillsName} via close button ❌`);
       });
     }
   });
