@@ -39,27 +39,6 @@ function initAvatarButtons() {
   });
 }
 
-// Handle responsive behavior
-function handleAvatarResize() {
-  const isMobile = window.innerWidth < 640;
-  
-  if (isMobile) {
-    // Mobile: emit hide all skills event on resize
-    const hideAllEvent = new CustomEvent('avatar:hideAllSkills', {
-      bubbles: true
-    });
-    document.dispatchEvent(hideAllEvent);
-    console.log('📱 Avatar Card: Emitted hideAllSkills on mobile resize');
-  } else {
-    // Desktop/Tablet: emit show all skills event
-    const showAllEvent = new CustomEvent('avatar:showAllSkills', {
-      bubbles: true
-    });
-    document.dispatchEvent(showAllEvent);
-    console.log('🖥️ Avatar Card: Emitted showAllSkills on desktop resize');
-  }
-}
-
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
   console.log('🎯 Avatar Card: Initializing...');
@@ -82,11 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize button functionality
   initAvatarButtons();
   
-  // Handle window resize for responsive behavior
-  window.addEventListener('resize', handleAvatarResize);
-  
-  // Initial state setup based on screen size
-  handleAvatarResize();
+  // SUPPRIMÉ: Plus de resize listener ni d'état initial setup
+  // Ces fonctions étaient responsables de la fermeture des cartes au scroll
   
   console.log('🎯 Avatar Card: Fully initialized! ✨');
 });
