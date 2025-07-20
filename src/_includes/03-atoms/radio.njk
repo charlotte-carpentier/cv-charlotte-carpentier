@@ -43,13 +43,13 @@
                 id="{{ radioOption.id }}"
                 name="{{ radioData.name }}"
                 value="{{ radioOption.value }}"
-                class="radio-input sr-only"
+                class="radio-input absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer z-10"
                 {% if radioOption.selected %}checked{% endif %}
                 {% if radioData.required %}required{% endif %}
                 {% if option.disabled %}disabled{% endif %}
               />
-              <span class="radio-custom w-4 h-4 border-2 rounded-full mr-2 relative flex-shrink-0 self-center pointer-events-none"></span>
-              <span class="radio-text leading-tight text-left flex items-center h-full m-0 p-0 pointer-events-none">{{ radioOption.text }}</span>
+              <span class="radio-custom w-4 h-4 border-2 rounded-full mr-2 relative flex-shrink-0 self-center z-0"></span>
+              <span class="radio-text leading-tight text-left flex items-center h-full m-0 p-0 z-0">{{ radioOption.text }}</span>
             </label>
           {% endfor %}
         </div>
