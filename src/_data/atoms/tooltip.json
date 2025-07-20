@@ -3,92 +3,92 @@
       {
         "name": "hardskills_analysis",
         "title": "CAPACITES D'ANALYSE", 
-        "description": "Regard affûté – +8 en lecture de situations et ajustements mesurés."
+        "description": "Regard affûté – lecture rapide de situations et ajustements mesurés."
       },
       {
         "name": "hardskills_management",
         "title": "MANAGEMENT D'EQUIPES", 
-        "description": "Sens du collectif – +6 en coordination et soutien des alliés."
+        "description": "Sens du collectif – coordination et soutien des alliés."
       },
       {
         "name": "hardskills_crisis",
         "title": "GESTION DE CRISE", 
-        "description": "Sang-froid acquis – +7 en priorisation sous pression."
+        "description": "Sang-froid acquis – priorisation sous pression."
       },
       {
         "name": "softskills_empathie",
         "title": "EMPATHIE", 
-        "description": "Écoute sincère – +8 en compréhension des besoins et communication posée."
+        "description": "Écoute sincère – compréhension des besoins et communication posée."
       },
       {
         "name": "softskills_creativity",
         "title": "CREATIVITE", 
-        "description": "Imagination structurée – +7 en idées nouvelles et solutions réalistes."
+        "description": "Imagination structurée – idées concrètes et solutions réalistes."
       },
       {
         "name": "softskills_patience",
         "title": "PATIENCE", 
-        "description": "Temps maîtrisé – +7 en suivi régulier et constance dans l’effort."
+        "description": "Temps maîtrisé – constance dans l’effort et vision long terme."
       },
       {
         "name": "languages_symfony",
         "title": "SYMFONY", 
-        "description": "Accorde la maîtrise des rouages invisibles pour bâtir du code fiable et évolutif."
+        "description": "Backend fiable – fondations solides pour un code durable."
       },
       {
         "name": "languages_eleventy",
         "title": "ELEVENTY", 
-        "description": "Octroie la capacité de forger des pages rapides, sobres et économes en énergie."
+        "description": "Pages rapides - minimalistes et économes en énergie."
       },
       {
         "name": "languages_tailwind",
         "title": "TAILWIND", 
-        "description": "Permet de façonner des interfaces flexibles, nettes et accessibles, d’un geste précis."
+        "description": "Interfaces flexibles - nettes, précises et accessibles."
       },
       {
         "name": "languages_javascript",
         "title": "JAVASCRIPT", 
-        "description": "Déchaîne des actions ciblées, exactement quand elles sont nécessaires."
+        "description": "Actions ciblées - justes au bon moment."
       },
       {
         "name": "languages_english",
         "title": "ANGLAIS", 
-        "description": "Déverrouille l’accès aux savoirs techniques et aux alliances internationales."
+        "description": "Clé universelle - accès aux savoirs techniques et aux alliances internationales."
       },
       {
         "name": "hobbies_horror",
         "title": "CINEMA D'HORREUR", 
-        "description": "Affronte l’inattendu et garde son calme dans les ténèbres."
+        "description": "Suspense géré - sang-froid dans les ténèbres."
       },
       {
         "name": "hobbies_maintenance",
         "title": "MAINTENANCE INFORMATIQUE", 
-        "description": "Répare et optimise les systèmes pour préserver stabilité et performance."
+        "description": "Machines soignées – stabilité et performance garanties."
       },
       {
         "name": "hobbies_korea",
         "title": "CULTURE COREENNE", 
-        "description": "S’imprègne d’un héritage où tradition rime avec innovation."
+        "description": "Influences transtemporelles – équilibre entre héritage et innovation."
       },
       {
         "name": "hobbies_comics",
         "title": "BANDE DESSINEE", 
-        "description": "Explore des récits où l’image et les mots prennent vie ensemble."
+        "description": "Narration hybride – fusion des images et des mots."
       },
       {
         "name": "hobbies_painting",
         "title": "PEINTURE", 
-        "description": "Libère l’esprit, pour que la main trouve son chemin."
+        "description": "Techniques en poche - instinct aux commandes."
       },
       {
         "name": "hobbies_fencing",
         "title": "ESCRIME", 
-        "description": "Maîtrise l'art du duel avec agilité et stratégie."
+        "description": "Art du duel – agilité et stratégie."
       },
       {
         "name": "skills_treasure",
         "title": "???", 
-        "description": "Non débloqué. Missions, temps et bonne connexion internet nécessaires."
+        "description": "Non débloqué. Missions, temps et bonne connexion nécessaires."
       },
       {
         "name": "avatar_desktop",
