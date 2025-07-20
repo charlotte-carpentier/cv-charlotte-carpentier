@@ -40,13 +40,6 @@ function showSkillsCard(skillsName) {
 // Check if skills card is visible - UTILISE data-skills
 function isSkillsCardVisible(skillsName) {
   const container = document.querySelector(`[data-skills="${skillsName}"]`);
-  console.log(`🔍 isSkillsCardVisible(${skillsName}):`, {
-    container,
-    exists: !!container,
-    classes: container ? container.className : 'NO CONTAINER',
-    hasHidden: container ? container.classList.contains('hidden') : 'NO CONTAINER',
-    result: container ? !container.classList.contains('hidden') : null
-  });
   return container ? !container.classList.contains('hidden') : null;
 }
 
@@ -61,17 +54,23 @@ function showAllSkillsCards() {
 // Initialize mobile state based on screen size
 function initializeResponsiveState() {
   if (window.innerWidth < 640) {
-    // Mobile - hide all initially (COMME AVANT)
+    // Mobile - hide all initially
     hideAllSkillsCards();
   } else {
-    // Desktop/Tablet - show all (COMME AVANT)
+    // Desktop/Tablet - show all
     showAllSkillsCards();
   }
 }
 
-// Handle responsive changes
+// Handle responsive changes - SIMPLIFIÉ : seulement pour les vrais changements d'écran
 function handleSkillsResize() {
-  initializeResponsiveState();
+  // Sur mobile, on ne touche JAMAIS aux cartes via resize
+  if (window.innerWidth < 640) {
+    return; // On fait rien sur mobile
+  }
+  
+  // Desktop/Tablet - show all
+  showAllSkillsCards();
 }
 
 // EVENT LISTENERS - Listen to avatar events - UTILISE data-skills
@@ -82,11 +81,7 @@ document.addEventListener('avatar:skillsToggle', function(e) {
   console.log(`🎯 Skills Card: Received event for ${buttonId} → ${skillsName}`);
   
   if (skillsName) {
-    const container = document.querySelector(`[data-skills="${skillsName}"]`);
-    console.log(`📦 Container found:`, container);
-    
     const isCurrentlyVisible = isSkillsCardVisible(skillsName);
-    console.log(`👁️ Currently visible:`, isCurrentlyVisible);
     
     // Hide all cards first
     hideAllSkillsCards();
@@ -98,8 +93,6 @@ document.addEventListener('avatar:skillsToggle', function(e) {
     } else {
       console.log(`❌ Was visible, now hidden`);
     }
-  } else {
-    console.log(`❌ No skills name found for ${buttonId}`);
   }
 });
 
@@ -123,7 +116,8 @@ function initCloseButtons() {
         container.classList.add('hidden');
         container.classList.remove('block', 'visible');
         
-        console.log(`Skills Card: Closed ${container.id} via close button ❌`);
+        const skillsName = container.getAttribute('data-skills');
+        console.log(`Skills Card: Closed ${skillsName} via close button ❌`);
       });
     }
   });
@@ -152,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize responsive state
   initializeResponsiveState();
   
-  // Handle window resize for responsive behavior
+  // Handle window resize - ULTRA SIMPLE
   window.addEventListener('resize', handleSkillsResize);
   
   console.log('Skills Card: Fully autonomous system initialized! 🎯✨');

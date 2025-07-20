@@ -1470,6 +1470,7 @@ body {
   color: #4a7c59;
   text-decoration: none;
   font-weight: bold;
+  cursor: default;
 }
 .link--tab {
   font-family: 'Manjari', sans-serif;
