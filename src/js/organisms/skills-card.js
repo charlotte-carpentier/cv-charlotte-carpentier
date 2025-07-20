@@ -13,11 +13,21 @@ const SKILLS_MAPPING = {
   'button_interests': 'interests_card'
 };
 
+// Variable pour tracker l'état précédent du breakpoint
+let previousBreakpoint = null;
+
 // Get all skills card containers - UTILISE data-skills
 function getSkillsContainers() {
   return Object.values(SKILLS_MAPPING)
     .map(skillsName => document.querySelector(`[data-skills="${skillsName}"]`))
     .filter(Boolean);
+}
+
+// Fonction pour déterminer le breakpoint actuel
+function getCurrentBreakpoint() {
+  if (window.innerWidth < 640) return 'mobile';
+  if (window.innerWidth < 1024) return 'tablet';
+  return 'desktop';
 }
 
 // Hide all skills cards
@@ -60,18 +70,31 @@ function showAllSkillsCards() {
 
 // Initialize mobile state based on screen size
 function initializeResponsiveState() {
-  if (window.innerWidth < 640) {
+  const currentBreakpoint = getCurrentBreakpoint();
+  
+  if (currentBreakpoint === 'mobile') {
     // Mobile - hide all initially (COMME AVANT)
     hideAllSkillsCards();
   } else {
     // Desktop/Tablet - show all (COMME AVANT)
     showAllSkillsCards();
   }
+  
+  // Update previous breakpoint
+  previousBreakpoint = currentBreakpoint;
 }
 
-// Handle responsive changes
+// Handle responsive changes - FIXÉ pour éviter la fermeture au scroll mobile
 function handleSkillsResize() {
-  initializeResponsiveState();
+  const currentBreakpoint = getCurrentBreakpoint();
+  
+  // Only reinitialize if we actually changed breakpoint
+  if (previousBreakpoint !== currentBreakpoint) {
+    console.log(`📱 Breakpoint changed: ${previousBreakpoint} → ${currentBreakpoint}`);
+    initializeResponsiveState();
+  } else {
+    console.log(`📱 Same breakpoint (${currentBreakpoint}), ignoring resize event`);
+  }
 }
 
 // EVENT LISTENERS - Listen to avatar events - UTILISE data-skills
@@ -149,11 +172,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Setup close buttons
   initCloseButtons();
   
-  // Initialize responsive state
+  // Initialize responsive state and set initial breakpoint
   initializeResponsiveState();
   
-  // Handle window resize for responsive behavior
-  window.addEventListener('resize', handleSkillsResize);
+  // Handle window resize for responsive behavior - AVEC DEBOUNCE pour éviter trop d'appels
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(handleSkillsResize, 100); // Debounce de 100ms
+  });
   
   console.log('Skills Card: Fully autonomous system initialized! 🎯✨');
 });
