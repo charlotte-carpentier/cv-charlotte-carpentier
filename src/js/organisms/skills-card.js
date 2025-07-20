@@ -13,21 +13,11 @@ const SKILLS_MAPPING = {
   'button_interests': 'interests_card'
 };
 
-// Variable pour tracker l'état précédent du breakpoint
-let previousBreakpoint = null;
-
 // Get all skills card containers - UTILISE data-skills
 function getSkillsContainers() {
   return Object.values(SKILLS_MAPPING)
     .map(skillsName => document.querySelector(`[data-skills="${skillsName}"]`))
     .filter(Boolean);
-}
-
-// Fonction pour déterminer le breakpoint actuel
-function getCurrentBreakpoint() {
-  if (window.innerWidth < 640) return 'mobile';
-  if (window.innerWidth < 1024) return 'tablet';
-  return 'desktop';
 }
 
 // Hide all skills cards
@@ -50,13 +40,6 @@ function showSkillsCard(skillsName) {
 // Check if skills card is visible - UTILISE data-skills
 function isSkillsCardVisible(skillsName) {
   const container = document.querySelector(`[data-skills="${skillsName}"]`);
-  console.log(`🔍 isSkillsCardVisible(${skillsName}):`, {
-    container,
-    exists: !!container,
-    classes: container ? container.className : 'NO CONTAINER',
-    hasHidden: container ? container.classList.contains('hidden') : 'NO CONTAINER',
-    result: container ? !container.classList.contains('hidden') : null
-  });
   return container ? !container.classList.contains('hidden') : null;
 }
 
@@ -70,43 +53,24 @@ function showAllSkillsCards() {
 
 // Initialize mobile state based on screen size
 function initializeResponsiveState() {
-  const currentBreakpoint = getCurrentBreakpoint();
-  
-  if (currentBreakpoint === 'mobile') {
+  if (window.innerWidth < 640) {
     // Mobile - hide all initially
     hideAllSkillsCards();
   } else {
     // Desktop/Tablet - show all
     showAllSkillsCards();
   }
-  
-  // Update previous breakpoint
-  previousBreakpoint = currentBreakpoint;
 }
 
-// Handle responsive changes - FIXÉ pour éviter la fermeture au scroll mobile
+// Handle responsive changes - SIMPLIFIÉ : seulement pour les vrais changements d'écran
 function handleSkillsResize() {
-  const currentBreakpoint = getCurrentBreakpoint();
-  
-  // Sur mobile, si on a une carte ouverte, on ignore complètement les resize events
-  if (currentBreakpoint === 'mobile') {
-    const hasVisibleCard = getSkillsContainers().some(container => 
-      !container.classList.contains('hidden')
-    );
-    
-    if (hasVisibleCard) {
-      console.log(`📱 Mobile with visible card - ignoring resize event`);
-      return;
-    }
+  // Sur mobile, on ne touche JAMAIS aux cartes via resize
+  if (window.innerWidth < 640) {
+    return; // On fait rien sur mobile
   }
   
-  // Only reinitialize if we actually changed breakpoint
-  if (previousBreakpoint !== currentBreakpoint) {
-    console.log(`📱 Breakpoint changed: ${previousBreakpoint} → ${currentBreakpoint}`);
-    initializeResponsiveState();
-  } else {
-    console.log(`📱 Same breakpoint (${currentBreakpoint}), ignoring resize event`);
-  }
+  // Desktop/Tablet - show all
+  showAllSkillsCards();
 }
 
 // EVENT LISTENERS - Listen to avatar events - UTILISE data-skills
@@ -117,11 +81,7 @@ document.addEventListener('avatar:skillsToggle', function(e) {
   console.log(`🎯 Skills Card: Received event for ${buttonId} → ${skillsName}`);
   
   if (skillsName) {
-    const container = document.querySelector(`[data-skills="${skillsName}"]`);
-    console.log(`📦 Container found:`, container);
-    
     const isCurrentlyVisible = isSkillsCardVisible(skillsName);
-    console.log(`👁️ Currently visible:`, isCurrentlyVisible);
     
     // Hide all cards first
     hideAllSkillsCards();
@@ -133,8 +93,6 @@ document.addEventListener('avatar:skillsToggle', function(e) {
     } else {
       console.log(`❌ Was visible, now hidden`);
     }
-  } else {
-    console.log(`❌ No skills name found for ${buttonId}`);
   }
 });
 
@@ -185,15 +143,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Setup close buttons
   initCloseButtons();
   
-  // Initialize responsive state and set initial breakpoint
+  // Initialize responsive state
   initializeResponsiveState();
   
-  // Handle window resize for responsive behavior - AVEC DEBOUNCE pour éviter trop d'appels
-  let resizeTimeout;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(handleSkillsResize, 100); // Debounce de 100ms
-  });
+  // Handle window resize - ULTRA SIMPLE
+  window.addEventListener('resize', handleSkillsResize);
   
   console.log('Skills Card: Fully autonomous system initialized! 🎯✨');
 });
