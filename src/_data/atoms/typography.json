@@ -92,13 +92,13 @@
     },
     {
       "name": "journey_2_title",
-      "text": "Directrice adj. - EHPAD",
+      "text": "Directrice adjointe - EHPAD",
       "tag": "p",
       "variant": "code"
     },
     {
       "name": "journey_2_paragraph",
-      "text": "Gestion de l’établissement au quotidien<br>Management des équipes pluridisciplinaires<br>Réponse aux besoins clients et aux objectifs du groupe",
+      "text": "Gestion de l’établissement<br>Management des équipes pluridisciplinaires<br>Réponse aux besoins clients et aux objectifs du groupe",
       "tag": "p",
       "variant": "p"
     },
@@ -140,7 +140,7 @@
     },
     {
       "name": "knowledge_1_paragraph",
-      "text": "Développer un site sécurisé",
+      "text": "Développer un site sécurisé.",
       "tag": "p",
       "variant": "p"
     },
@@ -152,13 +152,13 @@
     },
     {
       "name": "knowledge_2_title",
-      "text": "Master 2 Management des Ets de santé",
+      "text": "Master 2 Management des établissements de santé",
       "tag": "p",
       "variant": "code"
     },
     {
       "name": "knowledge_2_paragraph",
-      "text": "S’adapter au monde professionnel",
+      "text": "Exercer sur le terrain, gérer l’humain, piloter des projets.",
       "tag": "p",
       "variant": "p"
     },
@@ -176,7 +176,7 @@
     },
     {
       "name": "knowledge_3_paragraph",
-      "text": "Acquérir l’expression orale, la conduite de projets de groupes et la polyvalence",
+      "text": "Développer l’aisance orale, coordonner un groupe et s’adapter aux enjeux.",
       "tag": "p",
       "variant": "p"
     },
@@ -194,7 +194,7 @@
     },
     {
       "name": "knowledge_4_paragraph",
-      "text": "Apprendre à apprendre",
+      "text": "Apprendre en solo, en vitesse, en volume.",
       "tag": "p",
       "variant": "p"
     },
