@@ -37,19 +37,19 @@
         {# Grid container for options #}
         <div class="radio-grid grid grid-cols-2 gap-2 w-full">
           {% for radioOption in radioData.options %}
-            <label for="{{ radioOption.id }}" class="radio-option flex items-center justify-start p-2 px-3 border-2 cursor-pointer transition-all duration-300 min-h-[50px] box-border">
+            <label for="{{ radioOption.id }}" class="radio-option relative flex items-center justify-start p-2 px-3 border-2 cursor-pointer transition-all duration-300 min-h-[50px] box-border">
               <input 
                 type="radio"
                 id="{{ radioOption.id }}"
                 name="{{ radioData.name }}"
                 value="{{ radioOption.value }}"
-                class="radio-input absolute opacity-0"
+                class="radio-input sr-only"
                 {% if radioOption.selected %}checked{% endif %}
                 {% if radioData.required %}required{% endif %}
                 {% if option.disabled %}disabled{% endif %}
               />
-              <span class="radio-custom w-4 h-4 border-2 rounded-full mr-2 relative flex-shrink-0 self-center"></span>
-              <span class="radio-text leading-tight text-left flex items-center h-full m-0 p-0">{{ radioOption.text }}</span>
+              <span class="radio-custom w-4 h-4 border-2 rounded-full mr-2 relative flex-shrink-0 self-center pointer-events-none"></span>
+              <span class="radio-text leading-tight text-left flex items-center h-full m-0 p-0 pointer-events-none">{{ radioOption.text }}</span>
             </label>
           {% endfor %}
         </div>
