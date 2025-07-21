@@ -1,23 +1,23 @@
 {
   "title": "Charlotte Carpentier – Développeuse Web",
-  "description": "Autrefois à la tête d’un établissement de santé, j’ai choisi de suivre un rêve d’enfant : le développement web. Aujourd’hui, je code avec rigueur, humanité, et quatre piliers en tête : simplicité, sécurité, écologie et inclusion.",
+  "description": "Ce site suit une ligne tranquille : aller à l'essentiel, bâtir du code durable et respecter les utilisateurs. D'autres projets pourraient suivre le même chemin.",
   "url": "https://charlottecarpentier.com",
   "views": {
     "/": {
-      "title": "Charlotte Carpentier – CV & Portfolio Web",
-      "description": "Autrefois à la tête d’un établissement de santé, j’ai choisi de suivre un rêve d’enfant : le développement web. Aujourd’hui, je code avec rigueur, humanité, et quatre piliers en tête : simplicité, sécurité, écologie et inclusion."
+      "title": "Charlotte Carpentier – Développeuse Web",
+      "description": "Ce site suit une ligne tranquille : aller à l'essentiel, bâtir du code durable et respecter les utilisateurs. D'autres projets pourraient suivre le même chemin."
     },
     "/faq/": {
       "title": "FAQ – Charlotte Carpentier",
-      "description": "Réponses sur mon parcours, ma reconversion, mes choix techniques et les valeurs qui guident mon code."
+      "description": "Mon parcours, mes choix techniques et les valeurs qui me tiennent à cœur."
     },
     "/legal/": {
       "title": "Mentions légales – Charlotte Carpentier",
-      "description": "Les règles du site charlottecarpentier.com : mentions légales et conditions d’utilisation."
+      "description": "Mentions légales et conditions d’utilisation du site."
     },
     "/thank-you/": {
       "title": "Message bien reçu – Merci !",
-      "description": "Votre message a été transmis. Je vous répondrai dès que possible. La prochaine étape de la quête est en cours."
+      "description": "Votre message a été transmis. Je répondrai dès que possible."
     }
   },
   "favicon": {
