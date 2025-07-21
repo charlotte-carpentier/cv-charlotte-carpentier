@@ -3,19 +3,19 @@
     {
       "name": "avatar_desktop",
       "src": "/assets/images/avatar/avatar_charlotte_desktop.png",
-      "alt": "Une fille de bande dessinée, de plein pied, avec des lunettes, tenant un ordinateur portable, prête à conquérir le monde virtuel.",
+      "alt": "Portrait de Charlotte Carpentier",
       "variant": "avatar-desktop"
     },
     {
       "name": "avatar_tablet", 
       "src": "/assets/images/avatar/avatar_charlotte_tablet.png",
-      "alt": "Une fille de bande dessinée, plan américain, avec des lunettes, tenant un ordinateur portable, prête à conquérir le monde virtuel.",
+      "alt": "Portrait de Charlotte Carpentier",
       "variant": "avatar-tablet"
     },
     {
       "name": "avatar_mobile",
       "src": "/assets/images/avatar/avatar_charlotte_mobile.png", 
-      "alt": "Une fille de bande dessinée, plan poitrine, avec des lunettes, tenant un ordinateur portable, prête à conquérir le monde virtuel.",
+      "alt": "Portrait de Charlotte Carpentier",
       "variant": "avatar-mobile"
     },
     {
