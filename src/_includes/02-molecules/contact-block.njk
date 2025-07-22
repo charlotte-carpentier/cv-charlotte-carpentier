@@ -31,9 +31,9 @@
       {# Contact block container #}
       <div class="contact-block flex flex-col gap-2 sm:gap-1">
         {% for item in contactBlockData.items %}
-          <div class="contact-item flex items-center gap-2 sm:gap-1">
+          <div class="contact-item flex items-center justify-start gap-2 sm:gap-1">
             {# Icon #}
-            <div class="contact-icon flex-shrink-0">
+            <div class="contact-icon flex-shrink-0 flex items-center">
               {{ renderIcon({ 
                   name: item.icon,
                   datas: option.iconDatas
@@ -41,7 +41,7 @@
             </div>
             
             {# Text #}
-            <div class="contact-text flex-1">
+            <div class="contact-text flex-1 flex items-center">
               {{ renderTypography({ 
                   name: item.text,
                   datas: option.typographyDatas

@@ -86,6 +86,78 @@
       "titleTypographyName": "missions_site_2",
       "imageName": "mission_tcsophro",
       "linkName": "portfolio_sophrologue_site"
+    },
+    {
+      "name": "legal_editor_title",
+      "variant": "text",
+      "textTypographyName": "legal_subtitle_1",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_editor_content",
+      "variant": "text",
+      "textTypographyName": "legal_paragraph_1",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_hosting_title",
+      "variant": "text",
+      "textTypographyName": "legal_subtitle_2",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_hosting_content",
+      "variant": "text",
+      "textTypographyName": "legal_paragraph_3",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_intellectual_property_title",
+      "variant": "text",
+      "textTypographyName": "legal_subtitle_3",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_intellectual_property_content",
+      "variant": "text",
+      "textTypographyName": "legal_paragraph_2",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_privacy_title",
+      "variant": "text",
+      "textTypographyName": "legal_subtitle_4",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_privacy_content",
+      "variant": "text",
+      "textTypographyName": "legal_paragraph_4",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_cookies_title",
+      "variant": "text",
+      "textTypographyName": "legal_subtitle_5",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_cookies_content",
+      "variant": "text",
+      "textTypographyName": "legal_paragraph_5",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_credits_title",
+      "variant": "text",
+      "textTypographyName": "legal_subtitle_6",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_credits_content",
+      "variant": "text",
+      "textTypographyName": "legal_paragraph_6",
+      "textColor": "black"
     }
   ]
 }
