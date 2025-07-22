@@ -12,7 +12,7 @@
     {% set iconsConfig = option.datas %}
     {% set iconName = option.name %}
     
-    {# Find the specific icon by name - iconsConfig is already the array #}
+    {# Find the specific icon by name #}
     {% set iconData = null %}
     {% for icon in iconsConfig %}
       {% if icon.name == iconName %}
@@ -42,12 +42,17 @@
         {% set cssClasses = cssClasses ~ ' ' ~ option.class %}
       {% endif %}
       
-      {# Use SVG loader for inline SVG with color inheritance #}
-      <span 
-        data-svg-src="{{ iconData.path }}"
-        class="{{ cssClasses }}"
+      {# Generate sprite ID from name #}
+      {% set spriteId = iconData.spriteId | default(iconName) %}
+      
+      {# SVG Sprite usage - clean and fast #}
+      <svg 
+        class="{{ cssClasses }}" 
         aria-label="{{ iconData.alt }}"
-      ></span>
+        role="img"
+      >
+        <use href="/assets/icons/sprite.svg#{{ spriteId }}"></use>
+      </svg>
     {% endif %}
   {% endif %}
 {% endmacro %}
@@ -58,7 +63,7 @@
 1. Import the macro at the top of your page
 {% from "03-atoms/icon.njk" import renderIcon %}
 
-2. Call a specific icon by its name (will load as inline SVG)
+2. Call a specific icon by its name (loads instantly from sprite!)
 {{ renderIcon({ 
     name: "skills_treasure",
     datas: atoms.icon.icons
