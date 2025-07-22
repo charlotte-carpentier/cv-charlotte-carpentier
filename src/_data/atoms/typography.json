@@ -44,19 +44,19 @@
     },
     {
       "name": "profile_paragraph_2",
-      "text": "Autrefois, j'évoluais -gaiement- à la tête d'un établissement de santé. J’accompagnais mes équipes, relevais des missions difficiles et m'escrimais à suivre les règles du jeu.",
+      "text": "Autrefois, j'évoluais -gaiement- à la tête d'un établissement de santé. J'accompagnais mes équipes, relevais des missions difficiles et m'escrimais à suivre les règles du jeu.",
       "tag": "p",
       "variant": "p"
     },
     {
       "name": "profile_paragraph_3",
-      "text": "Dans un univers où les coffres s’emplissent plus vite que les terres ne se cultivent, j'ai changé de voie pour honorer mes valeurs - et un rêve d’enfant : le développement web.",
+      "text": "Dans un univers où les coffres s'emplissent plus vite que les terres ne se cultivent, j'ai changé de voie pour honorer mes valeurs - et un rêve d'enfant : le développement web.",
       "tag": "p",
       "variant": "p"
     },
     {
       "name": "profile_paragraph_4",
-      "text": "Aujourd’hui, je code en gardant quatre choses en tête : que chaque clic soit simple, que tout soit sécurisé, que le travail respecte notre planète, et que personne ne soit laissé de côté. Une ligne de code est un choix. Un projet une nouvelle quête.",
+      "text": "Aujourd'hui, je code en gardant quatre choses en tête : que chaque clic soit simple, que tout soit sécurisé, que le travail respecte notre planète, et que personne ne soit laissé de côté. Une ligne de code est un choix. Un projet une nouvelle quête.",
       "tag": "p",
       "variant": "p"
     },
@@ -98,7 +98,7 @@
     },
     {
       "name": "journey_2_paragraph",
-      "text": "Gestion de l’établissement<br>Management des équipes pluridisciplinaires<br>Réponse aux besoins clients et aux objectifs du groupe",
+      "text": "Gestion de l'établissement<br>Management des équipes pluridisciplinaires<br>Réponse aux besoins clients et aux objectifs du groupe",
       "tag": "p",
       "variant": "p"
     },
@@ -158,7 +158,7 @@
     },
     {
       "name": "knowledge_2_paragraph",
-      "text": "Exercer sur le terrain, gérer l’humain, piloter des projets.",
+      "text": "Exercer sur le terrain, gérer l'humain, piloter des projets.",
       "tag": "p",
       "variant": "p"
     },
@@ -176,7 +176,7 @@
     },
     {
       "name": "knowledge_3_paragraph",
-      "text": "Développer l’aisance orale, coordonner un groupe et s’adapter aux enjeux.",
+      "text": "Développer l'aisance orale, coordonner un groupe et s'adapter aux enjeux.",
       "tag": "p",
       "variant": "p"
     },
@@ -219,12 +219,14 @@
     {
       "name": "contact_paragraph_mail",
       "text": "carpentier.dev@gmail.com",
+      "link": "mailto:carpentier.dev@gmail.com",
       "tag": "p",
       "variant": "p"
     },
     {
       "name": "contact_paragraph_phone",
       "text": "06 35 15 82 17",
+      "link": "tel:+33635158217",
       "tag": "p",
       "variant": "p"
     },
@@ -350,7 +352,7 @@
     },
     {
       "name": "languages_paragraph_3",
-      "text": "Permet de façonner des interfaces flexibles, nettes et accessibles, d’un geste précis.",
+      "text": "Permet de façonner des interfaces flexibles, nettes et accessibles, d'un geste précis.",
       "tag": "small",
       "variant": "small"
     },
@@ -374,7 +376,7 @@
     },
     {
       "name": "languages_paragraph_5",
-      "text": "Déverrouille l’accès aux savoirs techniques et aux alliances internationales.",
+      "text": "Déverrouille l'accès aux savoirs techniques et aux alliances internationales.",
       "tag": "small",
       "variant": "small"
     },
@@ -386,7 +388,7 @@
     },
     {
       "name": "hardskills_subtitle_1",
-      "text": "Capacité d’analyse",
+      "text": "Capacité d'analyse",
       "tag": "p",
       "variant": "code"
     },
@@ -398,7 +400,7 @@
     },
     {
       "name": "hardskills_subtitle_2",
-      "text": "Management d’équipes",
+      "text": "Management d'équipes",
       "tag": "p",
       "variant": "code"
     },
@@ -458,7 +460,7 @@
     },
     {
       "name": "softskills_paragraph_3",
-      "text": "Temps maîtrisé – +7 en suivi régulier et constance dans l’effort.",
+      "text": "Temps maîtrisé – +7 en suivi régulier et constance dans l'effort.",
       "tag": "small",
       "variant": "small"
     },
@@ -470,13 +472,13 @@
     },
     {
       "name": "interests_subtitle_1",
-      "text": "Cinéma d’horreur",
+      "text": "Cinéma d'horreur",
       "tag": "p",
       "variant": "code"
     },
     {
       "name": "interests_paragraph_1",
-      "text": "Affronte l’inattendu et garde son calme dans les ténèbres.",
+      "text": "Affronte l'inattendu et garde son calme dans les ténèbres.",
       "tag": "small",
       "variant": "small"
     },
@@ -488,7 +490,7 @@
     },
     {
       "name": "interests_paragraph_2",
-      "text": "Manie l’art du duel avec agilité et stratégie.",
+      "text": "Manie l'art du duel avec agilité et stratégie.",
       "tag": "small",
       "variant": "small"
     },
@@ -512,7 +514,7 @@
     },
     {
       "name": "interests_paragraph_4",
-      "text": "S’imprègne d’un héritage où tradition rime avec innovation.",
+      "text": "S'imprègne d'un héritage où tradition rime avec innovation.",
       "tag": "small",
       "variant": "small"
     },
@@ -524,7 +526,7 @@
     },
     {
       "name": "interests_paragraph_5",
-      "text": "Explore des récits où l’image et les mots prennent vie ensemble.",
+      "text": "Explore des récits où l'image et les mots prennent vie ensemble.",
       "tag": "small",
       "variant": "small"
     },
@@ -536,7 +538,7 @@
     },
     {
       "name": "interests_paragraph_6",
-      "text": "Libère l’esprit, pour que la main trouve son chemin.",
+      "text": "Libère l'esprit, pour que la main trouve son chemin.",
       "tag": "small",
       "variant": "small"
     },

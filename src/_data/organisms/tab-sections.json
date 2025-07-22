@@ -25,6 +25,10 @@
         {
           "type": "contact",
           "name": "charlotte_contact"
+        },
+        {
+          "type": "timeline",
+          "name": "charlotte_legal"
         }
       ]
     }
