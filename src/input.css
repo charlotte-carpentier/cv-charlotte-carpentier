@@ -577,11 +577,6 @@ body {
   word-wrap: break-word;
   hyphens: auto;
   margin-top: 4px;
-  text-transform: lowercase;
-}
-
-.caption-title-desktop::first-letter {
-  text-transform: uppercase;
 }
 
 .caption-desktop:hover .caption-icon-desktop,
@@ -613,12 +608,7 @@ body {
   font-family: theme(--font-text);
   font-size: theme(--text-code);
   font-weight: 700;
-  text-transform: lowercase;
   letter-spacing: 0.05em;
-}
-
-.caption-label-mobile::first-letter {
-  text-transform: uppercase;
 }
 
 .caption-description-mobile {

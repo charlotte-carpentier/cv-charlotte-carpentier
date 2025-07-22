@@ -321,64 +321,34 @@
       "variant": "h2"
     },
     {
-      "name": "languages_subtitle_1",
+      "name": "languages_symfony",
       "text": "Symfony",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "languages_paragraph_1",
-      "text": "Accorde la maîtrise des rouages invisibles pour bâtir du code fiable et évolutif.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "languages_subtitle_2",
+      "name": "languages_eleventy",
       "text": "Eleventy",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "languages_paragraph_2",
-      "text": "Octroie la capacité de forger des pages rapides, sobres et économes en énergie.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "languages_subtitle_3",
+      "name": "languages_tailwind",
       "text": "Tailwind",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "languages_paragraph_3",
-      "text": "Permet de façonner des interfaces flexibles, nettes et accessibles, d'un geste précis.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "languages_subtitle_4",
+      "name": "languages_javascript",
       "text": "Javascript",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "languages_paragraph_4",
-      "text": "Déchaîne des actions ciblées, exactement quand elles sont nécessaires.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "languages_subtitle_5",
+      "name": "languages_english",
       "text": "Anglais",
       "tag": "p",
       "variant": "code"
-    },
-    {
-      "name": "languages_paragraph_5",
-      "text": "Déverrouille l'accès aux savoirs techniques et aux alliances internationales.",
-      "tag": "small",
-      "variant": "small"
     },
     {
       "name": "hardskills_title",
@@ -387,40 +357,22 @@
       "variant": "h2"
     },
     {
-      "name": "hardskills_subtitle_1",
+      "name": "hardskills_analysis",
       "text": "Capacité d'analyse",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "hardskills_paragraph_1",
-      "text": "Regard affûté – +8 en lecture de situations et ajustements mesurés.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "hardskills_subtitle_2",
+      "name": "hardskills_team",
       "text": "Management d'équipes",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "hardskills_paragraph_2",
-      "text": "Sens du collectif – +6 en coordination et soutien des alliés.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "hardskills_subtitle_3",
+      "name": "hardskills_crisis",
       "text": "Gestion de crise",
       "tag": "p",
       "variant": "code"
-    },
-    {
-      "name": "hardskills_paragraph_3",
-      "text": "Sang-froid acquis – +7 en priorisation sous pression.",
-      "tag": "small",
-      "variant": "small"
     },
     {
       "name": "softskills_title",
@@ -429,40 +381,22 @@
       "variant": "h2"
     },
     {
-      "name": "softskills_subtitle_1",
+      "name": "softskills_empathy",
       "text": "Empathie",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "softskills_paragraph_1",
-      "text": "Écoute sincère – +8 en compréhension des besoins et communication posée.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "softskills_subtitle_2",
+      "name": "softskills_creativity",
       "text": "Créativité",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "softskills_paragraph_2",
-      "text": "Imagination structurée – +7 en idées nouvelles et solutions réalistes.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "softskills_subtitle_3",
+      "name": "softskills_patience",
       "text": "Patience",
       "tag": "p",
       "variant": "code"
-    },
-    {
-      "name": "softskills_paragraph_3",
-      "text": "Temps maîtrisé – +7 en suivi régulier et constance dans l'effort.",
-      "tag": "small",
-      "variant": "small"
     },
     {
       "name": "interests_title",
@@ -471,76 +405,46 @@
       "variant": "h2"
     },
     {
-      "name": "interests_subtitle_1",
+      "name": "hobbies_horror",
       "text": "Cinéma d'horreur",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "interests_paragraph_1",
-      "text": "Affronte l'inattendu et garde son calme dans les ténèbres.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "interests_subtitle_2",
+      "name": "hobbies_fencing",
       "text": "Escrime",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "interests_paragraph_2",
-      "text": "Manie l'art du duel avec agilité et stratégie.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "interests_subtitle_3",
+      "name": "hobbies_maintenance",
       "text": "Maintenance informatique",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "interests_paragraph_3",
-      "text": "Répare et optimise les systèmes pour préserver stabilité et performance.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "interests_subtitle_4",
+      "name": "hobbies_korea",
       "text": "Culture coréenne",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "interests_paragraph_4",
-      "text": "S'imprègne d'un héritage où tradition rime avec innovation.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "interests_subtitle_5",
+      "name": "hobbies_comics",
       "text": "Bande dessinée",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "interests_paragraph_5",
-      "text": "Explore des récits où l'image et les mots prennent vie ensemble.",
-      "tag": "small",
-      "variant": "small"
-    },
-    {
-      "name": "interests_subtitle_6",
+      "name": "hobbies_painting",
       "text": "Peinture",
       "tag": "p",
       "variant": "code"
     },
     {
-      "name": "interests_paragraph_6",
-      "text": "Libère l'esprit, pour que la main trouve son chemin.",
-      "tag": "small",
-      "variant": "small"
+      "name": "skills_treasure",
+      "text": "???",
+      "tag": "p",
+      "variant": "code"
     },
     {
       "name": "footer_title",

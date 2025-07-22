@@ -36,6 +36,14 @@
           {% set tooltipData = tooltip %}
         {% endif %}
       {% endfor %}
+      
+      {# Get typography data for labels #}
+      {% set typographyData = null %}
+      {% for typography in option.typographyDatas %}
+        {% if typography.name == captionData.name %}
+          {% set typographyData = typography %}
+        {% endif %}
+      {% endfor %}
       {# Caption container with tooltip logic #}
       <div class="caption-container relative inline-block" data-tooltip="{{ captionData.name }}" tabindex="0">
         
@@ -49,7 +57,7 @@
           }) }}
           
           {# Title - Typography classes with proper text #}
-          <div class="caption-title-desktop text-small">{{ tooltipData.title if tooltipData else captionData.name }}</div>
+          <div class="caption-title-desktop text-small">{{ typographyData.text if typographyData else captionData.name }}</div>
           
           {# Tooltip (hidden by default, shown below icon on hover/focus) #}
           <div class="tooltip-popup" id="tooltip-{{ captionData.name }}">
@@ -72,7 +80,7 @@
           {# Content container (label + description stacked) #}
           <div class="caption-content-mobile flex flex-col flex-1">
             {# Label - Typography classes #}
-            <div class="caption-label-mobile text-code">{{ tooltipData.title if tooltipData else captionData.name }}</div>
+            <div class="caption-label-mobile text-code">{{ typographyData.text if typographyData else captionData.name }}</div>
             
             {# Description - Typography classes #}
             <div class="caption-description-mobile text-small">{{ tooltipData.description if tooltipData else "Description manquante" }}</div>
@@ -94,7 +102,8 @@
     name: "languages_symfony",
     datas: molecules.caption.captions,
     iconDatas: atoms.icon.icons,
-    tooltipDatas: atoms.tooltip.tooltips
+    tooltipDatas: atoms.tooltip.tooltips,
+    typographyDatas: atoms.typography.texts
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨

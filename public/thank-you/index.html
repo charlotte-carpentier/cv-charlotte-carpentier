@@ -47,6 +47,9 @@
     <link rel="preload" as="image" href="/assets/images/TODO">
 
     
+    <link rel="preload" href="/assets/icons/sprite.svg" as="image" type="image/svg+xml">
+
+    
     <link rel="stylesheet" href="/css/output.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
@@ -265,38 +268,6 @@
     
       
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
 
     
     
@@ -328,38 +299,6 @@
     
       
         
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
       
     
       
@@ -698,11 +637,16 @@
       
       
       
-      <span 
-        data-svg-src="/assets/icons/interface/list.svg"
-        class="icon-interface w-8 h-8"
+      
+      
+      
+      <svg 
+        class="icon-interface w-8 h-8" 
         aria-label="Icône de liste"
-      ></span>
+        role="img"
+      >
+        <use href="/assets/icons/sprite.svg#interface-list"></use>
+      </svg>
     
   
 
@@ -796,11 +740,16 @@
       
       
       
-      <span 
-        data-svg-src="/assets/icons/interface/x.svg"
-        class="icon-interface w-8 h-8"
+      
+      
+      
+      <svg 
+        class="icon-interface w-8 h-8" 
         aria-label="Icône de croix"
-      ></span>
+        role="img"
+      >
+        <use href="/assets/icons/sprite.svg#interface-x"></use>
+      </svg>
     
   
 
@@ -1797,38 +1746,6 @@
       
     
       
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
         
       
     
@@ -1931,7 +1848,6 @@
 
     
     <script src="/js/main.js" defer></script>
-    <script src="/js/atoms/svg-loader.js" defer></script>
     <script src="/js/molecules/caption.js" defer></script>
     <script src="/js/organisms/header.js" defer></script>
     <script src="/js/organisms/avatar-card.js" defer></script>
