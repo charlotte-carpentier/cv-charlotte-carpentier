@@ -9,6 +9,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/admin');  // Copy admin folder (for Netlify CMS)
   eleventyConfig.addPassthroughCopy('./src/docs');   // Copy docs folder
   eleventyConfig.addPassthroughCopy('./src/js');     // Copy js folder (for custom scripts)
+  eleventyConfig.addPassthroughCopy('./src/sprites');
 
   // Passthrough for robots.txt and sitemap.xml
   eleventyConfig.addPassthroughCopy('./src/robots.txt');
