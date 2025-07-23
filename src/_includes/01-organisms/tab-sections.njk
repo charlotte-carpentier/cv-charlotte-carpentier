@@ -25,7 +25,7 @@
     {% endfor %}
 
     {% if not tabSectionsData %}
-      <span class="text-red-500">Tab-sections not found: {{ tabSectionsName }}</span>
+      <span class="text-red-source">Tab-sections not found: {{ tabSectionsName }}</span>
     {% else %}
       <div class="tab-sections w-full" id="main-tab-sections">
         
@@ -123,6 +123,21 @@
                     iconDatas: option.iconDatas,
                     radioDatas: option.radioDatas,
                     inputDatas: option.inputDatas,
+                    buttonDatas: option.buttonDatas,
+                    linkDatas: option.linkDatas,
+                    class: "tab-section-content"
+                }) }}
+              </div>
+              
+              {# Merci - Onglet de remerciements #}
+              <div class="tab-section-item" id="merci">
+                {{ renderSectionTimeline({ 
+                    name: "charlotte_thanks",
+                    datas: option.timelineDatas,
+                    typographyDatas: option.typographyDatas,
+                    contentBlockDatas: option.contentBlockDatas,
+                    progressBarDatas: option.progressBarDatas,
+                    imageDatas: option.imageDatas,
                     buttonDatas: option.buttonDatas,
                     linkDatas: option.linkDatas,
                     class: "tab-section-content"

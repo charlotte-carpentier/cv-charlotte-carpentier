@@ -72,6 +72,19 @@
           "legal_credits_content"
         ]
       }
+    },
+    {
+      "name": "charlotte_thanks",
+      "id": "merci",
+      "header": {
+        "title": "thanks_title"
+      },
+      "content": {
+        "blocks": [
+          "thanks_title_block",
+          "thanks_message_block"
+        ]
+      }
     }
   ]
 }

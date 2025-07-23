@@ -481,6 +481,24 @@
       "text": "© 2025 -&nbsp;",
       "tag": "p",
       "variant": "code"
+    },
+    {
+      "name": "thanks_title",
+      "text": "Merci !",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "thanks_subtitle",
+      "text": "Message bien reçu.",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "thanks_message",
+      "text": "Votre message a été consigné dans le grand livre numérique. Je prendrai le temps de le lire avec attention.<br><br>En attendant, n'hésitez pas à parcourir les recoins de mon univers. Bonne exploration !",
+      "tag": "p",
+      "variant": "p"
     }
   ]
 }
