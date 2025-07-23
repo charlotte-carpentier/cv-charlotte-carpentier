@@ -12,9 +12,6 @@
 
     <link rel="canonical" href="{{ site.url }}{{ page.url | url }}">
 
-    {# Google Search Console #}
-    {# <meta name="google-site-verification" content="..." /> #}
-
     {# ----- Favicons ----- #}
     <link rel="icon" type="image/png" sizes="16x16" href="{{ favicon.png16 | default('/assets/ui/favicon/favicon-16x16.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ favicon.png32 | default('/assets/ui/favicon/favicon-32x32.png') }}">
@@ -59,14 +56,43 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#ffffff" />
 
-    {# ----- Axeptio Cookie Consent ----- #}
+    {# ----- Axeptio Cookie Consent + Google Consent Mode ----- #}
     <script>
-      window.axeptioSettings = {
-        clientId: "6656cb479c85181245355d23",
-        cookiesVersion: "charlottecarpentier-fr",
-      };
+    window.axeptioSettings = {
+      clientId: "6880d00ff0b041d2ff94a7f8",
+      cookiesVersion: "charlottecarpentier-fr-EU",
+      googleConsentMode: {
+        default: {
+          analytics_storage: "denied",
+          ad_storage: "denied", 
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          wait_for_update: 500
+        }
+      }
+    };
+     
+    (function(d, s) {
+      var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+      e.async = true; e.src = "//static.axept.io/sdk.js";
+      t.parentNode.insertBefore(e, t);
+    })(document, "script");
     </script>
-    <script async src="https://static.axept.io/sdk.js"></script>
+
+    {# ----- Google Analytics 4 (avec consent mode) ----- #}
+    {# TODO: Remplacer G-ET74WRBGJM par ton vrai ID Google Analytics 4 #}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET74WRBGJM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Initialize GA4 (consent will be managed by Axeptio)
+      gtag('js', new Date());
+      gtag('config', 'G-ET74WRBGJM', {
+        anonymize_ip: true,
+        cookie_flags: 'SameSite=None;Secure'
+      });
+    </script>
   </head>
 
   <body class="min-h-screen flex flex-col charlotte-bg">
