@@ -44,6 +44,8 @@
           {% if option.netlify %}
           {# Hidden honeypot field for spam protection #}
           <input type="hidden" name="bot-field" />
+          {# Hidden field for Netlify redirect #}
+          <input type="hidden" name="_redirect" value="/?tab=merci" />
           {% endif %}
           
           {# Radio section #}
