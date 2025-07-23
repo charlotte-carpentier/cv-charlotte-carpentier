@@ -69,7 +69,7 @@
           {# Submit button INSIDE the form #}
           {% if option.submitButton %}
           <div class="list-form-button flex justify-center mt-4">
-            {{ option.submitButton }}
+            {{ option.submitButton | safe }}
           </div>
           {% endif %}
           
