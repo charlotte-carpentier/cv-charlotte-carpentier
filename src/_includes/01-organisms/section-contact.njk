@@ -72,24 +72,24 @@
               <div class="section-contact-separator-line"></div>
             </div>
             
-            {# Contact form with Netlify integration #}
+            {# Contact form with Netlify integration - Button included in form #}
             <div class="section-contact-form">
-              {{ renderListForm({ 
-                  name: sectionData.content.form,
-                  datas: option.listFormDatas,
-                  radioDatas: option.radioDatas,
-                  inputDatas: option.inputDatas,
-                  netlify: true
-              }) }}
-              
-              {# Form submit button with reduced spacing #}
-              <div class="section-contact-button flex justify-center">
+              {% set submitButtonHtml %}
                 {{ renderButton({ 
                     name: sectionData.content.button,
                     datas: option.buttonDatas,
                     type: "submit"
                 }) }}
-              </div>
+              {% endset %}
+              
+              {{ renderListForm({ 
+                  name: sectionData.content.form,
+                  datas: option.listFormDatas,
+                  radioDatas: option.radioDatas,
+                  inputDatas: option.inputDatas,
+                  netlify: true,
+                  submitButton: submitButtonHtml
+              }) }}
             </div>
             
           </div>
