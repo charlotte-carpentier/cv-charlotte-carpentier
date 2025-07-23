@@ -2,6 +2,5 @@
   publish = "public"  # Specifies the publish folder
   command = "npm run build"  # Specifies the build command
 
-[[plugins]]
-  package = "netlify-plugin-image-optim"
-  [plugins.inputs]
+# [[plugins]]
+#   package = "netlify-plugin-image-optim"
