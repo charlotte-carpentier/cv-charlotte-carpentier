@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   const defaultHash = '#portfolio';
 
+  // Gestion de la redirection ?tab=merci vers #merci
+  function handleTabRedirect() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tab = urlParams.get('tab');
+    
+    if (tab === 'merci') {
+      // Remove the URL parameter and redirect to #merci
+      const url = new URL(window.location);
+      url.searchParams.delete('tab');
+      window.history.replaceState({}, '', url.pathname + url.search + '#merci');
+    }
+  }
+
   // Detecte le layout actif (sm, md, lg, xl ou standalone)
   function getCurrentActiveLayout() {
     if (!document.querySelector('.home-layout')) return 'standalone';
@@ -244,6 +257,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`🔍 Selectors:`, selectors);
     console.log(`🔍 Found sections:`, document.querySelectorAll(selectors.allSections).length);
   }
+
+  // Gestion de la redirection avant initialisation
+  handleTabRedirect();
 
   // Init hash par défaut
   if (!window.location.hash) {
