@@ -262,7 +262,7 @@
     },
     {
       "name": "legal_paragraph_2",
-      "text": "Tous les éléments de ce site (textes, visuels, codes) appartiennent à Charlotte Carpentier, sauf mention contraire. Reproduction interdite sans accord explicite.",
+      "text": "Ce site est hébergé par Netlify, Inc. 2325 3rd Street, Suite 296, San Francisco, CA 94107 <a href=\"https://www.netlify.com\" target=\"_blank\">https://www.netlify.com</a>",
       "tag": "p",
       "variant": "p"
     },
@@ -274,7 +274,7 @@
     },
     {
       "name": "legal_paragraph_3",
-      "text": "Ce site est hébergé par Netlify, Inc. 2325 3rd Street, Suite 296, San Francisco, CA 94107 <a href=\"https://www.netlify.com\" target=\"_blank\">https://www.netlify.com</a>",
+      "text": "Tous les éléments de ce site (textes, visuels, codes) appartiennent à Charlotte Carpentier, sauf mention contraire. Reproduction interdite sans accord explicite.",
       "tag": "p",
       "variant": "p"
     },
@@ -286,7 +286,7 @@
     },
     {
       "name": "legal_paragraph_4",
-      "text": "Ce site collecte uniquement les données du formulaire de contact pour répondre à vos demandes. Aucune donnée transmise à des tiers. Droit d'accès, modification ou suppression : <a href=\"mailto:carpentier.dev@gmail.com\">carpentier.dev@gmail.com</a>",
+      "text": "Ce site collecte uniquement les données du formulaire de contact pour répondre à vos demandes. Aucune donnée transmise à des tiers sans votre consentement explicite. Droit d'accès, modification ou suppression : <a href=\"mailto:carpentier.dev@gmail.com\">carpentier.dev@gmail.com</a>",
       "tag": "p",
       "variant": "p"
     },
@@ -298,19 +298,49 @@
     },
     {
       "name": "legal_paragraph_5",
-      "text": "Ce site ne contient ni traceurs, ni cookies de pistage. Seuls quelques cookies techniques assurent le bon fonctionnement de la navigation.",
+      "text": "Ce site utilise des cookies techniques nécessaires à son fonctionnement et des cookies analytiques (Google Analytics) pour améliorer l'expérience utilisateur, uniquement après votre consentement via notre gestionnaire de cookies Axeptio. Vous pouvez modifier vos préférences à tout moment.",
       "tag": "p",
       "variant": "p"
     },
     {
       "name": "legal_subtitle_6",
-      "text": "Crédits",
+      "text": "Outils d'analyse",
       "tag": "p",
       "variant": "code"
     },
     {
       "name": "legal_paragraph_6",
-      "text": "Design & développement : Charlotte Carpentier Illustrations : créations personnelles Diane C. Yoon",
+      "text": "Ce site utilise Google Analytics 4 pour analyser l'audience et améliorer le contenu. Les données sont anonymisées et ne permettent pas l'identification personnelle. Traitement conforme au RGPD.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "legal_subtitle_7",
+      "text": "Gestion des consentements",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "legal_paragraph_7",
+      "text": "La gestion des consentements est assurée par Axeptio, solution certifiée RGPD. Vous pouvez à tout moment modifier vos choix en cliquant sur le lien 'Gérer mes cookies' en bas de page.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "legal_subtitle_8",
+      "text": "Crédits",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "legal_paragraph_8",
+      "text": "Design & développement : Charlotte Carpentier<br>Illustrations : créations personnelles Diane C. Yoon<br>Analytics : Google Analytics 4<br>Consentements : Axeptio",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "legal_cookies_link",
+      "text": "<button onclick=\"axeptio.show()\" class=\"text-xs text-gray-600 hover:text-gray-800 underline cursor-pointer bg-transparent border-none p-0\">Gérer mes cookies</button>",
       "tag": "p",
       "variant": "p"
     },

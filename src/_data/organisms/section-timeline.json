@@ -55,7 +55,7 @@
         "blocks": [
           "legal_editor_title",
           "legal_editor_content",
-          "legal_hosting_title", 
+          "legal_hosting_title",
           "legal_hosting_content",
           "legal_intellectual_property_title",
           "legal_intellectual_property_content",
@@ -63,6 +63,11 @@
           "legal_privacy_content",
           "legal_cookies_title",
           "legal_cookies_content",
+          "legal_cookies_management",
+          "legal_analytics_title",
+          "legal_analytics_content",
+          "legal_consent_title",
+          "legal_consent_content",
           "legal_credits_title",
           "legal_credits_content"
         ]

@@ -108,7 +108,7 @@
     {
       "name": "legal_hosting_content",
       "variant": "text",
-      "textTypographyName": "legal_paragraph_3",
+      "textTypographyName": "legal_paragraph_2",
       "textColor": "black"
     },
     {
@@ -120,7 +120,7 @@
     {
       "name": "legal_intellectual_property_content",
       "variant": "text",
-      "textTypographyName": "legal_paragraph_2",
+      "textTypographyName": "legal_paragraph_3",
       "textColor": "black"
     },
     {
@@ -148,15 +148,45 @@
       "textColor": "black"
     },
     {
-      "name": "legal_credits_title",
+      "name": "legal_cookies_management",
+      "variant": "text",
+      "textTypographyName": "legal_cookies_link",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_analytics_title",
       "variant": "text",
       "textTypographyName": "legal_subtitle_6",
       "textColor": "black"
     },
     {
-      "name": "legal_credits_content",
+      "name": "legal_analytics_content",
       "variant": "text",
       "textTypographyName": "legal_paragraph_6",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_consent_title",
+      "variant": "text",
+      "textTypographyName": "legal_subtitle_7",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_consent_content",
+      "variant": "text",
+      "textTypographyName": "legal_paragraph_7",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_credits_title",
+      "variant": "text",
+      "textTypographyName": "legal_subtitle_8",
+      "textColor": "black"
+    },
+    {
+      "name": "legal_credits_content",
+      "variant": "text",
+      "textTypographyName": "legal_paragraph_8",
       "textColor": "black"
     }
   ]
