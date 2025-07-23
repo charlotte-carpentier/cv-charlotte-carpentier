@@ -188,6 +188,18 @@
       "variant": "text",
       "textTypographyName": "legal_paragraph_8",
       "textColor": "black"
+    },
+    {
+      "name": "thanks_title_block",
+      "variant": "text",
+      "textTypographyName": "thanks_subtitle",
+      "textColor": "green-dark"
+    },
+    {
+      "name": "thanks_message_block",
+      "variant": "text", 
+      "textTypographyName": "thanks_message",
+      "textColor": "black"
     }
   ]
 }
