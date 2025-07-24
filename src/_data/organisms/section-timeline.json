@@ -75,7 +75,7 @@
     },
     {
       "name": "charlotte_thanks",
-      "id": "merci",
+      "id": "message",
       "header": {
         "title": "thanks_title"
       },
