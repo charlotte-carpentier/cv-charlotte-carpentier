@@ -1,19 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const defaultHash = '#portfolio';
 
-  // Gestion de la redirection ?tab=merci vers #merci
-  function handleTabRedirect() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const tab = urlParams.get('tab');
-    
-    if (tab === 'merci') {
-      // Remove the URL parameter and redirect to #merci
-      const url = new URL(window.location);
-      url.searchParams.delete('tab');
-      window.history.replaceState({}, '', url.pathname + url.search + '#merci');
-    }
-  }
-
   // Detecte le layout actif (sm, md, lg, xl ou standalone)
   function getCurrentActiveLayout() {
     if (!document.querySelector('.home-layout')) return 'standalone';
@@ -258,38 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`🔍 Found sections:`, document.querySelectorAll(selectors.allSections).length);
   }
 
-  // Gestion du formulaire Netlify avec redirection vers #merci
-  function handleNetlifyForm() {
-    const form = document.querySelector('form[name="contact"]');
-    if (!form) return;
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault(); // Empêche la soumission normale
-      
-      // Créer FormData avec toutes les données du formulaire
-      const formData = new FormData(form);
-      
-      // Soumettre via fetch à Netlify
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(() => {
-        // Succès : rediriger vers l'onglet merci
-        window.location.hash = 'merci';
-      })
-      .catch((error) => {
-        // Erreur : afficher un message ou rediriger quand même
-        console.error('Erreur envoi formulaire:', error);
-        window.location.hash = 'merci'; // Rediriger quand même
-      });
-    });
-  }
-
-  // Gestion de la redirection avant initialisation
-  handleTabRedirect();
-
   // Init hash par défaut
   if (!window.location.hash) {
     window.location.hash = defaultHash;
@@ -315,7 +270,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   console.log('Tab navigation + scroll cursor ready! 🚀');
-
-  // Gestion du formulaire après l'initialisation
-  handleNetlifyForm();
 });
