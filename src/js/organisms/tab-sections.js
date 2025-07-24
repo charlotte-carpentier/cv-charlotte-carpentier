@@ -258,6 +258,35 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`🔍 Found sections:`, document.querySelectorAll(selectors.allSections).length);
   }
 
+  // Gestion du formulaire Netlify avec redirection vers #merci
+  function handleNetlifyForm() {
+    const form = document.querySelector('form[name="contact"]');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Empêche la soumission normale
+      
+      // Créer FormData avec toutes les données du formulaire
+      const formData = new FormData(form);
+      
+      // Soumettre via fetch à Netlify
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        // Succès : rediriger vers l'onglet merci
+        window.location.hash = 'merci';
+      })
+      .catch((error) => {
+        // Erreur : afficher un message ou rediriger quand même
+        console.error('Erreur envoi formulaire:', error);
+        window.location.hash = 'merci'; // Rediriger quand même
+      });
+    });
+  }
+
   // Gestion de la redirection avant initialisation
   handleTabRedirect();
 
@@ -286,4 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   console.log('Tab navigation + scroll cursor ready! 🚀');
+
+  // Gestion du formulaire après l'initialisation
+  handleNetlifyForm();
 });
