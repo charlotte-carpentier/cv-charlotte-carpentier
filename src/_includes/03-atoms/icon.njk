@@ -4,8 +4,8 @@
 =========================================================== #}
 
 {% macro renderIcon(option) %}
-  {# Check if datas is provided #}
-  {% if not option.datas %}
+  {# Check if option and required data is provided #}
+  {% if not option or not option.datas or not option.name %}
     <span class="text-red-500">Error: No icon configuration provided</span>
   {% else %}
     {# Retrieve icon configuration #}
@@ -42,13 +42,13 @@
         {% set cssClasses = cssClasses ~ ' ' ~ option.class %}
       {% endif %}
       
-      {# Generate sprite ID from name #}
+      {# Generate sprite ID from name with fallback #}
       {% set spriteId = iconData.spriteId | default(iconName) %}
       
       {# SVG Sprite usage - clean and fast #}
       <svg 
         class="{{ cssClasses }}" 
-        aria-label="{{ iconData.alt }}"
+        aria-label="{{ iconData.alt | default('Icon') }}"
         role="img"
       >
         <use href="/sprites/sprite.svg#{{ spriteId }}"></use>
@@ -67,13 +67,6 @@
 {{ renderIcon({ 
     name: "skills_treasure",
     datas: atoms.icon.icons
-}) }}
-
-3. Add custom classes if needed
-{{ renderIcon({ 
-    name: "social_linkedin",
-    datas: atoms.icon.icons,
-    class: "hover:opacity-75"
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
