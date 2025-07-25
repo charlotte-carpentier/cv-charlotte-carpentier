@@ -1,7 +1,7 @@
-{# ===========================================================
+{# ============================================================
    @ORGANISMS - AVATAR-CARD
    - Displays avatar with adaptive layout and interactions
-=========================================================== #}
+============================================================ #}
 
 {# Import atoms #}
 {% from "03-atoms/image.njk" import renderImage %}
@@ -31,19 +31,19 @@
       <span class="text-red-500">Avatar-card not found: {{ avatar_card_name }}</span>
     {% else %}
       {# Avatar Card Container #}
-      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="{{ avatar_card_data.name }}">
+      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="{{ avatar_card_data.name }}" role="region" aria-label="Avatar and skills interface">
         
-        {# Desktop version: Avatar avec tooltip au hover + positionnement absolu dans wrapper - MODIFIÉ #}
+        {# Desktop version: Avatar with tooltip on hover with absolute positioning in wrapper #}
         <div class="avatar-card-desktop avatar-skills-avatar-desktop hidden lg:block">
           <div class="w-fit lg:mx-auto xl:mx-0">
-            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0">
+            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0" role="button" aria-describedby="tooltip-avatar-desktop" aria-label="View avatar details">
               {{ renderImage({ 
                 name: avatar_card_data.avatar_desktop,
                 datas: option.image_datas
               }) }}
               
               {# Tooltip popup #}
-              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop">
+              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop" role="tooltip" aria-hidden="true">
                 {{ renderTooltip({ 
                   name: "avatar_desktop",
                   datas: option.tooltip_datas
@@ -53,7 +53,7 @@
           </div>
         </div>
 
-        {# Tablet version UNIFIÉ: Titre + Avatar (ex-portrait) #}
+        {# Tablet version UNIFIED: Title and Avatar (former portrait) #}
         <div class="avatar-card-tablet hidden sm:flex lg:hidden flex-col items-center gap-4 pt-8 box-border w-fit mx-auto">
           {# Title #}
           <div class="avatar-card-title text-center w-[245px] -mb-4">
@@ -72,9 +72,9 @@
           </div>
         </div>
 
-        {# Mobile version: Titre + Avatar + 4 boutons - ENRICHI avec data-attributes #}
+        {# Mobile version: Title, Avatar and 4 buttons with enhanced accessibility #}
         <div class="avatar-card-mobile flex sm:hidden flex-col items-center gap-4 pt-4 relative box-border w-fit mx-auto">
-          {# Title - Même classe que tablet pour cohérence #}
+          {# Title - Same class as tablet for consistency #}
           <div class="avatar-card-title text-center w-[245px] -mb-4">
             {{ renderTypography({ 
               name: avatar_card_data.title_name,
@@ -82,7 +82,7 @@
             }) }}
           </div>
           
-          {# Avatar - Même classe que tablet pour cohérence #}
+          {# Avatar - Same class as tablet for consistency #}
           <div class="avatar-card-image">
             {{ renderImage({ 
               name: avatar_card_data.avatar_mobile,
@@ -90,8 +90,8 @@
             }) }}
           </div>
           
-          {# Skills Buttons Grid - CORRIGÉ avec macro renderButton #}
-          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border">
+          {# Skills Buttons Grid with enhanced accessibility #}
+          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border" role="group" aria-label="Skills categories">
             {% for button_name in avatar_card_data.skills_buttons %}
               <div class="avatar-card-button absolute" data-button="{{ button_name }}">
                 {{ renderButton({ 
@@ -101,13 +101,16 @@
               </div>
             {% endfor %}
           </div>
+          
+          {# Screen reader announcement area #}
+          <div class="sr-only" id="skills-announcement" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
     {% endif %}
   {% endif %}
 {% endmacro %}
 
-{# ===========================================================
+{# ============================================================
    Summon HAT Components Wisely
 -----------------------------------------------------------
 1. Import the macro at the top of your page
@@ -124,4 +127,4 @@
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-=========================================================== #}
+============================================================ #}
