@@ -3,27 +3,32 @@
     {
       "name": "button_default",
       "text": "Envoyer",
-      "variant": "primary"
+      "variant": "primary",
+      "ariaLabel": "Envoyer le formulaire de contact"
     },
     {
       "name": "button_languages",
       "text": "Langages",
-      "variant": "primary"
+      "variant": "primary",
+      "ariaLabel": "Afficher mes compétences en langages de programmation"
     },
     {
       "name": "button_hard_skills",
       "text": "Hard skills",
-      "variant": "primary"
+      "variant": "primary",
+      "ariaLabel": "Afficher mes compétences techniques"
     },
     {
       "name": "button_soft_skills",
       "text": "Soft skills",
-      "variant": "primary"
+      "variant": "primary",
+      "ariaLabel": "Afficher mes compétences interpersonnelles"
     },
     {
       "name": "button_interests",
       "text": "Intérêts",
-      "variant": "primary"
+      "variant": "primary",
+      "ariaLabel": "Afficher mes centres d'intérêt"
     }
   ]
 }
