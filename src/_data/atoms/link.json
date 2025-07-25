@@ -4,7 +4,7 @@
       "name": "nav_contact",
       "href": "#contact",
       "text": "Contact",
-      "variant": "nav"
+      "variant": "nav-white"
     },
     {
       "name": "tab_missions",
@@ -101,7 +101,7 @@
       "name": "tab_legal",
       "href": "#legal",
       "text": "Mentions légales",
-      "variant": "tab"
+      "variant": "tab-white"
     }
   ]
 }

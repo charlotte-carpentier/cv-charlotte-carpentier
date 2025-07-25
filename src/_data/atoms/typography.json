@@ -4,13 +4,13 @@
       "name": "site_title",
       "text": "DEVELOPPEUSE WEB",
       "tag": "h1",
-      "variant": "h1"
+      "variant": "h1-white"
     },
     {
       "name": "site_creator",
       "text": "Charlotte Carpentier",
       "tag": "h2",
-      "variant": "h2"
+      "variant": "h2-white"
     },
     {
       "name": "missions_title",
@@ -480,7 +480,7 @@
       "name": "footer_title",
       "text": "© 2025 -&nbsp;",
       "tag": "p",
-      "variant": "code"
+      "variant": "code-white"
     },
     {
       "name": "thanks_title",

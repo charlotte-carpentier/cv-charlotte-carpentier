@@ -323,7 +323,7 @@
       
       
       
-        <h2 class="text-h2 max-w-prose leading-tight">Charlotte Carpentier</h2>
+        <h2 class="text-h2-white max-w-prose leading-tight">Charlotte Carpentier</h2>
       
     
   
@@ -524,7 +524,7 @@
       
       
       
-        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+        <h1 class="text-h1-white max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
     
   
@@ -584,8 +584,6 @@
       
       
       
-        
-      
       
       
       
@@ -594,7 +592,7 @@
       
       <a 
         href="#contact" 
-        class="link link--nav text-h2-mobile sm:text-h2 transition-colors duration-200 outline-none cursor-pointer focus-visible:outline-2 focus-visible:outline-cc-green-dark focus-visible:outline-offset-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
+        class="link link--nav-white transition-colors duration-200 outline-none cursor-pointer focus-visible:outline-2 focus-visible:outline-cc-green-dark focus-visible:outline-offset-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
         
         
         
@@ -854,9 +852,9 @@
         
         
         <div class="tab-menu-desktop hidden sm:block pt-4 pb-0 md:mt-16 xl:mt-0 xl:pt-3">
-          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0">
+          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -932,7 +930,7 @@
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -1008,7 +1006,7 @@
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -1084,7 +1082,7 @@
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -1160,7 +1158,7 @@
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -1241,9 +1239,9 @@
         
         
         <div class="tab-menu-mobile block sm:hidden">
-          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center">
+          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -1319,7 +1317,7 @@
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -1395,7 +1393,7 @@
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -1471,7 +1469,7 @@
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -1547,7 +1545,7 @@
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -1673,12 +1671,12 @@
     
     
       
-      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="charlotte_main">
+      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="charlotte_main" role="region" aria-label="Avatar and skills interface">
         
         
         <div class="avatar-card-desktop avatar-skills-avatar-desktop hidden lg:block">
           <div class="w-fit lg:mx-auto xl:mx-0">
-            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0">
+            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0" role="button" aria-describedby="tooltip-avatar-desktop" aria-label="View avatar details">
               
   
   
@@ -1728,7 +1726,7 @@
 
               
               
-              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop">
+              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop" role="tooltip" aria-hidden="true">
                 
   
   
@@ -2012,7 +2010,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+        <h1 class="text-h1-white max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
     
   
@@ -2267,7 +2265,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+        <h1 class="text-h1-white max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
     
   
@@ -2326,7 +2324,7 @@ Alignement : éco-numérique et accessibilité</div>
           </div>
           
           
-          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border">
+          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border" role="group" aria-label="Skills categories">
             
               <div class="avatar-card-button absolute" data-button="button_languages">
                 
@@ -2533,6 +2531,9 @@ Alignement : éco-numérique et accessibilité</div>
               </div>
             
           </div>
+          
+          
+          <div class="sr-only" id="skills-announcement" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
     
@@ -26837,9 +26838,9 @@ Alignement : éco-numérique et accessibilité</div>
         
         
         <div class="tab-menu-desktop hidden sm:block pt-4 pb-0 md:mt-16 xl:mt-0 xl:pt-3">
-          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0">
+          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -26915,7 +26916,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -26991,7 +26992,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -27067,7 +27068,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -27143,7 +27144,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -27224,9 +27225,9 @@ Alignement : éco-numérique et accessibilité</div>
         
         
         <div class="tab-menu-mobile block sm:hidden">
-          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center">
+          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -27302,7 +27303,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -27378,7 +27379,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -27454,7 +27455,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -27530,7 +27531,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -44684,12 +44685,12 @@ Alignement : éco-numérique et accessibilité</div>
     
     
       
-      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="charlotte_main">
+      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="charlotte_main" role="region" aria-label="Avatar and skills interface">
         
         
         <div class="avatar-card-desktop avatar-skills-avatar-desktop hidden lg:block">
           <div class="w-fit lg:mx-auto xl:mx-0">
-            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0">
+            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0" role="button" aria-describedby="tooltip-avatar-desktop" aria-label="View avatar details">
               
   
   
@@ -44739,7 +44740,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               
               
-              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop">
+              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop" role="tooltip" aria-hidden="true">
                 
   
   
@@ -45023,7 +45024,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+        <h1 class="text-h1-white max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
     
   
@@ -45278,7 +45279,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+        <h1 class="text-h1-white max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
     
   
@@ -45337,7 +45338,7 @@ Alignement : éco-numérique et accessibilité</div>
           </div>
           
           
-          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border">
+          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border" role="group" aria-label="Skills categories">
             
               <div class="avatar-card-button absolute" data-button="button_languages">
                 
@@ -45544,6 +45545,9 @@ Alignement : éco-numérique et accessibilité</div>
               </div>
             
           </div>
+          
+          
+          <div class="sr-only" id="skills-announcement" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
     
@@ -45600,9 +45604,9 @@ Alignement : éco-numérique et accessibilité</div>
         
         
         <div class="tab-menu-desktop hidden sm:block pt-4 pb-0 md:mt-16 xl:mt-0 xl:pt-3">
-          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0">
+          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -45678,7 +45682,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -45754,7 +45758,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -45830,7 +45834,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -45906,7 +45910,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -45987,9 +45991,9 @@ Alignement : éco-numérique et accessibilité</div>
         
         
         <div class="tab-menu-mobile block sm:hidden">
-          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center">
+          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -46065,7 +46069,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -46141,7 +46145,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -46217,7 +46221,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -46293,7 +46297,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -111950,12 +111954,12 @@ Alignement : éco-numérique et accessibilité</div>
     
     
       
-      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="charlotte_main">
+      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="charlotte_main" role="region" aria-label="Avatar and skills interface">
         
         
         <div class="avatar-card-desktop avatar-skills-avatar-desktop hidden lg:block">
           <div class="w-fit lg:mx-auto xl:mx-0">
-            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0">
+            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0" role="button" aria-describedby="tooltip-avatar-desktop" aria-label="View avatar details">
               
   
   
@@ -112005,7 +112009,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               
               
-              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop">
+              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop" role="tooltip" aria-hidden="true">
                 
   
   
@@ -112289,7 +112293,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+        <h1 class="text-h1-white max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
     
   
@@ -112544,7 +112548,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+        <h1 class="text-h1-white max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
     
   
@@ -112603,7 +112607,7 @@ Alignement : éco-numérique et accessibilité</div>
           </div>
           
           
-          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border">
+          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border" role="group" aria-label="Skills categories">
             
               <div class="avatar-card-button absolute" data-button="button_languages">
                 
@@ -112810,6 +112814,9 @@ Alignement : éco-numérique et accessibilité</div>
               </div>
             
           </div>
+          
+          
+          <div class="sr-only" id="skills-announcement" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
     
@@ -112869,9 +112876,9 @@ Alignement : éco-numérique et accessibilité</div>
         
         
         <div class="tab-menu-desktop hidden sm:block pt-4 pb-0 md:mt-16 xl:mt-0 xl:pt-3">
-          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0">
+          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -112947,7 +112954,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -113023,7 +113030,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -113099,7 +113106,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -113175,7 +113182,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -113256,9 +113263,9 @@ Alignement : éco-numérique et accessibilité</div>
         
         
         <div class="tab-menu-mobile block sm:hidden">
-          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center">
+          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -113334,7 +113341,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -113410,7 +113417,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -113486,7 +113493,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -113562,7 +113569,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -130746,9 +130753,9 @@ Alignement : éco-numérique et accessibilité</div>
         
         
         <div class="tab-menu-desktop hidden sm:block pt-4 pb-0 md:mt-16 xl:mt-0 xl:pt-3">
-          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0">
+          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -130824,7 +130831,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -130900,7 +130907,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -130976,7 +130983,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -131052,7 +131059,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -131133,9 +131140,9 @@ Alignement : éco-numérique et accessibilité</div>
         
         
         <div class="tab-menu-mobile block sm:hidden">
-          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center">
+          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center" role="menubar">
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -131211,7 +131218,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -131287,7 +131294,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -131363,7 +131370,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -131439,7 +131446,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               </li>
             
-              <li class="m-0">
+              <li class="m-0" role="none">
                 
   
   
@@ -172841,12 +172848,12 @@ Alignement : éco-numérique et accessibilité</div>
     
     
       
-      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="charlotte_main">
+      <div class="avatar-card w-fit flex items-center justify-center lg:justify-center xl:justify-start box-border mx-auto lg:mx-auto xl:mx-0" data-avatar="charlotte_main" role="region" aria-label="Avatar and skills interface">
         
         
         <div class="avatar-card-desktop avatar-skills-avatar-desktop hidden lg:block">
           <div class="w-fit lg:mx-auto xl:mx-0">
-            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0">
+            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0" role="button" aria-describedby="tooltip-avatar-desktop" aria-label="View avatar details">
               
   
   
@@ -172896,7 +172903,7 @@ Alignement : éco-numérique et accessibilité</div>
 
               
               
-              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop">
+              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop" role="tooltip" aria-hidden="true">
                 
   
   
@@ -173180,7 +173187,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+        <h1 class="text-h1-white max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
     
   
@@ -173435,7 +173442,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        <h1 class="text-h1 max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
+        <h1 class="text-h1-white max-w-prose leading-tight">DEVELOPPEUSE WEB</h1>
       
     
   
@@ -173494,7 +173501,7 @@ Alignement : éco-numérique et accessibilité</div>
           </div>
           
           
-          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border">
+          <div class="avatar-card-buttons grid grid-cols-2 w-[200px] gap-2 box-border" role="group" aria-label="Skills categories">
             
               <div class="avatar-card-button absolute" data-button="button_languages">
                 
@@ -173701,6 +173708,9 @@ Alignement : éco-numérique et accessibilité</div>
               </div>
             
           </div>
+          
+          
+          <div class="sr-only" id="skills-announcement" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
     
@@ -173742,7 +173752,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-      <footer class="footer footer--minimal w-full bg-white box-border">
+      <footer class="footer footer--minimal w-full bg-white box-border" role="contentinfo">
         <div class="footer__content p-2 sm:p-2 flex items-center justify-center box-border">
           
           <div class="footer__copyright whitespace-nowrap text-center">
@@ -173938,7 +173948,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        <p class="text-code max-w-prose leading-relaxed">© 2025 -&nbsp;</p>
+        <p class="text-code-white max-w-prose leading-relaxed">© 2025 -&nbsp;</p>
       
     
   
@@ -173998,8 +174008,6 @@ Alignement : éco-numérique et accessibilité</div>
       
       
       
-        
-      
       
       
       
@@ -174008,7 +174016,7 @@ Alignement : éco-numérique et accessibilité</div>
       
       <a 
         href="#legal" 
-        class="link link--tab text-code-mobile sm:text-code transition-colors duration-200 outline-none cursor-pointer focus-visible:outline-2 focus-visible:outline-cc-green-dark focus-visible:outline-offset-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
+        class="link link--tab-white transition-colors duration-200 outline-none cursor-pointer focus-visible:outline-2 focus-visible:outline-cc-green-dark focus-visible:outline-offset-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none"
         
         
         

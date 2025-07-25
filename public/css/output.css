@@ -22,7 +22,6 @@
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    --text-h1: 2.5rem;
     --text-h2: 1.5rem;
     --text-h2-mobile: 1.25rem;
     --text-p: 1.125rem;
@@ -185,6 +184,17 @@
   }
   .visible {
     visibility: visible;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
   .absolute {
     position: absolute;
@@ -665,9 +675,6 @@
   }
   .text-code-mobile {
     font-size: var(--text-code-mobile);
-  }
-  .text-h1 {
-    font-size: var(--text-h1);
   }
   .text-h2 {
     font-size: var(--text-h2);
@@ -1457,6 +1464,30 @@ body {
 .link--portfolio-external:active {
   color: #4a7c59;
 }
+.link--tab-white {
+  font-family: 'Manjari', sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  padding-bottom: 0.25rem;
+}
+.link--tab-white:hover {
+  color: #4a7c59;
+}
+.link--nav-white {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  text-decoration: underline;
+}
+.link--nav-white:hover {
+  text-decoration: none;
+}
+.link--nav-white.current, .link--nav-white[aria-current="page"] {
+  color: #c4ffcb;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: default;
+}
 .radio-group-label {
   color: #000000;
   font-family: 'Manjari', sans-serif;
@@ -1580,6 +1611,39 @@ body {
   }
   .text-small {
     font-size: 0.75rem;
+  }
+}
+.text-code-white {
+  font-family: 'Manjari', sans-serif;
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: #ffffff;
+}
+@media (max-width: 1023px) {
+  .text-code-white {
+    font-size: 1rem;
+  }
+}
+.text-h2-white {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.text-h1-white {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.03em;
+  font-weight: 900;
+  color: #ffffff;
+}
+@media (max-width: 1023px) {
+  .text-h2-white {
+    font-size: 1.25rem;
+  }
+  .text-h1-white {
+    font-size: 1.5rem;
+    letter-spacing: 0.03em;
   }
 }
 .caption-desktop {
@@ -1925,14 +1989,14 @@ body {
 }
 .footer {
   width: 100%;
-  background-color: #ffffff;
+  background-color: #000000;
   box-sizing: border-box;
 }
 .footer--minimal .footer__content {
-  border: 4px solid #000000;
+  border: 4px solid #ffffff;
   padding: 1rem;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   box-sizing: border-box;
 }
@@ -1947,33 +2011,41 @@ body {
     padding: 0.5rem;
   }
 }
-.footer--minimal .footer__text {
+.footer--minimal .footer__copyright, .footer--minimal .footer__legal {
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
   white-space: nowrap;
   text-align: center;
 }
-.footer--minimal .footer__text p {
+.footer--minimal .footer__text *, .footer--minimal .footer__copyright *, .footer--minimal .footer__legal *, .footer--minimal .footer__text .text-p, .footer--minimal .footer__text .text-code, .footer--minimal .footer__text .text-small, .footer--minimal .footer__text p {
   margin: 0;
   padding: 0;
   display: inline;
   white-space: nowrap;
+  color: #ffffff;
+  line-height: 1;
+  vertical-align: baseline;
 }
-.footer--minimal .footer__text a {
+.footer--minimal .footer__text a, .footer--minimal .footer__copyright a, .footer--minimal .footer__legal a {
   margin: 0;
   padding: 0;
   display: inline;
   white-space: nowrap;
-  color: inherit;
-  text-decoration: underline;
+  color: #ffffff;
+  text-decoration: none;
   transition: color 0.3s ease;
+  line-height: 1;
+  vertical-align: baseline;
 }
-.footer--minimal .footer__text a:hover, .footer--minimal .footer__text a:focus {
-  color: #4a7c59;
+.footer--minimal .footer__text a:hover, .footer--minimal .footer__text a:focus, .footer--minimal .footer__copyright a:hover, .footer--minimal .footer__copyright a:focus, .footer--minimal .footer__legal a:hover, .footer--minimal .footer__legal a:focus {
+  color: #c4ffcb;
   outline: none;
 }
 .header {
-  background-color: #ffffff;
-  color: #000000;
-  border: 3px solid #000000;
+  background-color: #000000;
+  color: #ffffff;
+  border: 3px solid #ffffff;
 }
 @media (min-width: 1024px) {
   .header {
@@ -1982,7 +2054,7 @@ body {
 }
 .header-brand h2 {
   margin: 0;
-  color: #4a7c59;
+  color: #c4ffcb;
   font-size: 1.5rem;
   white-space: nowrap;
 }
