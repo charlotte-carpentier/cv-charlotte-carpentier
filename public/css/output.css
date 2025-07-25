@@ -1468,6 +1468,16 @@ body {
 .link--portfolio-external:active {
   color: #4a7c59;
 }
+.link--tab-white {
+  font-family: 'Manjari', sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  padding-bottom: 0.25rem;
+}
+.link--tab-white:hover {
+  color: #4a7c59;
+}
 .radio-group-label {
   color: #000000;
   font-family: 'Manjari', sans-serif;
@@ -1591,6 +1601,17 @@ body {
   }
   .text-small {
     font-size: 0.75rem;
+  }
+}
+.text-code-white {
+  font-family: 'Manjari', sans-serif;
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: #ffffff;
+}
+@media (max-width: 1023px) {
+  .text-code-white {
+    font-size: 1rem;
   }
 }
 .caption-desktop {
@@ -1936,14 +1957,14 @@ body {
 }
 .footer {
   width: 100%;
-  background-color: #ffffff;
+  background-color: #000000;
   box-sizing: border-box;
 }
 .footer--minimal .footer__content {
-  border: 4px solid #000000;
+  border: 4px solid #ffffff;
   padding: 1rem;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   box-sizing: border-box;
 }
@@ -1958,27 +1979,35 @@ body {
     padding: 0.5rem;
   }
 }
-.footer--minimal .footer__text {
+.footer--minimal .footer__copyright, .footer--minimal .footer__legal {
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
   white-space: nowrap;
   text-align: center;
 }
-.footer--minimal .footer__text p {
+.footer--minimal .footer__text *, .footer--minimal .footer__copyright *, .footer--minimal .footer__legal *, .footer--minimal .footer__text .text-p, .footer--minimal .footer__text .text-code, .footer--minimal .footer__text .text-small, .footer--minimal .footer__text p {
   margin: 0;
   padding: 0;
   display: inline;
   white-space: nowrap;
+  color: #ffffff;
+  line-height: 1;
+  vertical-align: baseline;
 }
-.footer--minimal .footer__text a {
+.footer--minimal .footer__text a, .footer--minimal .footer__copyright a, .footer--minimal .footer__legal a {
   margin: 0;
   padding: 0;
   display: inline;
   white-space: nowrap;
-  color: inherit;
-  text-decoration: underline;
+  color: #ffffff;
+  text-decoration: none;
   transition: color 0.3s ease;
+  line-height: 1;
+  vertical-align: baseline;
 }
-.footer--minimal .footer__text a:hover, .footer--minimal .footer__text a:focus {
-  color: #4a7c59;
+.footer--minimal .footer__text a:hover, .footer--minimal .footer__text a:focus, .footer--minimal .footer__copyright a:hover, .footer--minimal .footer__copyright a:focus, .footer--minimal .footer__legal a:hover, .footer--minimal .footer__legal a:focus {
+  color: #c4ffcb;
   outline: none;
 }
 .header {
