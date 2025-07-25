@@ -717,11 +717,17 @@
   .text-gray-600 {
     color: var(--color-gray-600);
   }
+  .text-inherit {
+    color: inherit;
+  }
   .text-red-500 {
     color: var(--color-red-500);
   }
   .capitalize {
     text-transform: capitalize;
+  }
+  .no-underline {
+    text-decoration-line: none;
   }
   .underline {
     text-decoration-line: underline;

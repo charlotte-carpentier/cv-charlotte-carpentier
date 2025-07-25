@@ -29,27 +29,62 @@
       <span class="text-red-500">Contact-block not found: {{ contactBlockName }}</span>
     {% else %}
       {# Contact block container #}
-      <div class="contact-block flex flex-col gap-2 sm:gap-1">
+      <ul class="contact-block flex flex-col gap-2 sm:gap-1 list-none m-0 p-0">
         {% for item in contactBlockData.items %}
-          <div class="contact-item flex items-center justify-start gap-2 sm:gap-1">
-            {# Icon #}
-            <div class="contact-icon flex-shrink-0 flex items-center">
-              {{ renderIcon({ 
-                  name: item.icon,
-                  datas: option.iconDatas
-              }) }}
-            </div>
-            
-            {# Text #}
-            <div class="contact-text flex-1 flex items-center">
-              {{ renderTypography({ 
-                  name: item.text,
-                  datas: option.typographyDatas
-              }) }}
-            </div>
-          </div>
+          <li class="contact-item flex items-center justify-start gap-2 sm:gap-1">
+            {# Determine link type and href #}
+            {% set linkHref = "" %}
+            {% set ariaLabel = "" %}
+            {% if item.type == "email" %}
+              {% set linkHref = "mailto:" + item.text %}
+              {% set ariaLabel = "Send email to " + item.text %}
+            {% elif item.type == "phone" %}
+              {% set linkHref = "tel:" + item.text %}
+              {% set ariaLabel = "Call " + item.text %}
+            {% endif %}
+
+            {# Render as link or static content #}
+            {% if linkHref %}
+              <a href="{{ linkHref }}" class="contact-link flex items-center justify-start gap-2 sm:gap-1 no-underline text-inherit hover:text-cc-green-dark transition-colors duration-200" aria-label="{{ ariaLabel }}">
+                {# Icon #}
+                <div class="contact-icon flex-shrink-0 flex items-center">
+                  {{ renderIcon({ 
+                      name: item.icon,
+                      datas: option.iconDatas
+                  }) }}
+                </div>
+                
+                {# Text #}
+                <div class="contact-text flex-1 flex items-center">
+                  {{ renderTypography({ 
+                      name: item.text,
+                      datas: option.typographyDatas
+                  }) }}
+                </div>
+              </a>
+            {% else %}
+              {# Static content for location type #}
+              <div class="contact-static flex items-center justify-start gap-2 sm:gap-1">
+                {# Icon #}
+                <div class="contact-icon flex-shrink-0 flex items-center">
+                  {{ renderIcon({ 
+                      name: item.icon,
+                      datas: option.iconDatas
+                  }) }}
+                </div>
+                
+                {# Text #}
+                <div class="contact-text flex-1 flex items-center">
+                  {{ renderTypography({ 
+                      name: item.text,
+                      datas: option.typographyDatas
+                  }) }}
+                </div>
+              </div>
+            {% endif %}
+          </li>
         {% endfor %}
-      </div>
+      </ul>
     {% endif %}
   {% endif %}
 {% endmacro %}

@@ -3,7 +3,6 @@
    - Renders flexible content layouts with variant support
 =========================================================== #}
 
-
 {# Import atoms #}
 {% from "03-atoms/typography.njk" import renderTypography %}
 {% from "03-atoms/image.njk" import renderImage %}
@@ -32,10 +31,8 @@
       <span class="text-red-500">Content-block not found: {{ contentBlockName }}</span>
     {% else %}
       {# Render content-block molecule based on variant #}
-      <div class="content-block content-block--{{ contentBlockData.variant }} w-full max-w-[400px] sm:max-w-[400px] mx-auto">
-        
-        {# Chronology variant #}
-        {% if contentBlockData.variant == "chronology" %}
+      {% if contentBlockData.variant == "chronology" %}
+        <article class="content-block content-block--{{ contentBlockData.variant }} w-full max-w-[400px] sm:max-w-[400px] mx-auto">
           <div class="content-block-chronology grid grid-cols-[auto_1fr] gap-4 items-start">
             <div class="content-block-date text-left">
               {{ renderTypography({ 
@@ -58,49 +55,51 @@
               </div>
             </div>
           </div>
-        
-        {# Text variant #}
-        {% elif contentBlockData.variant == "text" %}
-          <div class="content-block-text-only{% if contentBlockData.textColor %} content-block-text-color--{{ contentBlockData.textColor }}{% endif %} text-left">
-            {{ renderTypography({ 
-                name: contentBlockData.textTypographyName,
-                datas: option.typographyDatas
-            }) }}
-          </div>
-        
-        {# Preview variant #}
-        {% elif contentBlockData.variant == "preview" %}
-          <div class="content-block-preview flex flex-col items-start gap-0">
-            <div class="content-block-title text-center w-full">
+        </article>
+      {% else %}
+        <div class="content-block content-block--{{ contentBlockData.variant }} w-full max-w-[400px] sm:max-w-[400px] mx-auto">
+          {# Text variant #}
+          {% if contentBlockData.variant == "text" %}
+            <div class="content-block-text-only{% if contentBlockData.textColor %} content-block-text-color--{{ contentBlockData.textColor }}{% endif %} text-left">
               {{ renderTypography({ 
-                  name: contentBlockData.titleTypographyName,
+                  name: contentBlockData.textTypographyName,
                   datas: option.typographyDatas
               }) }}
             </div>
-            <div class="content-block-image relative w-full flex justify-center">
-              {{ renderImage({ 
-                  name: contentBlockData.imageName,
-                  datas: option.imageDatas
-              }) }}
-              <div class="content-block-button absolute bottom-[-15px] right-0 flex justify-center">
-                {# Utiliser link au lieu de button pour les liens externes #}
-                {% if contentBlockData.linkName %}
-                  {{ renderLink({ 
-                      name: contentBlockData.linkName,
-                      datas: option.linkDatas
-                  }) }}
-                {% elif contentBlockData.buttonName %}
-                  {{ renderButton({ 
-                      name: contentBlockData.buttonName,
-                      datas: option.buttonDatas
-                  }) }}
-                {% endif %}
+          
+          {# Preview variant #}
+          {% elif contentBlockData.variant == "preview" %}
+            <div class="content-block-preview flex flex-col items-start gap-0">
+              <div class="content-block-title text-center w-full">
+                {{ renderTypography({ 
+                    name: contentBlockData.titleTypographyName,
+                    datas: option.typographyDatas
+                }) }}
+              </div>
+              <div class="content-block-image relative w-full flex justify-center">
+                {{ renderImage({ 
+                    name: contentBlockData.imageName,
+                    datas: option.imageDatas
+                }) }}
+                <div class="content-block-button absolute bottom-[-15px] right-0 flex justify-center">
+                  {# Use link instead of button for external links #}
+                  {% if contentBlockData.linkName %}
+                    {{ renderLink({ 
+                        name: contentBlockData.linkName,
+                        datas: option.linkDatas
+                    }) }}
+                  {% elif contentBlockData.buttonName %}
+                    {{ renderButton({ 
+                        name: contentBlockData.buttonName,
+                        datas: option.buttonDatas
+                    }) }}
+                  {% endif %}
+                </div>
               </div>
             </div>
-          </div>
-        {% endif %}
-        
-      </div>
+          {% endif %}
+        </div>
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endmacro %}
