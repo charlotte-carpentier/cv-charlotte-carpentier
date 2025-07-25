@@ -44,8 +44,15 @@
           {% set typographyData = typography %}
         {% endif %}
       {% endfor %}
-      {# Caption container with tooltip logic #}
-      <div class="caption-container relative inline-block" data-tooltip="{{ captionData.name }}" tabindex="0">
+      
+      {# Generate unique tooltip ID #}
+      {% set tooltipId = "tooltip-" ~ captionData.name ~ "-" ~ loop.index0 if loop.index0 is defined else "tooltip-" ~ captionData.name %}
+      
+      {# Caption container with tooltip logic and ARIA attributes #}
+      <div class="caption-container relative inline-block" 
+           data-tooltip="{{ captionData.name }}" 
+           tabindex="0"
+           aria-describedby="{{ tooltipId }}">
         
         {# Desktop version: Icon + Title + Tooltip (tooltip appears below, title hides) #}
         <div class="caption-desktop">
@@ -60,7 +67,10 @@
           <div class="caption-title-desktop text-small">{{ typographyData.text if typographyData else captionData.name }}</div>
           
           {# Tooltip (hidden by default, shown below icon on hover/focus) #}
-          <div class="tooltip-popup" id="tooltip-{{ captionData.name }}">
+          <div class="tooltip-popup" 
+               id="{{ tooltipId }}" 
+               role="tooltip" 
+               aria-hidden="true">
             {{ renderTooltip({ 
               name: captionData.tooltipName,
               datas: option.tooltipDatas
