@@ -1,11 +1,9 @@
-/* 
-=========================
-    HEADER ORGANISM JS
-      v1.0 - Charlotte       
-=========================
-*/
+/* ==========================================================================
+   @ORGANISMS - HEADER
+   - Mobile menu functionality and contact link active state management
+   ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', function() {
+   document.addEventListener('DOMContentLoaded', function() {
     
     // Mobile menu functionality
     function initMobileMenu() {
@@ -21,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Initialize burger icons styles
         function initBurgerStyles() {
-            // Initial state - open icon visible, close icon hidden
             burgerIconOpen.style.opacity = '1';
             burgerIconOpen.style.transition = 'none';
             
@@ -31,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Initialize mobile overlay styles
         function initOverlayStyles() {
-            // Initial state - overlay hidden
             mobileOverlay.style.display = 'none';
             mobileOverlay.style.opacity = '0';
             mobileOverlay.style.visibility = 'hidden';
@@ -56,11 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Toggle burger icons
             if (!isExpanded) {
-                // Menu opening
                 burgerIconOpen.style.opacity = '0';
                 burgerIconClose.style.opacity = '1';
             } else {
-                // Menu closing
                 burgerIconOpen.style.opacity = '1';
                 burgerIconClose.style.opacity = '0';
             }
@@ -76,12 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.style.overflow = 'hidden';
             } else {
                 // Hide overlay
-                mobileOverlay.style.display = 'none';
-                mobileOverlay.style.opacity = '0';
-                mobileOverlay.style.visibility = 'hidden';
-                mobileOverlay.style.transform = 'translateY(-5px)';
-                mobileOverlay.style.zIndex = '1';
-                document.body.style.overflow = '';
+                closeMobileMenu();
             }
         }
         
@@ -153,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact link active state management
     function initContactActiveState() {
         const contactLink = document.querySelector('.header-navigation .link--nav');
+        let observer = null;
         
         if (!contactLink) {
             console.warn('Header: Contact link not found');
@@ -169,9 +159,41 @@ document.addEventListener('DOMContentLoaded', function() {
                 (contactSection && contactSection.style.display === 'block')) {
                 contactLink.classList.add('current');
                 contactLink.setAttribute('aria-current', 'page');
+                startObserver();
             } else {
                 contactLink.classList.remove('current');
                 contactLink.removeAttribute('aria-current');
+                stopObserver();
+            }
+        }
+        
+        // Start MutationObserver only when needed
+        function startObserver() {
+            if (observer || !window.MutationObserver) return;
+            
+            const contactSection = document.querySelector('#contact');
+            if (!contactSection) return;
+            
+            observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && 
+                        mutation.attributeName === 'style') {
+                        updateContactActiveState();
+                    }
+                });
+            });
+            
+            observer.observe(contactSection, { 
+                attributes: true, 
+                attributeFilter: ['style'] 
+            });
+        }
+        
+        // Stop MutationObserver when not needed
+        function stopObserver() {
+            if (observer) {
+                observer.disconnect();
+                observer = null;
             }
         }
         
@@ -185,37 +207,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const tabMenuLinks = document.querySelectorAll('.tab-menu .link--tab');
         tabMenuLinks.forEach(link => {
             link.addEventListener('click', function() {
-                // Small delay to ensure the tab change has occurred
                 setTimeout(updateContactActiveState, 100);
             });
         });
         
-        // Observer for tab-section visibility changes (fallback)
-        if (window.MutationObserver) {
-            const observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.type === 'attributes' && 
-                        mutation.attributeName === 'style' &&
-                        mutation.target.id === 'contact') {
-                        updateContactActiveState();
-                    }
-                });
-            });
-            
-            const contactSection = document.querySelector('#contact');
-            if (contactSection) {
-                observer.observe(contactSection, { 
-                    attributes: true, 
-                    attributeFilter: ['style'] 
-                });
-            }
-        }
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', stopObserver);
     }
     
     // Initialize header functionality
     initMobileMenu();
     initContactActiveState();
     
-    console.log('Header Charlotte organism initialized successfully! ⚔️✨');
+    console.log('Header organism initialized successfully');
     
 });

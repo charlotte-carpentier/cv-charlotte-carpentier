@@ -22,7 +22,6 @@
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    --text-h1: 2.5rem;
     --text-h2: 1.5rem;
     --text-h2-mobile: 1.25rem;
     --text-p: 1.125rem;
@@ -676,9 +675,6 @@
   }
   .text-code-mobile {
     font-size: var(--text-code-mobile);
-  }
-  .text-h1 {
-    font-size: var(--text-h1);
   }
   .text-h2 {
     font-size: var(--text-h2);
@@ -1478,6 +1474,20 @@ body {
 .link--tab-white:hover {
   color: #4a7c59;
 }
+.link--nav-white {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  text-decoration: underline;
+}
+.link--nav-white:hover {
+  text-decoration: none;
+}
+.link--nav-white.current, .link--nav-white[aria-current="page"] {
+  color: #c4ffcb;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: default;
+}
 .radio-group-label {
   color: #000000;
   font-family: 'Manjari', sans-serif;
@@ -1612,6 +1622,28 @@ body {
 @media (max-width: 1023px) {
   .text-code-white {
     font-size: 1rem;
+  }
+}
+.text-h2-white {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.text-h1-white {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.03em;
+  font-weight: 900;
+  color: #ffffff;
+}
+@media (max-width: 1023px) {
+  .text-h2-white {
+    font-size: 1.25rem;
+  }
+  .text-h1-white {
+    font-size: 1.5rem;
+    letter-spacing: 0.03em;
   }
 }
 .caption-desktop {
@@ -2011,9 +2043,9 @@ body {
   outline: none;
 }
 .header {
-  background-color: #ffffff;
-  color: #000000;
-  border: 3px solid #000000;
+  background-color: #000000;
+  color: #ffffff;
+  border: 3px solid #ffffff;
 }
 @media (min-width: 1024px) {
   .header {
@@ -2022,7 +2054,7 @@ body {
 }
 .header-brand h2 {
   margin: 0;
-  color: #4a7c59;
+  color: #c4ffcb;
   font-size: 1.5rem;
   white-space: nowrap;
 }

@@ -4,7 +4,7 @@
       "name": "nav_contact",
       "href": "#contact",
       "text": "Contact",
-      "variant": "nav"
+      "variant": "nav-white"
     },
     {
       "name": "tab_missions",

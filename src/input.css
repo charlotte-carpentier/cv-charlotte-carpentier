@@ -408,6 +408,27 @@ body {
   color: theme(--cc-green-dark);
 }
 
+/* Navigation white variant for inverted colors */
+.link--nav-white {
+  font-family: theme(--font-title);
+  color: theme(--cc-white);
+  text-decoration: underline;
+}
+
+/* Navigation white link hover */
+.link--nav-white:hover {
+  text-decoration: none;
+}
+
+/* Navigation white link current/page active state */
+.link--nav-white.current,
+.link--nav-white[aria-current="page"] {
+  color: theme(--cc-green-light);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: default;
+}
+
 /* ============================================================
    @ATOM - RADIO
    - Radio basic styles
@@ -591,6 +612,34 @@ body {
 @media (max-width: 1023px) {
   .text-code-white {
     font-size: theme(--text-code-mobile);
+  }
+}
+
+/* Header white variant for inverted colors */
+.text-h2-white {
+  font-family: theme(--font-title);
+  font-size: theme(--text-h2);
+  font-weight: 700;
+  color: theme(--cc-white);
+}
+
+.text-h1-white {
+  font-family: theme(--font-title);
+  font-size: theme(--text-h1);
+  letter-spacing: theme(--ls-h1);
+  font-weight: 900;
+  color: theme(--cc-white);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .text-h2-white {
+    font-size: theme(--text-h2-mobile);
+  }
+  
+  .text-h1-white {
+    font-size: theme(--text-h1-mobile);
+    letter-spacing: theme(--ls-h1-mobile);
   }
 }
 
@@ -1214,67 +1263,67 @@ body {
 
 /* ==========================================================================
    @ORGANISM - HEADER
-   - Styles using custom theme variables and complex states
+   - Inverted colors: black background, white text and borders
    ========================================================================== */
 
-.header {
-  background-color: theme(--cc-white);
-  color: theme(--cc-black);
-  border: 3px solid theme(--cc-black);
-}
-
-/* Desktop border override */
-@media (min-width: 1024px) {
-  .header {
-    border-width: 4px;
+   .header {
+    background-color: theme(--cc-black);
+    color: theme(--cc-white);
+    border: 3px solid theme(--cc-white);
   }
-}
-
-.header-brand h2 {
-  margin: 0;
-  color: theme(--cc-green-dark);
-  font-size: theme(--text-h2);
-  white-space: nowrap;
-}
-
-.header-title h1 {
-  margin: 0;
-  font-size: theme(--text-h1);
-  text-align: center;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.header-mobile-overlay .tab-menu-desktop {
-  display: none;
-}
-
-.header-mobile-overlay .tab-menu-mobile {
-  display: block;
-}
-
-.header-mobile-overlay .tab-menu {
-  visibility: visible;
-}
-
-.header h1,
-.header h2,
-.header p {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-/* Mobile (639px and below) */
-@media (max-width: 639px) {
+  
+  /* Desktop border override */
+  @media (min-width: 1024px) {
+    .header {
+      border-width: 4px;
+    }
+  }
+  
   .header-brand h2 {
-    font-size: theme(--text-h2-mobile);
+    margin: 0;
+    color: theme(--cc-green-light);
+    font-size: theme(--text-h2);
+    white-space: nowrap;
   }
-
-  .mobile-overlay-content {
-    padding: 0.75rem 0rem;
+  
+  .header-title h1 {
+    margin: 0;
+    font-size: theme(--text-h1);
+    text-align: center;
+    font-weight: 900;
+    white-space: nowrap;
   }
-}
+  
+  .header-mobile-overlay .tab-menu-desktop {
+    display: none;
+  }
+  
+  .header-mobile-overlay .tab-menu-mobile {
+    display: block;
+  }
+  
+  .header-mobile-overlay .tab-menu {
+    visibility: visible;
+  }
+  
+  .header h1,
+  .header h2,
+  .header p {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  /* Mobile (639px and below) */
+  @media (max-width: 639px) {
+    .header-brand h2 {
+      font-size: theme(--text-h2-mobile);
+    }
+  
+    .mobile-overlay-content {
+      padding: 0.75rem 0rem;
+    }
+  }
 
 /* ==========================================================================
    @ORGANISM - SECTION-CONTACT
