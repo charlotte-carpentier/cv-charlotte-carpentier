@@ -541,107 +541,115 @@ body {
   color: theme(--cc-black);
 }
 
+
 /* ==========================================================================
    @ATOM - TYPOGRAPHY
    - Base font styles for text elements (titles, paragraphs, codes, small text)
    - Responsive font sizes for mobile
    ========================================================================== */
 
-.text-h1 {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h1);
-  letter-spacing: theme(--ls-h1);
-  font-weight: 900;
-}
-
-.text-h2 {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h2);
-  font-weight: 700;
-}
-
-.text-p {
-  font-family: theme(--font-text);
-  font-size: theme(--text-p);
-}
-
-.text-code {
-  font-family: theme(--font-text);
-  font-weight: bold;
-  font-size: theme(--text-code);
-}
-
-.text-small {
-  font-family: theme(--font-text);
-  font-size: theme(--text-small);
-}
-
-/* Typography - Responsive */
-@media (max-width: 1023px) {
-  .text-h1 {
-    font-size: theme(--text-h1-mobile);
-    letter-spacing: theme(--ls-h1-mobile);
+   .text-h1 {
+    font-family: theme(--font-title);
+    font-size: theme(--text-h1);
+    letter-spacing: theme(--ls-h1);
+    font-weight: 900;
   }
-
+  
   .text-h2 {
-    font-size: theme(--text-h2-mobile);
+    font-family: theme(--font-title);
+    font-size: theme(--text-h2);
+    font-weight: 700;
   }
-
+  
   .text-p {
-    font-size: theme(--text-p-mobile);
+    font-family: theme(--font-text);
+    font-size: theme(--text-p);
   }
-
+  
   .text-code {
-    font-size: theme(--text-code-mobile);
+    font-family: theme(--font-text);
+    font-weight: bold;
+    font-size: theme(--text-code);
   }
-
+  
   .text-small {
-    font-size: theme(--text-small-mobile);
+    font-family: theme(--font-text);
+    font-size: theme(--text-small);
   }
-}
-
-/* Footer white variant for inverted colors */
-.text-code-white {
-  font-family: theme(--font-text);
-  font-weight: bold;
-  font-size: theme(--text-code);
-  color: theme(--cc-white);
-}
-
-/* Responsive */
-@media (max-width: 1023px) {
+  
+  /* Typography - Responsive */
+  @media (max-width: 1023px) {
+    .text-h1 {
+      font-size: theme(--text-h1-mobile);
+      letter-spacing: theme(--ls-h1-mobile);
+    }
+  
+    .text-h2 {
+      font-size: theme(--text-h2-mobile);
+    }
+  
+    .text-p {
+      font-size: theme(--text-p-mobile);
+    }
+  
+    .text-code {
+      font-size: theme(--text-code-mobile);
+    }
+  
+    .text-small {
+      font-size: theme(--text-small-mobile);
+    }
+  }
+  
+  /* Footer white variant for inverted colors */
   .text-code-white {
-    font-size: theme(--text-code-mobile);
+    font-family: theme(--font-text);
+    font-weight: bold;
+    font-size: theme(--text-code);
+    color: theme(--cc-white);
   }
-}
-
-/* Header white variant for inverted colors */
-.text-h2-white {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h2);
-  font-weight: 700;
-  color: theme(--cc-white);
-}
-
-.text-h1-white {
-  font-family: theme(--font-title);
-  font-size: theme(--text-h1);
-  letter-spacing: theme(--ls-h1);
-  font-weight: 900;
-  color: theme(--cc-white);
-}
-
-/* Responsive */
-@media (max-width: 1023px) {
+  
+  /* Responsive */
+  @media (max-width: 1023px) {
+    .text-code-white {
+      font-size: theme(--text-code-mobile);
+    }
+  }
+  
+  /* Header white variants for inverted colors */
   .text-h2-white {
-    font-size: theme(--text-h2-mobile);
+    font-family: theme(--font-title);
+    font-size: theme(--text-h2);
+    font-weight: 700;
+    color: theme(--cc-white);
   }
   
   .text-h1-white {
-    font-size: theme(--text-h1-mobile);
-    letter-spacing: theme(--ls-h1-mobile);
+    font-family: theme(--font-title);
+    font-size: theme(--text-h1);
+    letter-spacing: theme(--ls-h1);
+    font-weight: 900;
+    color: theme(--cc-black);
   }
-}
+  
+  /* Desktop only - H1 white text */
+  @media (min-width: 1024px) {
+    .text-h1-white {
+      color: theme(--cc-white);
+    }
+  }
+  
+  /* Responsive font sizes */
+  @media (max-width: 1023px) {
+    .text-h2-white {
+      font-size: theme(--text-h2-mobile);
+    }
+    
+    .text-h1-white {
+      font-size: theme(--text-h1-mobile);
+      letter-spacing: theme(--ls-h1-mobile);
+    }
+  }
 
 /* ==========================================================================
    @MOLECULE - CAPTION
@@ -1323,6 +1331,41 @@ body {
     .mobile-overlay-content {
       padding: 0.75rem 0rem;
     }
+  }
+  
+  /* Force white color on burger icons with currentColor */
+  .header-burger {
+    color: theme(--cc-white);
+  }
+  
+  .header-burger .burger-icon,
+  .header-burger .burger-icon-open,
+  .header-burger .burger-icon-close {
+    color: theme(--cc-white);
+  }
+  
+  /* Override any inherited colors */
+  .header-burger svg {
+    color: theme(--cc-white);
+    fill: currentColor;
+    stroke: currentColor;
+  }
+  
+  /* Burger icons - White color for dark header */
+  .header-burger .burger-icon svg,
+  .header-burger .burger-icon svg path {
+    fill: theme(--cc-white);
+    stroke: theme(--cc-white);
+    color: theme(--cc-white);
+  }
+  
+  /* Force white color on all burger icon elements */
+  .header-burger .burger-icon-open svg,
+  .header-burger .burger-icon-close svg,
+  .header-burger .burger-icon-open svg path,
+  .header-burger .burger-icon-close svg path {
+    fill: theme(--cc-white);
+    stroke: theme(--cc-white);
   }
 
 /* ==========================================================================
