@@ -13,8 +13,8 @@
         "mobile_menu": "main_navigation"
       },
       "mobile": {
-        "burger_open_icon": "burger_list",
-        "burger_close_icon": "burger_x",
+        "burger_open_icon": "burger_list_white",
+        "burger_close_icon": "burger_x_white",
         "overlay": true
       }
     }

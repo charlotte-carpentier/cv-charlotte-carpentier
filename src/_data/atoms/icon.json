@@ -145,6 +145,18 @@
       "variant": "interface"
     },
     {
+      "name": "burger_list_white",
+      "spriteId": "interface-list-white",
+      "alt": "Icône de liste blanche",
+      "variant": "interface"
+    },
+    {
+      "name": "burger_x_white",
+      "spriteId": "interface-x-white",
+      "alt": "Icône de croix blanche",
+      "variant": "interface"
+    },
+    {
       "name": "contact_mobile",
       "spriteId": "interface-device-mobile",
       "alt": "Icône de téléphone mobile",
