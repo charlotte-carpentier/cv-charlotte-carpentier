@@ -32,22 +32,24 @@
       <ul class="contact-block flex flex-col gap-2 sm:gap-1 list-none m-0 p-0">
         {% for item in contactBlockData.items %}
           <li class="contact-item flex items-center justify-start gap-2 sm:gap-1">
-            {# Resolve typography text value from key #}
+            {# Resolve typography text value and link from key #}
             {% set resolvedText = "" %}
+            {% set resolvedLink = "" %}
             {% for text in option.typographyDatas %}
               {% if text.name == item.text %}
-                {% set resolvedText = text.content %}
+                {% set resolvedText = text.text %}
+                {% set resolvedLink = text.link %}
               {% endif %}
             {% endfor %}
 
-            {# Determine link type and href using resolved text #}
+            {# Determine link type and href #}
             {% set linkHref = "" %}
             {% set ariaLabel = "" %}
             {% if item.type == "email" %}
-              {% set linkHref = "mailto:" + resolvedText %}
+              {% set linkHref = resolvedLink or ("mailto:" + resolvedText) %}
               {% set ariaLabel = "Send email to " + resolvedText %}
             {% elif item.type == "phone" %}
-              {% set linkHref = "tel:" + resolvedText %}
+              {% set linkHref = resolvedLink or ("tel:" + resolvedText) %}
               {% set ariaLabel = "Call " + resolvedText %}
             {% endif %}
 
