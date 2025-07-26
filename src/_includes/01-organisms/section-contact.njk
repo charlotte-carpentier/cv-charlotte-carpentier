@@ -38,19 +38,21 @@
         {% set cssClasses = cssClasses ~ ' ' ~ option.class %}
       {% endif %}
       
-      {# Section container #}
-      <section class="{{ cssClasses }} w-full bg-white" id="contact">
+      {# Section container with semantic structure and accessibility #}
+      <section class="{{ cssClasses }} w-full bg-white" id="contact" role="region" aria-labelledby="contact-heading">
         
         {# Section content with responsive padding and max-width #}
         <div class="section-contact-content px-6 py-12 lg:px-24 lg:py-16 max-w-prose mx-auto">
           
-          {# Section header with system gaps #}
-          <div class="section-contact-header mb-2 lg:mb-6 pb-4 mb-2 text-center">
-            {{ renderTypography({ 
-                name: sectionData.header.title,
-                datas: option.typographyDatas
-            }) }}
-          </div>
+          {# Section header with system gaps and proper heading hierarchy #}
+          <header class="section-contact-header mb-2 lg:mb-6 pb-4 mb-2 text-center">
+            <div id="contact-heading">
+              {{ renderTypography({ 
+                  name: sectionData.header.title,
+                  datas: option.typographyDatas
+              }) }}
+            </div>
+          </header>
           
           {# Section content container with reduced gaps #}
           <div class="section-contact-body flex flex-col gap-3 lg:gap-6">
@@ -68,7 +70,7 @@
             </div>
             
             {# Horizontal separator with gradient #}
-            <div class="section-contact-separator flex justify-center">
+            <div class="section-contact-separator flex justify-center" role="separator" aria-hidden="true">
               <div class="section-contact-separator-line"></div>
             </div>
             

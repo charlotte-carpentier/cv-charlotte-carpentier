@@ -3,8 +3,6 @@
 @layer theme {
   :root, :host {
     --color-red-500: oklch(0.637 0.237 25.331);
-    --color-gray-600: oklch(0.446 0.03 256.802);
-    --color-gray-800: oklch(0.278 0.033 256.848);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -721,9 +719,6 @@
   .whitespace-pre-line {
     white-space: pre-line;
   }
-  .text-gray-600 {
-    color: var(--color-gray-600);
-  }
   .text-inherit {
     color: inherit;
   }
@@ -735,9 +730,6 @@
   }
   .no-underline {
     text-decoration-line: none;
-  }
-  .underline {
-    text-decoration-line: underline;
   }
   .opacity-0 {
     opacity: 0%;
@@ -793,13 +785,6 @@
   .outline-none {
     --tw-outline-style: none;
     outline-style: none;
-  }
-  .hover\:text-gray-800 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-gray-800);
-      }
-    }
   }
   .focus\:ring-2 {
     &:focus {
