@@ -298,7 +298,7 @@
     },
     {
       "name": "legal_paragraph_5",
-      "text": "Ce site utilise des cookies techniques nécessaires à son fonctionnement et des cookies analytiques (Google Analytics) pour améliorer l'expérience utilisateur, uniquement après votre consentement via notre gestionnaire de cookies Axeptio. Vous pouvez modifier vos préférences à tout moment.",
+      "text": "Ce site utilise des cookies techniques nécessaires à son fonctionnement et des cookies analytiques (Google Analytics) pour améliorer l'expérience utilisateur, uniquement après votre consentement via notre gestionnaire de cookies Axeptio. Vous pouvez modifier vos préférences à tout moment en cliquant sur la bulle en bas à gauche du site.",
       "tag": "p",
       "variant": "p"
     },
@@ -322,7 +322,7 @@
     },
     {
       "name": "legal_paragraph_7",
-      "text": "La gestion des consentements est assurée par Axeptio, solution certifiée RGPD. Vous pouvez à tout moment modifier vos choix en cliquant sur le lien 'Gérer mes cookies' en bas de page.",
+      "text": "La gestion des consentements est assurée par Axeptio, solution certifiée RGPD. Vous pouvez à tout moment modifier vos choix en cliquant sur la bulle en bas à gauche du site.",
       "tag": "p",
       "variant": "p"
     },
@@ -335,12 +335,6 @@
     {
       "name": "legal_paragraph_8",
       "text": "Design & développement : Charlotte Carpentier<br>Illustrations : créations personnelles Diane C. Yoon<br>Analytics : Google Analytics 4<br>Consentements : Axeptio",
-      "tag": "p",
-      "variant": "p"
-    },
-    {
-      "name": "legal_cookies_link",
-      "text": "<button onclick=\"axeptio.show()\" class=\"text-xs text-gray-600 hover:text-gray-800 underline cursor-pointer bg-transparent border-none p-0\">Gérer mes cookies</button>",
       "tag": "p",
       "variant": "p"
     },
