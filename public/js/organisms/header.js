@@ -1,6 +1,7 @@
 /* ==========================================================================
    @ORGANISMS - HEADER
    - Mobile menu functionality and contact link active state management
+   - FIXED: Robust contact link current state detection
    ========================================================================== */
 
    document.addEventListener('DOMContentLoaded', function() {
@@ -139,35 +140,88 @@
         window.addEventListener('resize', handleResize);
     }
     
-    // Contact link active state management
+    // FIXED: Enhanced contact link active state management
     function initContactActiveState() {
-        const contactLink = document.querySelector('.header-navigation .link--nav');
+        // Try multiple selectors to find the contact link
+        const contactLink = document.querySelector('.header-navigation .link--nav') ||
+                          document.querySelector('.header-navigation .link--nav-white') ||
+                          document.querySelector('[href*="contact"]') ||
+                          document.querySelector('a[href="#contact"]');
+        
         let observer = null;
         
         if (!contactLink) {
-            console.warn('Header: Contact link not found');
+            console.warn('Header: Contact link not found with any selector');
             return;
+        }
+        
+        console.log('Header: Contact link found:', contactLink);
+        
+        // Always make contact link bold
+        contactLink.style.fontWeight = 'bold';
+        
+        // Enhanced detection function
+        function isContactSectionActive() {
+            const currentHash = window.location.hash;
+            
+            // Method 1: Hash detection
+            if (currentHash === '#contact') {
+                return true;
+            }
+            
+            // Method 2: Check tab sections system
+            const contactTabSection = document.querySelector('#contact');
+            if (contactTabSection) {
+                // Check if contact section is visible via :target or display
+                const isTarget = contactTabSection.matches(':target');
+                const hasDisplayBlock = contactTabSection.style.display === 'block';
+                const hasDisplayFlex = contactTabSection.style.display === 'flex';
+                const hasNoDisplay = !contactTabSection.style.display || contactTabSection.style.display === '';
+                
+                if (isTarget || hasDisplayBlock || hasDisplayFlex) {
+                    return true;
+                }
+                
+                // Check if it's the default tab and no hash
+                if (contactTabSection.hasAttribute('data-default') && !window.location.hash) {
+                    return true;
+                }
+            }
+            
+            // Method 3: Check active tab in tab menu
+            const activeTabLink = document.querySelector('.tab-menu .link--tab.current, .tab-menu .link--tab[aria-current="page"]');
+            if (activeTabLink && activeTabLink.getAttribute('href') === '#contact') {
+                return true;
+            }
+            
+            // Method 4: Check URL pathname for contact page
+            if (window.location.pathname.includes('contact')) {
+                return true;
+            }
+            
+            return false;
         }
         
         // Update contact link active state
         function updateContactActiveState() {
-            const currentHash = window.location.hash;
-            const contactSection = document.querySelector('#contact');
+            const isActive = isContactSectionActive();
             
-            // Check if contact section is currently visible/active
-            if (currentHash === '#contact' || 
-                (contactSection && contactSection.style.display === 'block')) {
+            console.log('Header: Contact section active?', isActive);
+            
+            if (isActive) {
                 contactLink.classList.add('current');
                 contactLink.setAttribute('aria-current', 'page');
+                contactLink.style.pointerEvents = 'none';
                 startObserver();
             } else {
                 contactLink.classList.remove('current');
                 contactLink.removeAttribute('aria-current');
+                contactLink.style.pointerEvents = '';
                 stopObserver();
             }
         }
         
-        // Start MutationObserver only when needed
+        // Start MutationObserver for dynamic changes
         function startObserver() {
             if (observer || !window.MutationObserver) return;
             
@@ -177,15 +231,15 @@
             observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
                     if (mutation.type === 'attributes' && 
-                        mutation.attributeName === 'style') {
-                        updateContactActiveState();
+                        (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
+                        setTimeout(updateContactActiveState, 10);
                     }
                 });
             });
             
             observer.observe(contactSection, { 
                 attributes: true, 
-                attributeFilter: ['style'] 
+                attributeFilter: ['style', 'class'] 
             });
         }
         
@@ -197,19 +251,29 @@
             }
         }
         
-        // Initial check
-        updateContactActiveState();
+        // Initial check with delay to ensure DOM is ready
+        setTimeout(updateContactActiveState, 100);
         
         // Listen for hash changes
-        window.addEventListener('hashchange', updateContactActiveState);
-        
-        // Listen for tab menu clicks to update state
-        const tabMenuLinks = document.querySelectorAll('.tab-menu .link--tab');
-        tabMenuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                setTimeout(updateContactActiveState, 100);
-            });
+        window.addEventListener('hashchange', function() {
+            setTimeout(updateContactActiveState, 10);
         });
+        
+        // Listen for tab menu clicks with more robust detection
+        document.addEventListener('click', function(e) {
+            const clickedLink = e.target.closest('a[href*="#"]');
+            if (clickedLink) {
+                setTimeout(updateContactActiveState, 100);
+            }
+        });
+        
+        // Listen for popstate (browser back/forward)
+        window.addEventListener('popstate', function() {
+            setTimeout(updateContactActiveState, 10);
+        });
+        
+        // Periodic check as fallback (every 2 seconds)
+        setInterval(updateContactActiveState, 2000);
         
         // Cleanup on page unload
         window.addEventListener('beforeunload', stopObserver);
