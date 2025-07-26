@@ -148,12 +148,6 @@
       "textColor": "black"
     },
     {
-      "name": "legal_cookies_management",
-      "variant": "text",
-      "textTypographyName": "legal_cookies_link",
-      "textColor": "black"
-    },
-    {
       "name": "legal_analytics_title",
       "variant": "text",
       "textTypographyName": "legal_subtitle_6",
