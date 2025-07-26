@@ -1,5 +1,33 @@
+/* ============================================================
+   @ORGANISM - TAB-SECTIONS
+   - CSS :target navigation system with accessibility enhancements
+   - Scroll cursor management and layout detection
+   - ARIA live regions and focus management for screen readers
+============================================================ */
+
 document.addEventListener('DOMContentLoaded', () => {
   const defaultHash = '#portfolio';
+
+  // Create ARIA live region for section announcements
+  function createLiveRegion() {
+    if (document.getElementById('tab-sections-live-region')) return;
+    
+    const liveRegion = document.createElement('div');
+    liveRegion.id = 'tab-sections-live-region';
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.setAttribute('aria-atomic', 'true');
+    liveRegion.className = 'sr-only absolute -left-[10000px] w-1 h-1 overflow-hidden';
+    document.body.appendChild(liveRegion);
+  }
+
+  // Announce section changes to screen readers
+  function announceSection(sectionId) {
+    const liveRegion = document.getElementById('tab-sections-live-region');
+    const sectionName = sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+    if (liveRegion) {
+      liveRegion.textContent = `Section ${sectionName} activated`;
+    }
+  }
 
   // Detecte le layout actif (sm, md, lg, xl ou standalone)
   function getCurrentActiveLayout() {
@@ -33,8 +61,46 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks: `${prefix}.header-navigation .link--nav, ${prefix}.header-mobile-overlay .link--tab, ${prefix}.tab-menu .link--tab, #mobile-overlay .link--tab`,
       contentContainer: `${prefix}.tab-sections-content`,
       scrollCursor: `${prefix}.tab-sections-scroll-cursor`,
-      scrollThumb: `${prefix}#scroll-cursor-thumb`
+      scrollThumb: `${prefix}#scroll-cursor-thumb`,
+      tabNavigation: `${prefix}.tab-sections-navigation`
     };
+  }
+
+  // Setup ARIA attributes for tab navigation
+  function setupTabAria() {
+    const { navLinks, tabNavigation } = getSelectors();
+    
+    // Set role="tablist" on navigation container
+    const navContainer = document.querySelector(tabNavigation);
+    if (navContainer) {
+      navContainer.setAttribute('role', 'tablist');
+      navContainer.setAttribute('aria-label', 'Navigation sections');
+    }
+
+    // Set role="tab" on navigation links
+    document.querySelectorAll(navLinks).forEach((link, index) => {
+      link.setAttribute('role', 'tab');
+      link.setAttribute('aria-selected', 'false');
+      link.setAttribute('tabindex', '-1');
+      
+      const href = link.getAttribute('href');
+      if (href) {
+        const targetId = href.replace('#', '');
+        link.setAttribute('aria-controls', targetId);
+        link.setAttribute('id', `tab-${targetId}`);
+      }
+    });
+  }
+
+  // Setup ARIA attributes for sections
+  function setupSectionAria() {
+    const { allSections } = getSelectors();
+    
+    document.querySelectorAll(allSections).forEach(section => {
+      section.setAttribute('role', 'tabpanel');
+      section.setAttribute('tabindex', '0');
+      section.setAttribute('aria-labelledby', `tab-${section.id}`);
+    });
   }
 
   // Met à jour les liens pour refléter le hash actif
@@ -43,7 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const { navLinks } = getSelectors();
 
     document.querySelectorAll(navLinks).forEach(link => {
-      link.classList.toggle('current', link.getAttribute('href') === currentHash);
+      const isActive = link.getAttribute('href') === currentHash;
+      
+      // Visual current state
+      link.classList.toggle('current', isActive);
+      
+      // ARIA selected state
+      link.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      link.setAttribute('tabindex', isActive ? '0' : '-1');
     });
   }
 
@@ -51,23 +124,79 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateSections() {
     const hash = window.location.hash || defaultHash;
     const { allSections } = getSelectors();
+    let activeSection = null;
 
     const sections = document.querySelectorAll(allSections);
     if (sections.length === 0) {
-      console.warn('⚠️ No sections found with selector:', allSections);
+      console.warn('No sections found with selector:', allSections);
     }
 
     sections.forEach(section => {
       const isDefault = section.hasAttribute('data-default');
-      if (hash === `#${section.id}` || (isDefault && (hash === defaultHash || !window.location.hash))) {
+      const shouldShow = hash === `#${section.id}` || (isDefault && (hash === defaultHash || !window.location.hash));
+      
+      if (shouldShow) {
         section.style.display = 'block';
+        section.setAttribute('aria-hidden', 'false');
+        activeSection = section;
       } else {
         section.style.display = 'none';
+        section.setAttribute('aria-hidden', 'true');
       }
     });
 
+    // Focus management and announcement
+    if (activeSection) {
+      // Announce to screen readers
+      announceSection(activeSection.id);
+      
+      // Focus the active section for keyboard users
+      setTimeout(() => {
+        activeSection.focus();
+      }, 100);
+    }
+
     // Mettre à jour le scroll cursor après changement de section
     updateScrollCursor();
+  }
+
+  // Add keyboard navigation for tabs
+  function addTabKeyboardNavigation() {
+    const { navLinks } = getSelectors();
+    
+    document.addEventListener('keydown', (e) => {
+      const links = Array.from(document.querySelectorAll(navLinks));
+      const currentIndex = links.findIndex(link => link === document.activeElement);
+      
+      if (currentIndex === -1) return;
+      
+      let newIndex = currentIndex;
+      
+      switch(e.key) {
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          newIndex = currentIndex > 0 ? currentIndex - 1 : links.length - 1;
+          e.preventDefault();
+          break;
+        case 'ArrowRight':
+        case 'ArrowDown':
+          newIndex = currentIndex < links.length - 1 ? currentIndex + 1 : 0;
+          e.preventDefault();
+          break;
+        case 'Home':
+          newIndex = 0;
+          e.preventDefault();
+          break;
+        case 'End':
+          newIndex = links.length - 1;
+          e.preventDefault();
+          break;
+      }
+      
+      if (newIndex !== currentIndex) {
+        links[newIndex].focus();
+      }
+    });
   }
 
   // Gestion du scroll cursor avec accessibilité complète
@@ -236,13 +365,15 @@ document.addEventListener('DOMContentLoaded', () => {
     updateThumbPosition();
   }
 
-  // Debug helper pour vérifier le contexte actuel
-  function debugCurrentLayout() {
-    const activeLayout = getCurrentActiveLayout();
-    const selectors = getSelectors();
-    console.log(`🔍 Active layout: ${activeLayout}`);
-    console.log(`🔍 Selectors:`, selectors);
-    console.log(`🔍 Found sections:`, document.querySelectorAll(selectors.allSections).length);
+  // Debounced resize handler for performance
+  let resizeTimeout;
+  function handleResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      updateCurrentLinks();
+      updateSections();
+      updateScrollCursor();
+    }, 150);
   }
 
   // Init hash par défaut
@@ -250,10 +381,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.hash = defaultHash;
   }
 
+  // Create live region for announcements
+  createLiveRegion();
+
+  // Setup ARIA attributes
+  setupTabAria();
+  setupSectionAria();
+
+  // Add keyboard navigation
+  addTabKeyboardNavigation();
+
   // Initialisation à la charge
   updateCurrentLinks();
   updateSections();
-  debugCurrentLayout();
 
   // Mise à jour au changement de hash
   window.addEventListener('hashchange', () => {
@@ -262,12 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Réinitialisation au resize (layout peut changer)
-  window.addEventListener('resize', () => {
-    updateCurrentLinks();
-    updateSections();
-    updateScrollCursor();
-    debugCurrentLayout();
-  });
+  window.addEventListener('resize', handleResize);
 
-  console.log('Tab navigation + scroll cursor ready! 🚀');
+  console.log('Tab navigation with enhanced accessibility ready');
 });

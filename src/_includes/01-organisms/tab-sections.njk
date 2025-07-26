@@ -1,9 +1,8 @@
-{# ===========================================================
-   @ORGANISMS - TAB-SECTIONS
+{# ============================================================
+   @ORGANISM - TAB-SECTIONS
    - Main sections container with navigation and CSS :target system
-=========================================================== #}
-
-{# TAB-SECTIONS - VERSION CLEAN #}
+   - Enhanced accessibility with ARIA roles and live regions
+============================================================ #}
 
 {% macro renderTabSections(option) %}
   {% from "01-organisms/section-portfolio.njk" import renderSectionPortfolio %}
@@ -30,7 +29,7 @@
       <div class="tab-sections w-full" id="main-tab-sections">
         
         {# Navigation desktop/tablet - centrée par rapport au contenu #}
-        <div class="tab-sections-navigation hidden sm:block lg:-ml-8 xl:-ml-8">
+        <div class="tab-sections-navigation hidden sm:block lg:-ml-8 xl:-ml-8" role="tablist" aria-label="Navigation sections">
           {{ renderTabMenu({ 
               name: tabSectionsData.navigation.menu,
               datas: option.tabMenuDatas,
@@ -54,7 +53,7 @@
             <div class="tab-sections-sections">
               
               {# Portfolio - par défaut #}
-              <div class="tab-section-item" id="portfolio" data-default="true">
+              <div class="tab-section-item" id="portfolio" data-default="true" role="tabpanel" tabindex="0" aria-labelledby="tab-portfolio">
                 {{ renderSectionPortfolio({ 
                     name: "charlotte_missions",
                     datas: option.portfolioDatas,
@@ -68,7 +67,7 @@
               </div>
               
               {# Profile #}
-              <div class="tab-section-item" id="profile">
+              <div class="tab-section-item" id="profile" role="tabpanel" tabindex="0" aria-labelledby="tab-profile">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_profile",
                     datas: option.timelineDatas,
@@ -83,7 +82,7 @@
               </div>
               
               {# Journey #}
-              <div class="tab-section-item" id="journey">
+              <div class="tab-section-item" id="journey" role="tabpanel" tabindex="0" aria-labelledby="tab-journey">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_journey",
                     datas: option.timelineDatas,
@@ -98,7 +97,7 @@
               </div>
               
               {# Knowledge #}
-              <div class="tab-section-item" id="knowledge">
+              <div class="tab-section-item" id="knowledge" role="tabpanel" tabindex="0" aria-labelledby="tab-knowledge">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_knowledge",
                     datas: option.timelineDatas,
@@ -113,7 +112,7 @@
               </div>
               
               {# Contact #}
-              <div class="tab-section-item" id="contact">
+              <div class="tab-section-item" id="contact" role="tabpanel" tabindex="0" aria-labelledby="tab-contact">
                 {{ renderSectionContact({ 
                     name: "charlotte_contact",
                     datas: option.contactDatas,
@@ -130,7 +129,7 @@
               </div>
               
               {# Merci - Onglet de remerciements #}
-              <div class="tab-section-item" id="message">
+              <div class="tab-section-item" id="message" role="tabpanel" tabindex="0" aria-labelledby="tab-message">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_thanks",
                     datas: option.timelineDatas,
@@ -145,7 +144,7 @@
               </div>
               
               {# Legal #}
-              <div class="tab-section-item" id="legal">
+              <div class="tab-section-item" id="legal" role="tabpanel" tabindex="0" aria-labelledby="tab-legal">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_legal",
                     datas: option.timelineDatas,
@@ -175,7 +174,7 @@
   {% endif %}
 {% endmacro %}
 
-{# ===========================================================
+{# ============================================================
    Summon HAT Components Wisely
 -----------------------------------------------------------
 1. Import the macro at the top of your page
@@ -202,5 +201,5 @@
     buttonDatas: atoms.button.buttons
 }) }}
 
-May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
-=========================================================== #}
+May your bugs be forever exiled to the shadow realm.
+============================================================ #}
