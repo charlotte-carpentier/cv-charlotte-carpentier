@@ -36,23 +36,23 @@
       {% set missingSlots = totalSlots - existingItems %}
       
       {# Skills Card Container - AUTONOMOUS #}
-      <div class="skills-card skills-card--{{ skillsCardData.theme }} skills-card-container relative w-[313px] mx-auto sm:block sm:w-full sm:max-w-80 sm:m-0 sm:p-3 sm:box-border lg:block lg:w-full lg:m-0 lg:p-0" data-skills="{{ skillsCardData.name }}">
+      <div class="skills-card skills-card--{{ skillsCardData.theme }} skills-card-container relative w-[313px] mx-auto sm:block sm:w-full sm:max-w-80 sm:m-0 sm:p-3 sm:box-border lg:block lg:w-full lg:m-0 lg:p-0" data-skills="{{ skillsCardData.name }}" role="region" aria-labelledby="skills-{{ skillsCardData.name }}-title">
         
-        {# Close icon - Mobile only #}
-        <div class="skills-card-close absolute top-2 right-2 w-8 h-8 cursor-pointer hidden">
+        {# Close button - Mobile only - Accessible #}
+        <button class="skills-card-close absolute top-2 right-2 w-8 h-8 cursor-pointer hidden border-none bg-transparent p-0" aria-label="Fermer {{ skillsCardData.title }}">
           {{ renderIcon({ 
             name: "burger_x",
             datas: option.icon_datas,
             class: "icon-interface"
           }) }}
-        </div>
+        </button>
         
         {# Desktop version: Individual card with tooltips #}
         <div class="skills-card-desktop hidden lg:block w-full max-w-75">
           <div class="skills-card-content flex flex-col items-center gap-3 p-2 relative">
             
             {# Card title #}
-            <div class="skills-card-title text-center w-full mb-2 relative">
+            <div class="skills-card-title text-center w-full mb-2 relative" id="skills-{{ skillsCardData.name }}-title">
               {{ renderTypography({ 
                 name: skillsCardData.title,
                 datas: option.typography_datas
@@ -93,7 +93,7 @@
         </div>
 
         {# Tablet/Mobile version: Same title and captions but different layout #}
-        <div class="skills-card-title pb-4 mb-2 text-center lg:hidden">
+        <div class="skills-card-title pb-4 mb-2 text-center lg:hidden" id="skills-{{ skillsCardData.name }}-title-mobile">
           {{ renderTypography({ 
             name: skillsCardData.title,
             datas: option.typography_datas
@@ -107,7 +107,7 @@
               datas: option.caption_datas,
               iconDatas: option.icon_datas,
               tooltipDatas: option.tooltip_datas,
-                    typographyDatas: option.typography_datas
+              typographyDatas: option.typography_datas
             }) }}
           {% endfor %}
         </div>
@@ -142,25 +142,7 @@
       icon_datas: atoms.icon.icons,
       tooltip_datas: atoms.tooltip.tooltips
   }) }}
-  
-  {{ renderSkillsCard({ 
-      name: "interests_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
-  
-  {{ renderSkillsCard({ 
-      name: "languages_card",
-      datas: organisms["skills-card"]["skills-cards"],
-      typography_datas: atoms.typography.texts,
-      caption_datas: molecules.caption.captions,
-      icon_datas: atoms.icon.icons,
-      tooltip_datas: atoms.tooltip.tooltips
-  }) }}
 </div>
 
-May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+May your bugs be forever exiled to the shadow realm.
 =========================================================== #}
