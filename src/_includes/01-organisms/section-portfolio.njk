@@ -71,7 +71,10 @@
             
             {# Mobile/Tablet layout - horizontal carousel with viewport constraint #}
             <div class="section-portfolio-mobile lg:hidden">
-              <div class="section-portfolio-carousel flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide px-2" id="portfolio-carousel">
+              <div class="section-portfolio-carousel flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide px-2" 
+                   id="portfolio-carousel" 
+                   aria-live="polite" 
+                   aria-label="Portfolio carousel">
                 {% for blockName in sectionData.content.blocks %}
                   <div class="section-portfolio-item flex-shrink-0 w-72 sm:w-80 snap-center">
                     {{ renderContentBlock({ 
@@ -87,12 +90,14 @@
               </div>
               
               {# Carousel dots navigation #}
-              <div class="section-portfolio-dots flex justify-center gap-2 mt-4">
+              <div class="section-portfolio-dots flex justify-center gap-2 mt-4" role="tablist" aria-label="Portfolio navigation">
                 {% for blockName in sectionData.content.blocks %}
                   <button 
                     class="portfolio-dot w-4 h-4 rounded-full border-3 border-black bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-dark focus:ring-offset-2"
+                    role="tab"
                     data-index="{{ loop.index0 }}"
                     aria-label="Go to slide {{ loop.index }}"
+                    aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
                   ></button>
                 {% endfor %}
               </div>
@@ -124,5 +129,5 @@
     linkDatas: atoms.link.links
 }) }}
 
-May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+May your bugs be forever exiled to the shadow realm.
 =========================================================== #}

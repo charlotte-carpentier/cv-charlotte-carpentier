@@ -1,5 +1,17 @@
-// Portfolio Carousel Navigation - Version corrigée pour tablet
+/* ============================================================
+   @ORGANISMS - SECTION-PORTFOLIO
+   - Portfolio carousel navigation with performance optimizations
+============================================================ */
+
 document.addEventListener('DOMContentLoaded', function() {
+  
+  // Cache for performance optimization
+  let dimensionsCache = {
+    itemWidth: 0,
+    gap: 16,
+    containerWidth: 0,
+    isValid: false
+  };
   
   // Trouve le bon carousel selon le layout visible
   function findActiveCarousel() {
@@ -25,6 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Get carousel items
   const items = carousel.querySelectorAll('.section-portfolio-item');
+  
+  // Update dimensions cache
+  function updateDimensionsCache() {
+    dimensionsCache.itemWidth = items[0]?.offsetWidth || 0;
+    dimensionsCache.containerWidth = carousel.offsetWidth;
+    dimensionsCache.isValid = true;
+  }
+  
+  // Invalidate cache on resize
+  function invalidateCache() {
+    dimensionsCache.isValid = false;
+  }
   
   // Mouse drag pour desktop/tablet
   let isDragging = false;
@@ -59,20 +83,24 @@ document.addEventListener('DOMContentLoaded', function() {
     carousel.style.cursor = 'grab';
   });
   
-  // Dots management - tout dans le JS
+  // Dots management with accessibility
   function setDotStyles() {
     dots.forEach((dot, index) => {
       // Style par défaut
       dot.style.backgroundColor = '#ffffff';
       dot.style.border = '3px solid #000000';
+      dot.setAttribute('aria-selected', 'false');
     });
   }
   
   function updateActiveDot() {
+    // Update cache if invalid
+    if (!dimensionsCache.isValid) {
+      updateDimensionsCache();
+    }
+    
     const scrollLeft = carousel.scrollLeft;
-    const itemWidth = items[0]?.offsetWidth || 0;
-    const gap = 16; // gap-4 = 16px
-    const containerWidth = carousel.offsetWidth;
+    const { itemWidth, gap, containerWidth } = dimensionsCache;
     
     // Calcul pour déterminer quelle image on voit le plus
     let currentIndex = 0;
@@ -98,19 +126,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Reset tous les dots
     dots.forEach(dot => {
       dot.style.backgroundColor = '#ffffff';
+      dot.setAttribute('aria-selected', 'false');
     });
     
     // Active le dot courant
     if (dots[currentIndex]) {
       dots[currentIndex].style.backgroundColor = '#c4ffcb';
+      dots[currentIndex].setAttribute('aria-selected', 'true');
     }
   }
   
   // Handle dot clicks
   dots.forEach((dot, index) => {
     dot.addEventListener('click', function() {
-      const itemWidth = items[0]?.offsetWidth || 0;
-      const gap = 16;
+      // Update cache if invalid
+      if (!dimensionsCache.isValid) {
+        updateDimensionsCache();
+      }
+      
+      const { itemWidth, gap } = dimensionsCache;
       const scrollPosition = index * (itemWidth + gap);
       
       carousel.scrollTo({
@@ -121,8 +155,10 @@ document.addEventListener('DOMContentLoaded', function() {
       // Force l'activation du dot cliqué
       dots.forEach(d => {
         d.style.backgroundColor = '#ffffff';
+        d.setAttribute('aria-selected', 'false');
       });
       dot.style.backgroundColor = '#c4ffcb';
+      dot.setAttribute('aria-selected', 'true');
     });
   });
   
@@ -133,9 +169,19 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollTimeout = setTimeout(updateActiveDot, 50);
   });
   
-  // Initialize dots
+  // Listen to resize events to invalidate cache
+  window.addEventListener('resize', invalidateCache);
+  
+  // Initialize
+  updateDimensionsCache();
   setDotStyles();
   if (dots[0]) {
     dots[0].style.backgroundColor = '#c4ffcb';
+    dots[0].setAttribute('aria-selected', 'true');
   }
+  
+  // Cleanup function (if needed for dynamic components)
+  return function cleanup() {
+    window.removeEventListener('resize', invalidateCache);
+  };
 });
