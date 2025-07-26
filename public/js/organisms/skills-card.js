@@ -1,9 +1,7 @@
-/**
- * =========================
- *     SKILLS-CARD ORGANISM
- *     Event-driven skills cards management + Close buttons + Full autonomy
- * =========================
- */
+/* ============================================================
+   @ORGANISMS - SKILLS-CARD
+   - Event-driven skills cards management + Close buttons + Full autonomy
+============================================================ */
 
 // Button to Card mapping - UTILISE data-skills POST-MIGRATION
 const SKILLS_MAPPING = {
@@ -13,11 +11,17 @@ const SKILLS_MAPPING = {
   'button_interests': 'interests_card'
 };
 
+// Cached DOM containers for performance
+let skillsContainersCache = null;
+
 // Get all skills card containers - UTILISE data-skills
 function getSkillsContainers() {
-  return Object.values(SKILLS_MAPPING)
-    .map(skillsName => document.querySelector(`[data-skills="${skillsName}"]`))
-    .filter(Boolean);
+  if (!skillsContainersCache) {
+    skillsContainersCache = Object.values(SKILLS_MAPPING)
+      .map(skillsName => document.querySelector(`[data-skills="${skillsName}"]`))
+      .filter(Boolean);
+  }
+  return skillsContainersCache;
 }
 
 // Hide all skills cards
@@ -25,6 +29,7 @@ function hideAllSkillsCards() {
   getSkillsContainers().forEach(container => {
     container.classList.add('hidden');
     container.classList.remove('block', 'visible');
+    container.setAttribute('aria-hidden', 'true');
   });
 }
 
@@ -34,6 +39,7 @@ function showSkillsCard(skillsName) {
   if (container) {
     container.classList.remove('hidden');
     container.classList.add('block', 'visible');
+    container.setAttribute('aria-hidden', 'false');
   }
 }
 
@@ -48,6 +54,7 @@ function showAllSkillsCards() {
   getSkillsContainers().forEach(container => {
     container.classList.remove('hidden');
     container.classList.add('block', 'visible');
+    container.setAttribute('aria-hidden', 'false');
   });
 }
 
@@ -62,7 +69,7 @@ function initializeResponsiveState() {
   }
 }
 
-// Handle responsive changes - SIMPLIFIÉ : seulement pour les vrais changements d'écran
+// Handle responsive changes - SIMPLIFIE : seulement pour les vrais changements d'ecran
 function handleSkillsResize() {
   // Sur mobile, on ne touche JAMAIS aux cartes via resize
   if (window.innerWidth < 640) {
@@ -78,7 +85,7 @@ document.addEventListener('avatar:skillsToggle', function(e) {
   const { buttonId } = e.detail;
   const skillsName = SKILLS_MAPPING[buttonId];
   
-  console.log(`🎯 Skills Card: Received event for ${buttonId} → ${skillsName}`);
+  console.log(`Skills Card: Received event for ${buttonId} -> ${skillsName}`);
   
   if (skillsName) {
     const isCurrentlyVisible = isSkillsCardVisible(skillsName);
@@ -89,24 +96,24 @@ document.addEventListener('avatar:skillsToggle', function(e) {
     // If current card wasn't visible, show it
     if (!isCurrentlyVisible) {
       showSkillsCard(skillsName);
-      console.log(`✅ Showing ${skillsName}`);
+      console.log(`Showing ${skillsName}`);
     } else {
-      console.log(`❌ Was visible, now hidden`);
+      console.log(`Was visible, now hidden`);
     }
   }
 });
 
 document.addEventListener('avatar:hideAllSkills', function(e) {
   hideAllSkillsCards();
-  console.log('Skills Card: Hidden all cards 🙈');
+  console.log('Skills Card: Hidden all cards');
 });
 
 document.addEventListener('avatar:showAllSkills', function(e) {
   showAllSkillsCards();
-  console.log('Skills Card: Shown all cards 👁️');
+  console.log('Skills Card: Shown all cards');
 });
 
-// Close button functionality - MIGRÉ depuis home-layout
+// Close button functionality - MIGRE depuis home-layout
 function initCloseButtons() {
   getSkillsContainers().forEach(container => {
     const closeButton = container.querySelector('.skills-card-close');
@@ -115,26 +122,42 @@ function initCloseButtons() {
         e.preventDefault();
         container.classList.add('hidden');
         container.classList.remove('block', 'visible');
+        container.setAttribute('aria-hidden', 'true');
         
         const skillsName = container.getAttribute('data-skills');
-        console.log(`Skills Card: Closed ${skillsName} via close button ❌`);
+        console.log(`Skills Card: Closed ${skillsName} via close button`);
+        
+        // Focus management after close
+        const firstVisibleCard = getSkillsContainers().find(c => !c.classList.contains('hidden'));
+        if (firstVisibleCard) {
+          firstVisibleCard.focus();
+        }
+      });
+      
+      // Keyboard accessibility for close button
+      closeButton.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          closeButton.click();
+        }
       });
     }
   });
 }
 
-// Fonction globale pour fermeture externe (maintenue pour compatibilité)
+// Fonction globale pour fermeture externe (maintenue pour compatibilite)
 function closeSkillsCard(cardName) {
   const container = document.querySelector(`[data-skills="${cardName}"]`);
   if (container) {
     container.classList.add('hidden');
     container.classList.remove('block', 'visible');
+    container.setAttribute('aria-hidden', 'true');
     
-    console.log(`Skills Card: Closed ${cardName} via external call ❌`);
+    console.log(`Skills Card: Closed ${cardName} via external call`);
   }
 }
 
-// Export pour utilisation globale (maintenu pour compatibilité)
+// Export pour utilisation globale (maintenu pour compatibilite)
 window.closeSkillsCard = closeSkillsCard;
 
 // Initialize everything
@@ -149,5 +172,5 @@ document.addEventListener('DOMContentLoaded', function() {
   // Handle window resize - ULTRA SIMPLE
   window.addEventListener('resize', handleSkillsResize);
   
-  console.log('Skills Card: Fully autonomous system initialized! 🎯✨');
+  console.log('Skills Card: Fully autonomous system initialized');
 });
