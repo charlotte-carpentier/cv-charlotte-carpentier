@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Detecte le layout actif (sm, md, lg, xl ou standalone)
+  // Detect active layout (sm, md, lg, xl or standalone)
   function getCurrentActiveLayout() {
     if (!document.querySelector('.home-layout')) return 'standalone';
 
@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }) || 'standalone';
   }
 
-  // Retourne les sélecteurs adaptés au layout actif
+  // Get selectors adapted to active layout
   function getSelectors() {
     const activeLayout = getCurrentActiveLayout();
     let prefix = '';
     
-    // Contexte spécifique selon le layout
+    // Layout-specific context
     if (activeLayout === 'sm') {
       prefix = '.home-layout__sm ';
     } else if (activeLayout === 'md') {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (activeLayout === 'xl') {
       prefix = '.home-layout__xl ';
     }
-    // standalone garde prefix vide
+    // standalone keeps empty prefix
 
     return {
       allSections: `${prefix}.tab-section-item`,
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Met à jour les liens pour refléter le hash actif
+  // Update links to reflect active hash
   function updateCurrentLinks() {
     const currentHash = window.location.hash || defaultHash;
     const { navLinks } = getSelectors();
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Affiche la section correspondante, cache les autres
+  // Show corresponding section, hide others
   function updateSections() {
     const hash = window.location.hash || defaultHash;
     const { allSections } = getSelectors();
@@ -150,13 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // Announce to screen readers
       announceSection(activeSection.id);
       
-      // Focus the active section for keyboard users
+      // Focus without scroll for keyboard users
       setTimeout(() => {
-        activeSection.focus();
+        activeSection.focus({ preventScroll: true });
       }, 100);
     }
 
-    // Mettre à jour le scroll cursor après changement de section
+    // Update scroll cursor after section change
     updateScrollCursor();
   }
 
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Gestion du scroll cursor avec accessibilité complète
+  // Manage scroll cursor with accessibility
   function updateScrollCursor() {
     const { contentContainer, scrollCursor, scrollThumb } = getSelectors();
     
@@ -209,25 +209,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!contentEl || !cursorEl || !thumbEl) return;
 
-    // Vérifier si le contenu est scrollable
-    const isScrollable = contentEl.scrollHeight > contentEl.clientHeight;
+    // Check if content overflows
+    const contentOverflows = contentEl.scrollHeight > contentEl.clientHeight;
+    const isDesktop = window.innerWidth >= 1024;
     
-    if (!isScrollable) {
+    if (isDesktop && contentOverflows) {
+      cursorEl.style.opacity = '1';
+      cursorEl.style.visibility = 'visible';
+      cursorEl.setAttribute('aria-hidden', 'false');
+    } else {
       cursorEl.style.opacity = '0';
+      cursorEl.style.visibility = 'hidden';
       cursorEl.setAttribute('aria-hidden', 'true');
-      return;
     }
 
-    cursorEl.style.opacity = '1';
-    cursorEl.setAttribute('aria-hidden', 'false');
-
-    // Configuration accessibilité du thumb
+    // Configure accessibility attributes
     thumbEl.setAttribute('tabindex', '0');
     thumbEl.setAttribute('role', 'scrollbar');
-    thumbEl.setAttribute('aria-label', 'Barre de défilement vertical');
+    thumbEl.setAttribute('aria-label', 'Vertical scroll bar');
     thumbEl.setAttribute('aria-orientation', 'vertical');
     
-    // Calculer la position du thumb
+    // Calculate thumb position
     function updateThumbPosition() {
       const scrollRatio = contentEl.scrollTop / (contentEl.scrollHeight - contentEl.clientHeight);
       const trackHeight = 525;
@@ -237,27 +239,27 @@ document.addEventListener('DOMContentLoaded', () => {
       const thumbTop = scrollRatio * maxThumbTop;
       thumbEl.style.top = `${thumbTop}px`;
       
-      // Mettre à jour aria-valuenow
+      // Update aria-valuenow
       const percentage = Math.round(scrollRatio * 100);
       thumbEl.setAttribute('aria-valuenow', percentage);
       thumbEl.setAttribute('aria-valuemin', '0');
       thumbEl.setAttribute('aria-valuemax', '100');
-      thumbEl.setAttribute('aria-valuetext', `${percentage}% défilé`);
+      thumbEl.setAttribute('aria-valuetext', `${percentage}% scrolled`);
     }
 
-    // Variables pour le drag
+    // Variables for drag
     let isDragging = false;
     let startY = 0;
     let startThumbTop = 0;
     
-    // Respecter prefers-reduced-motion
+    // Respect prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const speedMultiplier = prefersReducedMotion ? 1 : 1; // Ratio 1:1 accessible
+    const speedMultiplier = prefersReducedMotion ? 1 : 1;
     
-    // Curseur par défaut
+    // Default cursor
     thumbEl.style.cursor = 'grab';
     
-    // Support clavier
+    // Keyboard support
     thumbEl.addEventListener('keydown', (e) => {
       const trackHeight = 525;
       const thumbHeight = 56;
@@ -269,41 +271,41 @@ document.addEventListener('DOMContentLoaded', () => {
       
       switch(e.key) {
         case 'ArrowUp':
-          newThumbTop = Math.max(0, currentThumbTop - 20); // Petit incrément
+          newThumbTop = Math.max(0, currentThumbTop - 20); // Small increment
           break;
         case 'ArrowDown':
-          newThumbTop = Math.min(maxThumbTop, currentThumbTop + 20); // Petit incrément
+          newThumbTop = Math.min(maxThumbTop, currentThumbTop + 20); // Small increment
           break;
         case 'PageUp':
-          newThumbTop = Math.max(0, currentThumbTop - 100); // Grand incrément
+          newThumbTop = Math.max(0, currentThumbTop - 100); // Large increment
           break;
         case 'PageDown':
-          newThumbTop = Math.min(maxThumbTop, currentThumbTop + 100); // Grand incrément
+          newThumbTop = Math.min(maxThumbTop, currentThumbTop + 100); // Large increment
           break;
         case 'Home':
-          newThumbTop = 0; // Début
+          newThumbTop = 0; // Top
           break;
         case 'End':
-          newThumbTop = maxThumbTop; // Fin
+          newThumbTop = maxThumbTop; // Bottom
           break;
         default:
-          return; // Ignorer les autres touches
+          return; // Ignore other keys
       }
       
       e.preventDefault();
       
-      // Appliquer le nouveau scroll
+      // Apply new scroll
       thumbEl.style.top = `${newThumbTop}px`;
       const scrollRatio = newThumbTop / maxThumbTop;
       contentEl.scrollTop = scrollRatio * contentHeight;
-      updateThumbPosition(); // Mettre à jour aria-valuenow
+      updateThumbPosition(); // Update aria-valuenow
     });
     
     thumbEl.addEventListener('mousedown', (e) => {
       isDragging = true;
       thumbEl.style.cursor = 'grabbing';
       
-      // Mémoriser la position de départ
+      // Store starting position
       startY = e.clientY;
       startThumbTop = parseInt(thumbEl.style.top) || 0;
       
@@ -321,9 +323,9 @@ document.addEventListener('DOMContentLoaded', () => {
       thumbEl.style.outline = 'none';
     });
 
-    // Écouter le scroll du contenu (sans conflit avec le drag)
+    // Listen to content scroll (without conflict with drag)
     contentEl.addEventListener('scroll', () => {
-      if (!isDragging) { // Seulement si pas en train de dragger
+      if (!isDragging) { // Only if not dragging
         updateThumbPosition();
       }
     });
@@ -331,27 +333,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
       
-      // Calculer le déplacement depuis le début du drag
+      // Calculate movement from drag start
       const deltaY = e.clientY - startY;
-      const adjustedDelta = deltaY * speedMultiplier; // Ratio 1:1 accessible
+      const adjustedDelta = deltaY * speedMultiplier;
       const newThumbTop = startThumbTop + adjustedDelta;
       
-      // Contraintes
+      // Constraints
       const trackHeight = 525;
       const thumbHeight = 56;
       const maxThumbTop = trackHeight - thumbHeight;
       const clampedThumbTop = Math.max(0, Math.min(newThumbTop, maxThumbTop));
       
-      // Mettre à jour la position du thumb
+      // Update thumb position
       thumbEl.style.top = `${clampedThumbTop}px`;
       
-      // Calculer et appliquer le scroll correspondant
+      // Calculate and apply corresponding scroll
       const scrollRatio = clampedThumbTop / maxThumbTop;
       const contentHeight = contentEl.scrollHeight - contentEl.clientHeight;
       const newScrollTop = scrollRatio * contentHeight;
       
       contentEl.scrollTop = newScrollTop;
-      updateThumbPosition(); // Mettre à jour aria-valuenow
+      updateThumbPosition(); // Update aria-valuenow
     });
 
     document.addEventListener('mouseup', () => {
@@ -361,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Position initiale
+    // Initial position
     updateThumbPosition();
   }
 
@@ -372,11 +374,10 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeTimeout = setTimeout(() => {
       updateCurrentLinks();
       updateSections();
-      updateScrollCursor();
     }, 150);
   }
 
-  // Init hash par défaut
+  // Initialize default hash
   if (!window.location.hash) {
     window.location.hash = defaultHash;
   }
@@ -391,17 +392,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add keyboard navigation
   addTabKeyboardNavigation();
 
-  // Initialisation à la charge
+  // Initialize on load
   updateCurrentLinks();
   updateSections();
 
-  // Mise à jour au changement de hash
+  // Update on hash change
   window.addEventListener('hashchange', () => {
     updateCurrentLinks();
     updateSections();
   });
 
-  // Réinitialisation au resize (layout peut changer)
+  // Reinitialize on resize (layout can change)
   window.addEventListener('resize', handleResize);
 
   console.log('Tab navigation with enhanced accessibility ready');
