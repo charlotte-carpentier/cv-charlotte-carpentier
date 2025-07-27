@@ -1939,21 +1939,32 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 }
 
 /* Hide scrollbar for tab-sections content while maintaining scroll functionality */
-.tab-sections .scrollbar-hide {
+.tab-sections-content {
+  overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.tab-sections .scrollbar-hide::-webkit-scrollbar {
+.tab-sections-content::-webkit-scrollbar {
   display: none;
 }
 
-/* Scroll cursor - visible en LG et XL */
+/* Keep original scrollbar-hide for other elements */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll cursor - caché par défaut, dimensions conservées */
 .tab-sections-scroll-cursor {
   width: 20px;
   height: 653px;
-  opacity: 1;
-  visibility: visible;
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Gradient vertical lines */

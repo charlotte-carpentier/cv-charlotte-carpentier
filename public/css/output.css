@@ -224,6 +224,9 @@
   .bottom-\[-15px\] {
     bottom: -15px;
   }
+  .-left-\[10000px\] {
+    left: calc(10000px * -1);
+  }
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
@@ -317,6 +320,9 @@
   .h-0\.5 {
     height: calc(var(--spacing) * 0.5);
   }
+  .h-1 {
+    height: calc(var(--spacing) * 1);
+  }
   .h-2 {
     height: calc(var(--spacing) * 2);
   }
@@ -358,6 +364,9 @@
   }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
   }
   .w-2 {
     width: calc(var(--spacing) * 2);
@@ -549,9 +558,6 @@
   }
   .overflow-x-auto {
     overflow-x: auto;
-  }
-  .overflow-y-auto {
-    overflow-y: auto;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -2456,18 +2462,26 @@ body:not(.has-hash) .tab-section-item[data-default="true"], .tab-section-item[da
     padding: 1.5rem;
   }
 }
-.tab-sections .scrollbar-hide {
+.tab-sections-content {
+  overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.tab-sections .scrollbar-hide::-webkit-scrollbar {
+.tab-sections-content::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 .tab-sections-scroll-cursor {
   width: 20px;
   height: 653px;
-  opacity: 1;
-  visibility: visible;
+  opacity: 0;
+  visibility: hidden;
 }
 .tab-sections-gradient-left, .tab-sections-gradient-right {
   position: absolute;

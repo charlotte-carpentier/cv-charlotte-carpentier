@@ -28,7 +28,7 @@
     {% else %}
       <div class="tab-sections w-full" id="main-tab-sections">
         
-        {# Navigation desktop/tablet - centrée par rapport au contenu #}
+        {# Desktop/tablet navigation #}
         <div class="tab-sections-navigation hidden sm:block lg:-ml-8 xl:-ml-8" role="tablist" aria-label="Navigation sections">
           {{ renderTabMenu({ 
               name: tabSectionsData.navigation.menu,
@@ -37,22 +37,22 @@
           }) }}
         </div>
         
-        {# Container principal #}
+        {# Main container #}
         <div class="tab-sections-container relative flex justify-center items-start">
           
-          {# Zone de contenu avec bordures #}
-          <div class="tab-sections-content border-t-4 border-black sm:border-t-3 lg:border-t-4 relative overflow-y-auto scrollbar-hide w-[313px] h-auto sm:w-[633px] sm:h-auto lg:w-[488px] lg:h-[653px]">
+          {# Content area with borders #}
+          <div class="tab-sections-content border-t-4 border-black sm:border-t-3 lg:border-t-4 relative scrollbar-hide w-[313px] h-auto sm:w-[633px] sm:h-auto lg:w-[488px] lg:h-[653px]" style="overflow-y: auto;">
             
-            {# Lignes dégradées pour toutes les versions #}
+            {# Gradient lines #}
             <div class="tab-sections-gradient-lines">
               <div class="tab-sections-gradient-left"></div>
               <div class="tab-sections-gradient-right"></div>
             </div>
             
-            {# Sections avec navigation :target #}
+            {# Sections with :target navigation #}
             <div class="tab-sections-sections">
               
-              {# Portfolio - par défaut #}
+              {# Portfolio - default #}
               <div class="tab-section-item" id="portfolio" data-default="true" role="tabpanel" tabindex="0" aria-labelledby="tab-portfolio">
                 {{ renderSectionPortfolio({ 
                     name: "charlotte_missions",
@@ -128,7 +128,7 @@
                 }) }}
               </div>
               
-              {# Merci - Onglet de remerciements #}
+              {# Thanks section #}
               <div class="tab-section-item" id="message" role="tabpanel" tabindex="0" aria-labelledby="tab-message">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_thanks",
@@ -161,7 +161,7 @@
             </div>
           </div>
           
-          {# Scroll cursor desktop - À CÔTÉ du content #}
+          {# Custom scroll cursor - desktop only #}
           <div class="tab-sections-scroll-cursor hidden lg:block xl:block ml-2 mt-5 flex-shrink-0">
             <div class="scroll-cursor-track">
               <div class="scroll-cursor-thumb" id="scroll-cursor-thumb"></div>
