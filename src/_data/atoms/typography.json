@@ -121,6 +121,18 @@
       "variant": "p"
     },
     {
+      "name": "journey_progressbar_title",
+      "text": "#LevelComplete",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "journey_progressbar_paragraph",
+      "text": "Mode : nouvelle partie +",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
       "name": "knowledge_title",
       "text": "Savoirs",
       "tag": "h2",

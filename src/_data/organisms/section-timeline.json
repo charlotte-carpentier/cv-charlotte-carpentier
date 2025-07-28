@@ -11,7 +11,8 @@
           "journey_freelance",
           "journey_ehpad",
           "journey_efs"
-        ]
+        ],
+        "progress_bar": "level_complete"
       }
     },
     {
