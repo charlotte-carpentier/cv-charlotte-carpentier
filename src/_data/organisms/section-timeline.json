@@ -11,7 +11,8 @@
           "journey_freelance",
           "journey_ehpad",
           "journey_efs"
-        ]
+        ],
+        "progress_bar": "level_complete"
       }
     },
     {
@@ -42,6 +43,12 @@
           "profile_past",
           "profile_transition",
           "profile_values"
+        ],
+        "foundation_icons": [
+          "foundation_action",
+          "foundation_secu",
+          "foundation_ecolo",
+          "foundation_access"
         ]
       }
     },
