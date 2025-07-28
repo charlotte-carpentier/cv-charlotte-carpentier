@@ -35,6 +35,10 @@
   outline-offset: 2px;
 }
 
+.tab-sections *:focus-visible {
+  outline: none;
+}
+
 /* Font smoothing for better rendering */
 body {
   -webkit-font-smoothing: antialiased;

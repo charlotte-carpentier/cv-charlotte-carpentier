@@ -96,12 +96,13 @@
             </div>
             {% endif %}
 
-            {# Optional foundation icons #}
-            {% if sectionData.content.foundation_icons %}
-            {# Horizontal separator with gradient before foundation icons #}
-            <div class="section-timeline-separator flex justify-center mt-4 mb-4 lg:mt-2 lg:mb-2" role="separator" aria-hidden="true">
-              <div class="section-timeline-separator-line"></div>
-            </div>
+            {# Optional foundation icons - Only for profile section with strict validation #}
+            {% if sectionData.content.foundation_icons and sectionData.id and sectionData.id == 'profile' and sectionData.name == 'charlotte_profile' %}
+{# TEMPORAIRE - TESTE JUSTE LE SÉPARATEUR
+<div class="section-timeline-separator flex justify-center mt-4 mb-4 lg:mt-2 lg:mb-2" role="separator" aria-hidden="true">
+  <div class="section-timeline-separator-line"></div>
+</div>
+FIN TEMPORAIRE #}
             
             <div class="section-timeline-foundation-icons flex justify-center">
               <div class="foundation-icons-container flex flex-row gap-4 justify-center items-center">
