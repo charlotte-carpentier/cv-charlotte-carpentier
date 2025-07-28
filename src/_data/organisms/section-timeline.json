@@ -43,6 +43,12 @@
           "profile_past",
           "profile_transition",
           "profile_values"
+        ],
+        "foundation_icons": [
+          "foundation_action",
+          "foundation_secu",
+          "foundation_ecolo",
+          "foundation_access"
         ]
       }
     },
