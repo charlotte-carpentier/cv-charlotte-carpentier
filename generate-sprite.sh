@@ -66,6 +66,18 @@ for file in "$ICONS_DIR"/foundation/*.svg; do
     fi
 done
 
+# Process fragment icons
+echo "Processing fragment icons..."
+echo "    <!-- Fragment Icons -->" >> "$SPRITE_FILE"
+for file in "$ICONS_DIR"/fragments/*.svg; do
+    if [ -f "$file" ]; then
+        filename=$(basename "$file" .svg)
+        id="fragment-$filename"
+        echo "  Processing: $id"
+        process_svg "$file" "$id" >> "$SPRITE_FILE"
+    fi
+done
+
 # Close sprite
 cat >> "$SPRITE_FILE" << 'EOF'
   </defs>

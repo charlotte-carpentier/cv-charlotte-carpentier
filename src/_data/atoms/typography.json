@@ -505,6 +505,126 @@
       "text": "Votre message a été consigné dans le grand livre numérique. Je prendrai le temps de le lire avec attention.<br><br>En attendant, n'hésitez pas à parcourir les recoins de mon univers. Bonne exploration !",
       "tag": "p",
       "variant": "p"
+    },
+    {
+      "name": "title-404",
+      "text": "L'élément recherché est inexistant ou retiré.",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "title-500",
+      "text": "L'élément recherché est bloqué par un problème technique.",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "title-maintenance",
+      "text": "L'élément recherché fait l'objet d'une intervention nécessaire.",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "subtitle-404-500-maintenance-partielle",
+      "text": "L'accès au reste du site est préservé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "subtitle-maintenance-totale",
+      "text": "Un lien vers l'extérieur est préservé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-02-404",
+      "text": "Données absentes.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-03-404",
+      "text": "Domaine vide.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-05-404",
+      "text": "Impasse.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-02-500",
+      "text": "Chemin interrompu.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-03-500",
+      "text": "Erreur interne.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-05-500",
+      "text": "Domaine fermé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-02-maintenance-totale",
+      "text": "Chemin interrompu.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-03-maintenance-totale",
+      "text": "Travaux en cours.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-05-maintenance-totale",
+      "text": "Domaine fermé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-06-maintenance-totale",
+      "text": "Nous reviendrons.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-02-maintenance-partielle",
+      "text": "Chemin interrompu.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-03-maintenance-partielle",
+      "text": "Travaux en cours.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "fragment-05-maintenance-partielle",
+      "text": "Domaine fermé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "footer-info-visible",
+      "text": "Pour rendre visibles les contenus cachés :",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "footer-info-hidden",
+      "text": "Pour invisibiliser les contenus révélés :",
+      "tag": "p",
+      "variant": "p"
     }
   ]
 }

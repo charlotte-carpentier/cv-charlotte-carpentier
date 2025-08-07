@@ -1,0 +1,31 @@
+---
+permalink: "/404/"
+layout: '00-core/base.njk'
+title: "Données absentes."
+eleventyExcludeFromCollections: true
+---
+
+{% from "03-atoms/button.njk" import renderButton %}
+{% from "03-atoms/icon.njk" import renderIcon %}
+{% from "03-atoms/link.njk" import renderLink %}
+{% from "03-atoms/typography.njk" import renderTypography %}
+
+    {{ renderButton({ 
+       name: "button-reveal-all",
+       datas: atoms.button.buttons
+    }) }}
+
+    {{ renderIcon({ 
+        name: "fragment-01-404",
+        datas: atoms.icon.icons
+    }) }}
+
+    {{ renderLink({ 
+        name: "link-cta-maintenance-totale",
+        datas: atoms.link.links
+    }) }}
+
+    {{ renderTypography({ 
+        name: "footer-info-hidden",
+        datas: atoms.typography.texts
+    }) }}
