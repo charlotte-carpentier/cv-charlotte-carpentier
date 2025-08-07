@@ -9,6 +9,7 @@ eleventyExcludeFromCollections: true
 {% from "03-atoms/icon.njk" import renderIcon %}
 {% from "03-atoms/link.njk" import renderLink %}
 {% from "03-atoms/typography.njk" import renderTypography %}
+{% from "02-molecules/error-footer.njk" import renderErrorFooter %}
 
     {{ renderButton({ 
        name: "button-reveal-all",
@@ -28,4 +29,11 @@ eleventyExcludeFromCollections: true
     {{ renderTypography({ 
         name: "footer-info-hidden",
         datas: atoms.typography.texts
+    }) }}
+
+    {{ renderErrorFooter({ 
+        name: "error_footer_toggle",
+        datas: molecules["error-footer"]["error-footers"],
+        typographyDatas: atoms.typography.texts,
+        buttonDatas: atoms.button.buttons
     }) }}

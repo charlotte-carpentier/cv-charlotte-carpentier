@@ -922,6 +922,33 @@ body {
 }
 
 /* ==========================================================================
+   @MOLECULE - ERROR-FOOTER
+   - Footer error component with white text and green button styling
+   ========================================================================== */
+
+/* Force white text for typography inside error-footer */
+.error-footer .error-footer-info .text-p,
+.error-footer .error-footer-info p {
+  color: theme(--cc-white);
+}
+
+/* Green border for button inside error-footer */
+.error-footer .error-footer-button .button.button--primary {
+  border-color: theme(--cc-green-light);
+}
+
+/* Restore hover state */
+.error-footer .error-footer-button .button.button--primary:hover {
+  border-color: theme(--cc-green-dark);
+}
+
+/* Restore focus state */
+.error-footer .error-footer-button .button.button--primary:focus-visible {
+  border-color: theme(--cc-green-dark);
+  outline: 2px solid theme(--cc-green-dark);
+}
+
+/* ==========================================================================
    @MOLECULE - LIST FORM
    - Container and layout for form list elements
    - Overrides input, radio, and group styles within list-form

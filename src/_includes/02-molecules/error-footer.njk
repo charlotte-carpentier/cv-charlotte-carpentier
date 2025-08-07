@@ -1,0 +1,67 @@
+{# ===========================================================
+   @MOLECULES - ERROR-FOOTER
+   - Renders footer with toggle text and button functionality
+=========================================================== #}
+
+{# Import atoms #}
+{% from "03-atoms/typography.njk" import renderTypography %}
+{% from "03-atoms/button.njk" import renderButton %}
+
+{% macro renderErrorFooter(option) %}
+  {# Check if datas is provided #}
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No error-footer configuration provided</span>
+  {% else %}
+    {# Retrieve error-footer configuration #}
+    {% set errorFootersConfig = option.datas %}
+    {% set errorFooterName = option.name %}
+    
+    {# Find the specific error-footer by name #}
+    {% set errorFooterData = null %}
+    {% for errorFooter in errorFootersConfig %}
+      {% if errorFooter.name == errorFooterName %}
+        {% set errorFooterData = errorFooter %}
+      {% endif %}
+    {% endfor %}
+
+    {# Fallback if error-footer not found #}
+    {% if not errorFooterData %}
+      <span class="text-red-500">Error-footer not found: {{ errorFooterName }}</span>
+    {% else %}
+      {# Render error-footer molecule based on variant #}
+      {% if errorFooterData.variant == "toggle" %}
+        <div class="error-footer error-footer--{{ errorFooterData.variant }} flex flex-col gap-2 sm:gap-4 lg:flex-row lg:items-center lg:gap-4">
+          <div class="error-footer-info">
+            {{ renderTypography({ 
+                name: errorFooterData.infoVisibleTypographyName,
+                datas: option.typographyDatas
+            }) }}
+          </div>
+          <div class="error-footer-button">
+            {{ renderButton({ 
+                name: errorFooterData.buttonRevealName,
+                datas: option.buttonDatas
+            }) }}
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
+1. Import the macro at the top of your page
+{% from "02-molecules/error-footer.njk" import renderErrorFooter %}
+
+2. Call a specific error-footer by its name
+{{ renderErrorFooter({ 
+    name: "error_footer_toggle",
+    datas: molecules["error-footer"]["error-footers"],
+    typographyDatas: atoms.typography.texts,
+    buttonDatas: atoms.button.buttons
+}) }}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+=========================================================== #}
