@@ -10,6 +10,7 @@ eleventyExcludeFromCollections: true
 {% from "03-atoms/link.njk" import renderLink %}
 {% from "03-atoms/typography.njk" import renderTypography %}
 {% from "02-molecules/error-footer.njk" import renderErrorFooter %}
+{% from "02-molecules/error-fragment.njk" import renderErrorFragment %}
 
     {{ renderButton({ 
        name: "button-reveal-all",
@@ -36,4 +37,11 @@ eleventyExcludeFromCollections: true
         datas: molecules["error-footer"]["error-footers"],
         typographyDatas: atoms.typography.texts,
         buttonDatas: atoms.button.buttons
+    }) }}
+
+    {{ renderErrorFragment({ 
+        name: "fragment_maintenance_totale_06",
+        datas: molecules["error-fragment"]["error-fragments"],
+        iconDatas: atoms.icon.icons,
+        typographyDatas: atoms.typography.texts
     }) }}
