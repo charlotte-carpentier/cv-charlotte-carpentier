@@ -525,13 +525,13 @@
       "variant": "h2"
     },
     {
-      "name": "subtitle-404-500-maintenance-partielle",
+      "name": "subtitle-404-500-maintenance-partial",
       "text": "L'accès au reste du site est préservé.",
       "tag": "p",
       "variant": "p"
     },
     {
-      "name": "subtitle-maintenance-totale",
+      "name": "subtitle-maintenance-total",
       "text": "Un lien vers l'extérieur est préservé.",
       "tag": "p",
       "variant": "p"
@@ -573,43 +573,43 @@
       "variant": "p"
     },
     {
-      "name": "fragment-02-maintenance-totale",
+      "name": "fragment-02-maintenance-total",
       "text": "Chemin interrompu.",
       "tag": "p",
       "variant": "p"
     },
     {
-      "name": "fragment-03-maintenance-totale",
+      "name": "fragment-03-maintenance-total",
       "text": "Travaux en cours.",
       "tag": "p",
       "variant": "p"
     },
     {
-      "name": "fragment-05-maintenance-totale",
+      "name": "fragment-05-maintenance-total",
       "text": "Domaine fermé.",
       "tag": "p",
       "variant": "p"
     },
     {
-      "name": "fragment-06-maintenance-totale",
+      "name": "fragment-06-maintenance-total",
       "text": "Nous reviendrons.",
       "tag": "p",
       "variant": "p"
     },
     {
-      "name": "fragment-02-maintenance-partielle",
+      "name": "fragment-02-maintenance-partial",
       "text": "Chemin interrompu.",
       "tag": "p",
       "variant": "p"
     },
     {
-      "name": "fragment-03-maintenance-partielle",
+      "name": "fragment-03-maintenance-partial",
       "text": "Travaux en cours.",
       "tag": "p",
       "variant": "p"
     },
     {
-      "name": "fragment-05-maintenance-partielle",
+      "name": "fragment-05-maintenance-partial",
       "text": "Domaine fermé.",
       "tag": "p",
       "variant": "p"

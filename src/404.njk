@@ -11,6 +11,7 @@ eleventyExcludeFromCollections: true
 {% from "03-atoms/typography.njk" import renderTypography %}
 {% from "02-molecules/error-footer.njk" import renderErrorFooter %}
 {% from "02-molecules/error-fragment.njk" import renderErrorFragment %}
+{% from "01-organisms/error-fragment-group.njk" import renderErrorFragmentGroup %}
 
     {{ renderButton({ 
        name: "button-reveal-all",
@@ -23,7 +24,7 @@ eleventyExcludeFromCollections: true
     }) }}
 
     {{ renderLink({ 
-        name: "link-cta-maintenance-totale",
+        name: "link-cta-maintenance-total",
         datas: atoms.link.links
     }) }}
 
@@ -40,8 +41,16 @@ eleventyExcludeFromCollections: true
     }) }}
 
     {{ renderErrorFragment({ 
-        name: "fragment_maintenance_totale_06",
+        name: "fragment_maintenance_total_06",
         datas: molecules["error-fragment"]["error-fragments"],
+        iconDatas: atoms.icon.icons,
+        typographyDatas: atoms.typography.texts
+    }) }}
+
+    {{ renderErrorFragmentGroup({ 
+        name: "error_fragment_group_maintenance_total",
+        datas: organisms["error-fragment-group"]["error-fragment-groups"],
+        errorFragmentDatas: molecules["error-fragment"]["error-fragments"],
         iconDatas: atoms.icon.icons,
         typographyDatas: atoms.typography.texts
     }) }}

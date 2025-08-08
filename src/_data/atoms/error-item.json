@@ -16,22 +16,22 @@
       "variant": "typography"
     },
     {
-      "name": "subtitle-404-500-maintenance-partielle",
+      "name": "subtitle-404-500-maintenance-partial",
       "content": "L’accès au reste du site est préservé.",
       "variant": "typography"
     },
     {
-      "name": "subtitle-maintenance-totale",
+      "name": "subtitle-maintenance-total",
       "content": "Un lien vers l’extérieur est préservé.",
       "variant": "typography"
     },
     {
-      "name": "link-cta-404-500-maintenance-partielle",
+      "name": "link-cta-404-500-maintenance-partial",
       "content": "Aller vers les pages disponibles",
       "variant": "link"
     },
     {
-      "name": "link-cta-maintenance-totale",
+      "name": "link-cta-maintenance-total",
       "content": "Laisser un message",
       "variant": "link"
     },
@@ -102,66 +102,66 @@
       "variant": "icon"
     },
     {
-      "name": "fragment-01-maintenance-totale",
+      "name": "fragment-01-maintenance-total",
       "spriteId": "fragment-01a-magnifying-glass",
       "alt": "Loupe",
       "variant": "icon"
     },
     {
-      "name": "fragment-02-maintenance-totale",
+      "name": "fragment-02-maintenance-total",
       "content": "Chemin interrompu.",
       "variant": "typography"
     },
     {
-      "name": "fragment-03-maintenance-totale",
+      "name": "fragment-03-maintenance-total",
       "content": "Travaux en cours.",
       "variant": "typography"
     },
     {
-      "name": "fragment-04-maintenance-totale",
+      "name": "fragment-04-maintenance-total",
       "spriteId": "fragment-maintenance-04a-barricade",
       "alt": "Barricade",
       "variant": "icon"
     },
     {
-      "name": "fragment-05-maintenance-totale",
+      "name": "fragment-05-maintenance-total",
       "content": "Domaine fermé.",
       "variant": "typography"
     },
     {
-      "name": "fragment-06-maintenance-totale",
+      "name": "fragment-06-maintenance-total",
       "content": "Nous reviendrons.",
       "variant": "typography"
     },
     {
-      "name": "fragment-01-maintenance-partielle",
+      "name": "fragment-01-maintenance-partial",
       "spriteId": "fragment-01a-magnifying-glass",
       "alt": "Loupe",
       "variant": "icon"
     },
     {
-      "name": "fragment-02-maintenance-partielle",
+      "name": "fragment-02-maintenance-partial",
       "content": "Chemin interrompu.",
       "variant": "typography"
     },
     {
-      "name": "fragment-03-maintenance-partielle",
+      "name": "fragment-03-maintenance-partial",
       "content": "Travaux en cours.",
       "variant": "typography"
     },
     {
-      "name": "fragment-04-maintenance-partielle",
+      "name": "fragment-04-maintenance-partial",
       "spriteId": "fragment-maintenance-04a-barricade",
       "alt": "Barricade",
       "variant": "icon"
     },
     {
-      "name": "fragment-05-maintenance-partielle",
+      "name": "fragment-05-maintenance-partial",
       "content": "Domaine fermé.",
       "variant": "typography"
     },
     {
-      "name": "fragment-06-maintenance-partielle",
+      "name": "fragment-06-maintenance-partial",
       "spriteId": "fragment-06a-person-simple-run",
       "alt": "Personne qui court",
       "variant": "icon"

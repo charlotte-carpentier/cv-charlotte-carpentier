@@ -61,64 +61,64 @@
       "iconName": "fragment-06-500"
     },
     {
-      "name": "fragment_maintenance_totale_01",
+      "name": "fragment_maintenance_total_01",
       "variant": "icon",
-      "iconName": "fragment-01-maintenance-totale"
+      "iconName": "fragment-01-maintenance-total"
     },
     {
-      "name": "fragment_maintenance_totale_02",
+      "name": "fragment_maintenance_total_02",
       "variant": "text",
-      "textTypographyName": "fragment-02-maintenance-totale"
+      "textTypographyName": "fragment-02-maintenance-total"
     },
     {
-      "name": "fragment_maintenance_totale_03",
+      "name": "fragment_maintenance_total_03",
       "variant": "text",
-      "textTypographyName": "fragment-03-maintenance-totale"
+      "textTypographyName": "fragment-03-maintenance-total"
     },
     {
-      "name": "fragment_maintenance_totale_04",
+      "name": "fragment_maintenance_total_04",
       "variant": "icon",
-      "iconName": "fragment-04-maintenance-totale"
+      "iconName": "fragment-04-maintenance-total"
     },
     {
-      "name": "fragment_maintenance_totale_05",
+      "name": "fragment_maintenance_total_05",
       "variant": "text",
-      "textTypographyName": "fragment-05-maintenance-totale"
+      "textTypographyName": "fragment-05-maintenance-total"
     },
     {
-      "name": "fragment_maintenance_totale_06",
+      "name": "fragment_maintenance_total_06",
       "variant": "text",
-      "textTypographyName": "fragment-06-maintenance-totale"
+      "textTypographyName": "fragment-06-maintenance-total"
     },
     {
-      "name": "fragment_maintenance_partielle_01",
+      "name": "fragment_maintenance_partial_01",
       "variant": "icon",
-      "iconName": "fragment-01-maintenance-partielle"
+      "iconName": "fragment-01-maintenance-partial"
     },
     {
-      "name": "fragment_maintenance_partielle_02",
+      "name": "fragment_maintenance_partial_02",
       "variant": "text",
-      "textTypographyName": "fragment-02-maintenance-partielle"
+      "textTypographyName": "fragment-02-maintenance-partial"
     },
     {
-      "name": "fragment_maintenance_partielle_03",
+      "name": "fragment_maintenance_partial_03",
       "variant": "text",
-      "textTypographyName": "fragment-03-maintenance-partielle"
+      "textTypographyName": "fragment-03-maintenance-partial"
     },
     {
-      "name": "fragment_maintenance_partielle_04",
+      "name": "fragment_maintenance_partial_04",
       "variant": "icon",
-      "iconName": "fragment-04-maintenance-partielle"
+      "iconName": "fragment-04-maintenance-partial"
     },
     {
-      "name": "fragment_maintenance_partielle_05",
+      "name": "fragment_maintenance_partial_05",
       "variant": "text",
-      "textTypographyName": "fragment-05-maintenance-partielle"
+      "textTypographyName": "fragment-05-maintenance-partial"
     },
     {
-      "name": "fragment_maintenance_partielle_06",
+      "name": "fragment_maintenance_partial_06",
       "variant": "icon",
-      "iconName": "fragment-06-maintenance-partielle"
+      "iconName": "fragment-06-maintenance-partial"
     }
   ]
 }

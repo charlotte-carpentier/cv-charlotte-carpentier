@@ -104,13 +104,13 @@
       "variant": "tab-white"
     },
     {
-      "name": "link-cta-404-500-maintenance-partielle",
+      "name": "link-cta-404-500-maintenance-partial",
       "text": "Aller vers les pages disponibles",
       "variant": "primary",
       "ariaLabel": "Rediriger vers les pages disponibles du site"
     },
     {
-      "name": "link-cta-maintenance-totale",
+      "name": "link-cta-maintenance-total",
       "href": "mailto:carpentier.dev@gmail.com",
       "text": "Laisser un message",
       "variant": "external"

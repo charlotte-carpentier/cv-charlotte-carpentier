@@ -229,31 +229,31 @@
       "variant": "interface"
     },
     {
-      "name": "fragment-01-maintenance-totale",
+      "name": "fragment-01-maintenance-total",
       "spriteId": "fragment-01a-magnifying-glass",
       "alt": "Loupe",
       "variant": "interface"
     },
     {
-      "name": "fragment-04-maintenance-totale",
+      "name": "fragment-04-maintenance-total",
       "spriteId": "fragment-maintenance-04a-barricade",
       "alt": "Barricade",
       "variant": "interface"
     },
     {
-      "name": "fragment-01-maintenance-partielle",
+      "name": "fragment-01-maintenance-partial",
       "spriteId": "fragment-01a-magnifying-glass",
       "alt": "Loupe",
       "variant": "interface"
     },
     {
-      "name": "fragment-04-maintenance-partielle",
+      "name": "fragment-04-maintenance-partial",
       "spriteId": "fragment-maintenance-04a-barricade",
       "alt": "Barricade",
       "variant": "interface"
     },
     {
-      "name": "fragment-06-maintenance-partielle",
+      "name": "fragment-06-maintenance-partial",
       "spriteId": "fragment-06a-person-simple-run",
       "alt": "Personne qui court",
       "variant": "interface"
