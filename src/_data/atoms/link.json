@@ -105,9 +105,10 @@
     },
     {
       "name": "link-cta-404-500-maintenance-partial",
+      "href": "javascript:void(0)",
       "text": "Aller vers les pages disponibles",
-      "variant": "primary",
-      "ariaLabel": "Rediriger vers les pages disponibles du site"
+      "variant": "external",
+      "onclick": "goToPreviousPageOrHome()"
     },
     {
       "name": "link-cta-maintenance-total",

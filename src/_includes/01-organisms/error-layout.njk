@@ -1,0 +1,164 @@
+{# ===========================================================
+   @ORGANISMS - ERROR-LAYOUT
+   - Cross layout for desktop with centered triptych and fragments
+   - Vertical stack for mobile with scroll-based reveal
+=========================================================== #}
+
+{# Import organisms, molecules and atoms #}
+{% from "01-organisms/error-fragment-group.njk" import renderErrorFragmentGroup %}
+{% from "03-atoms/typography.njk" import renderTypography %}
+{% from "03-atoms/button.njk" import renderButton %}
+{% from "03-atoms/link.njk" import renderLink %}
+
+{% macro renderErrorLayout(option) %}
+  {# Check if datas is provided #}
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No error-layout configuration provided</span>
+  {% else %}
+    {# Retrieve error-layout configuration #}
+    {% set errorLayoutsConfig = option.datas %}
+    {% set errorLayoutName = option.name %}
+    
+    {# Find the specific error-layout by name #}
+    {% set errorLayoutData = null %}
+    {% for errorLayout in errorLayoutsConfig %}
+      {% if errorLayout.name == errorLayoutName %}
+        {% set errorLayoutData = errorLayout %}
+      {% endif %}
+    {% endfor %}
+
+    {# Fallback if error-layout not found #}
+    {% if not errorLayoutData %}
+      <span class="text-red-500">Error-layout not found: {{ errorLayoutName }}</span>
+    {% else %}
+      {# Render error-layout organism based on variant #}
+      {% if errorLayoutData.variant == "cross-layout" %}
+        
+        {# Desktop Layout - Cross Formation with Centered Triptych #}
+        <div class="error-layout error-layout--{{ errorLayoutData.variant }} absolute inset-0 pt-20 pb-32 px-8 overflow-hidden">
+          
+          {# Fixed Halo for Triptych (Desktop only) #}
+          <div class="error-layout-halo-fixed hidden lg:block"></div>
+          
+          {# Cursor Following Halo (Desktop only) #}
+          <div class="error-layout-halo-cursor hidden lg:block"></div>
+          
+          {# Scroll Following Halo (Mobile/Tablet only) #}
+          <div class="error-layout-halo-scroll block lg:hidden"></div>
+          
+          {# Desktop Cross Layout (lg, xl) #}
+          <div class="error-layout-desktop hidden lg:block lg:relative lg:h-full lg:w-full">
+            
+            {# Error Fragment Group - Covers entire space #}
+            <div class="error-layout-fragments-container absolute inset-0 p-8">
+              {{ renderErrorFragmentGroup({ 
+                  name: errorLayoutData.errorFragmentGroupName,
+                  datas: option.errorFragmentGroupDatas,
+                  errorFragmentDatas: option.errorFragmentDatas,
+                  iconDatas: option.iconDatas,
+                  typographyDatas: option.typographyDatas
+              }) }}
+            </div>
+            
+            {# Triptych - Centered Absolutely #}
+            <div class="error-layout-triptych absolute inset-0 flex flex-col items-center justify-center gap-6 pointer-events-none">
+              <div class="error-layout-title text-center pointer-events-auto">
+                {{ renderTypography({ 
+                    name: errorLayoutData.titleTypographyName,
+                    datas: option.typographyDatas
+                }) }}
+              </div>
+              <div class="error-layout-subtitle text-center pointer-events-auto">
+                {{ renderTypography({ 
+                    name: errorLayoutData.subtitleTypographyName,
+                    datas: option.typographyDatas
+                }) }}
+              </div>
+              <div class="error-layout-cta pointer-events-auto">
+                {% if errorLayoutData.buttonName %}
+                  {{ renderButton({ 
+                      name: errorLayoutData.buttonName,
+                      datas: option.buttonDatas
+                  }) }}
+                {% elif errorLayoutData.linkName %}
+                  {{ renderLink({ 
+                      name: errorLayoutData.linkName,
+                      datas: option.linkDatas
+                  }) }}
+                {% endif %}
+              </div>
+            </div>
+            
+          </div>
+          
+          {# Mobile/Tablet Vertical Stack (sm, md) #}
+          <div class="error-layout-mobile block lg:hidden overflow-y-auto h-full w-full p-4 sm:p-6">
+            
+            {# Triptych First #}
+            <div class="error-layout-triptych-mobile flex flex-col items-center gap-4 sm:gap-6 mb-8 sm:mb-12">
+              <div class="error-layout-title text-center">
+                {{ renderTypography({ 
+                    name: errorLayoutData.titleTypographyName,
+                    datas: option.typographyDatas
+                }) }}
+              </div>
+              <div class="error-layout-subtitle text-center">
+                {{ renderTypography({ 
+                    name: errorLayoutData.subtitleTypographyName,
+                    datas: option.typographyDatas
+                }) }}
+              </div>
+              <div class="error-layout-cta">
+                {% if errorLayoutData.buttonName %}
+                  {{ renderButton({ 
+                      name: errorLayoutData.buttonName,
+                      datas: option.buttonDatas
+                  }) }}
+                {% elif errorLayoutData.linkName %}
+                  {{ renderLink({ 
+                      name: errorLayoutData.linkName,
+                      datas: option.linkDatas
+                  }) }}
+                {% endif %}
+              </div>
+            </div>
+            
+            {# Fragments 1-6 Vertically Stacked #}
+            <div class="error-layout-fragments-mobile space-y-6 sm:space-y-8">
+              {% for i in range(1, 7) %}
+                <div class="error-layout-fragment-mobile error-layout-fragment-{{ i }} w-full">
+                  {# Individual fragment rendering will be handled by JS #}
+                  <div class="error-layout-fragment-placeholder" data-fragment-index="{{ i }}"></div>
+                </div>
+              {% endfor %}
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{# ===========================================================
+   Summon HAT Components Wisely
+-----------------------------------------------------------
+1. Import the macro at the top of your page
+{% from "01-organisms/error-layout.njk" import renderErrorLayout %}
+
+2. Call a specific error-layout by its name
+{{ renderErrorLayout({ 
+    name: "error_layout_404",
+    datas: organisms["error-layout"]["error-layouts"],
+    errorFragmentGroupDatas: organisms["error-fragment-group"]["error-fragment-groups"],
+    errorFragmentDatas: molecules["error-fragment"]["error-fragments"],
+    iconDatas: atoms.icon.icons,
+    typographyDatas: atoms.typography.texts,
+    buttonDatas: atoms.button.buttons,
+    linkDatas: atoms.link.links
+}) }}
+
+May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
+=========================================================== #}

@@ -5,52 +5,15 @@ title: "Données absentes."
 eleventyExcludeFromCollections: true
 ---
 
-{% from "03-atoms/button.njk" import renderButton %}
-{% from "03-atoms/icon.njk" import renderIcon %}
-{% from "03-atoms/link.njk" import renderLink %}
-{% from "03-atoms/typography.njk" import renderTypography %}
-{% from "02-molecules/error-footer.njk" import renderErrorFooter %}
-{% from "02-molecules/error-fragment.njk" import renderErrorFragment %}
-{% from "01-organisms/error-fragment-group.njk" import renderErrorFragmentGroup %}
+{% from "01-organisms/error-layout.njk" import renderErrorLayout %}
 
-    {{ renderButton({ 
-       name: "button-reveal-all",
-       datas: atoms.button.buttons
-    }) }}
-
-    {{ renderIcon({ 
-        name: "fragment-01-404",
-        datas: atoms.icon.icons
-    }) }}
-
-    {{ renderLink({ 
-        name: "link-cta-maintenance-total",
-        datas: atoms.link.links
-    }) }}
-
-    {{ renderTypography({ 
-        name: "footer-info-hidden",
-        datas: atoms.typography.texts
-    }) }}
-
-    {{ renderErrorFooter({ 
-        name: "error_footer_toggle",
-        datas: molecules["error-footer"]["error-footers"],
-        typographyDatas: atoms.typography.texts,
-        buttonDatas: atoms.button.buttons
-    }) }}
-
-    {{ renderErrorFragment({ 
-        name: "fragment_maintenance_total_06",
-        datas: molecules["error-fragment"]["error-fragments"],
-        iconDatas: atoms.icon.icons,
-        typographyDatas: atoms.typography.texts
-    }) }}
-
-    {{ renderErrorFragmentGroup({ 
-        name: "error_fragment_group_maintenance_total",
-        datas: organisms["error-fragment-group"]["error-fragment-groups"],
-        errorFragmentDatas: molecules["error-fragment"]["error-fragments"],
-        iconDatas: atoms.icon.icons,
-        typographyDatas: atoms.typography.texts
-    }) }}
+{{ renderErrorLayout({ 
+    name: "error_layout_404",
+    datas: organisms["error-layout"]["error-layouts"],
+    errorFragmentGroupDatas: organisms["error-fragment-group"]["error-fragment-groups"],
+    errorFragmentDatas: molecules["error-fragment"]["error-fragments"],
+    iconDatas: atoms.icon.icons,
+    typographyDatas: atoms.typography.texts,
+    buttonDatas: atoms.button.buttons,
+    linkDatas: atoms.link.links
+}) }}
