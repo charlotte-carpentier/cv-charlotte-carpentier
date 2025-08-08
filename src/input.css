@@ -922,6 +922,178 @@ body {
 }
 
 /* ==========================================================================
+   @ORGANISM - ERROR-LAYOUT
+   - Dark layout with localized halo illumination
+   - Cross layout positioning and responsive behavior
+   ========================================================================== */
+
+/* Dark overlay covering the entire layout - everything is dark by default */
+.error-layout--cross-layout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 15;
+  pointer-events: none;
+}
+
+/* Halo base styles - these create light zones that reveal content underneath */
+.error-layout-halo-fixed,
+.error-layout-halo-cursor,
+.error-layout-halo-scroll {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, theme(--cc-green-light) 80%, transparent) 0%,
+    color-mix(in srgb, theme(--cc-green-light) 40%, transparent) 40%,
+    transparent 70%
+  );
+  filter: blur(15px);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  z-index: 20;
+  mix-blend-mode: screen;
+}
+
+/* Fixed halo - always illuminates triptych */
+.error-layout-halo-fixed {
+  opacity: 1;
+}
+
+/* Cursor halo - follows mouse and reveals fragments locally */
+.error-layout-halo-cursor {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 100; /* Above header and footer */
+}
+
+/* Scroll halo - follows scroll and reveals fragments locally on mobile */
+.error-layout-halo-scroll {
+  left: 50%;
+  opacity: 0;
+  transition: top 0.1s ease, opacity 0.3s ease;
+}
+
+/* All fragments are hidden by default */
+.error-layout-fragment,
+.error-layout-fragment-mobile {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 12;
+}
+
+/* Only revealed fragments become visible */
+.error-layout-fragment-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Triptych is always visible (illuminated by fixed halo) */
+.error-layout-triptych,
+.error-layout-triptych-mobile {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 25;
+}
+
+/* Force error-fragment-group to take full space of its container */
+.error-layout-fragments-container .error-fragment-group--grid-2x3 {
+  height: 100%;
+  width: 100%;
+}
+
+/* Fragment containers positioning */
+.error-layout-fragments-container {
+  z-index: 10;
+}
+
+/* Desktop cross layout specific styles */
+.error-layout-desktop {
+  grid-template-areas: 
+    "fragment-1 fragment-2 empty-1"
+    "fragment-3 triptych fragment-4"
+    "fragment-5 fragment-6 empty-2";
+}
+
+.error-layout-fragment-1 { grid-area: fragment-1; }
+.error-layout-fragment-2 { grid-area: fragment-2; }
+.error-layout-fragment-3 { grid-area: fragment-3; }
+.error-layout-triptych { grid-area: triptych; }
+.error-layout-fragment-4 { grid-area: fragment-4; }
+.error-layout-fragment-5 { grid-area: fragment-5; }
+.error-layout-fragment-6 { grid-area: fragment-6; }
+
+/* Responsive text sizing for triptych */
+.error-layout-title,
+.error-layout-subtitle,
+.error-layout-cta {
+  z-index: 25;
+}
+
+/* Mobile scroll container */
+.error-layout-mobile {
+  position: relative;
+}
+
+/* Fragment mobile spacing */
+.error-layout-fragment-mobile {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Smooth scrolling for mobile */
+@media (max-width: 1023px) {
+  .error-layout-mobile {
+    scroll-behavior: smooth;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .error-layout-halo-fixed,
+  .error-layout-halo-cursor,
+  .error-layout-halo-scroll {
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, theme(--cc-white) 60%, transparent) 0%,
+      color-mix(in srgb, theme(--cc-white) 30%, transparent) 50%,
+      transparent 70%
+    );
+  }
+  
+  .error-layout--cross-layout::before {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .error-layout-fragment,
+  .error-layout-fragment-mobile,
+  .error-layout-halo-cursor,
+  .error-layout-halo-scroll {
+    transition: none;
+  }
+  
+  .error-layout-halo-fixed,
+  .error-layout-halo-cursor,
+  .error-layout-halo-scroll {
+    filter: none;
+    background: color-mix(in srgb, theme(--cc-green-light) 20%, transparent);
+  }
+}
+
+/* ==========================================================================
    @MOLECULE - LIST FORM
    - Container and layout for form list elements
    - Overrides input, radio, and group styles within list-form
@@ -1184,161 +1356,6 @@ body {
   width: 180px;
   height: 650px;
   pointer-events: auto;
-}
-
-/* ==========================================================================
-   @ORGANISM - ERROR-LAYOUT
-   - Halo effects and fragment reveal animations
-   - Cross layout positioning and responsive behavior
-   ========================================================================== */
-
-/* Halo base styles - shared across all halos */
-.error-layout-halo-fixed,
-.error-layout-halo-cursor,
-.error-layout-halo-scroll {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, theme(--cc-green-light) 40%, transparent) 0%,
-    color-mix(in srgb, theme(--cc-green-light) 20%, transparent) 50%,
-    transparent 70%
-  );
-  filter: blur(20px);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-/* Fixed halo specific positioning */
-.error-layout-halo-fixed {
-  opacity: 1;
-}
-
-/* Cursor halo specific behavior */
-.error-layout-halo-cursor {
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-/* Scroll halo specific positioning */
-.error-layout-halo-scroll {
-  left: 50%;
-  opacity: 0;
-  transition: top 0.1s ease, opacity 0.3s ease;
-}
-
-/* Fragment reveal animations */
-.error-layout-fragment,
-.error-layout-fragment-mobile {
-  opacity: 0.3;
-  transform: scale(0.95);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.error-layout-fragment-revealed {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Desktop cross layout specific styles */
-.error-layout-desktop {
-  grid-template-areas: 
-    "fragment-1 fragment-2 empty-1"
-    "fragment-3 triptych fragment-4"
-    "fragment-5 fragment-6 empty-2";
-}
-
-.error-layout-fragment-1 { grid-area: fragment-1; }
-.error-layout-fragment-2 { grid-area: fragment-2; }
-.error-layout-fragment-3 { grid-area: fragment-3; }
-.error-layout-triptych { grid-area: triptych; }
-.error-layout-fragment-4 { grid-area: fragment-4; }
-.error-layout-fragment-5 { grid-area: fragment-5; }
-.error-layout-fragment-6 { grid-area: fragment-6; }
-
-/* Triptych always visible and elevated */
-.error-layout-triptych,
-.error-layout-triptych-mobile {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 20;
-}
-
-/* Responsive text sizing for triptych */
-.error-layout-title,
-.error-layout-subtitle,
-.error-layout-cta {
-  z-index: 25;
-}
-
-/* Mobile scroll container */
-.error-layout-mobile {
-  position: relative;
-}
-
-/* Fragment mobile spacing */
-.error-layout-fragment-mobile {
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Smooth scrolling for mobile */
-@media (max-width: 1023px) {
-  .error-layout-mobile {
-    scroll-behavior: smooth;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .error-layout-halo-fixed,
-  .error-layout-halo-cursor,
-  .error-layout-halo-scroll {
-    background: radial-gradient(
-      circle,
-      color-mix(in srgb, theme(--cc-white) 60%, transparent) 0%,
-      color-mix(in srgb, theme(--cc-white) 30%, transparent) 50%,
-      transparent 70%
-    );
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .error-layout-fragment,
-  .error-layout-fragment-mobile,
-  .error-layout-halo-cursor,
-  .error-layout-halo-scroll {
-    transition: none;
-  }
-  
-  .error-layout-halo-fixed,
-  .error-layout-halo-cursor,
-  .error-layout-halo-scroll {
-    filter: none;
-    background: color-mix(in srgb, theme(--cc-green-light) 20%, transparent);
-  }
-}
-
-/* Force error-fragment-group to take full space of its container */
-.error-layout-fragments-container .error-fragment-group--grid-2x3 {
-  height: 100%;
-  width: 100%;
-}
-
-/* Ensure triptych is above fragments */
-.error-layout-triptych {
-  z-index: 30;
-}
-
-.error-layout-fragments-container {
-  z-index: 10;
 }
 
 /* ==========================================================================
@@ -2294,14 +2311,17 @@ body {
   z-index: 95;
 }
 
-/* Header layer - Simple positioning since mobile overlay is now hidden */
+/* Header / Footer layers - Simple positioning since mobile overlay is now hidden */
 .header {
+  z-index: 98;
+}
+
+.footer {
   z-index: 98;
 }
 
 .header-burger {
   z-index: 99;
-  /* Peut être devant maintenant, pas de conflit */
 }
 
 /* High priority layer - Context-sensitive elements */
