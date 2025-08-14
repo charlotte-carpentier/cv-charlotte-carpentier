@@ -1,0 +1,8 @@
+---
+permalink: "/500/"
+layout: '00-core/base.njk'
+title: "Erreur serveur"
+eleventyExcludeFromCollections: true
+---
+
+{% include "pages/page-500.njk" %}

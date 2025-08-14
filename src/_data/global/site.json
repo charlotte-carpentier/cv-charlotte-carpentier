@@ -26,16 +26,14 @@
     "ico": "/assets/images/ui/favicon/favicon.ico",
     "appleTouch": "/assets/images/ui/favicon/apple-touch-icon.png"
   },
-  "socialImage": "TODO",
+  "socialImage": "/assets/social-share.jpg",
   "fonts": {
     "primary": "Orbitron",
     "secondary": "Manjari"
   },
   "axeptio": {
-    "clientId": "TODO",
-    "cookiesVersion": "TODO"
+    "clientId": "6880d00ff0b041d2ff94a7f8",
+    "cookiesVersion": "charlottecarpentier-fr-EU"
   },
-  "preloadImages": [
-    "TODO"
-  ]
+  "preloadImages": []
 }

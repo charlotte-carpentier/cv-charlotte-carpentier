@@ -8,13 +8,13 @@
     },
     {
       "name": "tab_missions",
-      "href": "#portfolio", 
+      "href": "#portfolio",
       "text": "Missions",
       "variant": "tab"
     },
     {
       "name": "tab_profile",
-      "href": "#profile", 
+      "href": "#profile",
       "text": "Profil",
       "variant": "tab"
     },
@@ -71,7 +71,7 @@
     {
       "name": "external_linkedin",
       "href": "https://linkedin.com/in/charlottecarpentier",
-      "text": "Mon LinkedIn", 
+      "text": "Mon LinkedIn",
       "variant": "external",
       "target": "_blank",
       "rel": "noopener noreferrer"
@@ -79,7 +79,7 @@
     {
       "name": "external_instagram",
       "href": "TODO: account pro",
-      "text": "Mon Instagram", 
+      "text": "Mon Instagram",
       "variant": "external",
       "target": "_blank",
       "rel": "noopener noreferrer"
@@ -102,6 +102,19 @@
       "href": "#legal",
       "text": "Mentions légales",
       "variant": "tab-white"
+    },
+    {
+      "name": "link-cta-404-500-maintenance-partial",
+      "href": "javascript:void(0)",
+      "text": "Aller vers les pages disponibles",
+      "variant": "external",
+      "onclick": "goToPreviousPageOrHome()"
+    },
+    {
+      "name": "link-cta-maintenance-total",
+      "href": "mailto:carpentier.dev@gmail.com",
+      "text": "Laisser un message",
+      "variant": "external"
     }
   ]
 }

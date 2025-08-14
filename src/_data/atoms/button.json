@@ -29,6 +29,18 @@
       "text": "Intérêts",
       "variant": "primary",
       "ariaLabel": "Afficher mes centres d'intérêt"
+    },
+    {
+      "name": "button-reveal-all",
+      "text": "Afficher tout",
+      "variant": "primary",
+      "ariaLabel": "Afficher tous les contenus cachés"
+    },
+    {
+      "name": "button-hide-all",
+      "text": "Masquer tout",
+      "variant": "primary",
+      "ariaLabel": "Masquer tous les contenus révélés"
     }
   ]
 }

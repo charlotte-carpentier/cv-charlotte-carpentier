@@ -1,0 +1,8 @@
+---
+permalink: "/maintenance/"
+layout: '00-core/base.njk'
+title: "Maintenance en cours"
+eleventyExcludeFromCollections: true
+---
+
+{% include "pages/page-maintenance.njk" %}
