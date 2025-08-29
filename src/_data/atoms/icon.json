@@ -146,13 +146,13 @@
     },
     {
       "name": "burger_list_white",
-      "spriteId": "interface-list-white",
+      "spriteId": "interface-list",
       "alt": "Icône de liste blanche",
       "variant": "interface"
     },
     {
       "name": "burger_x_white",
-      "spriteId": "interface-x-white",
+      "spriteId": "interface-x",
       "alt": "Icône de croix blanche",
       "variant": "interface"
     },

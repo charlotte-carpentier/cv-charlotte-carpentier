@@ -40,10 +40,10 @@
       
       {# Header container #}
       <header class="{{ cssClasses }} w-full box-border" id="main-header">
-        <div class="header-container w-full m-0 px-3 py-2 sm:px-4 sm:py-3 lg:px-8 lg:py-4 min-h-[64px] sm:min-h-[64px] lg:min-h-[80px] flex items-center justify-between box-border">
+        <div class="header-container w-full m-0 px-3 py-2 sm:px-4 sm:py-3 lg:px-8 lg:py-4 min-h-[64px] sm:min-h-[64px] lg:min-h-[80px] grid grid-cols-[1fr_auto] gap-3 items-center sm:flex sm:items-center sm:justify-between box-border">
           
           {# Brand section - Logo typography #}
-          <div class="header-brand flex-1 sm:flex-none lg:flex-none xl:flex-1 flex items-center justify-start min-w-0">
+          <div class="header-brand justify-self-start min-w-0 flex-1 sm:flex-none lg:flex-none xl:flex-1 flex items-center justify-start">
             {{ renderTypography({ 
                 name: headerData.brand.logo,
                 datas: option.typographyDatas
@@ -68,7 +68,7 @@
           
           {# Mobile burger button - Mobile uniquement #}
           <button 
-            class="header-burger bg-transparent border-none cursor-pointer w-12 h-12 relative flex sm:hidden items-center justify-center" 
+            class="header-burger justify-self-end bg-transparent border-none cursor-pointer w-12 h-12 relative flex sm:hidden items-center justify-center" 
             id="burger-toggle"
             aria-label="Toggle mobile menu"
             aria-expanded="false"

@@ -497,6 +497,9 @@
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .grid-cols-\[1fr_auto\] {
+    grid-template-columns: 1fr auto;
+  }
   .grid-cols-\[auto_1fr\] {
     grid-template-columns: auto 1fr;
   }
@@ -505,9 +508,6 @@
   }
   .grid-rows-3 {
     grid-template-rows: repeat(3, minmax(0, 1fr));
-  }
-  .grid-rows-\[auto_1fr_auto\] {
-    grid-template-rows: auto 1fr auto;
   }
   .flex-col {
     flex-direction: column;
@@ -520,9 +520,6 @@
   }
   .items-start {
     align-items: flex-start;
-  }
-  .justify-between {
-    justify-content: space-between;
   }
   .justify-center {
     justify-content: center;
@@ -566,6 +563,12 @@
   }
   .self-center {
     align-self: center;
+  }
+  .justify-self-end {
+    justify-self: flex-end;
+  }
+  .justify-self-start {
+    justify-self: flex-start;
   }
   .overflow-hidden {
     overflow: hidden;
@@ -970,6 +973,16 @@
       flex: none;
     }
   }
+  .sm\:items-center {
+    @media (width >= 40rem) {
+      align-items: center;
+    }
+  }
+  .sm\:justify-between {
+    @media (width >= 40rem) {
+      justify-content: space-between;
+    }
+  }
   .sm\:gap-1 {
     @media (width >= 40rem) {
       gap: calc(var(--spacing) * 1);
@@ -1081,11 +1094,6 @@
   .lg\:relative {
     @media (width >= 64rem) {
       position: relative;
-    }
-  }
-  .lg\:static {
-    @media (width >= 64rem) {
-      position: static;
     }
   }
   .lg\:m-0 {
@@ -2109,7 +2117,7 @@ body {
 .error-layout-halo-cursor {
   opacity: 0;
   transition: opacity 0.2s ease;
-  z-index: 100;
+  z-index: 95;
 }
 .error-layout-halo-scroll {
   left: 50%;
@@ -2252,6 +2260,7 @@ body {
   outline: none;
 }
 .header {
+  position: relative;
   background-color: #000000;
   color: #ffffff;
   border: 3px solid #ffffff;
@@ -2297,6 +2306,7 @@ body {
   }
 }
 .header-burger {
+  position: relative;
   color: #ffffff;
 }
 .header-burger .burger-icon, .header-burger .burger-icon-open, .header-burger .burger-icon-close {
@@ -2810,7 +2820,7 @@ body {
   z-index: 98;
 }
 .header-burger {
-  z-index: 99;
+  z-index: 110;
 }
 .skills-card .caption-container {
   z-index: 100;

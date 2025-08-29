@@ -1236,7 +1236,7 @@ body {
 .error-layout-halo-cursor {
   opacity: 0;
   transition: opacity 0.2s ease;
-  z-index: 100; /* Above header and footer */
+  z-index: 95; /* Above header and footer */
 }
 
 /* Scroll halo - follows scroll and reveals fragments locally on mobile */
@@ -1451,6 +1451,7 @@ body {
    ========================================================================== */
 
    .header {
+    position: relative;
     background-color: theme(--cc-black);
     color: theme(--cc-white);
     border: 3px solid theme(--cc-white);
@@ -1509,8 +1510,8 @@ body {
     }
   }
   
-  /* Force white color on burger icons with currentColor */
   .header-burger {
+    position: relative;
     color: theme(--cc-white);
   }
   
@@ -2321,7 +2322,7 @@ body {
 }
 
 .header-burger {
-  z-index: 99;
+  z-index: 110;
 }
 
 /* High priority layer - Context-sensitive elements */
