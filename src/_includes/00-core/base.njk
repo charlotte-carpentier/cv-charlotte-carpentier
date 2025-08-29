@@ -114,56 +114,56 @@
     }) }}
 
     {# ----- Main content ----- #}
-    <main class="flex-1">
-      {% if page.url === '/' %}
-        <section class="sr-only">
-          <p>
-            {{ site.description }}
-          </p>
-        </section>
-      {% endif %}
-      {{ content | safe }}
-    </main>
+    <main class="flex-1 flex items-center justify-center">
+        {% if page.url === '/' %}
+          <section class="sr-only">
+            <p>
+              {{ site.description }}
+            </p>
+          </section>
+        {% endif %}
+        {{ content | safe }}
+      </main>
 
-    {# ----- Footer Organism ----- #}
-    {% from "01-organisms/footer.njk" import renderFooter %}
+      {# ----- Footer Organism ----- #}
+      {% from "01-organisms/footer.njk" import renderFooter %}
 
-    {{ renderFooter({ 
+      {{ renderFooter({ 
         name: "main_footer",
         datas: organisms.footer,
         typographyDatas: atoms.typography.texts,
         linkDatas: atoms.link.links
     }) }}
 
-    {# ----- JavaScript scripts ----- #}
-    <script src="/js/main.js" defer="defer"></script>
-    <script src="/js/atoms/error-link.js" defer="defer"></script>
-    <script src="/js/molecules/caption.js" defer="defer"></script>
-    <script src="/js/molecules/error-footer.js" defer="defer"></script>
-    <script src="/js/organisms/header.js" defer="defer"></script>
-    <script src="/js/organisms/avatar-card.js" defer="defer"></script>
-    <script src="/js/organisms/skills-card.js" defer="defer"></script>
-    <script src="/js/organisms/section-portfolio.js" defer="defer"></script>
-    <script src="/js/organisms/tab-sections.js" defer="defer"></script>
-    <script src="/js/organisms/error-fragment-group.js" defer="defer"></script>
-    <script src="/js/organisms/error-layout.js" defer="defer"></script>
+      {# ----- JavaScript scripts ----- #}
+      <script src="/js/main.js" defer="defer"></script>
+      <script src="/js/atoms/error-link.js" defer="defer"></script>
+      <script src="/js/molecules/caption.js" defer="defer"></script>
+      <script src="/js/molecules/error-footer.js" defer="defer"></script>
+      <script src="/js/organisms/header.js" defer="defer"></script>
+      <script src="/js/organisms/avatar-card.js" defer="defer"></script>
+      <script src="/js/organisms/skills-card.js" defer="defer"></script>
+      <script src="/js/organisms/section-portfolio.js" defer="defer"></script>
+      <script src="/js/organisms/tab-sections.js" defer="defer"></script>
+      <script src="/js/organisms/error-fragment-group.js" defer="defer"></script>
+      <script src="/js/organisms/error-layout.js" defer="defer"></script>
 
-    {# ----- Netlify CMS redirect (optional) ----- #}
-    <script>
-      if (window.netlifyIdentity) {
-        window
-          .netlifyIdentity
-          .on("init", (user) => {
-            if (!user) {
-              window
-                .netlifyIdentity
-                .on("login", () => {
-                  document.location.href = "/admin/";
-                });
-            }
-          });
-      }
-    </script>
+      {# ----- Netlify CMS redirect (optional) ----- #}
+      <script>
+        if (window.netlifyIdentity) {
+          window
+            .netlifyIdentity
+            .on("init", (user) => {
+              if (!user) {
+                window
+                  .netlifyIdentity
+                  .on("login", () => {
+                    document.location.href = "/admin/";
+                  });
+              }
+            });
+        }
+      </script>
 
-  </body>
-</html>
+    </body>
+  </html>
