@@ -185,97 +185,97 @@
       </div>
 
       {# ===================================================================
-   LG LAYOUT - Desktop Large (1024px to 1279px)
-   Structure: Skills avec Avatar superposé + Tab-sections en dessous
-   =================================================================== #}
+         LG LAYOUT - Desktop Large (1024px to 1279px)
+         Structure: Skills avec Avatar superposé + Tab-sections en dessous
+         =================================================================== #}
       <div class="home-layout__lg hidden lg:block xl:hidden min-h-0 h-auto" data-breakpoint="lg" aria-hidden="true">
 
-        {# Bloc principal - Skills + Avatar superposé #}
-        <div class="home-layout__top relative flex justify-center items-center h-auto pt-8 pb-4">
+        {# Skills + Avatar Container - Renommé pour plus de clarté #}
+        <div class="home-layout__skills-container relative flex justify-center items-center h-auto pt-8 pb-4">
 
           {# Skills Cards Container - Zone centrale qui recevra l'avatar par dessus #}
           <section class="home-layout__skills relative" aria-label="Compétences">
             <div class="skills-wrapper">
               {{ renderSkillsCard({ 
-          name: "languages_card",
-          datas: option.skills_datas,
-          typography_datas: option.typography_datas,
-          caption_datas: option.caption_datas,
-          icon_datas: option.icon_datas,
-          tooltip_datas: option.tooltip_datas
-        }) }}
+                name: "languages_card",
+                datas: option.skills_datas,
+                typography_datas: option.typography_datas,
+                caption_datas: option.caption_datas,
+                icon_datas: option.icon_datas,
+                tooltip_datas: option.tooltip_datas
+              }) }}
 
               {{ renderSkillsCard({ 
-          name: "soft_skills_card",
-          datas: option.skills_datas,
-          typography_datas: option.typography_datas,
-          caption_datas: option.caption_datas,
-          icon_datas: option.icon_datas,
-          tooltip_datas: option.tooltip_datas
-        }) }}
+                name: "soft_skills_card",
+                datas: option.skills_datas,
+                typography_datas: option.typography_datas,
+                caption_datas: option.caption_datas,
+                icon_datas: option.icon_datas,
+                tooltip_datas: option.tooltip_datas
+              }) }}
 
               {{ renderSkillsCard({ 
-          name: "hard_skills_card",
-          datas: option.skills_datas,
-          typography_datas: option.typography_datas,
-          caption_datas: option.caption_datas,
-          icon_datas: option.icon_datas,
-          tooltip_datas: option.tooltip_datas
-        }) }}
+                name: "hard_skills_card",
+                datas: option.skills_datas,
+                typography_datas: option.typography_datas,
+                caption_datas: option.caption_datas,
+                icon_datas: option.icon_datas,
+                tooltip_datas: option.tooltip_datas
+              }) }}
 
               {{ renderSkillsCard({ 
-          name: "interests_card",
-          datas: option.skills_datas,
-          typography_datas: option.typography_datas,
-          caption_datas: option.caption_datas,
-          icon_datas: option.icon_datas,
-          tooltip_datas: option.tooltip_datas
-        }) }}
+                name: "interests_card",
+                datas: option.skills_datas,
+                typography_datas: option.typography_datas,
+                caption_datas: option.caption_datas,
+                icon_datas: option.icon_datas,
+                tooltip_datas: option.tooltip_datas
+              }) }}
             </div>
           </section>
 
-          {# Avatar Card - Superposé au centre du bloc skills - AJUSTÉ #}
+          {# Avatar Card - Superposé au centre du bloc skills #}
           <section class="home-layout__avatar absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[45.5%] z-10 pointer-events-none" aria-label="Avatar">
             {{ renderAvatarCard({ 
-        name: option.avatar_name or "charlotte_name",
-        datas: option.avatar_datas,
-        image_datas: option.image_datas,
-        typography_datas: option.typography_datas,
-        button_datas: option.button_datas,
-        tooltip_datas: option.tooltip_datas
-      }) }}
+              name: option.avatar_name or "charlotte_name",
+              datas: option.avatar_datas,
+              image_datas: option.image_datas,
+              typography_datas: option.typography_datas,
+              button_datas: option.button_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
           </section>
 
         </div>
 
-        {# Bloc secondaire - Tab Sections #}
+        {# Tab Sections #}
         <section class="home-layout__tabs h-auto pb-8" aria-label="Contenu principal">
           <div class="lg-tab-sections-wrapper">
             {{ renderTabSections({ 
-        name: option.tab_sections_name or "charlotte_main",
-        datas: option.tab_sections_datas,
-        tabMenuDatas: option.tab_menu_datas,
-        linkDatas: option.link_datas,
-        portfolioDatas: option.portfolio_datas,
-        timelineDatas: option.timeline_datas,
-        contactDatas: option.contact_datas,
-        typographyDatas: option.typography_datas,
-        contentBlockDatas: option.content_block_datas,
-        contactBlockDatas: option.contact_block_datas,
-        listFormDatas: option.list_form_datas,
-        progressBarDatas: option.progress_bar_datas,
-        imageDatas: option.image_datas,
-        iconDatas: option.icon_datas,
-        radioDatas: option.radio_datas,
-        inputDatas: option.input_datas,
-        buttonDatas: option.button_datas
-      }) }}
+              name: option.tab_sections_name or "charlotte_main",
+              datas: option.tab_sections_datas,
+              tabMenuDatas: option.tab_menu_datas,
+              linkDatas: option.link_datas,
+              portfolioDatas: option.portfolio_datas,
+              timelineDatas: option.timeline_datas,
+              contactDatas: option.contact_datas,
+              typographyDatas: option.typography_datas,
+              contentBlockDatas: option.content_block_datas,
+              contactBlockDatas: option.contact_block_datas,
+              listFormDatas: option.list_form_datas,
+              progressBarDatas: option.progress_bar_datas,
+              imageDatas: option.image_datas,
+              iconDatas: option.icon_datas,
+              radioDatas: option.radio_datas,
+              inputDatas: option.input_datas,
+              buttonDatas: option.button_datas
+            }) }}
           </div>
         </section>
 
       </div>
 
-{# ===================================================================
+      {# ===================================================================
          XL LAYOUT - Large Desktop (1280px and above) ✅ CORRIGÉ
          Structure: Flexbox 2 colonnes - Tab-sections (30%) + Skills/Avatar (70%)
          =================================================================== #}
@@ -304,60 +304,60 @@
           }) }}
         </section>
 
-        {# Bloc principal - Skills + Avatar superposé - COPIE EXACTE DU LG #}
-        <div class="home-layout__top relative flex justify-center items-center h-auto pb-4">
+        {# Skills + Avatar Container - Même structure que LG #}
+        <div class="home-layout__skills-container relative flex justify-center items-center h-auto pb-4">
 
           {# Skills Cards Container - Zone centrale qui recevra l'avatar par dessus #}
           <section class="home-layout__skills relative" aria-label="Compétences">
             <div class="skills-wrapper">
               {{ renderSkillsCard({ 
-          name: "languages_card",
-          datas: option.skills_datas,
-          typography_datas: option.typography_datas,
-          caption_datas: option.caption_datas,
-          icon_datas: option.icon_datas,
-          tooltip_datas: option.tooltip_datas
-        }) }}
+                name: "languages_card",
+                datas: option.skills_datas,
+                typography_datas: option.typography_datas,
+                caption_datas: option.caption_datas,
+                icon_datas: option.icon_datas,
+                tooltip_datas: option.tooltip_datas
+              }) }}
 
               {{ renderSkillsCard({ 
-          name: "soft_skills_card",
-          datas: option.skills_datas,
-          typography_datas: option.typography_datas,
-          caption_datas: option.caption_datas,
-          icon_datas: option.icon_datas,
-          tooltip_datas: option.tooltip_datas
-        }) }}
+                name: "soft_skills_card",
+                datas: option.skills_datas,
+                typography_datas: option.typography_datas,
+                caption_datas: option.caption_datas,
+                icon_datas: option.icon_datas,
+                tooltip_datas: option.tooltip_datas
+              }) }}
 
               {{ renderSkillsCard({ 
-          name: "hard_skills_card",
-          datas: option.skills_datas,
-          typography_datas: option.typography_datas,
-          caption_datas: option.caption_datas,
-          icon_datas: option.icon_datas,
-          tooltip_datas: option.tooltip_datas
-        }) }}
+                name: "hard_skills_card",
+                datas: option.skills_datas,
+                typography_datas: option.typography_datas,
+                caption_datas: option.caption_datas,
+                icon_datas: option.icon_datas,
+                tooltip_datas: option.tooltip_datas
+              }) }}
 
               {{ renderSkillsCard({ 
-          name: "interests_card",
-          datas: option.skills_datas,
-          typography_datas: option.typography_datas,
-          caption_datas: option.caption_datas,
-          icon_datas: option.icon_datas,
-          tooltip_datas: option.tooltip_datas
-        }) }}
+                name: "interests_card",
+                datas: option.skills_datas,
+                typography_datas: option.typography_datas,
+                caption_datas: option.caption_datas,
+                icon_datas: option.icon_datas,
+                tooltip_datas: option.tooltip_datas
+              }) }}
             </div>
           </section>
 
-          {# Avatar Card - Superposé au centre du bloc skills - AJUSTÉ #}
+          {# Avatar Card - Superposé au centre du bloc skills #}
           <section class="home-layout__avatar absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[47.7%] z-10 pointer-events-none" aria-label="Avatar">
             {{ renderAvatarCard({ 
-        name: option.avatar_name or "charlotte_name",
-        datas: option.avatar_datas,
-        image_datas: option.image_datas,
-        typography_datas: option.typography_datas,
-        button_datas: option.button_datas,
-        tooltip_datas: option.tooltip_datas
-      }) }}
+              name: option.avatar_name or "charlotte_name",
+              datas: option.avatar_datas,
+              image_datas: option.image_datas,
+              typography_datas: option.typography_datas,
+              button_datas: option.button_datas,
+              tooltip_datas: option.tooltip_datas
+            }) }}
           </section>
 
         </div>
