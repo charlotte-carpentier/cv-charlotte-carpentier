@@ -59,7 +59,9 @@ body {
   --cc-green-light: #c4ffcb;
   --cc-grey-light: #b3b3b3;
   --cc-grey-dark: #333333;
+  --cc-grey-extra-dark: #262626;
   --cc-bg-light: #EBFFF0;
+  --cc-blue-active: #0044aa;
 
   /* Font families */
   --font-title: 'Orbitron', sans-serif;
@@ -67,38 +69,43 @@ body {
 
   /* Font sizes (using rem for scalability) */
   --text-h1: 2.5rem;
-  /* 40px */
   --text-h2: 1.5rem;
-  /* 24px */
   --text-h1-mobile: 1.5rem;
-  /* 24px */
   --text-h2-mobile: 1.25rem;
-  /* 20px */
   --text-p: 1.125rem;
-  /* 18px */
   --text-code: 1.125rem;
-  /* 18px */
   --text-small: 0.875rem;
-  /* 14px */
   --text-p-mobile: 0.875rem;
-  /* 14px */
   --text-code-mobile: 1rem;
-  /* 16px */
   --text-small-mobile: 0.75rem;
-  /* 12px */
 
   /* Letter spacing */
   --ls-h1: 0.03em;
-  /* 3% */
   --ls-h1-mobile: 0.03em;
-  /* 3% */
+
+  /* Z-index layers */
+  --z-base: 1;
+  --z-interactive: 10;
+  --z-fragments: 12;
+  --z-navigation: 15;
+  --z-overlay: 20;
+  --z-triptych: 25;
+  --z-elevated: 50;
+  --z-mobile-buttons: 95;
+  --z-header-footer: 98;
+  --z-priority: 100;
+  --z-burger: 110;
+  --z-tooltip-zone: 150;
+  --z-scroll-cursor: 200;
+  --z-active-state: 500;
+  --z-tooltips: 1000;
 }
 
 /* ============================================================
-   @ATOMS - BUTTONS
+   @ATOM - BUTTONS
    - Button styles with primary and disabled states
    - Only complex styles using theme variables remain here
-   - MODIFICATION: Media queries breakpoint supprimées, migrées vers Tailwind
+   - Media queries breakpoints removed, migrated to Tailwind
 ============================================================ */
 
 .button {
@@ -137,7 +144,7 @@ body {
 .button.button--primary:active {
   background-color: theme(--cc-white);
   color: theme(--cc-black);
-  border-color: #0044aa;
+  border-color: theme(--cc-blue-active);
 }
 
 /* Disabled button style */
@@ -148,7 +155,7 @@ body {
 }
 
 /* ============================================================
-   @ATOMS - ICONS
+   @ATOM - ICONS
    - Icon components with theme overlays and complex styles
 ============================================================ */
 
@@ -167,7 +174,7 @@ body {
 
 .caption-container .icon-avatar.caption-gradient-grey {
   background: linear-gradient(to top, theme(--cc-grey-light), transparent 70%);
-  color: #262626;
+  color: theme(--cc-grey-extra-dark);
 }
 
 /* Icon Avatar - Responsive adjustment for medium screens */
@@ -180,23 +187,23 @@ body {
 
 /* Mystery chest styles - SVG and text color only */
 .skills-card .caption-container .icon-avatar.caption-gradient-grey svg {
-  fill: #262626;
-  stroke: #262626;
-  color: #262626;
+  fill: theme(--cc-grey-extra-dark);
+  stroke: theme(--cc-grey-extra-dark);
+  color: theme(--cc-grey-extra-dark);
 }
 
 .skills-card .caption-container .icon-avatar.caption-gradient-grey svg path {
-  fill: #262626;
-  stroke: #262626;
+  fill: theme(--cc-grey-extra-dark);
+  stroke: theme(--cc-grey-extra-dark);
 }
 
 .skills-card .caption-container[data-tooltip="skills_treasure"] .caption-title-desktop {
-  color: #262626;
+  color: theme(--cc-grey-extra-dark);
   font-weight: bold;
 }
 
 .skills-card .caption-container[data-tooltip="skills_treasure"] .caption-label-mobile {
-  color: #262626;
+  color: theme(--cc-grey-extra-dark);
   font-weight: bold;
 }
 
@@ -226,7 +233,7 @@ body {
 }
 
 /* ============================================================
-   @ATOMS - INPUTS
+   @ATOM - INPUTS
    - Base styles for inputs and textarea
    - States: default, hover, focus, active, filled, critical, disabled
    - Input group with label styling
@@ -297,7 +304,7 @@ body {
 }
 
 /* ============================================================
-   @ATOMS - LINKS
+   @ATOM - LINKS
    - Link base styles with variants: navigation, tab, external
    - Focus, disabled states and responsive included
 ============================================================ */
@@ -340,9 +347,9 @@ body {
 /* Tab link current/page active state */
 .link--tab.current,
 .link--tab[aria-current="page"] {
-  color: #4a7c59;
+  color: theme(--cc-green-dark);
   font-weight: bold;
-  border-bottom-color: #4a7c59;
+  border-bottom-color: theme(--cc-green-dark);
   pointer-events: none;
   cursor: default;
 }
@@ -505,6 +512,7 @@ body {
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   pointer-events: none;
+  z-index: theme(--z-tooltips);
 }
 
 .tooltip-container.tooltip-visible {
@@ -745,7 +753,7 @@ body {
     transform: translateX(-50%);
     background-color: theme(--cc-white);
     width: 320px;
-    /* Fixed width for consistency */
+    z-index: theme(--z-tooltips);
   }
 
   /* Show tooltip on hover/focus - Desktop only */
@@ -767,6 +775,7 @@ body {
   /* Desktop caption container - ensure relative positioning for tooltip */
   .caption-container {
     position: relative;
+    z-index: theme(--z-interactive);
   }
 }
 
@@ -806,6 +815,11 @@ body {
   .caption-description-mobile {
     font-size: theme(--text-small-mobile);
   }
+}
+
+.caption-container:hover .caption-title-desktop,
+.caption-container:focus-within .caption-title-desktop {
+  z-index: theme(--z-active-state);
 }
 
 /* ==========================================================================
@@ -913,6 +927,10 @@ body {
   line-height: 1;
 }
 
+.content-block--preview .content-block-button {
+  z-index: theme(--z-interactive);
+}
+
 /* Responsive adjustments */
 /* Mobile (639px and below) */
 @media (max-width: 639px) {
@@ -1011,11 +1029,15 @@ body {
 
 /* Desktop tab menu container - subtle elevation and background */
 .tab-menu-desktop {
-  background: linear-gradient(to top, #b3b3b3, transparent 70%);
+  background: linear-gradient(to top, theme(--cc-grey-light), transparent 70%);
   padding: 0rem 1.5rem 0rem 1.5rem;
   margin: 0 auto;
   width: fit-content;
   max-width: calc(100% - 1rem);
+}
+
+.tab-menu {
+  z-index: theme(--z-navigation);
 }
 
 /* Enhanced link hover and focus states for desktop */
@@ -1081,8 +1103,8 @@ body {
   top: 53.9%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  z-index: 10;
   pointer-events: none;
+  z-index: theme(--z-interactive);
 }
 
 /* Large desktop breakpoint - 1024px to 1279px */
@@ -1156,6 +1178,7 @@ body {
   width: auto;
   min-width: auto;
   padding: 0.2rem 0.4rem 0 0.4rem;
+  z-index: theme(--z-mobile-buttons);
 }
 
 /* Mobile buttons border consistency */
@@ -1173,6 +1196,7 @@ body {
 .avatar-tooltip-container {
   position: relative;
   display: inline-block;
+  z-index: theme(--z-elevated);
 }
 
 /* Tooltip active zone */
@@ -1184,6 +1208,7 @@ body {
   width: 180px;
   height: 650px;
   pointer-events: auto;
+  z-index: theme(--z-tooltip-zone);
 }
 
 /* ==========================================================================
@@ -1201,8 +1226,8 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  z-index: 15;
   pointer-events: none;
+  z-index: theme(--z-navigation);
 }
 
 /* Halo base styles - these create light zones that reveal content underneath */
@@ -1223,8 +1248,8 @@ body {
   pointer-events: none;
   transform: translate(-50%, -50%);
   transition: opacity 0.3s ease;
-  z-index: 20;
   mix-blend-mode: screen;
+  z-index: theme(--z-overlay);
 }
 
 /* Fixed halo - always illuminates triptych */
@@ -1236,7 +1261,6 @@ body {
 .error-layout-halo-cursor {
   opacity: 0;
   transition: opacity 0.2s ease;
-  z-index: 95; /* Above header and footer */
 }
 
 /* Scroll halo - follows scroll and reveals fragments locally on mobile */
@@ -1252,7 +1276,7 @@ body {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: 12;
+  z-index: theme(--z-fragments);
 }
 
 /* Only revealed fragments become visible */
@@ -1261,12 +1285,18 @@ body {
   transform: scale(1);
 }
 
+.error-layout-title,
+.error-layout-subtitle,
+.error-layout-cta {
+  z-index: theme(--z-triptych);
+}
+
 /* Triptych is always visible (illuminated by fixed halo) */
 .error-layout-triptych,
 .error-layout-triptych-mobile {
   opacity: 1;
   transform: scale(1);
-  z-index: 25;
+  z-index: theme(--z-triptych);
 }
 
 /* Force error-fragment-group to take full space of its container */
@@ -1275,9 +1305,8 @@ body {
   width: 100%;
 }
 
-/* Fragment containers positioning */
 .error-layout-fragments-container {
-  z-index: 10;
+  z-index: theme(--z-interactive);
 }
 
 /* Desktop cross layout specific styles */
@@ -1295,13 +1324,6 @@ body {
 .error-layout-fragment-4 { grid-area: fragment-4; }
 .error-layout-fragment-5 { grid-area: fragment-5; }
 .error-layout-fragment-6 { grid-area: fragment-6; }
-
-/* Responsive text sizing for triptych */
-.error-layout-title,
-.error-layout-subtitle,
-.error-layout-cta {
-  z-index: 25;
-}
 
 /* Mobile scroll container */
 .error-layout-mobile {
@@ -1367,6 +1389,7 @@ body {
     width: 100%;
     background-color: theme(--cc-black);
     box-sizing: border-box;
+    z-index: theme(--z-header-footer);
   }
   
   /* Minimal variant container */
@@ -1455,6 +1478,7 @@ body {
     background-color: theme(--cc-black);
     color: theme(--cc-white);
     border: 3px solid theme(--cc-white);
+    z-index: theme(--z-header-footer);
   }
   
   /* Desktop border override */
@@ -1513,6 +1537,7 @@ body {
   .header-burger {
     position: relative;
     color: theme(--cc-white);
+    z-index: theme(--z-burger);
   }
   
   .header-burger .burger-icon,
@@ -1544,6 +1569,10 @@ body {
     fill: theme(--cc-white);
     stroke: theme(--cc-white);
   }
+
+  .header-mobile-overlay {
+  z-index: theme(--z-burger);
+}
 
 /* ==========================================================================
    @ORGANISM - SECTION-CONTACT
@@ -1687,10 +1716,10 @@ body {
 
 /* ==========================================================================
    @ORGANISM - SKILLS-CARD
-   - Styles complexes et variables custom uniquement
+   - Complex styles and custom variables only
    ========================================================================== */
 
-/* Wrapper pour forcer le layout 2x2 */
+/* Wrapper to force 2x2 layout */
 .skills-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1702,7 +1731,7 @@ body {
   justify-items: center;
 }
 
-/* Desktop variant - Pseudo-elements avec gradients */
+/* Desktop variant - Pseudo-elements with gradients */
 .skills-card-content::before,
 .skills-card-content::after {
   content: '';
@@ -1710,7 +1739,7 @@ body {
   top: 1.5rem;
   bottom: 0;
   width: 4px;
-  background: linear-gradient(to bottom, #000000, #ffffff);
+  background: linear-gradient(to bottom, theme(--cc-black), theme(--cc-white));
 }
 
 .skills-card-content::before {
@@ -1730,7 +1759,7 @@ body {
   transform: translateY(-50%);
   height: 4px;
   width: 27px;
-  background-color: #000000;
+  background-color: theme(--cc-black);
 }
 
 .skills-card-title::before {
@@ -1744,6 +1773,7 @@ body {
 /* Caption width constraints */
 .skills-card .caption-container {
   width: 98px;
+  z-index: theme(--z-priority);
 }
 
 .skills-card .caption-desktop {
@@ -1758,7 +1788,11 @@ body {
   right: calc(50% - 100px);
 }
 
-/* Responsive breakpoints avec variables custom */
+.skills-card-close {
+  z-index: theme(--z-elevated);
+}
+
+/* Responsive breakpoints with custom variables */
 
 /* Large desktop breakpoint - 1024px to 1279px */
 @media (min-width: 1024px) and (max-width: 1279px) {
@@ -1797,8 +1831,8 @@ body {
   }
 
   /* Hide the direct content of .skills-card on lg */
-  .skills-card>.skills-card-title,
-  .skills-card>.caption-container {
+  .skills-card > .skills-card-title,
+  .skills-card > .caption-container {
     display: none;
   }
 
@@ -1833,8 +1867,8 @@ body {
   }
 
   /* Hide the direct content of .skills-card on xl */
-  .skills-card>.skills-card-title,
-  .skills-card>.caption-container {
+  .skills-card > .skills-card-title,
+  .skills-card > .caption-container {
     display: none;
   }
 
@@ -1878,7 +1912,7 @@ body {
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(to bottom, #000000, #ffffff);
+    background: linear-gradient(to bottom, theme(--cc-black), theme(--cc-white));
   }
 
   .skills-card::before {
@@ -1964,9 +1998,10 @@ body {
     background-color: theme(--cc-white);
     border: 3px solid theme(--cc-black);
     padding: 1rem;
+    z-index: theme(--z-base);
   }
 
-  /* Supprimer les pseudo-éléments dégradés pour mobile */
+  /* Remove gradient pseudo-elements for mobile */
   .skills-card::before,
   .skills-card::after {
     display: none;
@@ -2057,6 +2092,10 @@ body {
   display: none;
 }
 
+.tab-sections-navigation {
+  z-index: theme(--z-fragments);
+}
+
 .tab-section-item:target {
   display: block;
 }
@@ -2120,6 +2159,11 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  z-index: theme(--z-navigation);
+}
+
+.tab-sections-container {
+  z-index: theme(--z-navigation);
 }
 
 .tab-sections-content::-webkit-scrollbar {
@@ -2136,12 +2180,13 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   display: none;
 }
 
-/* Scroll cursor - caché par défaut, dimensions conservées */
+/* Scroll cursor - hidden by default, dimensions preserved */
 .tab-sections-scroll-cursor {
   width: 20px;
   height: 653px;
   opacity: 0;
   visibility: hidden;
+  z-index: theme(--z-scroll-cursor);
 }
 
 /* Gradient vertical lines */
@@ -2170,9 +2215,10 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   height: 525px;
   position: relative;
   margin: 0 auto;
+  z-index: calc(theme(--z-scroll-cursor) + 1);
 }
 
-/* Scroll cursor thumb - curseur géré en JS */
+/* Scroll cursor thumb - managed by JS */
 .scroll-cursor-thumb {
   background-color: theme(--cc-green-light);
   border: 4px solid theme(--cc-black);
@@ -2183,6 +2229,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   height: 56px;
   left: -8.5px;
   transition: top 0.1s ease;
+  z-index: calc(theme(--z-scroll-cursor) + 2);
 }
 
 /* Responsive gradient lines */
@@ -2203,44 +2250,45 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 }
 
 /* ==========================================================================
-   @ORGANISM - home-layout
+   @ORGANISM - HOME-LAYOUT
    - Pure layout orchestration
    ========================================================================== */
 
    .home-layout {
-    padding-left: 0.75rem;  /* px-3 = 12px */
-    padding-right: 0.75rem; /* px-3 = 12px */
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
     padding-top: 0;
     padding-bottom: 0;
     width: 100%;
     box-sizing: border-box;
+    z-index: theme(--z-mobile-buttons);
   }
   
-  /* Responsive - Marges identiques au header */
+  /* Responsive - Same margins as header */
   @media (min-width: 640px) {
     .home-layout {
-      padding-left: 1rem;   /* sm:px-4 = 16px */
-      padding-right: 1rem;  /* sm:px-4 = 16px */
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
   
   @media (min-width: 1024px) {
     .home-layout {
-      padding-left: 2rem;   /* lg:px-8 = 32px */
-      padding-right: 2rem;  /* lg:px-8 = 32px */
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
   }
 
 /* ==========================================================================
    @ORGANISM - BACKGROUNDS
-   - FIXED: Full width, no deformation, no vertical stretch
+   - Full width, no deformation, no vertical stretch
    ========================================================================== */
 
 body {
   background-color: theme(--cc-bg-light);
 }
 
-/* Sections avec fond dégradé blanc → transparent */
+/* Sections with gradient background white to transparent */
 .section-portfolio,
 .section-timeline,
 .section-contact {
@@ -2248,117 +2296,12 @@ body {
 }
 
 /* ==========================================================================
-   @SYSTEM - Z-INDEX MANAGEMENT
-   - Centralized z-index values for consistent layering
-   - Organized by elevation levels for better maintainability
+   @LAYOUT - MAIN CONTENT
+   - Foundation layout element
    ========================================================================== */
 
-/* Base layer - Foundation elements */
 .main-content {
-  z-index: 1;
-}
-
-.skills-card {
-  z-index: 1;
-}
-
-/* Interactive layer - Standard interactive elements */
-.caption-container {
-  z-index: 10;
-}
-
-.content-block--preview .content-block-button {
-  z-index: 10;
-}
-
-/* Navigation layer - Tab menu positioning */
-.tab-sections-navigation {
-  z-index: 12;
-}
-
-.tab-menu {
-  z-index: 13;
-}
-
-/* Tab-sections layer - Main content containers */
-.tab-sections-container {
-  z-index: 15;
-}
-
-.tab-sections-content {
-  z-index: 16;
-}
-
-/* Elevated layer - Important UI elements */
-.avatar-tooltip-container {
-  z-index: 50;
-}
-
-.avatar-tooltip-container::before {
-  z-index: 150;
-}
-
-.skills-card-close {
-  z-index: 60;
-}
-
-/* home-layout positioning */
-.home-layout {
-  z-index: 90;
-}
-
-.avatar-card-mobile .avatar-card-button,
-.avatar-card-mobile .avatar-card-buttons .button {
-  z-index: 95;
-}
-
-/* Header / Footer layers - Simple positioning since mobile overlay is now hidden */
-.header {
-  z-index: 98;
-}
-
-.footer {
-  z-index: 98;
-}
-
-.header-burger {
-  z-index: 110;
-}
-
-/* High priority layer - Context-sensitive elements */
-.skills-card .caption-container {
-  z-index: 100;
-}
-
-/* Mobile overlay - Mobile uniquement, simplifié */
-.header-mobile-overlay {
-  z-index: 110;
-}
-
-/* Scroll cursor layer - Must be above all content */
-.tab-sections-scroll-cursor {
-  z-index: 200;
-}
-
-.scroll-cursor-track {
-  z-index: 201;
-}
-
-.scroll-cursor-thumb {
-  z-index: 202;
-}
-
-/* Active state layer - Hover and focus states */
-.caption-container:hover .caption-title-desktop,
-.caption-container:focus-within .caption-title-desktop {
-  z-index: 500;
-}
-
-/* Top layer - Tooltips and modal elements */
-.tooltip-popup,
-.tooltip-container,
-.avatar-tooltip-container .tooltip-popup {
-  z-index: 1000;
+  z-index: theme(--z-base);
 }
 
 /* ==========================================================================
@@ -2374,6 +2317,7 @@ body {
 .avatar-card-mobile .button:focus-visible {
   outline: 2px solid theme(--cc-green-dark);
   outline-offset: 2px;
+  z-index: theme(--z-mobile-buttons);
 }
 
 /* Skills card close button - keyboard only */

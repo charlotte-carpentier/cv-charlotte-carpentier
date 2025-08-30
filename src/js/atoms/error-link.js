@@ -1,5 +1,5 @@
 /* ===========================================================
-   @ATOMS - ERROR-LINK
+   @ATOM - ERROR-LINK
    - Navigation functionality for error page links
    - Intelligent routing: previous page or home fallback
    - ARIA accessibility and keyboard navigation support
