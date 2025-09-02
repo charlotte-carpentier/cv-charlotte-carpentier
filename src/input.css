@@ -1213,100 +1213,35 @@ body {
 
 /* ==========================================================================
    @ORGANISM - ERROR-LAYOUT
-   - Dark layout with localized halo illumination
-   - Cross layout positioning and responsive behavior
+   - Halo reveal system using CSS mask
+   - Fixed halo for central triptych + mobile halo following mouse cursor
    ========================================================================== */
 
-/* Dark overlay covering the entire layout - everything is dark by default */
-.error-layout--cross-layout::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-  pointer-events: none;
-  z-index: theme(--z-navigation);
+/* Override body background for error page */
+body:has(.error-layout--cross-layout) {
+  background-color: theme(--cc-black);
 }
 
-/* Halo base styles - these create light zones that reveal content underneath */
-.error-layout-halo-fixed,
-.error-layout-halo-cursor,
-.error-layout-halo-scroll {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    color-mix(in srgb, theme(--cc-green-light) 80%, transparent) 0%,
-    color-mix(in srgb, theme(--cc-green-light) 40%, transparent) 40%,
-    transparent 70%
-  );
-  filter: blur(15px);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease;
-  mix-blend-mode: screen;
-  z-index: theme(--z-overlay);
+/* Desktop layout (lg and xl) - Halo system with TWO halos */
+@media (min-width: 1024px) {
+  .error-layout--cross-layout {
+    background-color: theme(--cc-white);
+    color: theme(--cc-black);
+    mask: 
+      radial-gradient(circle 350px at 50% 50%, white 40%, rgba(255,255,255,0.8) 60%, transparent 100%),
+      radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), white 20%, rgba(255,255,255,0.7) 70%, transparent 100%);
+    -webkit-mask: 
+      radial-gradient(circle 350px at 50% 50%, white 40%, rgba(255,255,255,0.8) 60%, transparent 100%),
+      radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), white 20%, rgba(255,255,255,0.7) 70%, transparent 100%);
+  }
 }
 
-/* Fixed halo - always illuminates triptych */
-.error-layout-halo-fixed {
-  opacity: 1;
-}
-
-/* Cursor halo - follows mouse and reveals fragments locally */
-.error-layout-halo-cursor {
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-/* Scroll halo - follows scroll and reveals fragments locally on mobile */
-.error-layout-halo-scroll {
-  left: 50%;
-  opacity: 0;
-  transition: top 0.1s ease, opacity 0.3s ease;
-}
-
-/* All fragments are hidden by default */
-.error-layout-fragment,
-.error-layout-fragment-mobile {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: theme(--z-fragments);
-}
-
-/* Only revealed fragments become visible */
-.error-layout-fragment-revealed {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.error-layout-title,
-.error-layout-subtitle,
-.error-layout-cta {
-  z-index: theme(--z-triptych);
-}
-
-/* Triptych is always visible (illuminated by fixed halo) */
-.error-layout-triptych,
-.error-layout-triptych-mobile {
-  opacity: 1;
-  transform: scale(1);
-  z-index: theme(--z-triptych);
-}
-
-/* Force error-fragment-group to take full space of its container */
-.error-layout-fragments-container .error-fragment-group--grid-2x3 {
-  height: 100%;
-  width: 100%;
-}
-
-.error-layout-fragments-container {
-  z-index: theme(--z-interactive);
+/* Mobile/Tablet layout (below lg) - Simple visible content */
+@media (max-width: 1023px) {
+  .error-layout--cross-layout {
+    background-color: theme(--cc-black);
+    color: theme(--cc-white);
+  }
 }
 
 /* Desktop cross layout specific styles */
@@ -1324,6 +1259,26 @@ body {
 .error-layout-fragment-4 { grid-area: fragment-4; }
 .error-layout-fragment-5 { grid-area: fragment-5; }
 .error-layout-fragment-6 { grid-area: fragment-6; }
+
+/* Fragment containers positioning */
+.error-layout-fragments-container {
+  z-index: theme(--z-interactive);
+}
+
+.error-layout-fragments-container .error-fragment-group--grid-2x3 {
+  height: 100%;
+  width: 100%;
+}
+
+.error-layout-title,
+.error-layout-subtitle,
+.error-layout-cta {
+  z-index: theme(--z-triptych);
+}
+
+.error-layout-triptych {
+  z-index: theme(--z-triptych);
+}
 
 /* Mobile scroll container */
 .error-layout-mobile {
@@ -1345,38 +1300,11 @@ body {
   }
 }
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .error-layout-halo-fixed,
-  .error-layout-halo-cursor,
-  .error-layout-halo-scroll {
-    background: radial-gradient(
-      circle,
-      color-mix(in srgb, theme(--cc-white) 60%, transparent) 0%,
-      color-mix(in srgb, theme(--cc-white) 30%, transparent) 50%,
-      transparent 70%
-    );
-  }
-  
-  .error-layout--cross-layout::before {
-    background-color: rgba(0, 0, 0, 0.9);
-  }
-}
-
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .error-layout-fragment,
-  .error-layout-fragment-mobile,
-  .error-layout-halo-cursor,
-  .error-layout-halo-scroll {
-    transition: none;
-  }
-  
-  .error-layout-halo-fixed,
-  .error-layout-halo-cursor,
-  .error-layout-halo-scroll {
-    filter: none;
-    background: color-mix(in srgb, theme(--cc-green-light) 20%, transparent);
+  .error-layout--cross-layout {
+    mask: none;
+    -webkit-mask: none;
   }
 }
 
