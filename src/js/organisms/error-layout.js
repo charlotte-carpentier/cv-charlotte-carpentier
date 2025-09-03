@@ -1,41 +1,56 @@
 /* ===========================================================
    @ORGANISMS - ERROR-LAYOUT
-   - Simple halo reveal system using CSS mask
-   - Fixed halo for central triptych + mobile halo following mouse
+   - Halo reveal system using CSS mask
+   - Desktop: Fixed halo + cursor halo (2 halos)
+   - Mobile/Tablet: Single halo following scroll
    - Accessibility toggle to show/hide all content
 =========================================================== */
 
 /**
  * Initialize error layout halo system
- * Simple approach: CSS mask with radial gradients
  */
 function initErrorLayout() {
   const container = document.querySelector('.error-layout--cross-layout');
   if (!container) return;
 
-  // Only apply halo system on desktop (lg and xl breakpoints)
-  if (window.innerWidth < 1024) return;
-
-  // Set initial mouse position outside viewport
-  container.style.setProperty('--mouse-x', '-200px');
-  container.style.setProperty('--mouse-y', '-200px');
-
-  // Track mouse movement and update CSS custom properties
-  container.addEventListener('mousemove', (e) => {
-    const rect = container.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    // Update CSS custom properties for mask position
-    container.style.setProperty('--mouse-x', x + 'px');
-    container.style.setProperty('--mouse-y', y + 'px');
-  });
-
-  // Hide mobile halo when mouse leaves container
-  container.addEventListener('mouseleave', () => {
+  if (window.innerWidth >= 1024) {
+    // Desktop: mouse tracking
     container.style.setProperty('--mouse-x', '-200px');
     container.style.setProperty('--mouse-y', '-200px');
-  });
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      container.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+      container.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+    });
+
+    container.addEventListener('mouseleave', () => {
+      container.style.setProperty('--mouse-x', '-200px');
+      container.style.setProperty('--mouse-y', '-200px');
+    });
+  } else {
+    // Mobile/Tablet: scroll tracking
+    const mobileContainer = container.querySelector('.error-layout-mobile');
+    if (!mobileContainer) return;
+
+    container.style.setProperty('--scroll-y', '20%');
+
+    mobileContainer.addEventListener('scroll', () => {
+      const scrollTop = mobileContainer.scrollTop;
+      const scrollHeight = mobileContainer.scrollHeight - mobileContainer.clientHeight;
+      const scrollPercent = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+      const scrollY = 20 + (scrollPercent * 60);
+      
+      container.style.setProperty('--scroll-y', scrollY + '%');
+      
+      // Reveal fragments progressively
+      const fragments = mobileContainer.querySelectorAll('.error-layout-fragment-placeholder');
+      fragments.forEach((fragment, index) => {
+        const threshold = 0.1 + (index / (fragments.length - 1)) * 0.7;
+        fragment.style.opacity = scrollPercent >= threshold ? '1' : '0';
+      });
+    });
+  }
 }
 
 /**
@@ -59,11 +74,13 @@ function toggleMaskVisibility(container, button) {
   const isRevealing = button.getAttribute('data-button') === 'button-reveal-all';
   
   if (isRevealing) {
-    // Show all content
     container.classList.add('error-layout--no-mask');
     updateAccessibilityContent(container, 'hidden');
+    // Reveal all fragments on mobile/tablet
+    if (window.innerWidth < 1024) {
+      container.querySelectorAll('.error-layout-fragment-placeholder').forEach(f => f.style.opacity = '1');
+    }
   } else {
-    // Hide content (restore mask)
     container.classList.remove('error-layout--no-mask');
     updateAccessibilityContent(container, 'visible');
   }
@@ -100,16 +117,13 @@ function handleResize() {
   const container = document.querySelector('.error-layout--cross-layout');
   if (!container) return;
 
-  // Reset mask properties if switching to mobile
-  if (window.innerWidth < 1024) {
-    container.style.removeProperty('--mouse-x');
-    container.style.removeProperty('--mouse-y');
-  }
+  // Reset CSS properties and reinitialize
+  container.style.removeProperty('--mouse-x');
+  container.style.removeProperty('--mouse-y');
+  container.style.removeProperty('--scroll-y');
+  
+  initErrorLayout();
 }
-
-// =========================
-// INITIALIZATION
-// =========================
 
 // Initialize error layout when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
