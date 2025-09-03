@@ -75,9 +75,7 @@
           e = d.createElement(s);
         e.async = true;
         e.src = "//static.axept.io/sdk.js";
-        t
-          .parentNode
-          .insertBefore(e, t);
+        t.parentNode.insertBefore(e, t);
       })(document, "script");
     </script>
 
@@ -85,9 +83,7 @@
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-ET74WRBGJM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag() { dataLayer.push(arguments); }
 
       // Initialize GA4 (consent will be managed by Axeptio)
       gtag('js', new Date());
@@ -102,7 +98,8 @@
 
     
     
-    
+      
+      
   
   
   
@@ -1832,6 +1829,7 @@
     
   
 
+    
 
     
     <main class="flex-1 flex items-center justify-center">
@@ -1846,11 +1844,11 @@
   <meta http-equiv="refresh" content="0; url=/#message" />
   <p>Redirection en cours...</p>
 </noscript>
-      </main>
+    </main>
 
+    
+    
       
-      
-
       
   
   
@@ -2201,36 +2199,33 @@
     
   
 
+    
 
-      
-      <script src="/js/main.js" defer="defer"></script>
-      <script src="/js/atoms/error-link.js" defer="defer"></script>
-      <script src="/js/molecules/caption.js" defer="defer"></script>
-      <script src="/js/molecules/error-footer.js" defer="defer"></script>
-      <script src="/js/organisms/header.js" defer="defer"></script>
-      <script src="/js/organisms/avatar-card.js" defer="defer"></script>
-      <script src="/js/organisms/skills-card.js" defer="defer"></script>
-      <script src="/js/organisms/section-portfolio.js" defer="defer"></script>
-      <script src="/js/organisms/tab-sections.js" defer="defer"></script>
-      <script src="/js/organisms/error-fragment-group.js" defer="defer"></script>
-      <script src="/js/organisms/error-layout.js" defer="defer"></script>
+    
+    <script src="/js/main.js" defer="defer"></script>
+    <script src="/js/atoms/error-link.js" defer="defer"></script>
+    <script src="/js/molecules/caption.js" defer="defer"></script>
+    <script src="/js/molecules/error-footer.js" defer="defer"></script>
+    <script src="/js/organisms/header.js" defer="defer"></script>
+    <script src="/js/organisms/avatar-card.js" defer="defer"></script>
+    <script src="/js/organisms/skills-card.js" defer="defer"></script>
+    <script src="/js/organisms/section-portfolio.js" defer="defer"></script>
+    <script src="/js/organisms/tab-sections.js" defer="defer"></script>
+    <script src="/js/organisms/error-fragment-group.js" defer="defer"></script>
+    <script src="/js/organisms/error-layout.js" defer="defer"></script>
 
-      
-      <script>
-        if (window.netlifyIdentity) {
-          window
-            .netlifyIdentity
-            .on("init", (user) => {
-              if (!user) {
-                window
-                  .netlifyIdentity
-                  .on("login", () => {
-                    document.location.href = "/admin/";
-                  });
-              }
+    
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
             });
-        }
-      </script>
+          }
+        });
+      }
+    </script>
 
-    </body>
-  </html>
+  </body>
+</html>
