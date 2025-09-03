@@ -6,7 +6,9 @@
       "titleTypographyName": "title-404",
       "subtitleTypographyName": "subtitle-404-500-maintenance-partial",
       "linkName": "link-cta-404-500-maintenance-partial",
-      "errorFragmentGroupName": "error_fragment_group_404"
+      "errorFragmentGroupName": "error_fragment_group_404",
+      "accessibilityTextTypographyName": "footer-info-visible",
+      "accessibilityButtonName": "button-reveal-all"
     },
     {
       "name": "error_layout_500",
@@ -14,7 +16,9 @@
       "titleTypographyName": "title-500",
       "subtitleTypographyName": "subtitle-404-500-maintenance-partial",
       "linkName": "link-cta-404-500-maintenance-partial",
-      "errorFragmentGroupName": "error_fragment_group_500"
+      "errorFragmentGroupName": "error_fragment_group_500",
+      "accessibilityTextTypographyName": "footer-info-visible",
+      "accessibilityButtonName": "button-reveal-all"
     },
     {
       "name": "error_layout_maintenance_total",
@@ -22,7 +26,9 @@
       "titleTypographyName": "title-maintenance",
       "subtitleTypographyName": "subtitle-maintenance-total",
       "linkName": "link-cta-maintenance-total",
-      "errorFragmentGroupName": "error_fragment_group_maintenance_total"
+      "errorFragmentGroupName": "error_fragment_group_maintenance_total",
+      "accessibilityTextTypographyName": "footer-info-visible",
+      "accessibilityButtonName": "button-reveal-all"
     },
     {
       "name": "error_layout_maintenance_partial",
@@ -30,7 +36,9 @@
       "titleTypographyName": "title-maintenance",
       "subtitleTypographyName": "subtitle-404-500-maintenance-partial",
       "linkName": "link-cta-404-500-maintenance-partial",
-      "errorFragmentGroupName": "error_fragment_group_maintenance_partial"
+      "errorFragmentGroupName": "error_fragment_group_maintenance_partial",
+      "accessibilityTextTypographyName": "footer-info-visible",
+      "accessibilityButtonName": "button-reveal-all"
     }
   ]
 }

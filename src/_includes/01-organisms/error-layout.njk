@@ -87,22 +87,21 @@
                   }) }}
                 {% endif %}
               </div>
-              
               <div class="error-layout-accessibility flex items-center justify-center gap-4 mt-20 pointer-events-auto">
                 <div class="error-layout-accessibility-text inline-block opacity-70 hover:opacity-100 transition-opacity">
                   {{ renderTypography({ 
-                      name: "footer-info-visible",
+                      name: errorLayoutData.accessibilityTextTypographyName,
                       datas: option.typographyDatas
                   }) }}
                 </div>
-                <div class="error-layout-accessibility-button inline-block opacity-50 hover:opacity-100 transition-opacity">
+                <div class="error-layout-accessibility-button inline-block">
                   {{ renderButton({ 
-                      name: "button-reveal-all",
-                      datas: option.buttonDatas
+                      name: errorLayoutData.accessibilityButtonName,
+                      datas: option.buttonDatas,
+                      isErrorPage: true
                   }) }}
                 </div>
               </div>
-
             </div>
             
           </div>
