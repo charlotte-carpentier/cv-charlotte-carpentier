@@ -61,7 +61,7 @@
             </div>
             
             {# Triptych - Centered Absolutely #}
-            <div class="error-layout-triptych absolute inset-0 flex flex-col items-center justify-center gap-6 pointer-events-none">
+            <div class="error-layout-triptych absolute inset-0 flex flex-col items-center justify-center gap-6 pointer-events-none translate-y-1/6">
               <div class="error-layout-title text-center pointer-events-auto">
                 {{ renderTypography({ 
                     name: errorLayoutData.titleTypographyName,
@@ -87,6 +87,22 @@
                   }) }}
                 {% endif %}
               </div>
+              
+              <div class="error-layout-accessibility flex items-center justify-center gap-4 mt-20 pointer-events-auto">
+                <div class="error-layout-accessibility-text inline-block opacity-70 hover:opacity-100 transition-opacity">
+                  {{ renderTypography({ 
+                      name: "footer-info-visible",
+                      datas: option.typographyDatas
+                  }) }}
+                </div>
+                <div class="error-layout-accessibility-button inline-block opacity-50 hover:opacity-100 transition-opacity">
+                  {{ renderButton({ 
+                      name: "button-reveal-all",
+                      datas: option.buttonDatas
+                  }) }}
+                </div>
+              </div>
+
             </div>
             
           </div>
@@ -121,7 +137,22 @@
                   }) }}
                 {% endif %}
               </div>
-            </div>
+              
+<div class="error-layout-accessibility text-center mt-8">
+  <div class="error-layout-accessibility-text mb-4 opacity-70 hover:opacity-100 transition-opacity">
+    {{ renderTypography({ 
+        name: "footer-info-visible",
+        datas: option.typographyDatas
+    }) }}
+  </div>
+  <div class="error-layout-accessibility-button opacity-70 hover:opacity-100 transition-opacity">
+    {{ renderButton({ 
+        name: "button-reveal-all",
+        datas: option.buttonDatas
+    }) }}
+  </div>
+</div>
+
             
             {# Fragments 1-6 Vertically Stacked #}
             <div class="error-layout-fragments-mobile space-y-6 sm:space-y-8">

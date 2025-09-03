@@ -78,7 +78,7 @@
     },
     {
       "name": "external_instagram",
-      "href": "TODO: account pro",
+      "href": "#",
       "text": "Mon Instagram",
       "variant": "external",
       "target": "_blank",
@@ -91,7 +91,7 @@
       "variant": "external"
     },
     {
-      "name": "TODO: download_cv",
+      "name": "#",
       "href": "/assets/documents/charlotte-carpentier-cv.pdf",
       "text": "Télécharger mon CV",
       "variant": "external",
@@ -105,7 +105,7 @@
     },
     {
       "name": "link-cta-404-500-maintenance-partial",
-      "href": "javascript:void(0)",
+      "href": "#",
       "text": "Aller vers les pages disponibles",
       "variant": "external",
       "onclick": "goToPreviousPageOrHome()"
