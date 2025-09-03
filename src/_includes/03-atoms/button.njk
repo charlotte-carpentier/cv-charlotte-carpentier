@@ -32,6 +32,11 @@
       {# Prepare accessibility attributes - auto-use from buttonData #}
       {% set ariaLabel = option.ariaLabel or buttonData.ariaLabel or null %}
       {% set ariaDescribedby = option.ariaDescribedby or buttonData.ariaDescribedby or null %}
+      
+      {# Apply error-page-specific opacity and transitions for accessibility focus/hover #}
+      {% if option.isErrorPage %}
+        {% set cssClasses = cssClasses ~ ' opacity-50 hover:opacity-100 focus:opacity-100 transition-opacity' %}
+      {% endif %}
 
       {# Render the actual button element #}
       <button 
@@ -60,6 +65,13 @@
    {{ renderButton({ 
        name: "button_default",
        datas: atoms.button.buttons
+   }) }}
+
+3. Apply error-page-specific styling (opacity, hover/focus) only for buttons on error pages
+   {{ renderButton({ 
+       name: "button-reveal-all",
+       datas: option.buttonDatas,
+       isErrorPage: true
    }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
