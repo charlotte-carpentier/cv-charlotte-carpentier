@@ -1214,7 +1214,7 @@ body {
 /* ==========================================================================
    @ORGANISM - ERROR-LAYOUT
    - Halo reveal system using CSS mask
-   - Fixed halo for central triptych + mobile halo following mouse cursor
+   - Fixed halo for central triptych + mobile halo following scroll position
    ========================================================================== */
 
 /* Override body background for error page */
@@ -1236,19 +1236,22 @@ body:has(.error-layout--cross-layout) {
   }
 }
 
-/* Toggle class to disable mask and show all content */
-.error-layout--no-mask {
-  mask: none;
-  -webkit-mask: none;
-  background-color: theme(--cc-bg-light);
-}
-
-/* Mobile/Tablet layout (below lg) - Simple visible content */
+/* Mobile/Tablet layout (below lg) - SINGLE halo following scroll */
 @media (max-width: 1023px) {
   .error-layout--cross-layout {
-    background-color: theme(--cc-black);
-    color: theme(--cc-white);
+    background-color: theme(--cc-bg-light);
+    color: theme(--cc-black);
+    mask: radial-gradient(circle 300px at 50% var(--scroll-y, 20%), white 20%, rgba(255,255,255,0.8) 60%, transparent 100%);
+    -webkit-mask: radial-gradient(circle 300px at 50% var(--scroll-y, 20%), white 20%, rgba(255,255,255,0.8) 60%, transparent 100%);
   }
+}
+
+/* Toggle class to disable mask and show all content */
+.error-layout--no-mask {
+  mask: none !important;
+  -webkit-mask: none !important;
+  background-color: theme(--cc-bg-light);
+  color: theme(--cc-black);
 }
 
 /* Desktop cross layout specific styles */
@@ -1287,17 +1290,56 @@ body:has(.error-layout--cross-layout) {
   z-index: theme(--z-triptych);
 }
 
-/* Mobile scroll container */
+/* Mobile scroll container with reduced bottom padding */
 .error-layout-mobile {
   position: relative;
+  z-index: theme(--z-base);
+  padding-bottom: 2rem !important; /* Reduced from default padding */
 }
 
-/* Fragment mobile spacing */
+/* Fragment mobile spacing with proper z-index and initial state */
 .error-layout-fragment-mobile {
-  min-height: 100px;
+  min-height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: theme(--z-interactive);
+}
+
+.error-layout-fragment-placeholder {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  position: relative;
+  z-index: theme(--z-interactive);
+}
+
+/* Ensure fragment content is interactive on mobile */
+.error-layout-fragment-placeholder .error-fragment {
+  position: relative;
+  z-index: theme(--z-interactive);
+  pointer-events: auto;
+}
+
+/* Ensure all buttons and links inside fragments are clickable */
+.error-layout-fragment-placeholder button,
+.error-layout-fragment-placeholder a,
+.error-layout-fragment-placeholder [onclick] {
+  pointer-events: auto;
+  position: relative;
+  z-index: theme(--z-interactive);
+}
+
+/* Mobile triptych positioning and z-index */
+.error-layout-triptych-mobile {
+  position: relative;
+  z-index: theme(--z-triptych);
+}
+
+/* Accessibility section styling for mobile */
+.error-layout-accessibility {
+  position: relative;
+  z-index: theme(--z-triptych);
 }
 
 /* Smooth scrolling for mobile */
@@ -1312,6 +1354,10 @@ body:has(.error-layout--cross-layout) {
   .error-layout--cross-layout {
     mask: none;
     -webkit-mask: none;
+  }
+  
+  .error-layout-mobile {
+    scroll-behavior: auto;
   }
 }
 

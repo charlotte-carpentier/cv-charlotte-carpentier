@@ -3,22 +3,18 @@
    - Navigation functionality for fragment 6 (go back or home)
    - Click and keyboard navigation support
    - ARIA accessibility compliance
+   - Works on both desktop and mobile layouts
 =========================================================== */
 
 /**
  * Initialize error fragment group navigation functionality
  */
 function initErrorFragmentGroup() {
-  const errorFragmentGroups = document.querySelectorAll('.error-fragment-group--grid-2x3');
+  // Find ALL clickable fragments on the page (desktop AND mobile)
+  const clickableFragments = document.querySelectorAll('.error-fragment-clickable');
   
-  errorFragmentGroups.forEach(group => {
-    // Find the clickable fragment 6 wrapper
-    const clickableFragment = group.querySelector('.error-fragment-clickable');
-    
-    if (clickableFragment) {
-      // Make fragment 6 interactive
-      makeFragmentInteractive(clickableFragment);
-    }
+  clickableFragments.forEach(clickableFragment => {
+    makeFragmentInteractive(clickableFragment);
   });
 }
 
