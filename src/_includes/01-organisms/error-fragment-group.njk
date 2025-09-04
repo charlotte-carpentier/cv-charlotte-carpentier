@@ -35,14 +35,25 @@
             {% set isFragment6 = loop.index == 6 %}
             <div class="error-fragment-group-item flex items-center{% if isLeftColumn %} justify-start{% else %} justify-end{% endif %}">
               {% if isFragment6 %}
-                <div class="error-fragment-clickable" tabindex="0" role="button" aria-label="Retourner à la page précédente ou à l'accueil">
+                {% if errorFragmentGroupData.disableFragment6Click %}
                   {{ renderErrorFragment({ 
                       name: fragmentName,
                       datas: option.errorFragmentDatas,
                       iconDatas: option.iconDatas,
-                      typographyDatas: option.typographyDatas
+                      typographyDatas: option.typographyDatas,
+                      isClickable: false
                   }) }}
-                </div>
+                {% else %}
+                  <div class="error-fragment-clickable" tabindex="0" role="button" aria-label="Retourner à la page précédente ou à l'accueil">
+                    {{ renderErrorFragment({ 
+                        name: fragmentName,
+                        datas: option.errorFragmentDatas,
+                        iconDatas: option.iconDatas,
+                        typographyDatas: option.typographyDatas,
+                        isClickable: true
+                    }) }}
+                  </div>
+                {% endif %}
               {% else %}
                 {{ renderErrorFragment({ 
                     name: fragmentName,

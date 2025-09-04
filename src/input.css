@@ -1104,7 +1104,7 @@ body {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
-  z-index: theme(--z-interactive);
+  z-index: theme(--z-elevated);
 }
 
 /* Large desktop breakpoint - 1024px to 1279px */
@@ -1754,7 +1754,7 @@ body:has(.error-layout--cross-layout) {
 /* Caption width constraints */
 .skills-card .caption-container {
   width: 98px;
-  z-index: theme(--z-priority);
+  z-index: theme(--z-interactive);
 }
 
 .skills-card .caption-desktop {

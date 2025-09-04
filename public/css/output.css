@@ -2045,7 +2045,7 @@ body {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
-  z-index: 10;
+  z-index: 50;
 }
 @media (min-width: 1024px) and (max-width: 1279px) {
   .avatar-skills-avatar-desktop {
@@ -2478,7 +2478,7 @@ body:has(.error-layout--cross-layout) {
 }
 .skills-card .caption-container {
   width: 98px;
-  z-index: 100;
+  z-index: 10;
 }
 .skills-card .caption-desktop {
   width: 100%;
