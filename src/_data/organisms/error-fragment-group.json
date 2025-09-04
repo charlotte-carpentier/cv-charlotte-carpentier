@@ -27,6 +27,7 @@
     {
       "name": "error_fragment_group_maintenance_total",
       "variant": "grid-2x3",
+      "disableFragment6Click": true,
       "fragmentNames": [
         "fragment_maintenance_total_01",
         "fragment_maintenance_total_02",

@@ -2045,7 +2045,7 @@ body {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
-  z-index: 10;
+  z-index: 50;
 }
 @media (min-width: 1024px) and (max-width: 1279px) {
   .avatar-skills-avatar-desktop {
@@ -2128,8 +2128,8 @@ body:has(.error-layout--cross-layout) {
   .error-layout--cross-layout {
     background-color: #EBFFF0;
     color: #000000;
-    mask: radial-gradient(circle 400px at 50% 50%, white 40%, rgba(255,255,255,0.8) 70%, transparent 100%), radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), white 20%, rgba(255,255,255,0.7) 70%, transparent 100%);
-    -webkit-mask: radial-gradient(circle 400px at 50% 50%, white 40%, rgba(255,255,255,0.8) 70%, transparent 100%), radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), white 20%, rgba(255,255,255,0.7) 70%, transparent 100%);
+    mask: radial-gradient(circle 450px at 50% 50%, white 40%, rgba(255,255,255,0.8) 70%, transparent 100%), radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), white 20%, rgba(255,255,255,0.7) 70%, transparent 100%);
+    -webkit-mask: radial-gradient(circle 450px at 50% 50%, white 40%, rgba(255,255,255,0.8) 70%, transparent 100%), radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), white 20%, rgba(255,255,255,0.7) 70%, transparent 100%);
   }
 }
 @media (max-width: 1023px) {
@@ -2478,7 +2478,7 @@ body:has(.error-layout--cross-layout) {
 }
 .skills-card .caption-container {
   width: 98px;
-  z-index: 100;
+  z-index: 10;
 }
 .skills-card .caption-desktop {
   width: 100%;

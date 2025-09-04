@@ -1104,7 +1104,7 @@ body {
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
-  z-index: theme(--z-interactive);
+  z-index: theme(--z-elevated);
 }
 
 /* Large desktop breakpoint - 1024px to 1279px */
@@ -1228,10 +1228,10 @@ body:has(.error-layout--cross-layout) {
     background-color: theme(--cc-bg-light);
     color: theme(--cc-black);
     mask: 
-      radial-gradient(circle 400px at 50% 50%, white 40%, rgba(255,255,255,0.8) 70%, transparent 100%),
+      radial-gradient(circle 450px at 50% 50%, white 40%, rgba(255,255,255,0.8) 70%, transparent 100%),
       radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), white 20%, rgba(255,255,255,0.7) 70%, transparent 100%);
     -webkit-mask: 
-      radial-gradient(circle 400px at 50% 50%, white 40%, rgba(255,255,255,0.8) 70%, transparent 100%),
+      radial-gradient(circle 450px at 50% 50%, white 40%, rgba(255,255,255,0.8) 70%, transparent 100%),
       radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), white 20%, rgba(255,255,255,0.7) 70%, transparent 100%);
   }
 }
@@ -1754,7 +1754,7 @@ body:has(.error-layout--cross-layout) {
 /* Caption width constraints */
 .skills-card .caption-container {
   width: 98px;
-  z-index: theme(--z-priority);
+  z-index: theme(--z-interactive);
 }
 
 .skills-card .caption-desktop {

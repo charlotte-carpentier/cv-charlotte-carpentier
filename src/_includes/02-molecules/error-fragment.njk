@@ -15,7 +15,7 @@
     {# Retrieve error-fragment configuration #}
     {% set errorFragmentsConfig = option.datas %}
     {% set errorFragmentName = option.name %}
-    
+
     {# Find the specific error-fragment by name #}
     {% set errorFragmentData = null %}
     {% for errorFragment in errorFragmentsConfig %}
@@ -26,27 +26,36 @@
 
     {# Fallback if error-fragment not found #}
     {% if not errorFragmentData %}
-      <span class="text-red-500">Error-fragment not found: {{ errorFragmentName }}</span>
+      <span class="text-red-500">Error-fragment not found:
+        {{ errorFragmentName }}</span>
     {% else %}
       {# Render error-fragment molecule based on variant #}
+      {% if option.isClickable %}
+        <a href="{{ errorFragmentData.link | default('#') }}" class="error-fragment-link">
+      {% endif %}
+
       {% if errorFragmentData.variant == "icon" %}
         <div class="error-fragment error-fragment--{{ errorFragmentData.variant }}">
           <div class="error-fragment-icon">
             {{ renderIcon({ 
-                name: errorFragmentData.iconName,
-                datas: option.iconDatas
-            }) }}
+              name: errorFragmentData.iconName,
+              datas: option.iconDatas
+          }) }}
           </div>
         </div>
       {% elif errorFragmentData.variant == "text" %}
         <div class="error-fragment error-fragment--{{ errorFragmentData.variant }}">
           <div class="error-fragment-text">
             {{ renderTypography({ 
-                name: errorFragmentData.textTypographyName,
-                datas: option.typographyDatas
-            }) }}
+              name: errorFragmentData.textTypographyName,
+              datas: option.typographyDatas
+          }) }}
           </div>
         </div>
+      {% endif %}
+
+      {% if option.isClickable %}
+        </a>
       {% endif %}
     {% endif %}
   {% endif %}
@@ -63,7 +72,8 @@
     name: "fragment_404_01",
     datas: molecules["error-fragment"]["error-fragments"],
     iconDatas: atoms.icon.icons,
-    typographyDatas: atoms.typography.texts
+    typographyDatas: atoms.typography.texts,
+    isClickable: true
 }) }}
 
 May your bugs be forever exiled to the shadow realm. 🧙‍♂️✨
