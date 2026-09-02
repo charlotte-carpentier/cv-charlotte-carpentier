@@ -61,6 +61,22 @@
       "rel": "noopener noreferrer"
     },
     {
+      "name": "portfolio_facile_site",
+      "href": "https://federationfacile.org/",
+      "text": "Voir le site",
+      "variant": "portfolio-external",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "name": "portfolio_lacrique_site",
+      "href": "https://la-crique.com/",
+      "text": "Voir le site",
+      "variant": "portfolio-external",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
       "name": "external_github",
       "href": "https://github.com/charlotte-carpentier",
       "text": "Mon GitHub",

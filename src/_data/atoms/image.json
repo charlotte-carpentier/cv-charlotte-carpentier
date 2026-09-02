@@ -7,20 +7,20 @@
       "variant": "avatar-desktop"
     },
     {
-      "name": "avatar_tablet", 
+      "name": "avatar_tablet",
       "src": "/assets/images/avatar/avatar_charlotte_tablet.png",
       "alt": "Portrait de Charlotte Carpentier",
       "variant": "avatar-tablet"
     },
     {
       "name": "avatar_mobile",
-      "src": "/assets/images/avatar/avatar_charlotte_mobile.png", 
+      "src": "/assets/images/avatar/avatar_charlotte_mobile.png",
       "alt": "Portrait de Charlotte Carpentier",
       "variant": "avatar-mobile"
     },
     {
       "name": "mission_manautic",
-      "src": "/assets/images/missions/cap_manautic.png", 
+      "src": "/assets/images/missions/cap_manautic.png",
       "alt": "Capture d'écran du projet web M.A Nautic développé avec Eleventy et Decap CMS",
       "variant": "mission"
     },
@@ -28,6 +28,18 @@
       "name": "mission_tcsophro",
       "src": "/assets/images/missions/cap_tcsophro.png",
       "alt": "Capture d'écran du projet web Thomas C. Sophrologue développé avec Eleventy et Decap CMS",
+      "variant": "mission"
+    },
+    {
+      "name": "mission_facile",
+      "src": "/assets/images/missions/cap_facile.png",
+      "alt": "Capture d'écran du projet web fédération facile développé avec Eleventy et Decap CMS",
+      "variant": "mission"
+    },
+    {
+      "name": "mission_lacrique",
+      "src": "/assets/images/missions/cap_lacrique.png",
+      "alt": "Capture d'écran du projet web la crique développé avec Eleventy et Decap CMS",
       "variant": "mission"
     }
   ]
