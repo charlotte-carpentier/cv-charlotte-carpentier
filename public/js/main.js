@@ -20,4 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Header will be initialized by its own script
   console.log('Header organism script loaded separately');
+
+  // Open Axeptio cookie preferences
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('[data-action="open-cookies"]')) {
+      e.preventDefault();
+      if (typeof openAxeptioCookies === 'function') {
+        openAxeptioCookies();
+      }
+    }
+  });
 });
