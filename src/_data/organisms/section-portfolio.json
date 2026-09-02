@@ -8,8 +8,10 @@
       },
       "content": {
         "blocks": [
-          "mission_manautic",
-          "mission_tcsophro"
+          "mission_lacrique",
+          "mission_facile",
+          "mission_tcsophro",
+          "mission_manautic"
         ]
       }
     }
