@@ -7,7 +7,11 @@
       "datas": "atoms.typography.texts"
     },
     "legal_link": {
-      "name": "tab_legal", 
+      "name": "tab_legal",
+      "datas": "atoms.link.links"
+    },
+    "a11y_link": {
+      "name": "tab_a11y",
       "datas": "atoms.link.links"
     }
   }

@@ -29,7 +29,7 @@
       
       {# Render the footer #}
       <footer class="{{ cssClasses }} w-full bg-white box-border" role="contentinfo">
-        <div class="footer__content p-2 sm:p-2 flex items-center justify-center box-border">
+        <div class="footer__content p-2 sm:p-2 flex items-center justify-center gap-2 box-border">
           {# Copyright text #}
           <div class="footer__copyright whitespace-nowrap text-center">
             {{ renderTypography({ 
@@ -38,12 +38,31 @@
             }) }}
           </div>
           
-          {# Legal link #}
+                    {# Legal link #}
           <div class="footer__legal whitespace-nowrap text-center">
             {{ renderLink({ 
                 name: footerData.legal_link.name,
                 datas: option.linkDatas
             }) }}
+          </div>
+
+          {# Accessibility link #}
+          <div class="footer__a11y whitespace-nowrap text-center">
+            {{ renderLink({ 
+                name: footerData.a11y_link.name,
+                datas: option.linkDatas
+            }) }}
+          </div>
+
+          {# Cookie preferences - Axeptio #}
+          <div class="footer__cookies whitespace-nowrap text-center">
+            <a href="#"
+              class="link link--tab-white"
+              data-action="open-cookies"
+              aria-label="Modifier mes préférences cookies"
+            >
+              Cookies
+            </a>
           </div>
         </div>
       </footer>

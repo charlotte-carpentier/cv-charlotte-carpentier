@@ -1399,7 +1399,9 @@ body:has(.error-layout--cross-layout) {
   
   /* Text containers with baseline alignment */
   .footer--minimal .footer__copyright,
-  .footer--minimal .footer__legal {
+  .footer--minimal .footer__legal,
+  .footer--minimal .footer__a11y,
+  .footer--minimal .footer__cookies {
     line-height: 1;
     display: flex;
     align-items: baseline;
@@ -1444,9 +1446,20 @@ body:has(.error-layout--cross-layout) {
   .footer--minimal .footer__copyright a:hover,
   .footer--minimal .footer__copyright a:focus,
   .footer--minimal .footer__legal a:hover,
-  .footer--minimal .footer__legal a:focus {
+  .footer--minimal .footer__legal a:focus,
+  .footer--minimal .footer__a11y a:hover,
+  .footer--minimal .footer__a11y a:focus,
+  .footer--minimal .footer__cookies a:hover,
+  .footer--minimal .footer__cookies a:focus {
     color: theme(--cc-green-light);
     outline: none;
+  }
+
+  /* Decorative separator between footer links */
+  .footer--minimal .footer__content > div + div::before {
+    content: "•";
+    color: theme(--cc-white);
+    margin-right: 0.5rem;
   }
 
 /* ==========================================================================

@@ -120,6 +120,12 @@
       "variant": "tab-white"
     },
     {
+      "name": "tab_a11y",
+      "href": "#accessibilite",
+      "text": "Accessibilité",
+      "variant": "tab-white"
+    },
+    {
       "name": "link-cta-404-500-maintenance-partial",
       "href": "#",
       "text": "Aller vers les pages disponibles",

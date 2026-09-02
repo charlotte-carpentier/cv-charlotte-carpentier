@@ -2259,7 +2259,7 @@ body:has(.error-layout--cross-layout) {
     padding: 0.5rem;
   }
 }
-.footer--minimal .footer__copyright, .footer--minimal .footer__legal {
+.footer--minimal .footer__copyright, .footer--minimal .footer__legal, .footer--minimal .footer__a11y, .footer--minimal .footer__cookies {
   line-height: 1;
   display: flex;
   align-items: baseline;
@@ -2286,9 +2286,14 @@ body:has(.error-layout--cross-layout) {
   line-height: 1;
   vertical-align: baseline;
 }
-.footer--minimal .footer__text a:hover, .footer--minimal .footer__text a:focus, .footer--minimal .footer__copyright a:hover, .footer--minimal .footer__copyright a:focus, .footer--minimal .footer__legal a:hover, .footer--minimal .footer__legal a:focus {
+.footer--minimal .footer__text a:hover, .footer--minimal .footer__text a:focus, .footer--minimal .footer__copyright a:hover, .footer--minimal .footer__copyright a:focus, .footer--minimal .footer__legal a:hover, .footer--minimal .footer__legal a:focus, .footer--minimal .footer__a11y a:hover, .footer--minimal .footer__a11y a:focus, .footer--minimal .footer__cookies a:hover, .footer--minimal .footer__cookies a:focus {
   color: #c4ffcb;
   outline: none;
+}
+.footer--minimal .footer__content > div + div::before {
+  content: "•";
+  color: #ffffff;
+  margin-right: 0.5rem;
 }
 .header {
   position: relative;
