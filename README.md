@@ -1,6 +1,6 @@
-# 🎮 RPG-Style Resume — charlottecarpentier.com
+# 🎮 RPG-Style Resume - charlottecarpentier.com
 
-> ⚔️ A unique RPG-inspired personal website showcasing skills, experience, and projects —  
+> ⚔️ A unique RPG-inspired personal website showcasing skills, experience, and projects -  
 > built as a fast, modular static site with a simple CMS for easy content updates.
 
 ![Site preview](./public/assets/ui/preview.png)
@@ -9,7 +9,7 @@
 
 ## ✨ Overview
 
-This one-page site presents your professional journey like a character sheet, featuring:
+This one-page site presents my professional journey like a character sheet, featuring:
 
 - Soft and hard skills as “stats” and “abilities”  
 - Experience and education timelines  
@@ -23,11 +23,11 @@ Designed to stand out and make an impression while keeping the code clean, light
 
 ## 🛠️ Tech Stack
 
-- **Eleventy (11ty)** — static site generator  
-- **Nunjucks** — templating engine  
-- **Tailwind CSS v4** — single `input.css` file setup  
-- **Decap CMS** — content management without a database  
-- **Netlify** — deployment platform
+- **Eleventy (11ty)** - static site generator  
+- **Nunjucks** - templating engine  
+- **Tailwind CSS v4** - single `input.css` file setup  
+- **Decap CMS** - content management without a database  
+- **Netlify** - deployment platform
 
 ---
 
@@ -46,13 +46,13 @@ Designed to stand out and make an impression while keeping the code clean, light
 
 ## 📁 Project Structure
 
-* `src/` — source files
+* `src/` - source files
 
-  * `_data/`, `_includes/`, `js/` — organized by **OMA** (Organism, Molecule, Atom) methodology
-  * `input.css` — Tailwind CSS main config
-  * `admin/` — Decap CMS files
-* `public/` — generated site files
-* `.eleventy.js` — Eleventy config
+  * `_data/`, `_includes/`, `js/` - organized by **OMA** (Organism, Molecule, Atom) methodology
+  * `input.css` - Tailwind CSS main config
+  * `admin/` - Decap CMS files
+* `public/` - generated site files
+* `.eleventy.js` - Eleventy config
 * `robots.txt`, `sitemap.xml`, `LICENSE`, `README.md`
 
 ---
@@ -77,7 +77,7 @@ allowing easy updates without a database and with automatic Git versioning.
 
 ## 📬 Contact & License
 
-* Developed by Charlotte Carpentier — [carpentier.dev@gmail.com](mailto:carpentier.dev@gmail.com)
+* Developed by Charlotte Carpentier - [carpentier.dev@gmail.com](mailto:carpentier.dev@gmail.com)
 * Licensed under MIT
   ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
