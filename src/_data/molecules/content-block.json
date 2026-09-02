@@ -208,6 +208,54 @@
       "variant": "text",
       "textTypographyName": "thanks_message",
       "textColor": "black"
+    },
+    {
+      "name": "a11y_status_title",
+      "variant": "text",
+      "textTypographyName": "a11y_subtitle_1",
+      "textColor": "black"
+    },
+    {
+      "name": "a11y_status_content",
+      "variant": "text",
+      "textTypographyName": "a11y_paragraph_1",
+      "textColor": "black"
+    },
+    {
+      "name": "a11y_progress_title",
+      "variant": "text",
+      "textTypographyName": "a11y_subtitle_2",
+      "textColor": "black"
+    },
+    {
+      "name": "a11y_progress_content",
+      "variant": "text",
+      "textTypographyName": "a11y_paragraph_2",
+      "textColor": "black"
+    },
+    {
+      "name": "a11y_contact_title",
+      "variant": "text",
+      "textTypographyName": "a11y_subtitle_3",
+      "textColor": "black"
+    },
+    {
+      "name": "a11y_contact_content",
+      "variant": "text",
+      "textTypographyName": "a11y_paragraph_3",
+      "textColor": "black"
+    },
+    {
+      "name": "a11y_recourse_title",
+      "variant": "text",
+      "textTypographyName": "a11y_subtitle_4",
+      "textColor": "black"
+    },
+    {
+      "name": "a11y_recourse_content",
+      "variant": "text",
+      "textTypographyName": "a11y_paragraph_4",
+      "textColor": "black"
     }
   ]
 }

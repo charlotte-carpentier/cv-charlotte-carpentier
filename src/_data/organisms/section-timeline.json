@@ -80,6 +80,25 @@
       }
     },
     {
+      "name": "charlotte_a11y",
+      "id": "accessibilite",
+      "header": {
+        "title": "a11y_title"
+      },
+      "content": {
+        "blocks": [
+          "a11y_status_title",
+          "a11y_status_content",
+          "a11y_progress_title",
+          "a11y_progress_content",
+          "a11y_contact_title",
+          "a11y_contact_content",
+          "a11y_recourse_title",
+          "a11y_recourse_content"
+        ]
+      }
+    },
+    {
       "name": "charlotte_thanks",
       "id": "message",
       "header": {
