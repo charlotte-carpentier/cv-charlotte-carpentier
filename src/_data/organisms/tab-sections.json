@@ -11,7 +11,7 @@
           "name": "charlotte_missions"
         },
         {
-          "type": "timeline", 
+          "type": "timeline",
           "name": "charlotte_profile"
         },
         {
@@ -29,6 +29,10 @@
         {
           "type": "timeline",
           "name": "charlotte_legal"
+        },
+        {
+          "type": "timeline",
+          "name": "charlotte_a11y"
         }
       ]
     }

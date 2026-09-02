@@ -162,6 +162,22 @@
                     class: "tab-section-content"
                 }) }}
               </div>
+
+              {# Accessibility #}
+              <div class="tab-section-item" id="accessibilite" role="tabpanel" tabindex="0" aria-labelledby="tab-a11y">
+                {{ renderSectionTimeline({ 
+                    name: "charlotte_a11y",
+                    datas: option.timelineDatas,
+                    typographyDatas: option.typographyDatas,
+                    contentBlockDatas: option.contentBlockDatas,
+                    progressBarDatas: option.progressBarDatas,
+                    imageDatas: option.imageDatas,
+                    buttonDatas: option.buttonDatas,
+                    linkDatas: option.linkDatas,
+                    iconDatas: option.iconDatas,
+                    class: "tab-section-content"
+                }) }}
+              </div>
               
             </div>
           </div>

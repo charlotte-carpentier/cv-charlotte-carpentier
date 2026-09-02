@@ -363,6 +363,60 @@
       "variant": "p"
     },
     {
+      "name": "a11y_title",
+      "text": "Déclaration d'accessibilité",
+      "tag": "h2",
+      "variant": "h2"
+    },
+    {
+      "name": "a11y_subtitle_1",
+      "text": "État de conformité",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "a11y_paragraph_1",
+      "text": "Ce site n'est actuellement pas conforme au RGAA (référentiel général d'amélioration de l'accessibilité). Un audit complet n'a pas encore été réalisé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "a11y_subtitle_2",
+      "text": "Démarche en cours",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "a11y_paragraph_2",
+      "text": "Ce site a été développé avant la création de mon système de composants HAT (Lighthouse 100/100, WCAG 2.2 AA), utilisé sur mes projets clients récents. Une mise en conformité du site personnel est prévue.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "a11y_subtitle_3",
+      "text": "Retour d'information et contact",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "a11y_paragraph_3",
+      "text": "Si vous rencontrez un obstacle d'accessibilité sur ce site, vous pouvez me contacter : <a href=\"mailto:carpentier.dev@gmail.com\">carpentier.dev@gmail.com</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "a11y_subtitle_4",
+      "text": "Voies de recours",
+      "tag": "p",
+      "variant": "code"
+    },
+    {
+      "name": "a11y_paragraph_4",
+      "text": "Si vous n'obtenez pas de réponse satisfaisante, vous pouvez contacter le Défenseur des droits via le <a href=\"https://formulaire.defenseurdesdroits.fr\" target=\"_blank\">formulaire en ligne</a>, par courrier gratuit (Défenseur des droits - Libre réponse 71120 - 75342 Paris CEDEX 07), ou en contactant votre délégué territorial.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
       "name": "languages_title",
       "text": "Langages",
       "tag": "h2",
