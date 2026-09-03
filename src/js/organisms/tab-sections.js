@@ -95,11 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup ARIA attributes for sections
   function setupSectionAria() {
     const { allSections } = getSelectors();
+    const excludedFromTabRole = ['legal', 'accessibilite'];
     
     document.querySelectorAll(allSections).forEach(section => {
-      section.setAttribute('role', 'tabpanel');
       section.setAttribute('tabindex', '0');
-      section.setAttribute('aria-labelledby', `tab-${section.id}`);
+      if (!excludedFromTabRole.includes(section.id)) {
+        section.setAttribute('role', 'tabpanel');
+        section.setAttribute('aria-labelledby', `tab-${section.id}`);
+      }
     });
   }
 
