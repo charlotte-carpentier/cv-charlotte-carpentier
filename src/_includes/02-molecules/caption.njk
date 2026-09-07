@@ -60,9 +60,9 @@
           {{ renderIcon({ 
             name: captionData.iconName,
             datas: option.iconDatas,
-            class: "caption-icon-desktop caption-gradient-" ~ captionData.gradientColor
+            class: "caption-icon-desktop caption-gradient-" ~ captionData.gradientColor,
+            decorative: true
           }) }}
-          
           {# Title - Typography classes with proper text #}
           <div class="caption-title-desktop text-small">{{ typographyData.text if typographyData else captionData.name }}</div>
           
@@ -84,7 +84,8 @@
           {{ renderIcon({ 
             name: captionData.iconName,
             datas: option.iconDatas,
-            class: "caption-icon-mobile caption-gradient-" ~ captionData.gradientColor
+            class: "caption-icon-mobile caption-gradient-" ~ captionData.gradientColor,
+            decorative: true
           }) }}
           
           {# Content container (label + description stacked) #}
