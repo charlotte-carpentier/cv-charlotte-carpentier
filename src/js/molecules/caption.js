@@ -10,12 +10,21 @@
  * Initialize tooltips for desktop devices only (lg: 1024px+)
  */
 function initTooltips() {
-  // Only initialize on desktop devices
-  if (window.innerWidth < 1024) return;
-  
   const captionContainers = document.querySelectorAll('.caption-container');
   
+  // Below desktop: tooltip content is always visible, so remove from tab order
+  if (window.innerWidth < 1024) {
+    captionContainers.forEach(container => container.setAttribute('tabindex', '-1'));
+    return;
+  }
+  
   captionContainers.forEach(container => {
+    container.setAttribute('tabindex', '0');
+    
+    // Prevent duplicate listeners on repeated resize calls
+    if (container.hasAttribute('data-tooltip-initialized')) return;
+    container.setAttribute('data-tooltip-initialized', 'true');
+    
     const tooltip = container.querySelector('.tooltip-popup');
     if (!tooltip) return;
     
@@ -38,6 +47,18 @@ function initTooltips() {
       container.addEventListener('mousemove', (e) => {
         if (tooltip.style.opacity === '1') {
           trackCursorForAvatarTooltip(tooltip, e);
+        }
+      });
+      
+      // Keyboard accessibility - show on focus, hide on blur (WCAG SC 1.4.13)
+      container.addEventListener('focus', () => showTooltip(tooltip, container));
+      container.addEventListener('blur', () => hideTooltip(tooltip));
+      
+      // Keyboard accessibility - close on Escape key
+      container.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          hideTooltip(tooltip);
+          container.blur();
         }
       });
     } else {
@@ -94,7 +115,7 @@ function trackCursorForAvatarTooltip(tooltip, event) {
 }
 
 // Cache for DOM measurements to avoid repeated getBoundingClientRect calls
-const positionCache = new WeakMap();
+let positionCache = new WeakMap();
 
 /**
  * Show tooltip with smart positioning for desktop only
@@ -226,13 +247,12 @@ function handleTooltipResize() {
   // Hide any open tooltips
   hideAllTooltips();
   
-  // Clear position cache
-  positionCache.clear();
+  // Reset position cache (WeakMap has no .clear(), reassign instead)
+  positionCache = new WeakMap();
   
-  // Reinitialize if now on desktop, cleanup if on mobile/tablet
-  if (window.innerWidth >= 1024) {
-    initTooltips();
-  }
+  // Always reinitialize: sets tabindex correctly for current viewport,
+  // guarded internally against duplicate listener attachment
+  initTooltips();
 }
 
 /**
@@ -242,8 +262,8 @@ function handleTooltipScroll() {
   // Hide any open tooltips when scrolling
   hideAllTooltips();
   
-  // Clear position cache as positions may have changed
-  positionCache.clear();
+  // Reset position cache as positions may have changed
+  positionCache = new WeakMap();
 }
 
 // =========================

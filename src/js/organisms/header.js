@@ -69,9 +69,49 @@
                 mobileOverlay.style.transform = 'translateY(0)';
                 mobileOverlay.style.zIndex = '50';
                 document.body.style.overflow = 'hidden';
+                
+                // Trap focus inside menu (WAI-ARIA APG dialog pattern)
+                trapFocus(mobileOverlay);
+                
+                // Move focus to first link in menu
+                const firstLink = mobileOverlay.querySelector('.link--tab');
+                if (firstLink) firstLink.focus();
             } else {
                 // Hide overlay
                 closeMobileMenu();
+            }
+        }
+        
+        // Trap focus within an element (WAI-ARIA APG dialog pattern)
+        let trapFocusHandler = null;
+        function trapFocus(container) {
+            const focusableSelector = 'a[href], button:not([disabled])';
+            
+            trapFocusHandler = function(e) {
+                if (e.key !== 'Tab') return;
+                
+                const focusable = Array.from(container.querySelectorAll(focusableSelector));
+                if (focusable.length === 0) return;
+                
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            };
+            
+            document.addEventListener('keydown', trapFocusHandler);
+        }
+        
+        function releaseFocusTrap() {
+            if (trapFocusHandler) {
+                document.removeEventListener('keydown', trapFocusHandler);
+                trapFocusHandler = null;
             }
         }
         
@@ -90,6 +130,12 @@
             mobileOverlay.style.transform = 'translateY(-5px)';
             mobileOverlay.style.zIndex = '1';
             document.body.style.overflow = '';
+            
+            // Release focus trap
+            releaseFocusTrap();
+            
+            // Return focus to trigger button (WAI-ARIA APG dialog pattern)
+            burgerToggle.focus();
         }
         
         // Handle window resize
@@ -105,6 +151,18 @@
             if (window.innerWidth >= 1025) {
                 closeMobileMenu();
             }
+        }
+        
+        // Update current state on mobile menu links (separated from tab-sections system)
+        function updateMobileMenuCurrentState() {
+            const currentHash = window.location.hash || '#portfolio';
+            const mobileLinks = mobileOverlay.querySelectorAll('.link--tab');
+            
+            mobileLinks.forEach(link => {
+                const isActive = link.getAttribute('href') === currentHash;
+                link.classList.toggle('current', isActive);
+                link.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
         }
         
         // Initialize styles
@@ -138,6 +196,10 @@
         
         // Handle resize
         window.addEventListener('resize', handleResize);
+        
+        // Update current state on load and hash change
+        updateMobileMenuCurrentState();
+        window.addEventListener('hashchange', updateMobileMenuCurrentState);
     }
     
     // FIXED: Enhanced contact link active state management

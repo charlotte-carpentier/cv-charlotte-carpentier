@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return {
       allSections: `${prefix}.tab-section-item`,
-      navLinks: `${prefix}.header-navigation .link--nav, ${prefix}.header-mobile-overlay .link--tab, ${prefix}.tab-menu .link--tab, #mobile-overlay .link--tab`,
+      navLinks: `${prefix}.header-navigation .link--nav, ${prefix}.tab-menu .link--tab`,
       contentContainer: `${prefix}.tab-sections-content`,
       scrollCursor: `${prefix}.tab-sections-scroll-cursor`,
       scrollThumb: `${prefix}#scroll-cursor-thumb`,
@@ -95,11 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup ARIA attributes for sections
   function setupSectionAria() {
     const { allSections } = getSelectors();
+    const excludedFromTabRole = ['legal', 'accessibilite'];
     
     document.querySelectorAll(allSections).forEach(section => {
-      section.setAttribute('role', 'tabpanel');
-      section.setAttribute('tabindex', '0');
-      section.setAttribute('aria-labelledby', `tab-${section.id}`);
+      section.setAttribute('tabindex', '-1');
+      if (!excludedFromTabRole.includes(section.id)) {
+        section.setAttribute('role', 'tabpanel');
+        section.setAttribute('aria-labelledby', `tab-${section.id}`);
+      }
     });
   }
 
@@ -145,15 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Focus management and announcement
+    // Announcement for screen readers
     if (activeSection) {
-      // Announce to screen readers
       announceSection(activeSection.id);
-      
-      // Focus without scroll for keyboard users
-      setTimeout(() => {
-        activeSection.focus({ preventScroll: true });
-      }, 100);
     }
 
     // Update scroll cursor after section change
@@ -313,16 +310,6 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
     });
 
-    // Focus management
-    thumbEl.addEventListener('focus', () => {
-      thumbEl.style.outline = '2px solid #4a7c59';
-      thumbEl.style.outlineOffset = '2px';
-    });
-
-    thumbEl.addEventListener('blur', () => {
-      thumbEl.style.outline = 'none';
-    });
-
     // Listen to content scroll (without conflict with drag)
     contentEl.addEventListener('scroll', () => {
       if (!isDragging) { // Only if not dragging
@@ -372,6 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleResize() {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
+      setupTabAria();
       updateCurrentLinks();
       updateSections();
     }, 150);

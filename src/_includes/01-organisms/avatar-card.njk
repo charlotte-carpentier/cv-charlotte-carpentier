@@ -36,14 +36,14 @@
         {# Desktop version: Avatar with tooltip on hover with absolute positioning in wrapper #}
         <div class="avatar-card-desktop avatar-skills-avatar-desktop hidden lg:block">
           <div class="w-fit lg:mx-auto xl:mx-0">
-            <div class="caption-container avatar-tooltip-container cursor-default" data-tooltip="avatar_desktop" tabindex="0" role="button" aria-describedby="tooltip-avatar-desktop" aria-label="View avatar details">
+            <div class="caption-container avatar-tooltip-container focus-ring cursor-default" data-tooltip="avatar_desktop" tabindex="0" role="button" aria-describedby="tooltip-avatar-desktop" aria-label="View avatar details">
               {{ renderImage({ 
                 name: avatar_card_data.avatar_desktop,
                 datas: option.image_datas
               }) }}
               
               {# Tooltip popup #}
-              <div class="tooltip-popup fixed opacity-0 invisible pointer-events-none transition-opacity duration-300 sm:opacity-0 sm:visible" id="tooltip-avatar-desktop" role="tooltip" aria-hidden="true">
+              <div class="tooltip-popup" id="tooltip-avatar-desktop" role="tooltip" aria-hidden="true">
                 {{ renderTooltip({ 
                   name: "avatar_desktop",
                   datas: option.tooltip_datas

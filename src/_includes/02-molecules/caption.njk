@@ -49,7 +49,7 @@
       {% set tooltipId = "tooltip-" ~ captionData.name ~ "-" ~ loop.index0 if loop.index0 is defined else "tooltip-" ~ captionData.name %}
       
       {# Caption container with tooltip logic and ARIA attributes #}
-      <div class="caption-container relative inline-block" 
+      <div class="caption-container focus-ring relative inline-block" 
            data-tooltip="{{ captionData.name }}" 
            tabindex="0"
            aria-describedby="{{ tooltipId }}">
