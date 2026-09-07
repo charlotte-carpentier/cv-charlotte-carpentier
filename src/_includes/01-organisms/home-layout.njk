@@ -22,7 +22,7 @@
          SM LAYOUT - Mobile First (640px and below) ✅ VALIDÉ
          Structure: Avatar → Skills → Tab-sections (skills hidden by default)
          =================================================================== #}
-      <div class="home-layout__sm block sm:hidden min-h-0 h-auto" data-breakpoint="sm" aria-hidden="false">
+      <div class="home-layout__sm block sm:hidden min-h-0 h-auto" data-breakpoint="sm">
 
         {# Avatar Section #}
         <section class="home-layout__avatar mb-4 h-auto pt-8" aria-label="Avatar">
@@ -104,7 +104,7 @@
          MD LAYOUT - Tablet (640px to 1023px) ✅ VALIDÉ - CSS INLINE SUPPRIMÉ
          Structure: Avatar → Tab-sections → Skills (toujours visible)
          =================================================================== #}
-      <div class="home-layout__md hidden sm:block lg:hidden min-h-0 h-auto" data-breakpoint="md" aria-hidden="true">
+      <div class="home-layout__md hidden sm:block lg:hidden min-h-0 h-auto" data-breakpoint="md">
 
         {# Avatar Section #}
         <section class="home-layout__avatar mb-4 h-auto pt-8" aria-label="Avatar">
@@ -188,7 +188,7 @@
          LG LAYOUT - Desktop Large (1024px to 1279px)
          Structure: Skills avec Avatar superposé + Tab-sections en dessous
          =================================================================== #}
-      <div class="home-layout__lg hidden lg:block xl:hidden min-h-0 h-auto" data-breakpoint="lg" aria-hidden="true">
+      <div class="home-layout__lg hidden lg:block xl:hidden min-h-0 h-auto" data-breakpoint="lg">
 
         {# Skills + Avatar Container - Renommé pour plus de clarté #}
         <div class="home-layout__skills-container relative flex justify-center items-center h-auto pt-8 pb-4">
@@ -279,7 +279,7 @@
          XL LAYOUT - Large Desktop (1280px and above) ✅ CORRIGÉ
          Structure: Flexbox 2 colonnes - Tab-sections (30%) + Skills/Avatar (70%)
          =================================================================== #}
-      <div class="home-layout__xl hidden xl:flex xl:w-full xl:gap-8 xl:h-fit xl:max-h-[800px] xl:py-8 xl:justify-center" data-breakpoint="xl" aria-hidden="true">
+      <div class="home-layout__xl hidden xl:flex xl:w-full xl:gap-8 xl:h-fit xl:max-h-[800px] xl:py-8 xl:justify-center" data-breakpoint="xl">
 
         {# Tab-sections (30%) - Prend 30% de l'espace disponible #}
         <section class="home-layout__tabs xl:w-fit xl:flex-shrink-0 xl:min-w-0 xl:max-h-[800px] xl:overflow-hidden" aria-label="Contenu principal">

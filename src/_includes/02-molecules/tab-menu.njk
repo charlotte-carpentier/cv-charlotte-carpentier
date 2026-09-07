@@ -28,11 +28,11 @@
       <span class="sr-only">Navigation menu not available</span>
     {% else %}
       {# Tab menu container #}
-      <nav class="tab-menu relative" aria-label="Navigation principale">
+      <nav class="tab-menu relative" role="presentation">
         
         {# Desktop Navigation #}
-        <div class="tab-menu-desktop hidden sm:block pt-4 pb-0 md:mt-16 xl:mt-0 xl:pt-3">
-          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0" role="menubar">
+        <div class="tab-menu-desktop hidden sm:block pt-4 pb-0 md:mt-16 xl:mt-0 xl:pt-3" role="presentation">
+          <ul class="flex flex-row justify-center items-center gap-8 list-none m-0 p-0" role="presentation">
             {% for linkName in tabMenuData.desktop_links %}
               <li class="m-0" role="none">
                 {{ renderLink({ 
@@ -45,8 +45,8 @@
         </div>
         
         {# Mobile Navigation #}
-        <div class="tab-menu-mobile block sm:hidden">
-          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center" role="menubar">
+        <div class="tab-menu-mobile block sm:hidden" role="presentation">
+          <ul class="mobile-menu-list list-none m-0 p-8 flex flex-col gap-6 items-center" role="presentation">
             {% for linkName in tabMenuData.mobile_links %}
               <li class="m-0" role="none">
                 {{ renderLink({ 

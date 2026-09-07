@@ -81,7 +81,7 @@
     {
       "name": "journey_1",
       "text": "depuis<br>2023",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -99,7 +99,7 @@
     {
       "name": "journey_2",
       "text": "2024<br>2015",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -117,7 +117,7 @@
     {
       "name": "journey_3",
       "text": "2014<br>2012",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -153,7 +153,7 @@
     {
       "name": "knowledge_1",
       "text": "2023",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -171,7 +171,7 @@
     {
       "name": "knowledge_2",
       "text": "2014",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -189,7 +189,7 @@
     {
       "name": "knowledge_3",
       "text": "2012",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -207,7 +207,7 @@
     {
       "name": "knowledge_4",
       "text": "2009",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
