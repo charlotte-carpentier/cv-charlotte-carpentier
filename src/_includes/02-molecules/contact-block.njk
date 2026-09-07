@@ -55,7 +55,7 @@
 
             {# Render as link or static content #}
             {% if linkHref %}
-              <a href="{{ linkHref }}" class="contact-link flex items-center justify-start gap-2 sm:gap-1 no-underline text-inherit hover:text-cc-green-dark transition-colors duration-200" aria-label="{{ ariaLabel }}">
+              <a href="{{ linkHref }}" class="contact-link focus-ring flex items-center justify-start gap-2 sm:gap-1 no-underline text-inherit hover:text-cc-green-dark transition-colors duration-200" aria-label="{{ ariaLabel }}">
                 {# Icon #}
                 <div class="contact-icon flex-shrink-0 flex items-center">
                   {{ renderIcon({ 

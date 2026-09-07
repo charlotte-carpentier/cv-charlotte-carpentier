@@ -1,0 +1,73 @@
+/* ┌─────────────────────────────────────────────────────────┐
+   │ UTILS › Accessibility                                   │
+   │ Shared accessibility utilities for interactive elements │
+   └─────────────────────────────────────────────────────────┘ */
+
+/*
+ * @fileoverview Accessibility utilities - Tailwind v4 @utility syntax
+ *
+ * Two variants:
+ *   focus-ring      => all interactive controls (button, link, tag, checkbox, radio, input, select, vector)
+ *   peer-focus-ring => toggle track only (focus relayed via peer mechanism - input is sr-only)
+ *
+ * @wcag SC 2.4.7 Focus Visible (AA) · SC 2.4.11 Focus Appearance (AA, WCAG 2.2)
+ */
+
+@utility focus-ring {
+  @apply focus-visible:outline-none
+         focus-visible:[outline:var(--focus-ring-width)_solid_var(--focus-ring-color-inner)]
+         focus-visible:[outline-offset:var(--focus-ring-offset)]
+         focus-visible:[box-shadow:0_0_0_calc(var(--focus-ring-offset)+var(--focus-ring-width))_var(--focus-ring-color-outer)];
+}
+
+@utility peer-focus-ring {
+  @apply peer-focus-visible:outline-none
+         peer-focus-visible:[outline:var(--focus-ring-width)_solid_var(--focus-ring-color-inner)]
+         peer-focus-visible:[outline-offset:var(--focus-ring-offset)]
+         peer-focus-visible:[box-shadow:0_0_0_calc(var(--focus-ring-offset)+var(--focus-ring-width))_var(--focus-ring-color-outer)];
+}
+
+@media (forced-colors: active) {
+  .focus-ring:focus-visible,
+  .peer-focus-ring:focus-visible {
+    outline-color: CanvasText;
+  }
+}
+
+/* Skip link - WCAG 2.4.1 Bypass Blocks (SC A)
+   Component CSS - not a reusable utility, plain class */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--spacing-ui-default);
+  z-index: var(--z-notification);
+  padding: var(--spacing-ui-minimal) var(--spacing-ui-default);
+  background: var(--color-global-white);
+  color: var(--color-global-default);
+  border-radius: var(--radius-default);
+  box-shadow: var(--elevation-floating);
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  top: var(--spacing-ui-default);
+}
+
+/* External links - WCAG SC 3.2.2 On Input */
+[data-external="true"]::after {
+  content: " (ouvre un nouvel onglet)";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   May your bugs be forever exiled to the shadow realm ✦
+   HAT · 2026
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */

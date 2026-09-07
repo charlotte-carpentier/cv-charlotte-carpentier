@@ -39,7 +39,7 @@
       <div class="skills-card skills-card--{{ skillsCardData.theme }} skills-card-container relative w-[313px] mx-auto sm:block sm:w-full sm:max-w-80 sm:m-0 sm:p-3 sm:box-border lg:block lg:w-full lg:m-0 lg:p-0" data-skills="{{ skillsCardData.name }}" role="region" aria-labelledby="skills-{{ skillsCardData.name }}-title">
         
         {# Close button - Mobile only - Accessible #}
-        <button class="skills-card-close absolute top-2 right-2 w-8 h-8 cursor-pointer hidden border-none bg-transparent p-0" aria-label="Fermer {{ skillsCardData.title }}">
+        <button class="skills-card-close focus-ring absolute top-2 right-2 w-8 h-8 cursor-pointer hidden border-none bg-transparent p-0" aria-label="Fermer {{ skillsCardData.title }}">
           {{ renderIcon({ 
             name: "burger_x",
             datas: option.icon_datas,

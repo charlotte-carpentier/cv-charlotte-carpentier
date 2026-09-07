@@ -40,7 +40,7 @@
             type="{{ inputData.type }}"
             id="{{ inputData.id }}"
             name="{{ inputData.name or inputData.id }}"
-            class="input-base input-default input-hover input-focus w-full sm:w-80 px-2 py-3 border-2 border-solid rounded focus:outline-none transition-colors duration-300 leading-tight"
+            class="input-base input-default input-hover input-focus focus-ring w-full sm:w-80 px-2 py-3 border-2 border-solid rounded-none transition-colors duration-300 leading-tight"
             placeholder="{{ inputData.placeholder }}"
             {% if inputData.required %}required{% endif %}
             {% if inputData.maxLength %}maxlength="{{ inputData.maxLength }}"{% endif %}
@@ -54,7 +54,7 @@
           <textarea 
             id="{{ inputData.id }}"
             name="{{ inputData.name or inputData.id }}"
-            class="input-base input-default input-hover input-focus w-full sm:w-80 px-2 py-3 border-2 border-solid rounded focus:outline-none transition-colors duration-300 leading-snug resize-y min-h-20"
+            class="input-base input-default input-hover input-focus focus-ring w-full sm:w-80 px-2 py-3 border-2 border-solid rounded-none transition-colors duration-300 leading-snug resize-y min-h-20"h-20"
             placeholder="{{ inputData.placeholder }}"
             rows="{{ inputData.rows or 3 }}"
             {% if inputData.required %}required{% endif %}

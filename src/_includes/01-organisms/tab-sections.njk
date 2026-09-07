@@ -29,7 +29,7 @@
       <div class="tab-sections w-full" id="main-tab-sections">
         
         {# Desktop/tablet navigation #}
-        <div class="tab-sections-navigation hidden sm:block lg:-ml-8 xl:-ml-8" role="tablist" aria-label="Navigation sections">
+        <div class="tab-sections-navigation hidden sm:block lg:-ml-10 xl:-ml-10" role="tablist" aria-label="Navigation sections">
           {{ renderTabMenu({ 
               name: tabSectionsData.navigation.menu,
               datas: option.tabMenuDatas,
@@ -53,7 +53,7 @@
             <div class="tab-sections-sections">
               
               {# Portfolio - default #}
-              <div class="tab-section-item" id="portfolio" data-default="true" role="tabpanel" tabindex="0" aria-labelledby="tab-portfolio">
+              <div class="tab-section-item" id="portfolio" data-default="true" role="tabpanel" tabindex="-1" aria-labelledby="tab-portfolio">
                 {{ renderSectionPortfolio({ 
                     name: "charlotte_missions",
                     datas: option.portfolioDatas,
@@ -67,7 +67,7 @@
               </div>
               
               {# Profile #}
-              <div class="tab-section-item" id="profile" role="tabpanel" tabindex="0" aria-labelledby="tab-profile">
+              <div class="tab-section-item" id="profile" role="tabpanel" tabindex="-1" aria-labelledby="tab-profile">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_profile",
                     datas: option.timelineDatas,
@@ -83,7 +83,7 @@
               </div>
               
               {# Journey #}
-              <div class="tab-section-item" id="journey" role="tabpanel" tabindex="0" aria-labelledby="tab-journey">
+              <div class="tab-section-item" id="journey" role="tabpanel" tabindex="-1" aria-labelledby="tab-journey">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_journey",
                     datas: option.timelineDatas,
@@ -99,7 +99,7 @@
               </div>
               
               {# Knowledge #}
-              <div class="tab-section-item" id="knowledge" role="tabpanel" tabindex="0" aria-labelledby="tab-knowledge">
+              <div class="tab-section-item" id="knowledge" role="tabpanel" tabindex="-1" aria-labelledby="tab-knowledge">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_knowledge",
                     datas: option.timelineDatas,
@@ -115,7 +115,7 @@
               </div>
               
               {# Contact #}
-              <div class="tab-section-item" id="contact" role="tabpanel" tabindex="0" aria-labelledby="tab-contact">
+              <div class="tab-section-item" id="contact" role="tabpanel" tabindex="-1" aria-labelledby="tab-contact">
                 {{ renderSectionContact({ 
                     name: "charlotte_contact",
                     datas: option.contactDatas,
@@ -132,7 +132,7 @@
               </div>
               
               {# Thanks section #}
-              <div class="tab-section-item" id="message" role="tabpanel" tabindex="0" aria-labelledby="tab-message">
+              <div class="tab-section-item" id="message" role="tabpanel" tabindex="-1" aria-labelledby="tab-message">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_thanks",
                     datas: option.timelineDatas,
@@ -148,7 +148,7 @@
               </div>
               
               {# Legal #}
-              <div class="tab-section-item" id="legal" tabindex="0">
+              <div class="tab-section-item" id="legal" tabindex="-1">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_legal",
                     datas: option.timelineDatas,
@@ -164,7 +164,7 @@
               </div>
 
               {# Accessibility #}
-              <div class="tab-section-item" id="accessibilite" tabindex="0">
+              <div class="tab-section-item" id="accessibilite" tabindex="-1">
                 {{ renderSectionTimeline({ 
                     name: "charlotte_a11y",
                     datas: option.timelineDatas,
@@ -185,7 +185,7 @@
           {# Custom scroll cursor - desktop only #}
           <div class="tab-sections-scroll-cursor hidden lg:block xl:block ml-2 mt-5 flex-shrink-0">
             <div class="scroll-cursor-track">
-              <div class="scroll-cursor-thumb" id="scroll-cursor-thumb"></div>
+              <div class="scroll-cursor-thumb focus-ring" id="scroll-cursor-thumb"></div>
             </div>
           </div>
           

@@ -4,6 +4,7 @@
 ============================================================ */
 
 @import "tailwindcss";
+@import "./accessibility.css";
 
 /* ============================================================
    @SOURCE
@@ -35,7 +36,7 @@
   outline-offset: 2px;
 }
 
-.tab-sections *:focus-visible {
+.tab-sections *:focus-visible:not(.focus-ring) {
   outline: none;
 }
 
@@ -62,6 +63,12 @@ body {
   --cc-grey-extra-dark: #262626;
   --cc-bg-light: #EBFFF0;
   --cc-blue-active: #0044aa;
+
+  /* Focus ring (WCAG 2.4.11 AA) */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color-inner: var(--cc-white);
+  --focus-ring-color-outer: var(--cc-blue-active);
 
   /* Font families */
   --font-title: 'Orbitron', sans-serif;
@@ -130,14 +137,6 @@ body {
 /* Primary button focus state */
 .button.button--primary:focus {
   outline: none;
-}
-
-.button.button--primary:focus-visible {
-  background-color: theme(--cc-white);
-  color: theme(--cc-grey-dark);
-  border-color: theme(--cc-green-dark);
-  outline: 2px solid theme(--cc-green-dark);
-  outline-offset: 2px;
 }
 
 /* Primary button active state */
@@ -262,7 +261,6 @@ body {
 
 /* Focus state */
 .input-focus:focus {
-  border-color: theme(--cc-green-dark);
   color: theme(--cc-black);
 }
 
@@ -393,11 +391,6 @@ body {
 /* Portfolio external link focus */
 .link--portfolio-external:focus {
   outline: none;
-}
-
-.link--portfolio-external:focus-visible {
-  outline: 2px solid theme(--cc-green-dark);
-  outline-offset: 2px;
 }
 
 /* Portfolio external link active */
@@ -1044,9 +1037,8 @@ body {
 .tab-menu-desktop .link--tab {
   position: relative;
   transition: all 0.3s ease;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-radius: 4px;
+  padding: 0;
+  border-radius: 0;
 }
 
 /* Hover effect - subtle background tint */
@@ -1054,20 +1046,8 @@ body {
   color: theme(--cc-green-dark);
 }
 
-/* Focus effect - keyboard navigation */
-.tab-menu-desktop .link--tab:focus-visible {
-  outline: 2px solid theme(--cc-green-dark);
-  outline-offset: 2px;
-}
-
 .tab-menu-desktop .link--tab:hover::after {
   width: 80%;
-}
-
-/* Current/active state enhancement */
-.tab-menu-desktop .link--tab.current,
-.tab-menu-desktop .link--tab[aria-current="page"] {
-  border-radius: 4px;
 }
 
 .tab-menu-desktop .link--tab.current::after,
@@ -2178,6 +2158,7 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
 .tab-sections-scroll-cursor {
   width: 20px;
   height: 653px;
+  margin-right: 12px;
   opacity: 0;
   visibility: hidden;
   z-index: theme(--z-scroll-cursor);
@@ -2219,9 +2200,9 @@ body:not(.has-hash) .tab-section-item[data-default="true"],
   position: absolute;
   top: 0;
   user-select: none;
-  width: 21px;
+  width: 20px;
   height: 56px;
-  left: -8.5px;
+  left: -8px;
   transition: top 0.1s ease;
   z-index: calc(theme(--z-scroll-cursor) + 2);
 }
@@ -2296,31 +2277,4 @@ body {
 
 .main-content {
   z-index: theme(--z-base);
-}
-
-/* ==========================================================================
-   @ACCESSIBILITY - MOBILE FOCUS MANAGEMENT
-   - Focus visible only for keyboard navigation on mobile elements
-   ========================================================================== */
-
-/* Avatar mobile buttons - keyboard only */
-.avatar-card-mobile .button:focus {
-  outline: none;
-}
-
-.avatar-card-mobile .button:focus-visible {
-  outline: 2px solid theme(--cc-green-dark);
-  outline-offset: 2px;
-  z-index: theme(--z-mobile-buttons);
-}
-
-/* Skills card close button - keyboard only */
-.skills-card-close:focus {
-  outline: none;
-}
-
-.skills-card-close:focus-visible {
-  outline: 2px solid theme(--cc-green-dark);
-  outline-offset: 2px;
-  border-radius: 4px;
 }
