@@ -3,7 +3,7 @@
 > ⚔️ A unique RPG-inspired personal website showcasing skills, experience, and projects -  
 > built as a fast, modular static site with a simple CMS for easy content updates.
 
-![Site preview](./public/assets/ui/preview.png)
+![Site preview](./src/assets/ui/preview.png)
 
 ---
 
