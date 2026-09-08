@@ -17,3 +17,6 @@ storybook.log
 
 # macOS related files
 .DS_Store
+
+# Eleventy build output
+public/
