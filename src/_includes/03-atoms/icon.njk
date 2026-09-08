@@ -48,8 +48,7 @@
       {# SVG Sprite usage - clean and fast #}
       <svg 
         class="{{ cssClasses }}" 
-        aria-label="{{ iconData.alt | default('Icon') }}"
-        role="img"
+        {% if option.decorative %}aria-hidden="true"{% else %}aria-label="{{ iconData.alt | default('Icon') }}" role="img"{% endif %}
       >
         <use href="/sprites/sprite.svg#{{ spriteId }}"></use>
       </svg>

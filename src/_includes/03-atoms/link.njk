@@ -43,6 +43,8 @@
      {% set ariaLabel = '' %}
      {% if linkData.href and linkData.href.indexOf('mailto:') == 0 %}
        {% set ariaLabel = 'aria-label="Envoyer un email à ' ~ linkData.text ~ '"' %}
+     {% elif linkData.ariaLabel %}
+       {% set ariaLabel = 'aria-label="' ~ linkData.ariaLabel ~ (' - Ouvre dans un nouvel onglet"' if linkData.target == '_blank' else '"') %}
      {% elif linkData.target == '_blank' %}
        {% set ariaLabel = 'aria-label="' ~ linkData.text ~ ' - Ouvre dans un nouvel onglet"' %}
      {% endif %}

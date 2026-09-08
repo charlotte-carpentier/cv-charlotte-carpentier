@@ -37,17 +37,10 @@
       "variant": "tab"
     },
     {
-      "name": "portfolio_openmind_site",
-      "href": "https://openmind.example.com",
-      "text": "Voir le site",
-      "variant": "portfolio-external",
-      "target": "_blank",
-      "rel": "noopener noreferrer"
-    },
-    {
       "name": "portfolio_boat_rental_site",
       "href": "https://manautic-location-bateau.com/",
       "text": "Voir le site",
+      "ariaLabel": "Voir le site Manautic Location Bateau",
       "variant": "portfolio-external",
       "target": "_blank",
       "rel": "noopener noreferrer"
@@ -56,6 +49,7 @@
       "name": "portfolio_sophrologue_site",
       "href": "https://thomascarpentier-sophrologue.fr/",
       "text": "Voir le site",
+      "ariaLabel": "Voir le site Thomas Carpentier Sophrologue",
       "variant": "portfolio-external",
       "target": "_blank",
       "rel": "noopener noreferrer"
@@ -64,6 +58,7 @@
       "name": "portfolio_facile_site",
       "href": "https://federationfacile.org/",
       "text": "Voir le site",
+      "ariaLabel": "Voir le site Facile",
       "variant": "portfolio-external",
       "target": "_blank",
       "rel": "noopener noreferrer"
@@ -72,6 +67,7 @@
       "name": "portfolio_lacrique_site",
       "href": "https://la-crique.com/",
       "text": "Voir le site",
+      "ariaLabel": "Voir le site La Crique",
       "variant": "portfolio-external",
       "target": "_blank",
       "rel": "noopener noreferrer"

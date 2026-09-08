@@ -81,7 +81,7 @@
     {
       "name": "journey_1",
       "text": "depuis<br>2023",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -99,7 +99,7 @@
     {
       "name": "journey_2",
       "text": "2024<br>2015",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -117,7 +117,7 @@
     {
       "name": "journey_3",
       "text": "2014<br>2012",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -153,7 +153,7 @@
     {
       "name": "knowledge_1",
       "text": "2023",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -171,7 +171,7 @@
     {
       "name": "knowledge_2",
       "text": "2014",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -189,7 +189,7 @@
     {
       "name": "knowledge_3",
       "text": "2012",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -207,7 +207,7 @@
     {
       "name": "knowledge_4",
       "text": "2009",
-      "tag": "h2",
+      "tag": "h3",
       "variant": "h2"
     },
     {
@@ -376,7 +376,7 @@
     },
     {
       "name": "a11y_paragraph_1",
-      "text": "Ce site n'est actuellement pas conforme au RGAA (référentiel général d'amélioration de l'accessibilité). Un audit complet n'a pas encore été réalisé.",
+      "text": "Ce site applique les exigences WCAG 2.2 AA de mon système HAT (contraste, hiérarchie des titres, alternatives textuelles, focus clavier, libellés de liens). Il n'a pas fait l'objet d'un audit RGAA sur les 106 critères du référentiel officiel français, et n'est donc pas déclaré conforme au RGAA.",
       "tag": "p",
       "variant": "p"
     },
@@ -388,7 +388,7 @@
     },
     {
       "name": "a11y_paragraph_2",
-      "text": "Ce site a été développé avant la création de mon système de composants HAT (Lighthouse 100/100, WCAG 2.2 AA), utilisé sur mes projets clients récents. Une mise en conformité du site personnel est prévue.",
+      "text": "Score Lighthouse accessibilité 100/100. Vérifications effectuées manuellement sur les points non détectables automatiquement : contexte des alternatives textuelles, clarté des libellés de liens, ordre de parcours au clavier.",
       "tag": "p",
       "variant": "p"
     },
