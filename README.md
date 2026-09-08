@@ -36,7 +36,7 @@ Designed to stand out and make an impression while keeping the code clean, light
 ```json
 "scripts": {
   "start": "npx concurrently \"npx @tailwindcss/cli -i ./src/input.css -o ./public/css/output.css --watch\" \"eleventy --serve --watch\"",
-  "build": "npm run update-sitemap && eleventy",
+  "build": "npm run update-sitemap && npx @tailwindcss/cli -i ./src/input.css -o ./public/css/output.css && eleventy",
   "update-sitemap": "node src/js/utils/update-sitemap.js",
   "refresh": "rm -rf .cache ./public/css/output.css"
 }
