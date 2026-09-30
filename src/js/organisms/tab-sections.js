@@ -6,6 +6,9 @@
 ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Exit on pages without tab-sections
+  if (!document.querySelector('.tab-sections')) return;
+
   const defaultHash = '#portfolio';
 
   // Create ARIA live region for section announcements
@@ -83,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
       link.setAttribute('aria-selected', 'false');
       link.setAttribute('tabindex', '-1');
       
-      const href = link.getAttribute('href');
-      if (href) {
-        const targetId = href.replace('#', '');
+      const hash = new URL(link.href).hash;
+      if (hash) {
+        const targetId = hash.replace('#', '');
         link.setAttribute('aria-controls', targetId);
         link.setAttribute('id', `tab-${targetId}`);
       }
@@ -112,7 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const { navLinks } = getSelectors();
 
     document.querySelectorAll(navLinks).forEach(link => {
-      const isActive = link.getAttribute('href') === currentHash;
+      const linkUrl = new URL(link.href);
+      const isActive = linkUrl.pathname === window.location.pathname && linkUrl.hash === currentHash;
       
       // Visual current state
       link.classList.toggle('current', isActive);

@@ -159,7 +159,8 @@
             const mobileLinks = mobileOverlay.querySelectorAll('.link--tab');
             
             mobileLinks.forEach(link => {
-                const isActive = link.getAttribute('href') === currentHash;
+                const linkUrl = new URL(link.href);
+                const isActive = linkUrl.pathname === window.location.pathname && linkUrl.hash === currentHash;
                 link.classList.toggle('current', isActive);
                 link.setAttribute('aria-selected', isActive ? 'true' : 'false');
             });
@@ -252,7 +253,7 @@
             
             // Method 3: Check active tab in tab menu
             const activeTabLink = document.querySelector('.tab-menu .link--tab.current, .tab-menu .link--tab[aria-current="page"]');
-            if (activeTabLink && activeTabLink.getAttribute('href') === '#contact') {
+            if (activeTabLink && new URL(activeTabLink.href).hash === '#contact') {
                 return true;
             }
             
