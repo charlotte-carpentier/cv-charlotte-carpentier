@@ -1,24 +1,29 @@
 {
-  "title": "Charlotte Carpentier – Développeuse Web",
+  "title": "Charlotte Carpentier - Développeuse Web",
   "description": "Ce site suit une ligne tranquille : aller à l'essentiel, bâtir du code durable et respecter les utilisateurs. D'autres projets pourraient suivre le même chemin.",
   "url": "https://charlottecarpentier.com",
   "views": {
     "/": {
-      "title": "Charlotte Carpentier – Développeuse Web",
+      "title": "Charlotte Carpentier - Développeuse Web",
       "description": "Ce site suit une ligne tranquille : aller à l'essentiel, bâtir du code durable et respecter les utilisateurs. D'autres projets pourraient suivre le même chemin."
     },
     "/faq/": {
-      "title": "FAQ – Charlotte Carpentier",
+      "title": "FAQ - Charlotte Carpentier",
       "description": "Mon parcours, mes choix techniques et les valeurs qui me tiennent à cœur."
     },
     "/legal/": {
-      "title": "Mentions légales – Charlotte Carpentier",
+      "title": "Mentions légales - Charlotte Carpentier",
       "description": "Mentions légales et conditions d’utilisation du site."
     },
     "/thank-you/": {
-      "title": "Message bien reçu – Merci !",
+      "title": "Message bien reçu - Merci !",
       "description": "Votre message a été transmis. Je répondrai dès que possible."
+    },
+    "/standards/": {
+      "title": "Standards - Charlotte Carpentier",
+      "description": "Artisane du web à Marseille, je mesure ce que je développe et vous escorte tout au long de vos projets digitaux."
     }
+
   },
   "favicon": {
     "png16": "/assets/images/ui/favicon/favicon-16x16.png",

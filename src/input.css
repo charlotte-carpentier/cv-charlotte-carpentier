@@ -106,6 +106,10 @@ body {
   --z-scroll-cursor: 200;
   --z-active-state: 500;
   --z-tooltips: 1000;
+
+  /* Grid - from HAT (1440: 12 col × 5rem, gutter 2rem, margins 4rem) */
+  --grid-margin-mobile: 1rem;
+  --grid-workzone-content: 54rem; /* 8 col × 5rem + 7 gutters × 2rem = 864px */
 }
 
 /* ============================================================
