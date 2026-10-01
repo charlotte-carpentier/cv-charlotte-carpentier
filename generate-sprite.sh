@@ -18,7 +18,10 @@ process_svg() {
     local id="$2"
     
     # Extract everything between <svg> and </svg>, remove svg tags, wrap in symbol
-    echo "    <symbol id=\"$id\" viewBox=\"0 0 256 256\">"
+    # Keep the source file's own viewBox (fallback: 0 0 256 256)
+    local viewbox
+    viewbox=$(grep -o 'viewBox="[^"]*"' "$file" | head -1 | sed 's/viewBox="//; s/"//')
+    echo "    <symbol id=\"$id\" viewBox=\"${viewbox:-0 0 256 256}\">"
     
     # Extract content more reliably
     sed -n '/<svg/,/<\/svg>/p' "$file" | \
