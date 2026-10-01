@@ -721,6 +721,108 @@
       "text": "Artisane du web à Marseille, je mesure ce que je développe et vous escorte tout au long de vos projets digitaux.",
       "tag": "p",
       "variant": "p"
+    },
+    {
+      "name": "standards_value_title",
+      "text": "Quatre engagements, vérifiés sur chaque site.",
+      "tag": "h2",
+      "variant": "h1"
+    },
+    {
+      "name": "standards_value_simplicity_title",
+      "text": "Simplicité : chaque clic est intuitif.",
+      "tag": "h3",
+      "variant": "h2"
+    },
+    {
+      "name": "standards_value_simplicity_1",
+      "text": "30,3 % des personnes de 15 ans ou plus vivant en France ont des compétences numériques faibles (<a href=\"#source-insee\">Insee, données 2023</a>). Et chacun, aujourd'hui, fait face à un flux continu de contenus en ligne.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_simplicity_2",
+      "text": "L'objectif est de créer un site lisible, utilisable et réellement utilisé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_simplicity_3",
+      "text": "Pour cela, je construis chaque site autour du parcours de vos visiteurs, l'essentiel à portée de quelques clics et rien n'est livré sans avoir été testé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_security_title",
+      "text": "Sécurité : chaque entrée est contrôlée.",
+      "tag": "h3",
+      "variant": "h2"
+    },
+    {
+      "name": "standards_value_security_1",
+      "text": "En 2025, plus de 500 000 particuliers, entreprises et collectivités ont demandé de l'aide face à une cyberattaque, soit 20 % de plus en un an (<a href=\"#source-cybermalveillance\">Cybermalveillance.gouv.fr, données 2025</a>).",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_security_2",
+      "text": "L'objectif est de protéger votre site, vos visiteurs et vos données.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_security_3",
+      "text": "Pour cela, je développe des sites statiques, sans base de données ni serveur applicatif exposés, et donc avec moins de portes d'entrée pour les attaques. Tout est transmis en HTTPS, et mon code, écrit et relu à la main, peut être maintenu et réparé sans refonte intégrale.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_sobriety_title",
+      "text": "Sobriété : le travail respecte la planète.",
+      "tag": "h3",
+      "variant": "h2"
+    },
+    {
+      "name": "standards_value_sobriety_1",
+      "text": "Le numérique pèse déjà 4,4 % de l'empreinte carbone de la France (<a href=\"#source-ademe\">ADEME, données 2022</a>), et l'IA accélère la tendance, puisque la consommation électrique de ses data centers a bondi de 50 % en un an dans le monde (<a href=\"#source-aie\">AIE, données 2025</a>).",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_sobriety_2",
+      "text": "L'objectif est un site qui consomme le moins possible, depuis sa phase de conception jusqu’à sa présence en ligne.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_sobriety_3",
+      "text": "Pour cela, je conçois des pages légères, sans dépendance superflue, et avec un contenu optimisé. Cette pratique induit moins de données à transférer et un chargement rapide, même sur un appareil modeste. Chaque site est mesuré à la livraison avec l'indice EcoIndex, qui évalue le poids et la complexité d'une page, avec pour cible la note A.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_accessibility_title",
+      "text": "Accessibilité : personne n'est laissé de côté.",
+      "tag": "h3",
+      "variant": "h2"
+    },
+    {
+      "name": "standards_value_accessibility_1",
+      "text": "28 % des personnes de 15 ans ou plus vivant en France métropolitaine déclarent une limitation fonctionnelle sévère (<a href=\"#source-drees\">DREES, données 2022</a>). Pourtant, 95,9 % des sites les plus visités présentent des erreurs d'accessibilité détectables (<a href=\"#source-webaim\">WebAIM, données 2026</a>).",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_accessibility_2",
+      "text": "L'objectif est de ne pas perdre de visiteurs, quelles que soient ses capacités ou ses outils : lecteur d'écran, navigation au clavier, zoom.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_accessibility_3",
+      "text": "Pour cela, je fonde chaque site sur le standard international de l'accessibilité web, WCAG 2.2 niveau AA : contrastes vérifiés, navigation au clavier, structure des titres, textes alternatifs. Chaque projet fait l'objet d'une auto-évaluation avant livraison.",
+      "tag": "p",
+      "variant": "p"
     }
   ]
 }

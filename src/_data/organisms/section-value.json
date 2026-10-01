@@ -1,0 +1,46 @@
+{
+  "sections": [
+    {
+      "name": "standards_value",
+      "title": "standards_value_title",
+      "cards": [
+        {
+          "icon": "foundation_action",
+          "title": "standards_value_simplicity_title",
+          "texts": [
+            "standards_value_simplicity_1",
+            "standards_value_simplicity_2",
+            "standards_value_simplicity_3"
+          ]
+        },
+        {
+          "icon": "foundation_secu",
+          "title": "standards_value_security_title",
+          "texts": [
+            "standards_value_security_1",
+            "standards_value_security_2",
+            "standards_value_security_3"
+          ]
+        },
+        {
+          "icon": "foundation_ecolo",
+          "title": "standards_value_sobriety_title",
+          "texts": [
+            "standards_value_sobriety_1",
+            "standards_value_sobriety_2",
+            "standards_value_sobriety_3"
+          ]
+        },
+        {
+          "icon": "foundation_access",
+          "title": "standards_value_accessibility_title",
+          "texts": [
+            "standards_value_accessibility_1",
+            "standards_value_accessibility_2",
+            "standards_value_accessibility_3"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{# ===========================================================
+   @ORGANISMS - SECTION-VALUE
+   - Value section: title and stacked cards (icon, title, texts)
+   - Grid and spacing from HAT section-value
+=========================================================== #}
+
+{% macro renderSectionValue(option) %}
+  {% from "03-atoms/typography.njk" import renderTypography %}
+  {% from "03-atoms/icon.njk" import renderIcon %}
+
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No section-value configuration provided</span>
+  {% else %}
+    {# Find section by name #}
+    {% set sectionData = null %}
+    {% for section in option.datas %}
+      {% if section.name == option.name %}
+        {% set sectionData = section %}
+      {% endif %}
+    {% endfor %}
+
+    {% if not sectionData %}
+      <span class="text-red-500">Section-value not found: {{ option.name }}</span>
+    {% else %}
+      <section class="section-value w-full spacing-section-fluid-y px-[var(--grid-margin-mobile)] hyphens-auto break-words">
+        <div class="w-full max-w-[var(--grid-workzone-content)] mx-auto flex flex-col gap-6">
+
+          <div class="mb-6">
+            {{ renderTypography({ name: sectionData.title, datas: option.typographyDatas }) }}
+          </div>
+
+          {% for card in sectionData.cards %}
+            <div class="value-card flex flex-col gap-4 bg-[var(--cc-white)] border-[3px] lg:border-4 border-[var(--cc-black)] p-6 lg:p-10 [&_a]:underline [&_a]:underline-offset-2">
+              <div class="flex flex-col items-center gap-2 text-center">
+                {{ renderIcon({ name: card.icon, datas: option.iconDatas, decorative: true }) }}
+                {{ renderTypography({ name: card.title, datas: option.typographyDatas }) }}
+              </div>
+              {% for textName in card.texts %}
+                {{ renderTypography({ name: textName, datas: option.typographyDatas }) }}
+              {% endfor %}
+            </div>
+          {% endfor %}
+
+        </div>
+      </section>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
