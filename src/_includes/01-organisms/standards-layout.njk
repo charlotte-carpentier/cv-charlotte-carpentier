@@ -1,0 +1,17 @@
+{# ===========================================================
+   @ORGANISMS - STANDARDS-LAYOUT
+   - Orchestrates /standards/ sections in a single column
+=========================================================== #}
+
+{% macro renderStandardsLayout(option) %}
+  {% from "01-organisms/section-hero.njk" import renderSectionHero %}
+
+  <div class="standards-layout w-full self-start flex flex-col">
+    {{ renderSectionHero({
+        name: option.hero_name,
+        datas: option.hero_datas,
+        typographyDatas: option.typography_datas,
+        linkDatas: option.link_datas
+    }) }}
+  </div>
+{% endmacro %}

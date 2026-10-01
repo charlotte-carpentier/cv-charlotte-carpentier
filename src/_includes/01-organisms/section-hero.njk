@@ -1,0 +1,42 @@
+{# ===========================================================
+   @ORGANISMS - SECTION-HERO
+   - Page hero: title, text blocks, call-to-action link
+   - Grid and spacing from HAT section-hero
+=========================================================== #}
+
+{% macro renderSectionHero(option) %}
+  {% from "03-atoms/typography.njk" import renderTypography %}
+  {% from "03-atoms/link.njk" import renderLink %}
+
+  {% if not option.datas %}
+    <span class="text-red-500">Error: No section-hero configuration provided</span>
+  {% else %}
+    {# Find section by name #}
+    {% set sectionData = null %}
+    {% for section in option.datas %}
+      {% if section.name == option.name %}
+        {% set sectionData = section %}
+      {% endif %}
+    {% endfor %}
+
+    {% if not sectionData %}
+      <span class="text-red-500">Section-hero not found: {{ option.name }}</span>
+    {% else %}
+      <section class="section-hero w-full spacing-section-fluid-y px-[var(--grid-margin-mobile)] hyphens-auto break-words">
+        <div class="w-full max-w-[var(--grid-workzone-content)] mx-auto flex flex-col items-start gap-6">
+
+          {{ renderTypography({ name: sectionData.title, datas: option.typographyDatas }) }}
+
+          {% for textName in sectionData.texts %}
+            {{ renderTypography({ name: textName, datas: option.typographyDatas }) }}
+          {% endfor %}
+
+          <div class="mt-4">
+            {{ renderLink({ name: sectionData.cta, datas: option.linkDatas }) }}
+          </div>
+
+        </div>
+      </section>
+    {% endif %}
+  {% endif %}
+{% endmacro %}

@@ -3,4 +3,11 @@ permalink: "/standards/"
 layout: '00-core/base.njk'
 ---
 
-{# Organisms - imports and calls added in actions 2 to 5 #}
+{% from "01-organisms/standards-layout.njk" import renderStandardsLayout %}
+
+{{ renderStandardsLayout({
+    hero_name: "standards_hero",
+    hero_datas: organisms["section-hero"].sections,
+    typography_datas: atoms.typography.texts,
+    link_datas: atoms.link.links
+}) }}

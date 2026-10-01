@@ -691,6 +691,36 @@
       "text": "Pour invisibiliser les contenus révélés :",
       "tag": "p",
       "variant": "p"
+    },
+    {
+      "name": "standards_hero_title",
+      "text": "Des sites cousus main : intuitifs, sécurisés, sobres et accessibles.",
+      "tag": "h2",
+      "variant": "h1"
+    },
+    {
+      "name": "standards_hero_subtitle",
+      "text": "Aujourd'hui, un site se génère en quelques minutes.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_hero_lines",
+      "text": "Qu'il fonctionne pour tous vos visiteurs,<br>que sa sécurité ne soit pas compromise,<br>que son existence respecte l’environnement,<br>que sa pérennité soit possible,",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_hero_twist",
+      "text": "c'est une autre histoire.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_hero_intro",
+      "text": "Artisane du web à Marseille, je mesure ce que je développe et vous escorte tout au long de vos projets digitaux.",
+      "tag": "p",
+      "variant": "p"
     }
   ]
 }

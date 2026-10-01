@@ -133,6 +133,12 @@
       "href": "mailto:carpentier.dev@gmail.com",
       "text": "Laisser un message",
       "variant": "external"
+    },
+    {
+      "name": "standards_hero_cta",
+      "href": "/#contact",
+      "text": "Parlons de votre projet",
+      "variant": "cta"
     }
   ]
 }
