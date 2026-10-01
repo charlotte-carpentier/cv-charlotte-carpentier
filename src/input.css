@@ -1493,14 +1493,14 @@ body:has(.error-layout--cross-layout) {
     }
   }
   
-  .header-brand h2 {
+  .header-brand h1 {
     margin: 0;
     color: theme(--cc-green-light);
     font-size: theme(--text-h2);
     white-space: nowrap;
   }
   
-  .header-title h1 {
+  .header-title h2 {
     margin: 0;
     font-size: theme(--text-h1);
     text-align: center;
@@ -1530,7 +1530,7 @@ body:has(.error-layout--cross-layout) {
   
   /* Mobile (639px and below) */
   @media (max-width: 639px) {
-    .header-brand h2 {
+    .header-brand h1 {
       font-size: theme(--text-h2-mobile);
     }
   
