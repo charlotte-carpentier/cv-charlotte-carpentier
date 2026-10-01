@@ -22,7 +22,7 @@
     {% if not sectionData %}
       <span class="text-red-500">Section-hero not found: {{ option.name }}</span>
     {% else %}
-      <section class="section-hero w-full spacing-section-fluid-y px-[var(--grid-margin-mobile)] hyphens-auto break-words">
+      <section class="section-hero w-full spacing-section-fluid-y px-[var(--grid-margin-mobile)] break-words">
         <div class="w-full max-w-[var(--grid-workzone-content)] mx-auto flex flex-col items-start gap-6">
 
           {{ renderTypography({ name: sectionData.title, datas: option.typographyDatas }) }}
