@@ -1,6 +1,6 @@
 {# ===========================================================
    @ORGANISMS - SECTION-VALUE
-   - Value section: title + optional text, cards, table, note, links
+   - Value section: title + optional text, cards, table, note, list, links
    - Grid and spacing from HAT section-value
    - Table stacks below 768px (CSS), ARIA roles kept for assistive tech
 =========================================================== #}
@@ -83,6 +83,17 @@
           {# Optional note #}
           {% if sectionData.note %}
             {{ renderTypography({ name: sectionData.note, datas: option.typographyDatas }) }}
+          {% endif %}
+
+          {# Optional list #}
+          {% if sectionData.list %}
+            <ul class="value-list flex flex-col gap-6 [&_a]:underline [&_a]:underline-offset-2 [&_cite]:not-italic" role="list">
+              {% for item in sectionData.list %}
+                <li id="{{ item.id }}">
+                  {{ renderTypography({ name: item.text, datas: option.typographyDatas }) }}
+                </li>
+              {% endfor %}
+            </ul>
           {% endif %}
 
           {# Optional links #}

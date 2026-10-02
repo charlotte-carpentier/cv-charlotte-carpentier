@@ -60,6 +60,18 @@
         "standards_proof_portfolio",
         "standards_proof_contact"
       ]
+    },
+    {
+      "name": "standards_sources",
+      "title": "standards_sources_title",
+      "list": [
+        { "id": "source-insee", "text": "standards_sources_insee" },
+        { "id": "source-cybermalveillance", "text": "standards_sources_cybermalveillance" },
+        { "id": "source-ademe", "text": "standards_sources_ademe" },
+        { "id": "source-aie", "text": "standards_sources_aie" },
+        { "id": "source-drees", "text": "standards_sources_drees" },
+        { "id": "source-webaim", "text": "standards_sources_webaim" }
+      ]
     }
   ]
 }

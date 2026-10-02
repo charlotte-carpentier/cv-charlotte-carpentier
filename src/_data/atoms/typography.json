@@ -847,6 +847,48 @@
       "text": "Lighthouse : médiane de 5 mesures en mode mobile. EcoIndex : les 3 pages sont mieux classées que 73 à 83 % des pages analysées.",
       "tag": "p",
       "variant": "p"
+    },
+        {
+      "name": "standards_sources_title",
+      "text": "Sources",
+      "tag": "h2",
+      "variant": "h1"
+    },
+    {
+      "name": "standards_sources_insee",
+      "text": "INSEE, 2025. Compétences numériques de la population. In : Économie et société à l'ère du numérique, Insee Références, édition 2025 [en ligne]. 14 octobre 2025. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://www.insee.fr/fr/statistiques/8616801?sommaire=8616883\">https://www.insee.fr/fr/statistiques/8616801?sommaire=8616883</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_cybermalveillance",
+      "text": "CYBERMALVEILLANCE.GOUV.FR, 2026. Rapport d'activité 2025 [en ligne]. 26 mars 2026. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2025\">https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2025</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_ademe",
+      "text": "ADEME, 2025. Évaluation de l'impact environnemental du numérique en France [en ligne]. Janvier 2025. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://ecoresponsable.numerique.gouv.fr/docs/2024/etude-ademe-impacts-environnementaux-numerique.pdf\">https://ecoresponsable.numerique.gouv.fr/docs/2024/etude-ademe-impacts-environnementaux-numerique.pdf</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_aie",
+      "text": "AGENCE INTERNATIONALE DE L'ÉNERGIE (AIE), 2026. <cite lang=\"en\">Key Questions on Energy and AI</cite> [en ligne]. 16 avril 2026. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary\">https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_drees",
+      "text": "DREES, 2024. Le handicap en chiffres, édition 2024. Panoramas de la DREES [en ligne]. 28 novembre 2024. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-documents-de-reference/panoramas-de-la-drees/241128_Panorama_Handicap2024\">https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-documents-de-reference/panoramas-de-la-drees/241128_Panorama_Handicap2024</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_webaim",
+      "text": "WEBAIM, 2026. <cite lang=\"en\">The WebAIM Million: The 2026 report on the accessibility of the top 1,000,000 home pages</cite> [en ligne]. 30 mars 2026. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://webaim.org/projects/million/\">https://webaim.org/projects/million/</a>",
+      "tag": "p",
+      "variant": "p"
     }
   ]
 }
