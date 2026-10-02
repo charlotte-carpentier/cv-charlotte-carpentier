@@ -21,5 +21,12 @@
         typographyDatas: option.typography_datas,
         iconDatas: option.icon_datas
     }) }}
+
+    {{ renderSectionValue({
+        name: option.proof_name,
+        datas: option.value_datas,
+        typographyDatas: option.typography_datas,
+        linkDatas: option.link_datas
+    }) }}
   </div>
 {% endmacro %}

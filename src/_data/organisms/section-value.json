@@ -41,6 +41,25 @@
           ]
         }
       ]
+    },
+    {
+      "name": "standards_proof",
+      "title": "standards_proof_title",
+      "text": "standards_proof_text",
+      "table": {
+        "caption": "standards_proof_caption",
+        "columns": ["Site", "Performance", "Accessibilité", "Bonnes pratiques", "SEO", "EcoIndex"],
+        "rows": [
+          ["Fédération FACILE", "100", "100", "100", "100", "B (74)"],
+          ["Thomas C. Sophrologue", "96", "100", "96", "100", "B (76)"],
+          ["La Crique", "88", "100", "100", "100", "C (68)"]
+        ]
+      },
+      "note": "standards_proof_note",
+      "links": [
+        "standards_proof_portfolio",
+        "standards_proof_contact"
+      ]
     }
   ]
 }

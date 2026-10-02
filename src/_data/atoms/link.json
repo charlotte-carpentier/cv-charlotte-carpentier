@@ -138,7 +138,19 @@
       "name": "standards_hero_cta",
       "href": "/#contact",
       "text": "Parlons de votre projet",
+      "variant": "cta-primary"
+    },
+    {
+      "name": "standards_proof_portfolio",
+      "href": "/#portfolio",
+      "text": "Mes réalisations",
       "variant": "cta"
+    },
+    {
+      "name": "standards_proof_contact",
+      "href": "/#contact",
+      "text": "Me contacter",
+      "variant": "cta-primary"
     }
   ]
 }
