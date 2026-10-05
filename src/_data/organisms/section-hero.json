@@ -1,0 +1,15 @@
+{
+  "sections": [
+    {
+      "name": "standards_hero",
+      "title": "standards_hero_title",
+      "texts": [
+        "standards_hero_subtitle",
+        "standards_hero_lines",
+        "standards_hero_twist",
+        "standards_hero_intro"
+      ],
+      "cta": "standards_hero_cta"
+    }
+  ]
+}

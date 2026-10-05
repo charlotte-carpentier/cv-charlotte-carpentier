@@ -3,13 +3,13 @@
     {
       "name": "site_title",
       "text": "DEVELOPPEUSE WEB",
-      "tag": "h1",
+      "tag": "h2",
       "variant": "h1-white"
     },
     {
       "name": "site_creator",
       "text": "Charlotte Carpentier",
-      "tag": "h2",
+      "tag": "h1",
       "variant": "h2-white"
     },
     {
@@ -689,6 +689,204 @@
     {
       "name": "footer-info-hidden",
       "text": "Pour invisibiliser les contenus révélés :",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_hero_title",
+      "text": "Des sites cousus main : intuitifs, sécurisés, sobres et accessibles.",
+      "tag": "h2",
+      "variant": "h1"
+    },
+    {
+      "name": "standards_hero_subtitle",
+      "text": "Aujourd'hui, un site se génère en quelques minutes.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_hero_lines",
+      "text": "Qu'il fonctionne pour tous vos visiteurs,<br>que sa sécurité ne soit pas compromise,<br>que son existence respecte l’environnement,<br>que sa pérennité soit possible,",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_hero_twist",
+      "text": "c'est une autre histoire.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_hero_intro",
+      "text": "Artisane du web à Marseille, je mesure ce que je développe et vous escorte tout au long de vos projets digitaux.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_title",
+      "text": "Quatre engagements, vérifiés sur chaque site.",
+      "tag": "h2",
+      "variant": "h1"
+    },
+    {
+      "name": "standards_value_simplicity_title",
+      "text": "Simplicité : chaque clic est intuitif.",
+      "tag": "h3",
+      "variant": "h2"
+    },
+    {
+      "name": "standards_value_simplicity_1",
+      "text": "30,3 % des personnes de 15 ans ou plus vivant en France ont des compétences numériques faibles (<a href=\"#source-insee\">Insee, données 2023</a>). Et chacun, aujourd'hui, fait face à un flux continu de contenus en ligne.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_simplicity_2",
+      "text": "L'objectif est de créer un site lisible, utilisable et réellement utilisé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_simplicity_3",
+      "text": "Pour cela, je construis chaque site autour du parcours de vos visiteurs, l'essentiel à portée de quelques clics et rien n'est livré sans avoir été testé.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_security_title",
+      "text": "Sécurité : chaque entrée est contrôlée.",
+      "tag": "h3",
+      "variant": "h2"
+    },
+    {
+      "name": "standards_value_security_1",
+      "text": "En 2025, plus de 500 000 particuliers, entreprises et collectivités ont demandé de l'aide face à une cyberattaque, soit 20 % de plus en un an (<a href=\"#source-cybermalveillance\">Cybermalveillance.gouv.fr, données 2025</a>).",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_security_2",
+      "text": "L'objectif est de protéger votre site, vos visiteurs et vos données.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_security_3",
+      "text": "Pour cela, je développe des sites statiques, sans base de données ni serveur applicatif exposés, et donc avec moins de portes d'entrée pour les attaques. Tout est transmis en HTTPS, et mon code, écrit et relu à la main, peut être maintenu et réparé sans refonte intégrale.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_sobriety_title",
+      "text": "Sobriété : le travail respecte la planète.",
+      "tag": "h3",
+      "variant": "h2"
+    },
+    {
+      "name": "standards_value_sobriety_1",
+      "text": "Le numérique pèse déjà 4,4 % de l'empreinte carbone de la France (<a href=\"#source-ademe\">ADEME, données 2022</a>), et l'IA accélère la tendance, puisque la consommation électrique de ses data centers a bondi de 50 % en un an dans le monde (<a href=\"#source-aie\">AIE, données 2025</a>).",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_sobriety_2",
+      "text": "L'objectif est un site qui consomme le moins possible, depuis sa phase de conception jusqu’à sa présence en ligne.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_sobriety_3",
+      "text": "Pour cela, je conçois des pages légères, sans dépendance superflue, et avec un contenu optimisé. Cette pratique induit moins de données à transférer et un chargement rapide, même sur un appareil modeste. Chaque site est mesuré à la livraison avec l'indice EcoIndex, qui évalue le poids et la complexité d'une page, avec pour cible la note A.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_accessibility_title",
+      "text": "Accessibilité : personne n'est laissé de côté.",
+      "tag": "h3",
+      "variant": "h2"
+    },
+    {
+      "name": "standards_value_accessibility_1",
+      "text": "28 % des personnes de 15 ans ou plus vivant en France métropolitaine déclarent une limitation fonctionnelle sévère (<a href=\"#source-drees\">DREES, données 2022</a>). Pourtant, 95,9 % des sites les plus visités présentent des erreurs d'accessibilité détectables (<a href=\"#source-webaim\">WebAIM, données 2026</a>).",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_accessibility_2",
+      "text": "L'objectif est de ne pas perdre de visiteurs, quelles que soient ses capacités ou ses outils : lecteur d'écran, navigation au clavier, zoom.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_value_accessibility_3",
+      "text": "Pour cela, je fonde chaque site sur le standard international de l'accessibilité web, WCAG 2.2 niveau AA : contrastes vérifiés, navigation au clavier, structure des titres, textes alternatifs. Chaque projet fait l'objet d'une auto-évaluation avant livraison.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_proof_title",
+      "text": "Du sur mesure, sur des fondations testées.",
+      "tag": "h2",
+      "variant": "h1"
+    },
+    {
+      "name": "standards_proof_text",
+      "text": "Chaque site est construit sur un système de composants que j'ai conçu et testé, conforme WCAG 2.2 AA (auto-évaluation), mesuré EcoIndex A et noté 100/100 dans les quatre catégories de Lighthouse (outil d'audit de Google). Votre site repose sur ces fondations éprouvées, puis est façonné sur mesure du parcours au design.",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_proof_caption",
+      "text": "Mesures de la page d'accueil, septembre 2026",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_proof_note",
+      "text": "Lighthouse : médiane de 5 mesures en mode mobile. EcoIndex : les 3 pages sont mieux classées que 73 à 83 % des pages analysées.",
+      "tag": "p",
+      "variant": "p"
+    },
+        {
+      "name": "standards_sources_title",
+      "text": "Sources",
+      "tag": "h2",
+      "variant": "h1"
+    },
+    {
+      "name": "standards_sources_insee",
+      "text": "INSEE, 2025. Compétences numériques de la population. In : Économie et société à l'ère du numérique, Insee Références, édition 2025 [en ligne]. 14 octobre 2025. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://www.insee.fr/fr/statistiques/8616801?sommaire=8616883\">https://www.insee.fr/fr/statistiques/8616801?sommaire=8616883</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_cybermalveillance",
+      "text": "CYBERMALVEILLANCE.GOUV.FR, 2026. Rapport d'activité 2025 [en ligne]. 26 mars 2026. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2025\">https://www.cybermalveillance.gouv.fr/tous-nos-contenus/actualites/rapport-activite-2025</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_ademe",
+      "text": "ADEME, 2025. Évaluation de l'impact environnemental du numérique en France [en ligne]. Janvier 2025. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://ecoresponsable.numerique.gouv.fr/docs/2024/etude-ademe-impacts-environnementaux-numerique.pdf\">https://ecoresponsable.numerique.gouv.fr/docs/2024/etude-ademe-impacts-environnementaux-numerique.pdf</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_aie",
+      "text": "AGENCE INTERNATIONALE DE L'ÉNERGIE (AIE), 2026. <cite lang=\"en\">Key Questions on Energy and AI</cite> [en ligne]. 16 avril 2026. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary\">https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_drees",
+      "text": "DREES, 2024. Le handicap en chiffres, édition 2024. Panoramas de la DREES [en ligne]. 28 novembre 2024. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-documents-de-reference/panoramas-de-la-drees/241128_Panorama_Handicap2024\">https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-documents-de-reference/panoramas-de-la-drees/241128_Panorama_Handicap2024</a>",
+      "tag": "p",
+      "variant": "p"
+    },
+    {
+      "name": "standards_sources_webaim",
+      "text": "WEBAIM, 2026. <cite lang=\"en\">The WebAIM Million: The 2026 report on the accessibility of the top 1,000,000 home pages</cite> [en ligne]. 30 mars 2026. [Consulté le 25 septembre 2026]. Disponible sur : <a href=\"https://webaim.org/projects/million/\">https://webaim.org/projects/million/</a>",
       "tag": "p",
       "variant": "p"
     }

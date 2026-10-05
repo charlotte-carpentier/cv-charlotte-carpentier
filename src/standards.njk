@@ -1,0 +1,18 @@
+---
+permalink: "/standards/"
+layout: '00-core/base.njk'
+---
+
+{% from "01-organisms/standards-layout.njk" import renderStandardsLayout %}
+
+{{ renderStandardsLayout({
+    hero_name: "standards_hero",
+    hero_datas: organisms["section-hero"].sections,
+    value_name: "standards_value",
+    proof_name: "standards_proof",
+    sources_name: "standards_sources",
+    value_datas: organisms["section-value"].sections,
+    typography_datas: atoms.typography.texts,
+    link_datas: atoms.link.links,
+    icon_datas: atoms.icon.icons
+}) }}

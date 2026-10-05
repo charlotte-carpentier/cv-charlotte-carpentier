@@ -2,37 +2,37 @@
   "links": [
     {
       "name": "nav_contact",
-      "href": "#contact",
+      "href": "/#contact",
       "text": "Contact",
       "variant": "nav-white"
     },
     {
       "name": "tab_missions",
-      "href": "#portfolio",
+      "href": "/#portfolio",
       "text": "Missions",
       "variant": "tab"
     },
     {
       "name": "tab_profile",
-      "href": "#profile",
+      "href": "/#profile",
       "text": "Profil",
       "variant": "tab"
     },
     {
       "name": "tab_journey",
-      "href": "#journey",
+      "href": "/#journey",
       "text": "Parcours",
       "variant": "tab"
     },
     {
       "name": "tab_knowledge",
-      "href": "#knowledge",
+      "href": "/#knowledge",
       "text": "Savoirs",
       "variant": "tab"
     },
     {
       "name": "tab_contact",
-      "href": "#contact",
+      "href": "/#contact",
       "text": "Contact",
       "variant": "tab"
     },
@@ -111,13 +111,13 @@
     },
     {
       "name": "tab_legal",
-      "href": "#legal",
+      "href": "/#legal",
       "text": "Mentions légales",
       "variant": "tab-white"
     },
     {
       "name": "tab_a11y",
-      "href": "#accessibilite",
+      "href": "/#accessibilite",
       "text": "Accessibilité",
       "variant": "tab-white"
     },
@@ -133,6 +133,24 @@
       "href": "mailto:carpentier.dev@gmail.com",
       "text": "Laisser un message",
       "variant": "external"
+    },
+    {
+      "name": "standards_hero_cta",
+      "href": "/#contact",
+      "text": "Parlons de votre projet",
+      "variant": "cta-primary"
+    },
+    {
+      "name": "standards_proof_portfolio",
+      "href": "/#portfolio",
+      "text": "Mes réalisations",
+      "variant": "cta"
+    },
+    {
+      "name": "standards_proof_contact",
+      "href": "/#contact",
+      "text": "Me contacter",
+      "variant": "cta-primary"
     }
   ]
 }

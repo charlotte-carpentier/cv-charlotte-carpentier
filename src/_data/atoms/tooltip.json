@@ -3,37 +3,37 @@
       {
         "name": "hardskills_analysis",
         "title": "CAPACITES D'ANALYSE", 
-        "description": "Regard affûté – lecture rapide de situations et ajustements mesurés."
+        "description": "Regard affûté - lecture rapide de situations et ajustements mesurés."
       },
       {
         "name": "hardskills_management",
         "title": "MANAGEMENT D'EQUIPES", 
-        "description": "Sens du collectif – coordination et soutien des alliés."
+        "description": "Sens du collectif - coordination et soutien des alliés."
       },
       {
         "name": "hardskills_crisis",
         "title": "GESTION DE CRISE", 
-        "description": "Sang-froid acquis – priorisation sous pression."
+        "description": "Sang-froid acquis - priorisation sous pression."
       },
       {
         "name": "softskills_empathie",
         "title": "EMPATHIE", 
-        "description": "Écoute sincère – compréhension des besoins et communication posée."
+        "description": "Écoute sincère - compréhension des besoins et communication posée."
       },
       {
         "name": "softskills_creativity",
         "title": "CREATIVITE", 
-        "description": "Imagination structurée – idées concrètes et solutions réalistes."
+        "description": "Imagination structurée - idées concrètes et solutions réalistes."
       },
       {
         "name": "softskills_patience",
         "title": "PATIENCE", 
-        "description": "Temps maîtrisé – constance dans l’effort et vision long terme."
+        "description": "Temps maîtrisé - constance dans l’effort et vision long terme."
       },
       {
         "name": "languages_symfony",
         "title": "SYMFONY", 
-        "description": "Backend fiable – fondations solides pour un code durable."
+        "description": "Backend fiable - fondations solides pour un code durable."
       },
       {
         "name": "languages_eleventy",
@@ -63,17 +63,17 @@
       {
         "name": "hobbies_maintenance",
         "title": "MAINTENANCE INFORMATIQUE", 
-        "description": "Machines soignées – stabilité et performance garanties."
+        "description": "Machines soignées - stabilité et performance garanties."
       },
       {
         "name": "hobbies_korea",
         "title": "CULTURE COREENNE", 
-        "description": "Influences transtemporelles – équilibre entre héritage et innovation."
+        "description": "Influences transtemporelles - équilibre entre héritage et innovation."
       },
       {
         "name": "hobbies_comics",
         "title": "BANDE DESSINEE", 
-        "description": "Narration hybride – fusion des images et des mots."
+        "description": "Narration hybride - fusion des images et des mots."
       },
       {
         "name": "hobbies_painting",
@@ -83,7 +83,7 @@
       {
         "name": "hobbies_fencing",
         "title": "ESCRIME", 
-        "description": "Art du duel – agilité et stratégie."
+        "description": "Art du duel - agilité et stratégie."
       },
       {
         "name": "skills_treasure",
